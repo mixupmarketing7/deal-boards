@@ -1,0 +1,335 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MONEYBALL — Command Center</title></head><body>
+<title>MONEYBALL — Command Center Concept</title>
+<style>
+  :root{
+    --ground:#F1F2EE; --panel:#FBFBF9; --panel2:#E9EBE5;
+    --ink:#17251F; --ink2:#4A5A51; --ink3:#7A867E;
+    --line:#D4D8CF;
+    --accent:#A96A00; --accent-ink:#8A5600;
+    --field:#2E5E4E;
+    --kill:#B3402F; --kill-bg:#F6E4E0;
+    --offer:#2F6E45; --offer-bg:#E2EEE5;
+    --watch:#A87A1F; --watch-bg:#F4ECD8;
+    --info:#4A6478; --info-bg:#E4EAEF;
+    --bar-track:#DDE0D8; --bar-fill:#2E5E4E; --bar-ctx:#A96A00;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#0F1512; --panel:#1A231E; --panel2:#141C17;
+      --ink:#E6E4D8; --ink2:#A8B0A4; --ink3:#78827A;
+      --line:#2C362F;
+      --accent:#FFB454; --accent-ink:#FFC275;
+      --field:#6FA98F;
+      --kill:#E06A52; --kill-bg:#33201B;
+      --offer:#6FBF8A; --offer-bg:#1B2E22;
+      --watch:#D9A83F; --watch-bg:#312814;
+      --info:#8FAEC4; --info-bg:#1C262E;
+      --bar-track:#26302A; --bar-fill:#6FA98F; --bar-ctx:#FFB454;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1512; --panel:#1A231E; --panel2:#141C17;
+    --ink:#E6E4D8; --ink2:#A8B0A4; --ink3:#78827A;
+    --line:#2C362F;
+    --accent:#FFB454; --accent-ink:#FFC275;
+    --field:#6FA98F;
+    --kill:#E06A52; --kill-bg:#33201B;
+    --offer:#6FBF8A; --offer-bg:#1B2E22;
+    --watch:#D9A83F; --watch-bg:#312814;
+    --info:#8FAEC4; --info-bg:#1C262E;
+    --bar-track:#26302A; --bar-fill:#6FA98F; --bar-ctx:#FFB454;
+  }
+  :root[data-theme="light"]{
+    --ground:#F1F2EE; --panel:#FBFBF9; --panel2:#E9EBE5;
+    --ink:#17251F; --ink2:#4A5A51; --ink3:#7A867E;
+    --line:#D4D8CF;
+    --accent:#A96A00; --accent-ink:#8A5600;
+    --field:#2E5E4E;
+    --kill:#B3402F; --kill-bg:#F6E4E0;
+    --offer:#2F6E45; --offer-bg:#E2EEE5;
+    --watch:#A87A1F; --watch-bg:#F4ECD8;
+    --info:#4A6478; --info-bg:#E4EAEF;
+    --bar-track:#DDE0D8; --bar-fill:#2E5E4E; --bar-ctx:#A96A00;
+  }
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:'Avenir Next','Segoe UI',system-ui,sans-serif;
+    line-height:1.55; margin:0; padding:0 20px 64px;
+  }
+  .wrap{max-width:1080px; margin:0 auto;}
+  h1,h2,h3{font-family:'Avenir Next Condensed','Arial Narrow','Segoe UI',sans-serif; letter-spacing:.02em;}
+  h1{font-size:2.4rem; margin:.2em 0 .1em; text-transform:uppercase;}
+  h2{font-size:1.35rem; margin:2.2em 0 .6em; text-transform:uppercase; color:var(--field); border-bottom:2px solid var(--line); padding-bottom:.25em;}
+  h3{font-size:1.05rem; margin:0 0 .3em;}
+  .num{font-family:ui-monospace,'SF Mono',Menlo,monospace; font-variant-numeric:tabular-nums;}
+  .demo-banner{
+    background:var(--panel2); border:1px solid var(--line); border-left:4px solid var(--accent);
+    padding:10px 16px; margin:20px 0 8px; border-radius:6px; font-size:.9rem; color:var(--ink2);
+  }
+  .subtitle{color:var(--ink2); margin:0 0 1.4em; font-size:1.02rem; max-width:65ch;}
+  .kicker{text-transform:uppercase; letter-spacing:.14em; font-size:.75rem; color:var(--accent-ink); font-weight:600;}
+
+  .stat-strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:18px 0 6px;}
+  .tile{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px;}
+  .tile .v{font-size:1.7rem; font-weight:700; line-height:1.1;}
+  .tile .l{font-size:.78rem; color:var(--ink2); text-transform:uppercase; letter-spacing:.08em; margin-top:4px;}
+  .tile.hot{border-color:var(--accent);}
+  .tile.hot .v{color:var(--accent-ink);}
+
+  .chip{display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    padding:2px 9px; border-radius:999px; vertical-align:middle;}
+  .chip.kill{background:var(--kill-bg); color:var(--kill);}
+  .chip.offer{background:var(--offer-bg); color:var(--offer);}
+  .chip.watch{background:var(--watch-bg); color:var(--watch);}
+  .chip.info{background:var(--info-bg); color:var(--info);}
+  .tag{display:inline-block; font-size:.68rem; font-weight:600; letter-spacing:.05em; padding:1px 7px;
+    border:1px solid var(--line); border-radius:4px; color:var(--ink2); margin-right:4px; text-transform:uppercase;}
+  .tag.obs{border-color:var(--offer); color:var(--offer);}
+  .tag.snip{border-color:var(--watch); color:var(--watch);}
+  .tag.est{border-color:var(--info); color:var(--info);}
+
+  .lanes{display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:12px;}
+  .lane{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px; display:flex; flex-direction:column; gap:6px;}
+  .lane .cnt{font-size:1.5rem; font-weight:700;}
+  .lane .clock{font-size:.8rem; color:var(--kill); font-weight:600;}
+  .lane .clock.ok{color:var(--ink2); font-weight:400;}
+  .lane .act{font-size:.85rem; color:var(--ink2); border-top:1px dashed var(--line); padding-top:6px; margin-top:auto;}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px;}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px 18px;}
+  .card .addr{font-weight:700; font-size:1.05rem;}
+  .card .zip{color:var(--ink3); font-weight:400;}
+  .card .row{display:flex; justify-content:space-between; gap:10px; font-size:.9rem; padding:3px 0;}
+  .card .row .k{color:var(--ink2);}
+  .card .next{margin-top:10px; padding-top:8px; border-top:1px dashed var(--line); font-size:.86rem;}
+  .card .next b{color:var(--accent-ink);}
+  .bar{margin:10px 0 2px;}
+  .bar .track{position:relative; height:14px; background:var(--bar-track); border-radius:7px; overflow:hidden;}
+  .bar .fill{position:absolute; left:0; top:0; bottom:0; background:var(--bar-fill); border-radius:7px 0 0 7px;}
+  .bar .ctx{position:absolute; top:-2px; bottom:-2px; width:3px; background:var(--bar-ctx);}
+  .bar .lbl{display:flex; justify-content:space-between; font-size:.72rem; color:var(--ink3); margin-top:3px;}
+
+  table{border-collapse:collapse; width:100%; font-size:.88rem;}
+  th{font-family:'Avenir Next Condensed','Arial Narrow',sans-serif; text-transform:uppercase; letter-spacing:.06em;
+    font-size:.75rem; color:var(--ink2); text-align:left; padding:8px 10px; border-bottom:2px solid var(--line);}
+  td{padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  .scroll{overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--panel);}
+  .scroll table{min-width:760px;}
+  td.num,th.num{text-align:right;}
+
+  .mermaid-wrap{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:12px; overflow-x:auto; margin:10px 0;}
+  .checklist{list-style:none; padding:0; margin:0; counter-reset:step;}
+  .checklist li{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:12px 16px 12px 52px; margin:8px 0; position:relative;}
+  .checklist li::before{counter-increment:step; content:counter(step); position:absolute; left:16px; top:12px;
+    width:24px; height:24px; border-radius:50%; background:var(--field); color:var(--ground);
+    font-weight:700; font-size:.85rem; display:flex; align-items:center; justify-content:center;
+    font-family:ui-monospace,monospace;}
+  .checklist .due{font-size:.78rem; color:var(--kill); font-weight:600;}
+  .foot{margin-top:40px; padding-top:14px; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink3);}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; margin:8px 0; font-size:.8rem; color:var(--ink2);}
+  a{color:var(--accent-ink);}
+</style>
+
+<div class="wrap">
+  <div class="demo-banner"><strong>Concept demonstration.</strong> Lane counts, prices, and dates are real, pulled from the 2026-08-02 primary-source sweeps. Context values marked <em>snippet</em> are AVM/search-snippet grade — screens, not underwrites.</div>
+
+  <p class="kicker">⚾ Deal-hunting system · Indianapolis</p>
+  <h1>Moneyball Command Center</h1>
+  <p class="subtitle">One board for the whole hunt: six acquisition lanes, their clocks, the fleet's underwrite results, and the standing rule that a KILL at ask is an offer at MAO. Weekly deep underwrites (MONEYBALL, Sundays) + daily fresh-listing screens (SNIPER, Mon–Sat) feed it; per-property depth lives on the <a href="https://claude.ai/code/artifact/7b75b8d1-c23b-4a2a-82c7-49f059a5c85d">Live Fleet Dashboard</a>.</p>
+
+  <div class="stat-strip">
+    <div class="tile hot"><div class="v num">12<span style="font-size:1rem;font-weight:400;"> days</span></div><div class="l">To sheriff registration deadline (Aug 14)</div></div>
+    <div class="tile"><div class="v num">6</div><div class="l">Acquisition lanes live</div></div>
+    <div class="tile"><div class="v num">0<span style="font-size:1rem;font-weight:400;">/3</span></div><div class="l">MLS deals survive at ask → offers at MAO</div></div>
+    <div class="tile"><div class="v num">65</div><div class="l">Sheriff-sale properties · Aug 21</div></div>
+    <div class="tile"><div class="v num">24</div><div class="l">Land-bank homes, LLC-eligible</div></div>
+    <div class="tile"><div class="v num">33</div><div class="l">Bank-owned REO w/ published bids</div></div>
+  </div>
+
+  <h2>Lane Board</h2>
+  <div class="lanes">
+    <div class="lane"><span class="chip kill">0/3 at ask</span><h3>MLS Retail</h3>
+      <div class="cnt num">3</div>
+      <div class="clock ok">Deep pass Sundays · SNIPER daily</div>
+      <div class="act">All three Aug 1 underwrites killed at ask — every positive MAO becomes an offer; triggers feed the watchlist</div></div>
+    <div class="lane"><span class="chip watch">Register now</span><h3>Sheriff Sale</h3>
+      <div class="cnt num">65</div>
+      <div class="clock">⏱ Paperwork due Aug 14, 3 PM ET</div>
+      <div class="act">Bid floors post ~Aug 14 → underwrite Aug 16 → sale Aug 21 (GovEase, monthly after)</div></div>
+    <div class="lane"><span class="chip offer">Bids published</span><h3>REO Auctions</h3>
+      <div class="cnt num">33</div>
+      <div class="clock">⏱ Several end within days</div>
+      <div class="act">Auction.com bank-owned, $35K–$100K opening bids — fastest cash deployment</div></div>
+    <div class="lane"><span class="chip info">Apply monthly</span><h3>V2V Land Bank</h3>
+      <div class="cnt num">24</div>
+      <div class="clock ok">Next cutoff: Fri Sep 4</div>
+      <div class="act">City homes $10K–$65K · scope-of-work app · 24-mo rehab · resale after release</div></div>
+    <div class="lane"><span class="chip info">Calendar</span><h3>Tax Sale</h3>
+      <div class="cnt num">—</div>
+      <div class="clock ok">List populates ~late Aug</div>
+      <div class="act">Oct 13–16 sale · register by Oct 7 · $2,500 deposit</div></div>
+    <div class="lane"><span class="chip offer">Standing</span><h3>MAO Offers</h3>
+      <div class="cnt num">1+</div>
+      <div class="clock ok">Every underwrite feeds it</div>
+      <div class="act">KILL at ask = offer at MAO. Volume is the edge — the accepted ones are the winners</div></div>
+  </div>
+
+  <h2>MLS Fleet — Deep Pass Results (Aug 1)</h2>
+  <p style="font-size:.9rem;color:var(--ink2);max-width:78ch;">Three MLS candidates fully underwritten by the fleet (comps + rehab + market collectors → synthesis → red-team). All three killed <em>at ask</em> — and two still carry a positive MAO, which is exactly what the offers board exists for. Full comp grids, cost stacks, and ARV tier ranges per property live on the <a href="https://claude.ai/code/artifact/7b75b8d1-c23b-4a2a-82c7-49f059a5c85d"><b>Live Fleet Dashboard ⟶</b></a> (updated by MONEYBALL every Sunday).</p>
+  <div class="scroll">
+    <table>
+      <tr><th>Address</th><th class="num">Ask</th><th class="num">ARV base</th><th class="num">Rehab used</th><th class="num">All-in</th><th class="num">Spread @ask</th><th class="num">ROI @ask</th><th class="num">MAO</th><th>Verdict</th><th>Re-entry trigger</th></tr>
+      <tr>
+        <td>123 S Butler Ave 46219</td>
+        <td class="num">$149,900</td><td class="num">$250,000</td><td class="num">$103,750</td><td class="num">$278,838</td>
+        <td class="num" style="color:var(--kill)">−$48,838</td><td class="num" style="color:var(--kill)">−17.5%</td>
+        <td class="num"><b>$51,062</b></td>
+        <td><span class="chip kill">Kill @ ask</span> <span class="chip offer">Offer @ MAO</span></td>
+        <td>Ask &lt; $60K</td>
+      </tr>
+      <tr>
+        <td>1613 Draper St 46203</td>
+        <td class="num">$129,900</td><td class="num">$210,000</td><td class="num">$105,125</td><td class="num">$258,522</td>
+        <td class="num" style="color:var(--kill)">−$65,322</td><td class="num" style="color:var(--kill)">−25.3%</td>
+        <td class="num">$14,578</td>
+        <td><span class="chip kill">Kill @ ask</span></td>
+        <td>Ask &lt; $50K · config mismatch unresolved</td>
+      </tr>
+      <tr>
+        <td>1152 Churchman Ave 46203</td>
+        <td class="num">$179,900</td><td class="num">$285,000</td><td class="num">$192,250</td><td class="num">$407,436</td>
+        <td class="num" style="color:var(--kill)">−$145,236</td><td class="num" style="color:var(--kill)">−35.6%</td>
+        <td class="num" style="color:var(--kill)">−$15,336</td>
+        <td><span class="chip kill">Kill — no price works</span></td>
+        <td>Near land value · 1138 Harlan relist = block test</td>
+      </tr>
+    </table>
+  </div>
+  <p style="font-size:.82rem;color:var(--ink3);max-width:78ch;">Why they died: rehab scopes verified at $104K–$192K (2× the scout's screen guesses) against block-capped ARVs — the seller's transactable band and the workable band never overlap. That diagnosis is what opened the five other lanes above.</p>
+
+  <h2>This Week's Scenarios</h2>
+  <div class="legend">
+    <span><span class="tag obs">Observed</span> primary source</span>
+    <span><span class="tag snip">Snippet</span> AVM / search-snippet context</span>
+    <span><span class="tag est">Estimate</span> modeled, unverified</span>
+  </div>
+  <div class="cards">
+
+    <div class="card">
+      <span class="chip watch">Watch → underwrite Aug 16</span>
+      <div class="addr">3715 N Butler Ave <span class="zip">46218</span></div>
+      <div class="row"><span class="k">Lane</span><span>Sheriff sale · item 001-003 · <b>-MF-</b> mortgage cause</span></div>
+      <div class="row"><span class="k">Bid floor</span><span><span class="tag obs">Observed</span> not posted — appears ~Aug 14</span></div>
+      <div class="row"><span class="k">Block signal</span><span class="num"><span class="tag snip">Snippet</span> $107.6K – $160K same-street</span></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:44%"></div><div class="ctx" style="left:84%"></div></div>
+      <div class="lbl"><span>if floor ≈ $70K (working hypothesis)</span><span>block ceiling ~$160K</span></div></div>
+      <div class="next"><b>Play:</b> a judgment floor under ~$70K clears flip math on this block. Registration must already be done to bid.</div>
+    </div>
+
+    <div class="card">
+      <span class="chip offer">View → apply by Sep 4</span>
+      <div class="addr">909 W 28th St <span class="zip">46208 · Riverside</span></div>
+      <div class="row"><span class="k">Lane</span><span>V2V land bank · Standard Sale (LLC-eligible)</span></div>
+      <div class="row"><span class="k">Entry</span><span class="num"><span class="tag obs">Observed</span> $15,000</span></div>
+      <div class="row"><span class="k">Block signal</span><span class="num"><span class="tag snip">Snippet</span> active $315K multi-family, same block</span></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:5%"></div><div class="ctx" style="left:96%"></div></div>
+      <div class="lbl"><span>$15K entry</span><span>block activity $315K (different asset type)</span></div></div>
+      <div class="next"><b>Play:</b> strongest submarket in the inventory. Zero condition data published — viewing before applying is mandatory. Scope-of-work app is where an EmpowerBuild price book beats speculators.</div>
+    </div>
+
+    <div class="card">
+      <span class="chip kill">Underwrite before bidding</span>
+      <div class="addr">5818 Winston Dr <span class="zip">46226</span></div>
+      <div class="row"><span class="k">Lane</span><span>Auction.com bank-owned · 3bd/2ba · 1,409 sqft</span></div>
+      <div class="row"><span class="k">Opening bid</span><span class="num"><span class="tag obs">Observed</span> $75,000 · ends within days</span></div>
+      <div class="row"><span class="k">Rehab</span><span class="num"><span class="tag est">Estimate</span> no interior data yet</span></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:52%"></div><div class="ctx" style="left:52%"></div></div>
+      <div class="lbl"><span>$75K floor is known —</span><span>ARV &amp; rehab are the open questions</span></div></div>
+      <div class="next"><b>Play:</b> the reverse of MLS: the price is real and published, the value case is the homework. Full comp + rehab pass before any bid.</div>
+    </div>
+
+    <div class="card">
+      <span class="chip offer">Offer candidate</span>
+      <div class="addr">123 S Butler Ave <span class="zip">46219</span></div>
+      <div class="row"><span class="k">Lane</span><span>MLS · corporate seller · KILLED at ask 2026-08-01</span></div>
+      <div class="row"><span class="k">At ask</span><span class="num"><span class="tag obs">Observed</span> −17.5% ROI · KILL</span></div>
+      <div class="row"><span class="k">MAO</span><span class="num"><span class="tag est">Estimate</span> $51,000 · watch trigger &lt;$60K</span></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:42%"></div><div class="ctx" style="left:100%"></div></div>
+      <div class="lbl"><span>MAO $51K</span><span>seller floor ~$120K</span></div></div>
+      <div class="next"><b>Play:</b> the kill→offer reframe in action. The offer costs a stamp; the seller's REO book eventually reprices. Most say no — that's the model.</div>
+    </div>
+  </div>
+
+  <h2>Workflow — Weekly Deep Pass (Sundays 8:07a)</h2>
+  <div class="mermaid-wrap">
+<pre class="mermaid">
+flowchart LR
+  A["SCOUT<br/>market pulse + MLS +<br/>off-market/distress sweep"] --> B{"screen<br/>top 3"}
+  B --> C1["COMPS<br/>closed sales only<br/>ARV tiers"]
+  B --> C2["REHAB<br/>price-book lines<br/>+ contingency"]
+  B --> C3["MARKET<br/>zip trend, rents,<br/>block quality"]
+  C1 --> D["SYNTHESIZE<br/>all-in, spread, ROI,<br/>MAO, walk-away"]
+  C2 --> D
+  C3 --> D
+  D --> E["RED-TEAM<br/>break the deal"]
+  E --> F["DASHBOARD<br/>+ Discord post"]
+  E --> G["OFFER SHEET<br/>every MAO &gt; 0"]
+</pre>
+  </div>
+
+  <h2>Workflow — Sheriff-Sale Window (Aug 2026)</h2>
+  <div class="mermaid-wrap">
+<pre class="mermaid">
+flowchart LR
+  R["NOW → Aug 14<br/>GovEase registration:<br/>entity report, cert of existence,<br/>ID, W-9, county forms"] --> P["~Aug 14<br/>judgment floors<br/>post on the list"]
+  P --> U["Sun Aug 16<br/>MONEYBALL underwrites<br/>best MF-cause candidates"]
+  U --> S["Fri Aug 21<br/>SALE 10:30a<br/>bid only to MAO"]
+  S --> W["Win: certified check<br/>due Wednesday after"]
+  S --> L["Lose: floors + comps<br/>feed Sep 18 sale prep"]
+</pre>
+  </div>
+  <p style="font-size:.85rem;color:var(--ink2);max-width:70ch;">SNIPER runs the same week in the fast lane: Mon–Sat 7:37a, new-listing + ending-auction screens only, one Discord line a day — 🔥 when something clears a 15% screen, 🎯 when nothing does.</p>
+
+  <h2>Offers-to-Send Concept</h2>
+  <div class="scroll">
+    <table>
+      <tr><th>Address</th><th class="num">Offer zone</th><th class="num">MAO</th><th class="num">Walk-away</th><th>Seller situation</th><th>Why they might transact</th></tr>
+      <tr><td>123 S Butler Ave 46219</td><td class="num">$45–48K</td><td class="num"><b>$51K</b></td><td class="num">$58K</td><td>Corporate REO book</td><td>Serial cuts; carrying cost clock; book repricing cycles</td></tr>
+      <tr><td style="color:var(--ink3)" colspan="6"><em>Illustrative rows below — populated automatically as each Sunday's underwrites land.</em></td></tr>
+      <tr><td style="color:var(--ink3)">5818 Winston Dr 46226</td><td class="num" style="color:var(--ink3)">pending</td><td class="num" style="color:var(--ink3)">pending</td><td class="num" style="color:var(--ink3)">pending</td><td style="color:var(--ink3)">Bank-owned, auction</td><td style="color:var(--ink3)">Published $75K floor; auction ends within days</td></tr>
+      <tr><td style="color:var(--ink3)">3715 N Butler Ave 46218</td><td class="num" style="color:var(--ink3)">Aug 16</td><td class="num" style="color:var(--ink3)">Aug 16</td><td class="num" style="color:var(--ink3)">Aug 16</td><td style="color:var(--ink3)">Sheriff sale, MF cause</td><td style="color:var(--ink3)">Forced sale Aug 21; floor posts ~Aug 14</td></tr>
+    </table>
+  </div>
+
+  <h2>Buy Boxes &amp; Exit Channels <span style="font-size:.8rem;font-weight:400;color:var(--ink2);">(underwrites/investors/ registry — every deal matched both directions)</span></h2>
+  <p style="font-size:.9rem;color:var(--ink2);max-width:78ch;">The machine now works both sides: <b>investor profiles</b> (demand — who we buy FOR: strategy, financing terms, return floors, grounded in Alvin's real client data) and <b>disposition channels</b> (exit — who buys FROM us). Every underwrite gets an <code>exit_channels</code> match and per-investor verdicts.</p>
+  <div class="scroll">
+    <table>
+      <tr><th>Channel</th><th>Buys</th><th>Geography / Cap</th><th>Observed evidence</th></tr>
+      <tr><td><b>MM Shared Buy Box</b></td><td>Finished 3/2/1,100+</td><td>18 metros · Indy $355K · ATL $405K</td><td>All Marion Co. zips active — pre-qualified exit for finished Indy flips</td></tr>
+      <tr><td><b>GA Distress Buyer</b> (Q2-26)</td><td>AS-IS: TLC, hoarder, fire, vacant</td><td>50mi of ATL + Sav/Col/Macon · $600K</td><td>Direct-to-agent only (Alvin route); sources = our distress lanes</td></tr>
+      <tr><td><b>ExpressOffers / Zoodealio</b></td><td>Cash (ESO) + reserve-structured (Cash+/SNML/Structured)</td><td>Platform, multi-market</td><td>ESO cash = 82.6% of value on clean product, 116% pre-retrade on distressed; Structured = 100% of RealValue headline but 94.5% best-case via $182K reserve at resale risk; first payout can fall SHORT of a seller's mortgage</td></tr>
+    </table>
+  </div>
+  <p style="font-size:.82rem;color:var(--ink3);max-width:78ch;">Standing overlay: platform "$0 closing cost" never includes the broker's 2–6% professional fee — applied to every net comparison. On structured offers, commission timing (up-front vs split across payouts) is a must-confirm term.</p>
+
+  <h2>Sheriff Registration — This Week's Errand <span style="font-size:.8rem;font-weight:400;color:var(--ink2);">(verified 2026-08-02; full runbook in underwrites/govease-registration-runbook.md)</span></h2>
+  <ul class="checklist">
+    <li><b>Choose the bidding entity</b> — which LLC signs. Every document below keys off this one decision. Out-of-state entity? Foreign registration required first (~$95, no SLA — start immediately).</li>
+    <li><b>Create GovEase account</b> (govease.com) and register for "IN – Marion Sheriff Sales." No cash deposit to bid. <span class="due">All paperwork due Fri Aug 14, 3:00 PM ET — register in the next 2–3 days, MCSO approval time is unpublished</span></li>
+    <li><b>Pull two INBiz documents</b> (~$20 each, online, same-day): unexpired Business Entity Report copy + fresh Certificate of Existence.</li>
+    <li><b>Two phone calls before e-signing</b>: MCSO 317-327-2459 — their W-9 rule says <em>SSN only, no FEIN, all bidders</em>, which conflicts with standard entity W-9 practice; and GovEase 769-208-5050 — where "Deed Information" (deed vesting + mailing address) gets captured.</li>
+    <li><b>E-sign four forms in GovEase</b>: Bidder Acknowledgment, Business Connections (list every entity affiliation — the no-delinquency affidavit is perjury-backed and flows through entities), W-9, Purchase Agreement. Upload signer's photo ID.</li>
+    <li><b>Enter Requested Approval Amount</b> — your total spending cap; must equal funds you can actually deliver. <span class="due">Final by Thu Aug 20, noon ET</span></li>
+    <li><b>If you win</b>: sales disclosure by Tue Aug 25; cashier's check in full, payable to "Marion County Sheriff's Office," in the bidder's registered name, by <b>Wed Aug 26, 3:00 PM</b>. Default = lifetime MCSO ban + statutory resale-deficiency liability.</li>
+  </ul>
+  <p style="font-size:.85rem;color:var(--ink2);max-width:78ch;">Legal spine (Indiana Code, verified): no owner redemption <em>after</em> the sale (IC 32-29-7-9(b)); owners can redeem any time <em>before</em> it, so the list shrinks daily; liens not in the lawsuit survive — the -PL-/-CC- cause trap; occupancy/eviction is entirely the buyer's problem; title search every target.</p>
+
+  <div class="foot">
+    Sources: GovEase auction 1375 registration &amp; browse pages · indy.gov sheriff-real-estate-sales &amp; prepare-for-a-tax-sale · DMD Vacant-to-Vibrant inventory (Tolemi) · Auction.com Marion County · fleet underwrites 2026-08-01. Snippet-grade context values are labeled and are never ARV evidence. Board generated 2026-08-02.
+  </div>
+</div>
+
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs"; mermaid.initialize({startOnLoad:true});</script>
+</body></html>
