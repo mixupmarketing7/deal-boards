@@ -1,6 +1,4 @@
-<!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fleet Dashboard</title></head><body>
-<title>Fleet Underwrite — Indianapolis</title>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fleet Dashboard</title></head><body><title>Fleet Underwrite — Indianapolis</title>
 <style>
   :root {
     color-scheme: light;
@@ -119,19 +117,20 @@
 <div class="wrap">
   <header>
     <div class="eyebrow">Fleet Underwrite</div>
-    <h1>Indianapolis — Run 2026-08-01</h1>
+    <h1>Indianapolis — Run 2026-08-09</h1>
     <div class="meta">
-      <span class="chip">3 properties · 15 agents · Collect → Synthesize → Red-team</span>
+      <span class="chip">3 candidates researched · 1 flagged INVALID (address mismatch)</span>
       <span class="chip">Weekly cron: Sundays 8:00 AM ET</span>
-      <span class="chip">Comp confidence capped by critic on all three</span>
+      <span class="chip">Redfin/FRED/Zillow/Craigslist/GovEase blocked this run — WebSearch-snippet sourced only</span>
+      <span class="chip">Watchlist: 0/4 triggers fired this run</span>
     </div>
   </header>
 
   <div class="tiles">
-    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">MLS candidates from 8/1 scout</div></div>
-    <div class="tile"><div class="label">Verdicts</div><div class="value crit">3 × KILL</div><div class="sub">0 renegotiate · 0 survive</div></div>
-    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−17.5%</div><div class="sub">123 S Butler (base case)</div></div>
-    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $259K</div><div class="sub">sum of spreads at ask, before verification spend</div></div>
+    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">1 invalid (bad address match) · 2 verified real listings</div></div>
+    <div class="tile"><div class="label">Verdicts</div><div class="value crit">2 KILL · 1 INVALID</div><div class="sub">0 renegotiate · 0 survive · 0 offer candidates this week</div></div>
+    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−37.2%</div><div class="sub">1629 Edgecombe Ave (base case, verified only)</div></div>
+    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $199K</div><div class="sub">2 verified deals only — Evanston excluded (invalid)</div></div>
   </div>
 
   <section>
@@ -143,22 +142,22 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td class="txt">1</td><td class="txt">123 S Butler Ave <span class="zip">46219 · Irvington</span></td>
-            <td>$149,900</td><td>$250,000</td><td>$103,750</td><td>$278,838</td>
-            <td class="neg">−$48,838</td><td class="neg">−17.5%</td><td>$51,062</td>
+            <td class="txt">1</td><td class="txt">1629 Edgecombe Ave <span class="zip">46227 · University Heights</span></td>
+            <td>$80,000</td><td>$105,000</td><td>$61,250</td><td>$153,925</td>
+            <td class="neg">−$57,325</td><td class="neg">−37.2%</td><td class="neg">−$18,925</td>
             <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">2</td><td class="txt">1613 Draper St <span class="zip">46203 · Garfield Park</span></td>
-            <td>$129,900</td><td>$210,000</td><td>$105,125</td><td>$258,522</td>
-            <td class="neg">−$65,322</td><td class="neg">−25.3%</td><td>$14,578</td>
+            <td class="txt">2</td><td class="txt">3918 N Grand Ave <span class="zip">46226 · Devington</span></td>
+            <td>$100,000</td><td>$175,000</td><td>$174,200</td><td>$302,684</td>
+            <td class="neg">−$141,684</td><td class="neg">−46.8%</td><td class="neg">−$77,684</td>
             <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">3</td><td class="txt">1152 Churchman Ave <span class="zip">46203 · Bean Creek</span></td>
-            <td>$179,900</td><td>$285,000</td><td>$192,250</td><td>$407,436</td>
-            <td class="neg">−$145,236</td><td class="neg">−35.7%</td><td class="neg">−$15,336</td>
-            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+            <td class="txt">3</td><td class="txt">4237 Evanston Ave <span class="zip">46205 · Fairgrounds — INVALID</span></td>
+            <td>$67,500*</td><td>$115,000*</td><td>$98,750*</td><td>$183,676*</td>
+            <td class="neg">−$77,876*</td><td class="neg">−42.4%*</td><td class="neg">−$51,176*</td>
+            <td class="txt"><span class="pill conf">N/A</span></td><td class="txt"><span class="pill kill">✕ INVALID</span></td>
           </tr>
         </tbody>
       </table>
@@ -179,7 +178,9 @@
   </section>
 
   <footer>
-    Model: all-in = purchase + rehab (likely, with contingency) + 1.5% buy closing + holding + hard-money financing (2 pts + 11% APR, 80% LTC) + 8% of ARV selling. Spread = 0.92 × base ARV − all-in; ROI = spread ÷ all-in; MAO = lower of the 70% rule and profit build-up. ARVs are labeled assumptions from closed comps; every underwrite carries its <code>data_gaps</code> log. Full evidence: <code>underwrites/&lt;address&gt;/{comps,rehab,market,underwrite,critique}.json</code> · Built by the fleet-underwrite pipeline (comp-analyst · rehab-estimator · market-context · red-team-critic).
+    Model: all-in = purchase + rehab (likely, with contingency) + 1.5% buy closing + holding (~$6K/yr scaled to hold) + hard-money financing (2 pts + 11% APR, 80% LTC) + 8% of ARV selling. Spread = 0.92 × base ARV − all-in; ROI = spread ÷ all-in; MAO = lower of the 70% rule and profit build-up. ARVs are labeled assumptions from closed comps; every underwrite carries its data-gap log and a red-team critique.
+    <br><br>
+    <strong>This run:</strong> the network egress policy for this session blocked direct fetches to Redfin, FRED, Zillow, Craigslist, GovEase, Auction.com and Zumper (403 from org proxy) — every figure above is WebSearch-snippet sourced, not page-verified, and confidence is capped LOW across the board as a result. 4237 Evanston Ave, 46205 was carried into full underwriting from last week's scout output but failed address verification: every independent brokerage source for that exact address resolves to a real, active $450,000 new-construction duplex (MLS# 22019346, built 2025) — not the $67,500 distressed 2BR/fire-damage story the scout reported. That story never traced to a real linked listing and is treated as a scout-stage hallucination. Its row/card above is a labeled hypothetical run on the given (unverifiable) numbers only — not a real deal, not actionable, and excluded from the loss-avoided tile. No Discord post could be sent this run — the Discord webhook host is also blocked by the same egress policy (403). Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
   </footer>
 </div>
 
@@ -189,31 +190,31 @@
 /* FLEET_DATA — regenerated by each weekly cron run */
 const FLEET_DATA = [
   {
-    addr: "123 S Butler Ave", zip: "46219",
-    ask: 149900, rehab: 103750, carry: 25188, selling: 20000,
-    arv: { down: 210000, base: 250000, up: 290000 },
-    offer: "$40K–$48K", mao: "$51,062", walk: "$85,900",
-    loss: 48838,
-    why: "No transactable price in any frame: flip needs ≤$51K (critic: $16–37K) vs the corporate seller's evidenced floor of ~$120–150K. Section 8 fallback fails rent-reasonableness — ~4.8% cap with negative leverage.",
-    findings: "1 disqualifier · 3 major · 6 minor", gaps: 28
+    addr: "1629 Edgecombe Ave", zip: "46227",
+    ask: 80000, rehab: 61250, carry: 12675, selling: 8400,
+    arv: { down: 90000, base: 105000, up: 122000 },
+    offer: "≈$11.7K or below (20% ROI target)", mao: "−$18,925", walk: "≈$17K–$18.5K (10–12% ROI floor)",
+    loss: 57325,
+    why: "No comps exist within the ideal 0.5mi/6mo window — widened to same-street/adjacent sales up to ~5yrs old, flagged explicitly. The usable 3-comp set shows a &gt;2x $/sqft spread between an as-is and a renovated sale on the very same block (1401 vs 743 Edgecombe/Sparrow), meaning execution risk dominates value here, not price. The MAO formula's flat $50K minimum-profit floor alone consumes nearly half of ARV_base — no purchase price clears the bar even before rehab is added; this is a submarket-ceiling problem, not a negotiating problem. Cash-only/quick-close signal supports a lowball probe but can't bridge a 75–85% gap to ask. Zip-wide 46227 median ($215K–$237K, MLS/aggregator snippets) is not representative of this specific near-UIndy pocket, where real comps cluster $90K–$160K.",
+    findings: "1 disqualifier · 5 major · 3 minor", gaps: 16
   },
   {
-    addr: "1613 Draper St", zip: "46203",
-    ask: 129900, rehab: 105125, carry: 23497, selling: 16800,
-    arv: { down: 185000, base: 210000, up: 230000 },
-    offer: "None credible", mao: "$14,578", walk: "$53,800",
-    loss: 65322,
-    why: "Corrected flip ceiling is teardown/lot money ($23–38K) vs the seller's demonstrated $114–159K floor across three campaigns. Public-record 7bd/1ba vs marketed 3bd/2ba config mismatch unresolved.",
-    findings: "4 major · 6 minor", gaps: 28
+    addr: "3918 N Grand Ave", zip: "46226",
+    ask: 100000, rehab: 174200, carry: 28484, selling: 14000,
+    arv: { down: 150000, base: 175000, up: 200000 },
+    offer: "None — MAO negative at every price tested, incl. $0", mao: "−$77,684", walk: "N/A (already past walk-away at ask)",
+    loss: 141684,
+    why: "Fire-damage rehab estimate ($174K incl. 30% contingency, zero interior evidence) consumes essentially all of ARV_base before financing/holding costs are even added — MAO is negative at every purchase price tested, including $0. Sensitivity shows rehab would need to fall to roughly $23.5K, a scope inconsistent with 'fire damage, both units vacant, needs work,' to clear even 20% ROI at the $100K ask. No duplex/2-unit sale comps were found within 4yrs on adjacent streets — fell back to SFR $/sqft, a real property-type mismatch for how 2-unit properties actually price to investors. Two conflicting MLS numbers surfaced for this address (22017460 vs 22078853) — confirm the listing is even still live before further work.",
+    findings: "2 disqualifiers · 4 major · 2 minor", gaps: 18
   },
   {
-    addr: "1152 Churchman Ave", zip: "46203",
-    ask: 179900, rehab: 192250, carry: 35286, selling: 22800,
-    arv: { down: 260000, base: 285000, up: 305000 },
-    offer: "None — MAO negative", mao: "−$15,336", walk: "$24,700",
-    loss: 145236,
-    why: "Ask + rehab ($372K) exceeds base ARV before a dollar of carry — the flip is dead at every purchase price. BRRRR fallback traps $90–125K of capital in an 18.9%-vacancy block.",
-    findings: "1 disqualifier · 3 major · 7 minor", gaps: 29
+    addr: "4237 Evanston Ave — INVALID", zip: "46205",
+    ask: 67500, rehab: 98750, carry: 17426, selling: 9200,
+    arv: { down: 98000, base: 115000, up: 135000 },
+    offer: "N/A — do not act, address does not match a real distressed listing", mao: "N/A (invalid)", walk: "N/A",
+    loss: 77876,
+    why: "DATA INTEGRITY FAILURE, not a real deal. Every independent brokerage source for 4237 Evanston Ave, 46205 (Redfin, RE/MAX, Rocket Homes, Homes.com, Howard Hanna, Century21 Scheetz) agrees this is a live, active $450,000 new-construction duplex, MLS# 22019346, built 2025 — not the $67,500 distressed 2BR / fire-damage / vacant / $850–900-rent story that reached this pipeline from last week's scout. That story never traced back to any real linked listing across five targeted searches; treating it as a scout-stage search-summarization hallucination rather than a real off-market lead. The numbers on this card are a labeled hypothetical scenario run purely on the given inputs, per instructions to still deliver a result — they describe no real property and should not inform any offer decision. (For the record, even the hypothetical fails on its own terms: ROI ≈ −42%, MAO negative.)",
+    findings: "DATA INTEGRITY FAILURE — excluded from verdict tallies", gaps: 9
   }
 ];
 /* /FLEET_DATA */
@@ -289,5 +290,4 @@ document.addEventListener("focusin", e => {
 });
 document.addEventListener("focusout", () => { tip.style.opacity = 0; });
 </script>
-
 </body></html>
