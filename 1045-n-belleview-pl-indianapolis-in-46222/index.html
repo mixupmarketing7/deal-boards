@@ -1,0 +1,306 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Deal Board — 1045 N Belleview Pl</title></head><body>
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb;
+    --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --s-purchase: #2a78d6; --s-rehab: #eb6834; --s-carry: #1baf7a; --s-selling: #eda100;
+    --critical: #d03b3b; --serious: #ec835a; --warning: #fab219; --good: #0ca30c;
+    --success-text: #006300;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19;
+      --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+      --s-purchase: #3987e5; --s-rehab: #d95926; --s-carry: #199e70; --s-selling: #c98500;
+      --success-text: #0ca30c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19;
+    --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+    --s-purchase: #3987e5; --s-rehab: #d95926; --s-carry: #199e70; --s-selling: #c98500;
+    --success-text: #0ca30c;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb;
+    --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --s-purchase: #2a78d6; --s-rehab: #eb6834; --s-carry: #1baf7a; --s-selling: #eda100;
+    --success-text: #006300;
+  }
+  body { background: var(--page); color: var(--ink); font-family: var(--sans); margin: 0; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 32px 20px 64px; display: flex; flex-direction: column; gap: 28px; }
+  header .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  header h1 { font-size: clamp(22px, 4vw, 32px); margin: 6px 0 10px; text-wrap: balance; font-weight: 700; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 12.5px; color: var(--ink-2); border: 1px solid var(--ring); border-radius: 999px; padding: 4px 11px; background: var(--surface); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .tile { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; }
+  .tile .label { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .tile .value { font-size: 26px; font-weight: 700; margin-top: 6px; }
+  .tile .value.crit { color: var(--critical); }
+  .tile .value.warn { color: #b8790a; }
+  .tile .value.ok { color: var(--success-text); }
+  .tile .sub { font-size: 12.5px; color: var(--ink-2); margin-top: 3px; }
+  section h2 { font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 12px; font-weight: 700; }
+  .tablebox { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 13.5px; }
+  th { text-align: right; font-size: 11.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 11px 12px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+  th.txt, td.txt { text-align: left; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--grid); font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  td.txt { font-family: var(--sans); font-weight: 600; }
+  .neg { color: var(--critical); }
+  .pos { color: var(--success-text); }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-family: var(--sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; border-radius: 999px; padding: 3px 10px; }
+  .pill.renegotiate { color: #fff; background: #b8790a; }
+  .pill.conf { color: var(--ink-2); border: 1px solid var(--ring); background: transparent; }
+  .cards { display: flex; flex-direction: column; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--ring); border-left: 4px solid #b8790a; border-radius: 10px; padding: 18px 20px; }
+  .card .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; justify-content: space-between; }
+  .card h3 { margin: 0; font-size: 17px; }
+  .threenum { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 14px 0 4px; }
+  .threenum div { border: 1px solid var(--ring); border-radius: 8px; padding: 9px 12px; }
+  .threenum .l { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .threenum .v { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 15.5px; font-weight: 700; margin-top: 3px; }
+  .viz { margin: 14px 0 6px; }
+  .rowlabel { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 10px 0 4px; }
+  .track { position: relative; height: 26px; }
+  .stack { display: flex; height: 22px; gap: 2px; }
+  .seg { height: 100%; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .seg:first-child { border-radius: 4px 0 0 4px; }
+  .seg:last-child { border-radius: 0 4px 4px 0; }
+  .seg .dl { font-size: 10.5px; font-family: var(--mono); color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.55); }
+  .arvband { position: absolute; top: 4px; height: 14px; border-radius: 7px; background: color-mix(in oklab, var(--s-purchase) 26%, var(--surface)); border: 1px solid var(--s-purchase); }
+  .tick { position: absolute; top: 0; width: 2px; height: 22px; }
+  .tick.base { background: var(--ink); }
+  .tick.cost { background: var(--critical); }
+  .ticklabel { position: absolute; top: 24px; font-size: 10.5px; font-family: var(--mono); color: var(--ink-2); transform: translateX(-50%); white-space: nowrap; }
+  .axis { position: relative; height: 16px; border-top: 1px solid var(--baseline); margin-top: 24px; }
+  .axis span { position: absolute; top: 2px; transform: translateX(-50%); font-size: 10px; font-family: var(--mono); color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
+  .legend .key { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+  .flagbox { display: flex; gap: 10px; background: var(--surface); border: 1px solid var(--ring); border-left: 4px solid var(--warning); border-radius: 10px; padding: 16px 18px; font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+  .flagbox .icon { color: #b8790a; font-weight: 700; flex: none; }
+  .flagbox strong { color: var(--ink); }
+  .checklist { display: flex; flex-direction: column; gap: 0; background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; overflow: hidden; }
+  .cl-row { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; padding: 11px 16px; border-bottom: 1px solid var(--grid); font-size: 13.5px; }
+  .cl-row:last-child { border-bottom: none; }
+  .cl-row .item { font-weight: 600; }
+  .cl-row .cost { font-family: var(--mono); color: var(--ink-2); font-size: 12.5px; white-space: nowrap; }
+  .cl-row .swing { font-family: var(--mono); color: var(--critical); font-size: 12.5px; white-space: nowrap; }
+  .fixbox { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 4px 0; }
+  .fix-row { padding: 12px 18px; border-bottom: 1px solid var(--grid); font-size: 13px; line-height: 1.5; }
+  .fix-row:last-child { border-bottom: none; }
+  .fix-row .sev { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; border-radius: 4px; padding: 2px 7px; margin-right: 8px; background: color-mix(in oklab, var(--critical) 15%, var(--surface)); color: var(--critical); }
+  .fix-row .target { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  footer { font-size: 12.5px; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--grid); padding-top: 16px; }
+  footer code { font-family: var(--mono); font-size: 11.5px; }
+  #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font-family: var(--mono); font-size: 12px; padding: 5px 9px; border-radius: 6px; opacity: 0; z-index: 10; white-space: nowrap; }
+  @media (prefers-reduced-motion: no-preference) { #tip { transition: opacity 120ms; } .seg { transition: filter 120ms; } }
+  .seg:hover { filter: brightness(1.08); }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Deal Review</div>
+    <h1>1045 N Belleview Pl <span style="color:var(--muted); font-weight:400">Indianapolis, IN 46222</span></h1>
+    <div class="meta">
+      <span class="chip">Source: 08-13-2026 call (Willie / Caleb / Alvin) — verbal only, no inspection</span>
+      <span class="chip">Red-teamed once — v2 numbers post-critique</span>
+      <span class="chip">Comp confidence: LOW (n=5)</span>
+    </div>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><div class="label">Verdict</div><div class="value warn">RENEGOTIATE</div><div class="sub">structure a diligence-contingent offer, not a flat number</div></div>
+    <div class="tile"><div class="label">True MAO (likely case)</div><div class="value crit">≈ $0</div><div class="sub">base ARV × likely rehab, before diligence</div></div>
+    <div class="tile"><div class="label">Ceiling if Phase-0 clean</div><div class="value">$28K–$30K</div><div class="sub">only if roof/mechanicals check out low</div></div>
+    <div class="tile"><div class="label">Walk-away</div><div class="value crit">$33,000</div><div class="sub">hard ceiling across every tested scenario</div></div>
+  </div>
+
+  <div class="flagbox">
+    <span class="icon">⚠</span>
+    <div><strong>Seller anchor gap:</strong> Willie is asking $90,000 and has explicitly said he distrusts low-cash "wholesaler" offers — a $5K–$30K structured range is a 67–94% discount to his ask. Get a direct read on his real floor before spending Phase-0 diligence dollars. His actual cash need (tax lien + roof + business seed ≈ $20–22K) fits inside this range, but closing probability at any of these numbers is untested.</div>
+  </div>
+
+  <section>
+    <h2>MAO by scenario — lower of 70%-rule and build-up</h2>
+    <div class="tablebox">
+      <table>
+        <thead><tr>
+          <th class="txt">Scenario</th><th>ARV</th><th>Rehab (w/ contingency)</th><th>MAO</th><th class="txt">Reading</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="txt">Base ARV × likely rehab <span style="color:var(--muted); font-weight:400">(most probable, no diligence)</span></td>
+            <td>$88,000</td><td>$59,654</td><td class="neg">≈ $0</td>
+            <td class="txt">Breakeven — do not pay $20–25K today</td>
+          </tr>
+          <tr>
+            <td class="txt">Base ARV × low rehab <span style="color:var(--muted); font-weight:400">(roof/mechanicals check out)</span></td>
+            <td>$88,000</td><td>$27,962</td><td class="pos">≈ $29,000–31,000</td>
+            <td class="txt">Real room — this is the ceiling case</td>
+          </tr>
+          <tr>
+            <td class="txt">Upside ARV × likely rehab</td>
+            <td>$118,000</td><td>$59,654</td><td class="pos">≈ $23,000</td>
+            <td class="txt">Best case tested without diligence</td>
+          </tr>
+          <tr>
+            <td class="txt">Downside ARV × likely rehab</td>
+            <td>$65,000</td><td>$59,654</td><td class="neg">−$19,300</td>
+            <td class="txt">Loss</td>
+          </tr>
+          <tr>
+            <td class="txt">Downside ARV × high rehab <span style="color:var(--muted); font-weight:400">(correlated worst case)</span></td>
+            <td>$65,000</td><td>$167,089</td><td class="neg">catastrophic</td>
+            <td class="txt">Kill condition — walk at any price</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cost stack vs. ARV — recommended offer structure</h2>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--s-purchase)"></span>Purchase (structured, $5K–$30K)</span>
+      <span class="key"><span class="sw" style="background:var(--s-rehab)"></span>Rehab (likely + contingency)</span>
+      <span class="key"><span class="sw" style="background:var(--s-carry)"></span>Carry &amp; financing</span>
+      <span class="key"><span class="sw" style="background:var(--s-selling)"></span>Selling cost</span>
+      <span class="key"><span class="sw" style="background:color-mix(in oklab, var(--s-purchase) 26%, var(--surface)); border:1px solid var(--s-purchase)"></span>ARV range</span>
+      <span class="key"><span class="sw" style="background:var(--ink); width:3px; border-radius:1px"></span>Base ARV</span>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section>
+    <h2>Comps used (n=5, closed sales only)</h2>
+    <div class="tablebox">
+      <table>
+        <thead><tr>
+          <th class="txt">Address</th><th class="txt">Sale date</th><th>Price</th><th>Dist</th><th class="txt">Tag</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="txt">721 N Belleview Pl</td><td>2025-11-26</td><td>$55,000</td><td>0.31mi</td><td class="txt">inferior</td></tr>
+          <tr><td class="txt">1005 N Tremont St <span style="color:var(--muted); font-weight:400">1,160sf · $86.21/sf</span></td><td>2026-05-26</td><td>$100,000</td><td>0.15mi</td><td class="txt">similar — best config match</td></tr>
+          <tr><td class="txt">1024 N Belleview Pl <span style="color:var(--muted); font-weight:400">3bd/1.5ba, stale 19.5mo</span></td><td>2025-01-02</td><td>$115,000</td><td>0.02mi</td><td class="txt">similar</td></tr>
+          <tr><td class="txt">1417 N Belleview Pl <span style="color:var(--muted); font-weight:400">fully remodeled</span></td><td>2025-06-30</td><td>$185,000</td><td>0.35mi</td><td class="txt">superior — excluded from base</td></tr>
+          <tr><td class="txt">1238 N Tibbs Ave <span style="color:var(--muted); font-weight:400">4bd/2.5ba, 2,500sf</span></td><td>2026-04-03</td><td>$200,000</td><td>0.40mi</td><td class="txt">stretch — excluded from base</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px; color:var(--ink-2); margin-top:10px">Caleb's two anecdotal comps from the call ($86K/list $130K "off Belmont"; $69K/list $80K "off Tenth St") could <strong>not</strong> be matched to any closed-sale record and are excluded entirely — his $60–70K as-is and $100–120K fixed-up claims carry no independent support.</p>
+  </section>
+
+  <section>
+    <h2>What the red-team critic corrected (v1 → v2)</h2>
+    <div class="fixbox">
+      <div class="fix-row"><span class="sev">MAJOR</span><span class="target">arv.base</span> — v1's extra $10K ARV haircut was unquantified and double-counted the LOW-confidence rating already in the comp spread. Reverted to comp-analyst's raw $88K base.</div>
+      <div class="fix-row"><span class="sev">MAJOR</span><span class="target">flip_exit.mao</span> — v1's MAO figures didn't reproduce from their own stated formulas (off by $4.2K–$8.6K). Recomputed directly from ARV×0.70−rehab and the build-up formula.</div>
+      <div class="fix-row"><span class="sev">MAJOR</span><span class="target">rehab.likely</span> — basement-finish ($7,000) and gutters ($3,500) were priced as certain despite zero evidence, the same standing as the sewer line (correctly $0-likely). Re-priced consistently: likely rehab before contingency $54,888 → $45,888.</div>
+      <div class="fix-row"><span class="sev">MAJOR</span><span class="target">fixed_costs</span> — the flat $15,000 figure was sized to Caleb's original $60–65K purchase, not the recommended $20–30K offer. Rebuilt as flat closing/holding/financing dollars that don't shrink at small deal size.</div>
+      <div class="fix-row"><span class="sev">MAJOR</span><span class="target">recommendation.offer_zone</span> — v1 never tested the $20–25K offer against Willie's $90K anchor and stated distrust of low-cash offers. Added as an explicit negotiation-feasibility flag, not a price fix.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Phase-0 verification — ranked by dollar-swing per dollar spent (~$1,500 total)</h2>
+    <div class="checklist">
+      <div class="cl-row"><div class="item">Direct conversation with Willie on his real floor</div><div class="cost">$0</div><div class="swing">determines if this closes at all</div></div>
+      <div class="cl-row"><div class="item">Interior walkthrough with photos</div><div class="cost">$0</div><div class="swing">$6.9K–$28.9K swing</div></div>
+      <div class="cl-row"><div class="item">Roof/attic peek under existing patch shingles</div><div class="cost">$600</div><div class="swing">$3K–$18K swing</div></div>
+      <div class="cl-row"><div class="item">Sewer camera scope</div><div class="cost">$300</div><div class="swing">$0–$9.5K swing</div></div>
+      <div class="cl-row"><div class="item">Electrical panel/wiring inspection</div><div class="cost">$200</div><div class="swing">$0.5K–$9K swing</div></div>
+      <div class="cl-row"><div class="item">Plumbing walkthrough + camera</div><div class="cost">$250</div><div class="swing">$0.5K–$6K swing</div></div>
+      <div class="cl-row"><div class="item">HVAC service call</div><div class="cost">$150</div><div class="swing">$0.3K–$6.8K swing</div></div>
+      <div class="cl-row"><div class="item">Assessor parcel / GLA confirmation</div><div class="cost">$0</div><div class="swing">resolves size uncertainty</div></div>
+      <div class="cl-row"><div class="item">Title search (confirm free-and-clear)</div><div class="cost">nominal</div><div class="swing">resolves lien risk</div></div>
+      <div class="cl-row"><div class="item">Basement tenant lease review</div><div class="cost">$0</div><div class="swing">$0–$4K swing</div></div>
+    </div>
+  </section>
+
+  <footer>
+    Model: MAO = lower of the 70% rule (ARV×0.70−rehab) and build-up (ARV×0.805−rehab−$12,000 non-selling fixed). ARVs are labeled assumptions from 5 closed comps; rehab is a remote line-item estimate with zero interior verification. RentCast live data not yet folded in — pending staff-token/scratch-endpoint approval, see project chat. Full evidence: preplatform repo, <code>underwrites/1045-n-belleview-pl-indianapolis-in-46222/{comps,market,rehab,underwrite,critique}.json</code>.
+  </footer>
+</div>
+
+<div id="tip" role="presentation"></div>
+
+<script>
+const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
+const cards = document.getElementById("cards");
+const tip = document.getElementById("tip");
+
+const DATA = [
+  { label: "Floor of structured offer", purchase: 5000, rehab: 27962, carry: 12000, selling: 6600, arv: { down: 65000, base: 88000, up: 118000 } },
+  { label: "Ceiling of structured offer (Phase-0 clean)", purchase: 30000, rehab: 27962, carry: 12000, selling: 6600, arv: { down: 65000, base: 88000, up: 118000 } },
+  { label: "Walk-away price (likely-case rehab)", purchase: 33000, rehab: 59654, carry: 12000, selling: 6600, arv: { down: 65000, base: 88000, up: 118000 } }
+];
+
+for (const d of DATA) {
+  const total = d.purchase + d.rehab + d.carry + d.selling;
+  const max = Math.max(total, d.arv.up) * 1.04;
+  const pc = v => (100 * v / max).toFixed(2) + "%";
+  const segs = [
+    ["Purchase", d.purchase, "var(--s-purchase)"],
+    ["Rehab", d.rehab, "var(--s-rehab)"],
+    ["Carry & financing", d.carry, "var(--s-carry)"],
+    ["Selling cost", d.selling, "var(--s-selling)"]
+  ];
+  const over = total > d.arv.base;
+  const card = document.createElement("article");
+  card.className = "card";
+  card.style.borderLeftColor = over ? "var(--critical)" : "var(--good)";
+  card.innerHTML = `
+    <div class="head"><h3>${d.label}</h3></div>
+    <div class="threenum">
+      <div><div class="l">Purchase</div><div class="v">${fmt(d.purchase)}</div></div>
+      <div><div class="l">Total cost</div><div class="v">${fmt(total)}</div></div>
+      <div><div class="l">vs. base ARV</div><div class="v" style="color:${over ? 'var(--critical)' : 'var(--success-text)'}">${over ? '−' : '+'}${fmt(Math.abs(d.arv.base - total))}</div></div>
+    </div>
+    <div class="viz">
+      <div class="rowlabel">Total cost — ${fmt(total)}</div>
+      <div class="stack" role="img" aria-label="Cost stack"></div>
+      <div class="rowlabel" style="margin-top:10px">ARV range — base ${fmt(d.arv.base)}</div>
+      <div class="track" role="img" aria-label="ARV band">
+        <div class="arvband" style="left:${pc(d.arv.down)}; width:${(100 * (d.arv.up - d.arv.down) / max).toFixed(2)}%"></div>
+        <div class="tick base" style="left:${pc(d.arv.base)}"></div>
+        <div class="tick cost" style="left:${pc(total)}"></div>
+        <div class="ticklabel" style="left:${pc(d.arv.base)}">base</div>
+        <div class="ticklabel" style="left:${pc(total)}; color:var(--critical)">cost</div>
+      </div>
+      <div class="axis"><span style="left:0%">$0</span><span style="left:${pc(max/2)}">${fmt(max/2)}</span><span style="left:99%">${fmt(max)}</span></div>
+    </div>`;
+  const stack = card.querySelector(".stack");
+  for (const [name, val, color] of segs) {
+    const s = document.createElement("div");
+    s.className = "seg";
+    s.tabIndex = 0;
+    s.style.width = pc(val);
+    s.style.background = color;
+    s.dataset.tip = `${name} — ${fmt(val)}`;
+    if (val / max > 0.1) s.innerHTML = `<span class="dl">${fmt(val)}</span>`;
+    stack.appendChild(s);
+  }
+  cards.appendChild(card);
+}
+
+document.addEventListener("pointermove", e => {
+  const t = e.target.closest("[data-tip]");
+  if (t) { tip.textContent = t.dataset.tip; tip.style.opacity = 1; tip.style.left = (e.clientX + 12) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  else tip.style.opacity = 0;
+});
+</script>
+</body></html>
