@@ -1,0 +1,684 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Slate Portfolio Board</title></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&display=swap">
+
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #F5F4F0;
+    --surface: #FFFFFF;
+    --surface-2: #EFEEE9;
+    --ink: #14181E;
+    --ink-2: #565D66;
+    --ink-3: #838A93;
+    --rule: #DAD7CF;
+    --rule-2: #C6C2B8;
+    --accent: #BE3C27;
+    --accent-2: #F68A41;
+    --live: #1C6B57;
+    --warn: #91600F;
+    --crit: #BE3C27;
+    --shadow: 0 1px 2px rgba(20,24,30,.05), 0 4px 14px rgba(20,24,30,.04);
+
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Newsreader", Georgia, "Times New Roman", serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #0F1216;
+      --surface: #171B21;
+      --surface-2: #1E232B;
+      --ink: #ECEAE5;
+      --ink-2: #99A0AA;
+      --ink-3: #6E757F;
+      --rule: #272D36;
+      --rule-2: #38404B;
+      --accent: #E85D45;
+      --accent-2: #F9A45F;
+      --live: #4FB496;
+      --warn: #D9A03F;
+      --crit: #E85D45;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.22);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0F1216;
+    --surface: #171B21;
+    --surface-2: #1E232B;
+    --ink: #ECEAE5;
+    --ink-2: #99A0AA;
+    --ink-3: #6E757F;
+    --rule: #272D36;
+    --rule-2: #38404B;
+    --accent: #E85D45;
+    --accent-2: #F9A45F;
+    --live: #4FB496;
+    --warn: #D9A03F;
+    --crit: #E85D45;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 14px rgba(0,0,0,.22);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.55;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 28px 24px 72px; }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    display: flex; flex-wrap: wrap; align-items: flex-end;
+    justify-content: space-between; gap: 20px;
+    padding-bottom: 18px; border-bottom: 2px solid var(--ink);
+  }
+  .mast-id { display: flex; flex-direction: column; gap: 4px; }
+  .eyebrow {
+    font-family: var(--display); font-size: 11px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
+  }
+  h1 {
+    font-family: var(--display); font-weight: 800; font-size: clamp(28px, 4.4vw, 44px);
+    line-height: .98; margin: 0; letter-spacing: -.02em; text-wrap: balance;
+  }
+  .mast-meta {
+    font-family: var(--mono); font-size: 11.5px; color: var(--ink-2);
+    text-align: right; line-height: 1.7;
+  }
+
+  /* ---------- deadline strip ---------- */
+  .clockstrip {
+    display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
+    margin: 20px 0 0; padding: 18px 22px;
+    background: var(--surface); border: 1px solid var(--rule);
+    border-left: 4px solid var(--crit); box-shadow: var(--shadow);
+  }
+  .bigcount { display: flex; align-items: baseline; gap: 9px; }
+  .bigcount b {
+    font-family: var(--display); font-weight: 800; font-size: 54px;
+    line-height: .85; color: var(--crit); letter-spacing: -.03em;
+  }
+  .bigcount span {
+    font-family: var(--display); font-size: 11px; font-weight: 600;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--ink-2);
+    max-width: 66px; line-height: 1.25;
+  }
+  .clocktext strong { font-weight: 600; }
+  .clocktext { font-size: 15px; color: var(--ink-2); }
+  .clocktext em { color: var(--ink); font-style: normal; font-weight: 600; }
+
+  /* ---------- tabs ---------- */
+  .tabs { display: flex; gap: 2px; margin: 26px 0 0; border-bottom: 1px solid var(--rule); }
+  .tab {
+    font-family: var(--display); font-size: 12px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 11px 20px; background: none; border: 0; border-bottom: 2px solid transparent;
+    color: var(--ink-3); cursor: pointer; margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent-2); }
+  .tab:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  .panel { padding-top: 30px; }
+  .panel[hidden] { display: none; }
+
+  /* ---------- layout ---------- */
+  .split { display: grid; grid-template-columns: 268px 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 30px; } }
+
+  h2 {
+    font-family: var(--display); font-size: 12px; font-weight: 600;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--ink-2);
+    margin: 0 0 14px; padding-bottom: 7px; border-bottom: 1px solid var(--rule);
+  }
+  section + section { margin-top: 38px; }
+
+  /* ---------- venture rail ---------- */
+  .venture { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+  .venture:last-child { border-bottom: 0; }
+  .v-name {
+    font-family: var(--display); font-weight: 600; font-size: 15px;
+    letter-spacing: -.01em; display: flex; justify-content: space-between;
+    align-items: baseline; gap: 10px;
+  }
+  .v-role { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; }
+  .v-note { font-size: 13.5px; color: var(--ink-2); line-height: 1.45; margin-top: 3px; }
+
+  /* ---------- deal table ---------- */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--rule); background: var(--surface); box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; }
+  th {
+    font-family: var(--display); font-size: 10.5px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+    text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--rule-2);
+    background: var(--surface-2); white-space: nowrap;
+  }
+  td { padding: 12px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 14.5px; }
+  tr:last-child td { border-bottom: 0; }
+  .addr { font-family: var(--display); font-weight: 600; font-size: 14.5px; letter-spacing: -.01em; }
+  .addr small { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); font-weight: 400; letter-spacing: 0; margin-top: 2px; }
+  td.next { color: var(--ink-2); }
+  td.when { font-family: var(--mono); font-size: 12px; white-space: nowrap; color: var(--ink-2); }
+
+  .pill {
+    display: inline-block; font-family: var(--display); font-size: 10px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px;
+    border: 1px solid currentColor; white-space: nowrap;
+  }
+  .p-live { color: var(--live); }
+  .p-warn { color: var(--warn); }
+  .p-crit { color: var(--crit); }
+  .p-flat { color: var(--ink-3); }
+
+  /* ---------- structural problems ---------- */
+  .probs { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .prob { background: var(--surface); padding: 18px 20px; }
+  .prob h3 {
+    font-family: var(--display); font-size: 15px; font-weight: 600; margin: 0 0 7px;
+    letter-spacing: -.01em; text-wrap: balance;
+  }
+  .prob p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .prob .fig { font-family: var(--mono); font-size: 11.5px; color: var(--accent); display: block; margin-bottom: 6px; letter-spacing: .02em; }
+
+  /* ---------- goals ---------- */
+  .goal { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .goal:last-of-type { border-bottom: 0; }
+  .goal-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .goal-name { font-family: var(--display); font-weight: 600; font-size: 16px; letter-spacing: -.01em; }
+  .goal-num { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+  .goal-num b { color: var(--ink); font-weight: 400; }
+  .bar { height: 7px; background: var(--surface-2); border: 1px solid var(--rule); margin-top: 9px; position: relative; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--accent-2); }
+  .bar.untracked { background: repeating-linear-gradient(135deg, var(--surface-2), var(--surface-2) 5px, var(--surface) 5px, var(--surface) 10px); }
+  .goal-note { font-size: 13.5px; color: var(--ink-3); margin-top: 6px; }
+
+  .totals { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 20px; padding-top: 18px; border-top: 2px solid var(--ink); }
+  .total b { font-family: var(--display); font-size: 30px; font-weight: 800; letter-spacing: -.025em; display: block; line-height: 1; }
+  .total span { font-family: var(--display); font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+
+  /* ---------- tasks ---------- */
+  .taskgroup + .taskgroup { margin-top: 30px; }
+  .tg-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; padding-bottom: 7px; border-bottom: 1px solid var(--rule); }
+  .tg-head h3 { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; margin: 0; }
+  .tg-count { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+  .tg-crit h3 { color: var(--crit); }
+
+  ul.tasks { list-style: none; margin: 0; padding: 0; }
+  ul.tasks li {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start;
+    padding: 9px 0; border-bottom: 1px solid var(--rule);
+  }
+  ul.tasks li:last-child { border-bottom: 0; }
+  ul.tasks input[type="checkbox"] { margin-top: 5px; width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; flex: none; }
+  .t-body label { cursor: pointer; font-size: 15px; line-height: 1.45; display: block; }
+  .t-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+  .t-meta { display: flex; gap: 8px; align-items: center; flex: none; padding-top: 3px; }
+  .tag { font-family: var(--mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--rule-2); padding: 2px 6px; white-space: nowrap; }
+  .due { font-family: var(--mono); font-size: 11px; color: var(--ink-2); white-space: nowrap; }
+  .due.over { color: var(--crit); font-weight: 600; }
+  li.done .t-body label, li.done .t-sub { text-decoration: line-through; color: var(--ink-3); text-decoration-thickness: 1px; }
+  .del { background: none; border: 0; color: var(--ink-3); cursor: pointer; font-size: 15px; line-height: 1; padding: 2px 4px; font-family: var(--mono); }
+  .del:hover { color: var(--crit); }
+
+  .addrow { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .addrow input[type="text"] {
+    flex: 1 1 260px; font-family: var(--body); font-size: 15px; padding: 9px 12px;
+    background: var(--surface); color: var(--ink); border: 1px solid var(--rule-2);
+  }
+  .addrow input::placeholder { color: var(--ink-3); }
+  .addrow button {
+    font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; padding: 9px 18px; cursor: pointer;
+    background: var(--ink); color: var(--ground); border: 1px solid var(--ink);
+  }
+  .addrow button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  .footnote { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-3); line-height: 1.6; }
+  .footnote code { font-family: var(--mono); font-size: 11.5px; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="mast-id">
+      <div class="eyebrow">Aim Higher &middot; Five ventures, one operator</div>
+      <h1>Slate Portfolio Board</h1>
+    </div>
+    <div class="mast-meta">
+      ALVIN SLATE<br>
+      eXp GA #404817 &middot; NMLS #2575831<br>
+      <span id="stamp"></span>
+    </div>
+  </header>
+
+  <div class="clockstrip">
+    <div class="bigcount"><b id="dcount">—</b><span id="dlabel">days left</span></div>
+    <div class="clocktext">
+      <strong>O.C.G.A. § 48-5-274 — DOAA hearing requests close Friday, Aug 28 2026.</strong>
+      Two things hang on this one date: <em>Montgomery's own appeal</em> (equalized ratio 27.87
+      against a 36.00 floor) and <em>Gap to 40</em>, where Burke County is already replying.
+      Everything else on this board can slip a week.
+    </div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-board" aria-controls="panel-board" aria-selected="true">Deal Board</button>
+    <button class="tab" role="tab" id="tab-track" aria-controls="panel-track" aria-selected="false">Goals &amp; Tracker</button>
+  </div>
+
+  <!-- ============ BOARD ============ -->
+  <div class="panel" id="panel-board" role="tabpanel" aria-labelledby="tab-board">
+    <div class="split">
+
+      <aside>
+        <h2>The Ventures</h2>
+        <div class="venture">
+          <div class="v-name">eXp Realty <span class="v-role">Realtor</span></div>
+          <div class="v-note">Transactions. Operates under Mix Up Ltd Co — "Alvin Slate, Realtor" is a brand, not an entity.</div>
+        </div>
+        <div class="venture">
+          <div class="v-name">Success Lending <span class="v-role">MLO</span></div>
+          <div class="v-note">GA + IN. The financing leg of the real-estate loop.</div>
+        </div>
+        <div class="venture">
+          <div class="v-name">PRE <span class="v-role">Co-founder / COO</span></div>
+          <div class="v-note">Two-sided: B2C tax appeals and B2G county recalibration (VS-PRE). Hard firewall between them.</div>
+        </div>
+        <div class="venture">
+          <div class="v-name">EmpowerBuild / UNGC <span class="v-role">Fractional COO</span></div>
+          <div class="v-note">Caleb Keys's Indianapolis construction company. Equity and comp papered nowhere.</div>
+        </div>
+        <div class="venture">
+          <div class="v-name">EYLU RE Club <span class="v-role">Community</span></div>
+          <div class="v-note">Audience, not revenue — no solicitation on their platform. Paid vehicle runs under Aim Higher.</div>
+        </div>
+      </aside>
+
+      <main>
+        <section>
+          <h2>Live Files</h2>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr><th>File</th><th>State</th><th>Next action</th><th>Clock</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="addr">Montgomery County<small>PRE · B2G · $99,800 executed</small></td>
+                  <td><span class="pill p-crit">Appeal due</span></td>
+                  <td class="next">File the DOAA hearing request with Exhibit A — the Four-Stage Reconciliation change log. Argue sample correctness row by row, never that current metrics are good.</td>
+                  <td class="when">Aug 28</td>
+                </tr>
+                <tr>
+                  <td class="addr">Burke County<small>PRE · Gap to 40 · $8.6M/yr digest</small></td>
+                  <td><span class="pill p-warn">Warm reply</span></td>
+                  <td class="next">Philip Wren asked for exclusivity and is already appealing to the DOR. Send the $7,500 sales-file read with <code>PRE-GOV-Burke-01.pdf</code>.</td>
+                  <td class="when">Aug 28</td>
+                </tr>
+                <tr>
+                  <td class="addr">3812 + 3818 Ivy Rd NE<small>PRE · Fulton BOE · Leete / Thomas</small></td>
+                  <td><span class="pill p-crit">Hearing</span></td>
+                  <td class="next">Confirm the county dial-in — Fulton published location code "BEP" only. The auto-attached Google Meet link is <em>not</em> the hearing line.</td>
+                  <td class="when">Thu Aug 20<br>9:00 AM</td>
+                </tr>
+                <tr>
+                  <td class="addr">6394 Rosetta Dr<small>RE · Homesite 0037 · buyer McKenzie</small></td>
+                  <td><span class="pill p-live">Under contract</span></td>
+                  <td class="next">Inspection runs without Alvin — Rockhaven must give Steven Latimore access. Report has to land 48h before orientation.</td>
+                  <td class="when">Sat Aug 22<br>Mon Aug 24<br>Mon Aug 31</td>
+                </tr>
+                <tr>
+                  <td class="addr">20 Marietta St NW #3G<small>RE · The Metropolitan · owner Ferrell</small></td>
+                  <td><span class="pill p-crit">Permit clock</span></td>
+                  <td class="next">Five decisions with Michael; withdrawing the sale listing gates all of them. Got 14M views as a sale and still didn't move — the blocker is condo warrantability, not awareness.</td>
+                  <td class="when">Permit ends<br>~Sep 22</td>
+                </tr>
+                <tr>
+                  <td class="addr">115 Griffin St NW<small>RE · FMLS 7821789 · furnished 3/2.5</small></td>
+                  <td><span class="pill p-live">Live</span></td>
+                  <td class="next">On FMLS and syndicated. Facebook Marketplace still owed — no API exists for individual sellers, so it needs ten minutes at the keyboard.</td>
+                  <td class="when">Overdue</td>
+                </tr>
+                <tr>
+                  <td class="addr">317 Shasta Ln<small>RE · MLS 7791598 · owner Justin</small></td>
+                  <td><span class="pill p-live">Active</span></td>
+                  <td class="next">Repriced to $2,550. Ten prospects who had never been replied to were recovered Aug 16 — one had asked three times.</td>
+                  <td class="when">Weekly</td>
+                </tr>
+                <tr>
+                  <td class="addr">446 Fedora Way NW<small>RE · ExpressOffers / Zoodealio</small></td>
+                  <td><span class="pill p-warn">Contested</span></td>
+                  <td class="next">They admitted the $98,500 repair figure is "a mathematical calculation. Price per sq foot." Committed number or a straight no.</td>
+                  <td class="when">This week</td>
+                </tr>
+                <tr>
+                  <td class="addr">GADOL Investments<small>PRE · 70 properties · Treppa / Adato</small></td>
+                  <td><span class="pill p-warn">Recovering</span></td>
+                  <td class="next">Fee terms are NULL on all 70 against a "nothing invoiced until agreed" commitment. The Jozef call is the vehicle.</td>
+                  <td class="when">No date</td>
+                </tr>
+                <tr>
+                  <td class="addr">848 Ridge Ave Unit A<small>RE · lease out for signature</small></td>
+                  <td><span class="pill p-flat">Pending</span></td>
+                  <td class="next">Missing the client signature on the renter's insurance exhibit.</td>
+                  <td class="when">—</td>
+                </tr>
+                <tr>
+                  <td class="addr">Jabari Jones<small>RE · commercial buyer</small></td>
+                  <td><span class="pill p-flat">Searching</span></td>
+                  <td class="next">Church St terminated in DD Aug 6. Mallard Cove and The Leon on Ponce are live; under $2,500/mo works if he can sublease.</td>
+                  <td class="when">Open</td>
+                </tr>
+                <tr>
+                  <td class="addr">EmpowerBuild<small>UNGC · EST-4625-01</small></td>
+                  <td><span class="pill p-warn">Unsent</span></td>
+                  <td class="next">Progressive Baptist estimate — $294,090.94, built and filed in Drive but never sent to the church.</td>
+                  <td class="when">Overdue</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>The Three Structural Problems</h2>
+          <div class="probs">
+            <div class="prob">
+              <h3>Work ships before the paper does</h3>
+              <span class="fig">70 properties · fees NULL</span>
+              <p>The Montgomery contract surfaced only in August after being called unpapered. UNGC equity is papered nowhere. GADOL has no fee terms against a live commitment. The pattern repeats across every venture.</p>
+            </div>
+            <div class="prob">
+              <h3>Measurement stops before the year does</h3>
+              <span class="fig">52 rows · all empty</span>
+              <p>Weekly tracking died Apr 30 2025 at 2 closed against a 33-unit plan. Targets get set at 4–7× trailing every year while the tracking is abandoned earlier each year. Calendar audit: 37% meta-work against 21% client work.</p>
+            </div>
+            <div class="prob">
+              <h3>Four plans converged, none shipped</h3>
+              <span class="fig">Months 1–4 · not built</span>
+              <p>Tom Ferry '24, solo '25, the '26 MasterPlan, the Founder Toolkit. The Toolkit's roadmap started in April — no founder site, no audit pages, no case studies exist. The ruling already given: done planning.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ============ TRACKER ============ -->
+  <div class="panel" id="panel-track" role="tabpanel" aria-labelledby="tab-track" hidden>
+    <div class="split">
+
+      <aside>
+        <h2>2026 Revenue Lines</h2>
+
+        <div class="goal">
+          <div class="goal-top"><span class="goal-name">PRE</span><span class="goal-num"><b>$99.8K</b> / $313.8K</span></div>
+          <div class="bar"><i style="width:31.8%"></i></div>
+          <div class="goal-note">Montgomery executed and paid in full. Renewal menu drafted.</div>
+        </div>
+
+        <div class="goal">
+          <div class="goal-top"><span class="goal-name">Real Estate Sales</span><span class="goal-num"><b>$13.4K</b> / $175.6K</span></div>
+          <div class="bar"><i style="width:7.6%"></i></div>
+          <div class="goal-note">5 of 18 sides settled. Pacing about half of 2025 — partly deliberate reallocation to PRE.</div>
+        </div>
+
+        <div class="goal">
+          <div class="goal-top"><span class="goal-name">Mortgage</span><span class="goal-num">not tracked / $132K</span></div>
+          <div class="bar untracked"></div>
+          <div class="goal-note">30 loans planned. No ledger exists — this is problem #2 in the flesh.</div>
+        </div>
+
+        <div class="goal">
+          <div class="goal-top"><span class="goal-name">Consulting</span><span class="goal-num">not tracked / $150K</span></div>
+          <div class="bar untracked"></div>
+          <div class="goal-note">The Aim Higher paid vehicle. No offer page is live yet.</div>
+        </div>
+
+        <div class="totals">
+          <div class="total"><b>$771K</b><span>2026 plan</span></div>
+          <div class="total"><b>$113K</b><span>Known booked</span></div>
+        </div>
+
+        <div class="footnote">
+          Prior years, for calibration: 2023 <strong>$87.8K</strong> GCI / 9 units &middot;
+          2024 <strong>$64.4K</strong> / 15 deals &middot; 2025 <strong>$55.0K</strong> net / 13 units.
+          The plan is roughly 10× the trailing year.
+        </div>
+      </aside>
+
+      <main>
+        <section>
+          <h2>Tracker</h2>
+
+          <div class="taskgroup tg-crit" data-group="week">
+            <div class="tg-head"><h3>This week</h3><span class="tg-count"></span></div>
+            <ul class="tasks"></ul>
+          </div>
+
+          <div class="taskgroup tg-crit" data-group="aug28">
+            <div class="tg-head"><h3>Before Aug 28 — statutory</h3><span class="tg-count"></span></div>
+            <ul class="tasks"></ul>
+          </div>
+
+          <div class="taskgroup" data-group="sept">
+            <div class="tg-head"><h3>September</h3><span class="tg-count"></span></div>
+            <ul class="tasks"></ul>
+          </div>
+
+          <div class="taskgroup" data-group="struct">
+            <div class="tg-head"><h3>Structural — no date, highest leverage</h3><span class="tg-count"></span></div>
+            <ul class="tasks"></ul>
+          </div>
+
+          <div class="addrow">
+            <input type="text" id="newtask" placeholder="Add a to-do…" aria-label="New to-do">
+            <select id="newgroup" aria-label="Group" style="font-family:var(--body);font-size:15px;padding:9px 10px;background:var(--surface);color:var(--ink);border:1px solid var(--rule-2);">
+              <option value="week">This week</option>
+              <option value="aug28">Before Aug 28</option>
+              <option value="sept">September</option>
+              <option value="struct">Structural</option>
+            </select>
+            <button id="addbtn">Add</button>
+          </div>
+
+          <div class="footnote">
+            Check state and anything you add live in this browser only. The durable record stays in
+            Claude's memory — tell me what moved and I'll rebuild the board at this same link.
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- deadline ----------
+  var DEADLINE = new Date(2026, 7, 28); // Aug 28 2026
+  function refreshClock() {
+    var now = new Date();
+    var days = Math.ceil((DEADLINE - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+    var el = document.getElementById("dcount");
+    var lb = document.getElementById("dlabel");
+    if (days > 0) { el.textContent = days; lb.textContent = days === 1 ? "day left" : "days left"; }
+    else if (days === 0) { el.textContent = "0"; lb.textContent = "today"; }
+    else { el.textContent = "—"; lb.textContent = "passed"; }
+    document.getElementById("stamp").textContent =
+      now.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+  }
+  refreshClock();
+
+  // ---------- tabs ----------
+  var tabs = [["tab-board", "panel-board"], ["tab-track", "panel-track"]];
+  tabs.forEach(function (pair) {
+    document.getElementById(pair[0]).addEventListener("click", function () {
+      tabs.forEach(function (p) {
+        var on = p[0] === pair[0];
+        document.getElementById(p[0]).setAttribute("aria-selected", on ? "true" : "false");
+        document.getElementById(p[1]).hidden = !on;
+      });
+    });
+  });
+
+  // ---------- seed tasks ----------
+  var SEED = [
+    // this week
+    { id: "ivy",      g: "week",  t: "Confirm the Fulton dial-in for the Ivy Rd hearings", s: "Location code “BEP” only — the Google Meet link on the invite is not the county line", tag: "PRE",  due: "Thu 8/20" },
+    { id: "fbmp",     g: "week",  t: "Post 115 Griffin to Facebook Marketplace", s: "No API for individual sellers — needs a supervised browser session", tag: "RE", due: "Overdue", over: true },
+    { id: "shavon",   g: "week",  t: "Send Shavon Shavers the Saturday site-access request", s: "Draft r3453617652030397457 is staged; Thu/Fri offered as fallback", tag: "RE", due: "Wed 8/20" },
+    { id: "eylu",     g: "week",  t: "EYLU RE Club session", s: "Saturday's priority — the Rosetta inspection runs without you", tag: "EYLU", due: "Sat 8/22" },
+    { id: "denise",   g: "week",  t: "Answer Denise Conrady on the Indianapolis meeting", s: "Sat 1:00 PM at Lawrence Branch Library — not travel-compatible with EYLU", tag: "UNGC", due: "Sat 8/22" },
+    { id: "content",  g: "week",  t: "Produce content days 16–30", s: "Pipeline goes dark Saturday without a batch sitting", tag: "Brand", due: "By 8/22" },
+    { id: "fedora",   g: "week",  t: "Hold Zoodealio to a committed number on 446 Fedora", s: "They conceded the $98,500 is a price-per-sqft formula", tag: "RE", due: "End of week" },
+
+    // aug 28
+    { id: "doaa",     g: "aug28", t: "File the Montgomery DOAA hearing request", s: "Mail/email plus the confirmation call — statutory, no extension exists", tag: "PRE", due: "Fri 8/28" },
+    { id: "exhibit",  g: "aug28", t: "Assemble Exhibit A — the Four-Stage Reconciliation change log", s: "PRE's sales-qual defense alone moved the ratio ~22 → 27.87", tag: "PRE", due: "Before 8/28" },
+    { id: "burke",    g: "aug28", t: "Send Burke County the $7,500 sales-file read", s: "Wren asked that no one else receive the email — warmest lead on the board", tag: "PRE", due: "This week" },
+    { id: "wave3",    g: "aug28", t: "Work Gap-to-40 Wave 3 replies", s: "Fee must clear without a commission agenda item or it misses the date", tag: "PRE", due: "Rolling" },
+    { id: "michael",  g: "aug28", t: "Get Michael's five decisions on 20 Marietta", s: "Withdrawing the sale listing gates every other step", tag: "RE", due: "ASAP" },
+
+    // september
+    { id: "renewal",  g: "sept",  t: "Present the Montgomery renewal", s: "Week after the hearing request files. Reconcile $125K/yr against the $174.75K framing first", tag: "PRE", due: "Sep" },
+    { id: "ipcarve",  g: "sept",  t: "Carve VS-PRE out of the renewal's work-made-for-hire clause", s: "The current PSA assigns all models and configurations to the county", tag: "PRE", due: "With renewal" },
+    { id: "permit",   g: "sept",  t: "Place a tenant at 20 Marietta before the hardship permit ends", s: "~Sep 22", tag: "RE", due: "Sep 22" },
+    { id: "rosetta",  g: "sept",  t: "Rosetta orientation, final walkthrough, closing", s: "Mon 8/24 1:00 · Mon 8/31 11:00", tag: "RE", due: "Aug 24 / 31" },
+    { id: "judge",    g: "sept",  t: "Send the Paul Judge outreach", s: "Resolve three flags first: is there a demo environment, does the 4-of-5 line need county sign-off, and the fund submission on file", tag: "Aim Higher", due: "Sep" },
+    { id: "investfest", g: "sept", t: "Cut the InvestFest recap video", s: "Market-read version is ready; a real session recap needs your takeaways", tag: "Brand", due: "Sep" },
+
+    // structural
+    { id: "ungc",     g: "struct", t: "Paper the UNGC equity and comp", s: "Fractional COO with no written agreement — the single largest exposure", tag: "UNGC" },
+    { id: "gadolfee", g: "struct", t: "Settle GADOL fee terms on all 70 properties", s: "“Nothing invoiced until the fee structure is agreed” is still outstanding", tag: "PRE" },
+    { id: "advances", g: "struct", t: "Hold the no-commission-advances rule", s: "eCommission ate ~$2.5K in fees on a listing that then terminated", tag: "RE" },
+    { id: "scorecard", g: "struct", t: "Fill the weekly scorecard", s: "52 rows, all empty. The Friday routine already writes it — it just needs numbers", tag: "All" },
+    { id: "creds",    g: "struct", t: "Rotate the leaked Buffer and Mailchimp credentials", s: "Sitting in plaintext in a Drive doc", tag: "Ops" },
+    { id: "commrec",  g: "struct", t: "File the Montgomery commercial record", s: "Executed copy, invoices, receivables ledger — and name the three “Untitled document” files", tag: "PRE" },
+    { id: "leadsweep", g: "struct", t: "Hand the lead-sweep spec to the engineering team", s: "~/Downloads/files/lead-sweep-agent-spec.md", tag: "Ops" }
+  ];
+
+  // ---------- local state ----------
+  var KEY = "slate-board-v1";
+  var state = { done: {}, added: [], removed: {} };
+  try { var raw = localStorage.getItem(KEY); if (raw) state = Object.assign(state, JSON.parse(raw)); } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  function allTasks() {
+    return SEED.concat(state.added).filter(function (t) { return !state.removed[t.id]; });
+  }
+
+  function render() {
+    var groups = { week: [], aug28: [], sept: [], struct: [] };
+    allTasks().forEach(function (t) { if (groups[t.g]) groups[t.g].push(t); });
+
+    Object.keys(groups).forEach(function (g) {
+      var box = document.querySelector('[data-group="' + g + '"]');
+      var ul = box.querySelector("ul.tasks");
+      var list = groups[g];
+      ul.textContent = "";
+
+      list.forEach(function (t) {
+        var li = document.createElement("li");
+        if (state.done[t.id]) li.className = "done";
+
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = !!state.done[t.id];
+        cb.id = "cb-" + t.id;
+        cb.addEventListener("change", function () {
+          if (cb.checked) state.done[t.id] = 1; else delete state.done[t.id];
+          save(); render();
+        });
+
+        var body = document.createElement("div");
+        body.className = "t-body";
+        var lab = document.createElement("label");
+        lab.htmlFor = cb.id;
+        lab.textContent = t.t;
+        body.appendChild(lab);
+        if (t.s) {
+          var sub = document.createElement("div");
+          sub.className = "t-sub";
+          sub.textContent = t.s;
+          body.appendChild(sub);
+        }
+
+        var meta = document.createElement("div");
+        meta.className = "t-meta";
+        if (t.due) {
+          var d = document.createElement("span");
+          d.className = "due" + (t.over ? " over" : "");
+          d.textContent = t.due;
+          meta.appendChild(d);
+        }
+        if (t.tag) {
+          var tg = document.createElement("span");
+          tg.className = "tag";
+          tg.textContent = t.tag;
+          meta.appendChild(tg);
+        }
+        if (t.custom) {
+          var del = document.createElement("button");
+          del.className = "del";
+          del.textContent = "×";
+          del.title = "Remove";
+          del.setAttribute("aria-label", "Remove " + t.t);
+          del.addEventListener("click", function () {
+            state.removed[t.id] = 1;
+            state.added = state.added.filter(function (x) { return x.id !== t.id; });
+            save(); render();
+          });
+          meta.appendChild(del);
+        }
+
+        li.appendChild(cb); li.appendChild(body); li.appendChild(meta);
+        ul.appendChild(li);
+      });
+
+      var doneN = list.filter(function (t) { return state.done[t.id]; }).length;
+      box.querySelector(".tg-count").textContent = doneN + " / " + list.length;
+    });
+  }
+
+  document.getElementById("addbtn").addEventListener("click", addTask);
+  document.getElementById("newtask").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") addTask();
+  });
+
+  function addTask() {
+    var inp = document.getElementById("newtask");
+    var txt = inp.value.trim();
+    if (!txt) return;
+    state.added.push({
+      id: "u" + Date.now().toString(36),
+      g: document.getElementById("newgroup").value,
+      t: txt, tag: "Added", custom: true
+    });
+    inp.value = "";
+    save(); render();
+    inp.focus();
+  }
+
+  render();
+})();
+</script>
+
+</body></html>
