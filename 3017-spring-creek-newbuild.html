@@ -1,0 +1,483 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>3017 Spring Creek Dr — New-Build Underwrite</title></head><body>
+<style>
+  :root{
+    --ink:#12161c; --ink-2:#3d4756; --ink-3:#6b7686;
+    --bg:#fbfaf8; --panel:#ffffff; --rule:#e3e0da; --rule-2:#f0eeea;
+    --red:#a3231f; --red-bg:#fbeceb;
+    --green:#186b4f; --green-bg:#eaf4ef;
+    --amber:#8a5a06; --amber-bg:#fbf2e0;
+    --accent:#1b3a5c;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e6e1; --ink-2:#b3b8c0; --ink-3:#858d99;
+      --bg:#12151a; --panel:#181c23; --rule:#2b313b; --rule-2:#222731;
+      --red:#f0736c; --red-bg:#2c1a1a;
+      --green:#5fc79b; --green-bg:#16261f;
+      --amber:#e0ac52; --amber-bg:#2a2113;
+      --accent:#8fb8e0;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 96px}
+
+  /* ---------- masthead ---------- */
+  header{border-bottom:3px solid var(--ink);padding:44px 0 20px;margin-bottom:34px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--ink-3);margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:0 0 6px;
+     letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+         text-transform:uppercase;padding:5px 11px;border-radius:3px;font-weight:600;
+         background:var(--red-bg);color:var(--red);border:1px solid currentColor;margin-bottom:16px}
+
+  /* ---------- hero numbers ---------- */
+  .verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--red);
+           padding:24px 26px;margin:0 0 12px;border-radius:3px}
+  .verdict p{margin:0;font-size:19px;font-family:var(--serif);line-height:1.45}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+        border:1px solid var(--rule);margin:22px 0 8px;border-radius:3px;overflow:hidden}
+  .num{background:var(--panel);padding:20px 18px}
+  .num .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+          color:var(--ink-3);margin:0 0 8px}
+  .num .v{font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:600;
+          letter-spacing:-.02em;margin:0;line-height:1}
+  .num .n{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;line-height:1.4}
+  .v.bad{color:var(--red)} .v.ok{color:var(--green)} .v.mid{color:var(--amber)}
+  @media(max-width:660px){.nums{grid-template-columns:1fr}}
+
+  /* ---------- sections ---------- */
+  section{margin:52px 0 0}
+  h2{font-family:var(--serif);font-size:26px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;
+     padding-bottom:9px;border-bottom:1px solid var(--ink)}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:400;margin-right:10px;
+        letter-spacing:.06em}
+  h3{font-size:13px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;
+     color:var(--ink-3);margin:30px 0 10px;font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);margin:14px 0 0;font-family:var(--serif)}
+  p{margin:14px 0}
+
+  /* ---------- tables ---------- */
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+     text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;font-weight:600;
+     border-bottom:1px solid var(--ink);white-space:nowrap}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;
+            padding-right:0;white-space:nowrap}
+  tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:12px}
+  .key{font-weight:600}
+  .bad{color:var(--red)} .good{color:var(--green)} .warn{color:var(--amber)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;
+        text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;
+        vertical-align:1px;white-space:nowrap}
+  .f-ok{background:var(--green-bg);color:var(--green)}
+  .f-as{background:var(--amber-bg);color:var(--amber)}
+  .f-no{background:var(--red-bg);color:var(--red)}
+
+  /* ---------- signals ---------- */
+  .sig{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:24px 0}
+  .sig h4{margin:0 0 6px;font-size:16.5px;font-family:var(--serif);font-weight:600}
+  .sig p{margin:0;font-size:15px;color:var(--ink-2)}
+
+  /* ---------- scenario chart ---------- */
+  .chart{margin:24px 0 8px}
+  .row{display:grid;grid-template-columns:88px 1fr 118px;align-items:center;gap:14px;
+       padding:11px 0;border-bottom:1px solid var(--rule-2)}
+  .row:last-child{border-bottom:none}
+  .row .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+            color:var(--ink-3)}
+  .track{position:relative;height:26px;background:var(--rule-2);border-radius:2px}
+  .zero{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--ink-3);left:83.3%}
+  .bar{position:absolute;top:3px;bottom:3px;border-radius:2px}
+  .row .amt{font-family:var(--mono);font-size:14.5px;text-align:right;font-weight:600;
+            font-variant-numeric:tabular-nums}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;font-family:var(--mono)}
+  @media(max-width:560px){.row{grid-template-columns:64px 1fr 96px;gap:9px}.row .amt{font-size:13px}}
+
+  /* ---------- callouts ---------- */
+  .call{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+        padding:20px 22px;margin:24px 0}
+  .call.kill{border-left:4px solid var(--red)}
+  .call.note{border-left:4px solid var(--accent)}
+  .call p:first-child{margin-top:0} .call p:last-child{margin-bottom:0}
+  .call strong{font-weight:700}
+
+  ol.rank{padding-left:0;list-style:none;counter-reset:r;margin:18px 0}
+  ol.rank li{counter-increment:r;position:relative;padding:12px 0 12px 44px;
+             border-bottom:1px solid var(--rule-2)}
+  ol.rank li::before{content:counter(r);position:absolute;left:0;top:12px;width:26px;height:26px;
+    background:var(--ink);color:var(--bg);border-radius:50%;font-family:var(--mono);font-size:12px;
+    display:flex;align-items:center;justify-content:center;font-weight:700}
+  ol.rank li b{display:block;font-size:15px;margin-bottom:3px}
+  ol.rank li span{font-size:14px;color:var(--ink-2)}
+
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);
+         font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-3)} footer a:hover{color:var(--ink)}
+  .srcs{word-break:break-word}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Deal Board · New-Build Underwrite · 20 Aug 2026</p>
+  <div class="badge">Verdict — Walk</div>
+  <h1>3017 Spring Creek Dr</h1>
+  <p class="sub">Hephzibah, GA 30815 · Richmond County · Parcel 151-3-039-00-0 · 0.228 ac vacant lot · Asking $17,500</p>
+</header>
+
+<div class="verdict">
+  <p><strong>The lot is cheap. The vertical is what kills it.</strong> An 1,800 sf spec build loses
+  <span class="bad mono">$48,045</span> in the base case. Break-even lot price is
+  <span class="bad mono">−$27,453</span> — a free lot still loses roughly $30K.
+  Purchase price is not the variable that can save this deal.</p>
+</div>
+
+<div class="nums">
+  <div class="num">
+    <p class="k">Offer zone — land hold only</p>
+    <p class="v mid">$8K–$11K</p>
+    <p class="n">Speculative land hold, not a build site. No exit at the other end.</p>
+  </div>
+  <div class="num">
+    <p class="k">MAO as a build site</p>
+    <p class="v bad">$0</p>
+    <p class="n">Mathematically negative. There is no bid that makes the build work.</p>
+  </div>
+  <div class="num">
+    <p class="k">Walk-away</p>
+    <p class="v bad">$12,000</p>
+    <p class="n">Any price above this, and any price at all if the plan is to build and sell.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">01</span>Evidence inventory</h2>
+  <p class="lede">Every input labelled before any math. Nothing missing was allowed to become a silent assumption.</p>
+
+  <h3>Confirmed — county, GIS and MLS primary sources</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Parcel</td><td>151-3-039-00-0 · 0.228 ac / 10,019 sf</td><td>Augusta GIS parcel geometry</td></tr>
+      <tr><td class="key">Status</td><td>Vacant — no building footprint (2025 capture)</td><td>Augusta iasWorld building layer</td></tr>
+      <tr><td class="key">Zoning</td><td>R-1A</td><td>Augusta CityView zoning layer</td></tr>
+      <tr><td class="key">Flood</td><td>Zone X · minimal hazard · DFIRM 13245C</td><td>FEMA NFHL</td></tr>
+      <tr><td class="key">List price</td><td>$17,500 · 9 DOM · Hive MLS #100595386 · Blanchard &amp; Calhoun–Evans</td><td>Redfin</td></tr>
+      <tr><td class="key">HOA</td><td>$29/mo · $348/yr</td><td>3021 Spring Creek listing</td></tr>
+      <tr><td class="key">Deed history</td><td>130 recorded deeds, whole subdivision, 2004→2026</td><td>Augusta GIS sales table</td></tr>
+      <tr><td class="key">New-SFD permits</td><td>371 in 30815 since 2024 · <b>0 on Spring Creek Dr</b></td><td>Augusta permit table</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Assumption — flagged, not verified</h3>
+  <p><span class="flag f-as">Assumption</span> <b>Seller identity and basis.</b> qPublic is Cloudflare-blocked and the subject has
+  <em>no recorded sale in the county sales table</em> — which points to the original developer entity
+  (LMP Properties Inc appears as grantor on the 2015–16 lot deeds) still holding it.<br>
+  <span class="flag f-as">Assumption</span> <b>Direct build cost of $132/sf</b> — modeled from trade lines, not quoted. Largest single number in the model.<br>
+  <span class="flag f-as">Assumption</span> <b>Sewer availability</b> at the lot, and the plan's HOA compliance.</p>
+
+  <h3>Missing — required before money moves</h3>
+  <p><span class="flag f-no">Missing</span> Recorded plat &amp; easements · HOA architectural covenants (minimum sq ft, masonry %) ·
+  Augusta Utilities sewer/tap letter · two real GC bids · soils and tree survey.</p>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">02</span>Market read</h2>
+  <p class="lede">Four independent signals. All four point the same direction.</p>
+
+  <div class="sig">
+    <h4>a · The subdivision stopped building nine years ago</h4>
+    <p>D.R. Horton bought lots here at <b class="mono">$27,000</b> in 2015–16 and delivered homes at $170K–$215K
+    through 2017. Then it stopped. Since 2017 there have been <b>zero new-construction permits on Spring Creek Dr</b>
+    — the only permit pulled on the street since is a 3-ton HVAC change-out in April 2026.</p>
+  </div>
+
+  <div class="sig">
+    <h4>b · Fifteen platted lots still have no structure</h4>
+    <p>Nine on Spring Creek Dr (one is HOA common area), six on Woodlands Dr. Two unbuilt lots were absorbed by
+    neighbours as side yards — 151-3-032 combined to 0.92 ac, 151-3-036 to 0.46 ac. And 3206 Woodlands sold in
+    Nov 2025 for $34,000 <b>to the adjacent homeowner</b>: an assemblage buy, not a builder buy.</p>
+  </div>
+
+  <div class="sig">
+    <h4>c · The seller is liquidating, and your neighbour's lot is identical</h4>
+    <div class="scroll"><table>
+      <thead><tr><th>Lot</th><th class="n">Price</th><th class="n">DOM</th></tr></thead>
+      <tbody>
+        <tr><td>3030 Spring Creek Dr</td><td class="n">$40,000</td><td class="n">49</td></tr>
+        <tr><td>3044 Spring Creek Dr <span style="color:var(--ink-3)">(pond)</span></td><td class="n">$40,000</td><td class="n">49</td></tr>
+        <tr><td class="key">3017 Spring Creek Dr — subject</td><td class="n key">$17,500</td><td class="n key">9</td></tr>
+        <tr><td>3019 Spring Creek Dr <span style="color:var(--ink-3)">(directly adjacent, same size)</span></td><td class="n">$17,500</td><td class="n">9</td></tr>
+        <tr><td>3002 Spring Creek Dr</td><td class="n">$17,500</td><td class="n">9</td></tr>
+      </tbody>
+    </table></div>
+    <p>Same broker, identical listing copy. Two lots sat 40 days at $40,000, then three more dropped at $17,500 —
+    a <b>56% cut</b>. No scarcity, no assemblage leverage, and any resale of 3017 competes head-on with an
+    identical lot next door held by a seller who is still cutting.</p>
+  </div>
+
+  <div class="sig">
+    <h4>d · Resale value here sits below replacement cost</h4>
+    <p>Existing 2,300–2,750 sf homes trade at <b class="mono">$109–$128/sf</b>. The build costs
+    <b class="mono">$132–$178/sf</b>. That is the mathematical core of the problem — and it means every extra
+    square foot costs ~$132 to build while adding ~$50 of appraised value. <b>Building bigger makes it worse.</b></p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">03</span>Comp grid — built from closed deeds, then attacked</h2>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Comp</th><th class="n">Dist</th><th class="n">Date</th><th class="n">Price</th><th class="n">GLA</th><th class="n">$/sf</th><th>Attack</th></tr></thead>
+    <tbody>
+      <tr><td class="key">3021 Spring Creek Dr</td><td class="n">0.09 mi</td><td class="n">Pending now</td><td class="n key">$299,900</td><td class="n">2,748</td><td class="n key">$109</td><td>Cut from $319,000 — “extreme price improvement.” Freshest signal in the subdivision.</td></tr>
+      <tr><td class="key">3007 Spring Creek Dr</td><td class="n">0.08 mi</td><td class="n">8/2024</td><td class="n">$275,000</td><td class="n">2,395</td><td class="n">$115</td><td>Cleanest in-subdivision closed resale.</td></tr>
+      <tr><td>3105 Pebblebrook Ln</td><td class="n">0.08 mi</td><td class="n">2/2024</td><td class="n">$295,000</td><td class="n">2,300</td><td class="n">$128</td><td>3 full baths + loft — top of the range, not the middle.</td></tr>
+      <tr><td>3029 Spring Creek Dr</td><td class="n">0.10 mi</td><td class="n">8/2022</td><td class="n">$315,000</td><td class="n">3,150</td><td class="n">$100</td><td>2022 peak. Stale.</td></tr>
+      <tr><td>3027 / 3232 <span style="color:var(--ink-3)">(2022 pair)</span></td><td class="n">0.10 mi</td><td class="n">5/2022</td><td class="n">$297K / $295K</td><td class="n">—</td><td class="n">—</td><td class="bad">Buyers were BPREP SFR OWNER LLC and BNTR SFR OWNER LLC — institutional bulk buys at the peak. Discarded as retail evidence.</td></tr>
+      <tr><td class="key">3043 Willis Foreman Rd</td><td class="n">0.12 mi</td><td class="n">4/2025</td><td class="n">$345,000</td><td class="n">2,000</td><td class="n">$172</td><td><b>New construction</b> — best comp for the scenario, but 1.33 ac, no HOA, road frontage. Redfin now estimates it at <b>$332,577 — $12K below its own sale price 16 months ago.</b></td></tr>
+      <tr><td>2613 / 2658 Inverness Dr <span style="color:var(--ink-3)">(Southampton)</span></td><td class="n">~3 mi</td><td class="n">2025–26</td><td class="n">$271.9K / $273.9K</td><td class="n">1,618</td><td class="n">$168</td><td>Beazley production in an actively marketed new subdivision with a builder's sales machine. Not transferable to a street of vacant lots.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call note">
+    <p><strong>ARV tiers for an 1,800 sf new build.</strong> Adjusting 3021 (pending, $299,900 / 2,748 sf) for GLA at a
+    realistic appraiser marginal rate of ~$50/sf gives $252,500; add a $25K–$35K new-construction and condition
+    adjustment → <b>$278K–$288K</b>. Cross-checking off 3007 lands at ~$275K.</p>
+    <p class="mono" style="font-size:15px;margin-top:14px">
+      Downside <b>$260,000</b> &nbsp;·&nbsp; Base <b>$280,000</b> &nbsp;·&nbsp; Upside <b>$300,000</b></p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">04</span>Build budget — 1,800 sf, builder-grade, slab, self-GC</h2>
+  <p class="lede">Everything below is required. There is no deferred or cosmetic bucket on a ground-up build, and
+  trading up on finish does not move ARV in a $109/sf subdivision.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Trade</th><th class="n">Likely</th><th>Trade</th><th class="n">Likely</th></tr></thead>
+    <tbody>
+      <tr><td>Plans + engineering</td><td class="n">$3,500</td><td>Plumbing</td><td class="n">$14,500</td></tr>
+      <tr><td>Survey / stakeout / soils</td><td class="n">$2,000</td><td>Electrical</td><td class="n">$10,500</td></tr>
+      <tr><td>Permits + plan review</td><td class="n">$3,000</td><td>HVAC</td><td class="n">$11,000</td></tr>
+      <tr><td>Water + sewer tap</td><td class="n">$4,500</td><td>Insulation</td><td class="n">$5,000</td></tr>
+      <tr><td>Clear / grade / erosion</td><td class="n">$7,000</td><td>Drywall</td><td class="n">$10,500</td></tr>
+      <tr><td>Driveway + walks</td><td class="n">$6,000</td><td>Interior trim + doors</td><td class="n">$8,500</td></tr>
+      <tr><td>Slab foundation</td><td class="n">$16,500</td><td>Cabinets + countertops</td><td class="n">$11,500</td></tr>
+      <tr><td>Framing + lumber package</td><td class="n">$48,000</td><td>Flooring</td><td class="n">$10,000</td></tr>
+      <tr><td>Roofing</td><td class="n">$10,500</td><td>Paint int + ext</td><td class="n">$8,000</td></tr>
+      <tr><td>Windows + ext doors</td><td class="n">$9,000</td><td>Appliances</td><td class="n">$5,000</td></tr>
+      <tr><td>Siding / brick / ext trim</td><td class="n">$16,000</td><td>Gutters / hardware / punch</td><td class="n">$4,500</td></tr>
+      <tr><td></td><td class="n"></td><td>Landscape / sod / final grade</td><td class="n">$6,000</td></tr>
+      <tr><td></td><td class="n"></td><td>Temp utils / dumpsters / clean</td><td class="n">$4,500</td></tr>
+      <tr><td></td><td class="n"></td><td>Builder's risk + GL</td><td class="n">$3,000</td></tr>
+      <tr class="tot"><td colspan="3">Direct subtotal</td><td class="n">$238,500 &nbsp;·&nbsp; $132/sf</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Case</th><th class="n">Contingency</th><th class="n">All-in</th><th class="n">$/sf</th></tr></thead>
+    <tbody>
+      <tr><td>Low</td><td class="n">8%</td><td class="n">$224,095</td><td class="n">$124</td></tr>
+      <tr><td class="key">Likely</td><td class="n">10%</td><td class="n key">$262,350</td><td class="n key">$146</td></tr>
+      <tr><td>High</td><td class="n">15%</td><td class="n">$320,902</td><td class="n">$178</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">05</span>Full budget — three correlated scenarios</h2>
+  <p class="lede">Downside pairs low ARV <em>with</em> high cost <em>and</em> a longer hold. Bad news travels in packs.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Line</th><th class="n">Downside</th><th class="n">Base</th><th class="n">Upside</th></tr></thead>
+    <tbody>
+      <tr><td class="key">ARV</td><td class="n">$260,000</td><td class="n">$280,000</td><td class="n">$300,000</td></tr>
+      <tr><td class="key">Months exposure</td><td class="n">17</td><td class="n">13</td><td class="n">10</td></tr>
+      <tr><td>Lot</td><td class="n">$17,500</td><td class="n">$17,500</td><td class="n">$17,500</td></tr>
+      <tr><td>Lot closing</td><td class="n">$1,000</td><td class="n">$1,000</td><td class="n">$1,000</td></tr>
+      <tr><td>Build all-in</td><td class="n">$320,902</td><td class="n">$262,350</td><td class="n">$224,095</td></tr>
+      <tr><td>Construction interest</td><td class="n">$25,581</td><td class="n">$14,770</td><td class="n">$8,875</td></tr>
+      <tr><td>Points</td><td class="n">$5,414</td><td class="n">$4,478</td><td class="n">$2,899</td></tr>
+      <tr><td>Carry — tax / HOA / utilities</td><td class="n">$5,423</td><td class="n">$4,147</td><td class="n">$3,190</td></tr>
+      <tr><td>Selling — 10.5% / 8.5% / 7.5%</td><td class="n">$27,300</td><td class="n">$23,800</td><td class="n">$22,500</td></tr>
+      <tr class="tot"><td>Total cost</td><td class="n">$403,120</td><td class="n">$328,045</td><td class="n">$280,058</td></tr>
+      <tr><td class="key">Profit</td><td class="n bad key">−$143,120</td><td class="n bad key">−$48,045</td><td class="n good key">+$19,942</td></tr>
+      <tr><td>Return on cost</td><td class="n bad">−35.5%</td><td class="n bad">−14.6%</td><td class="n good">+7.1%</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="chart">
+    <div class="row">
+      <div class="lbl">Downside</div>
+      <div class="track"><span class="zero"></span><span class="bar" style="left:3.8%;width:79.5%;background:var(--red)"></span></div>
+      <div class="amt bad">−$143,120</div>
+    </div>
+    <div class="row">
+      <div class="lbl">Base</div>
+      <div class="track"><span class="zero"></span><span class="bar" style="left:56.6%;width:26.7%;background:var(--red)"></span></div>
+      <div class="amt bad">−$48,045</div>
+    </div>
+    <div class="row">
+      <div class="lbl">Upside</div>
+      <div class="track"><span class="zero"></span><span class="bar" style="left:83.3%;width:11.1%;background:var(--green)"></span></div>
+      <div class="amt good">+$19,942</div>
+    </div>
+    <p class="cap">Profit at exit · vertical rule = break-even · one shared scale</p>
+  </div>
+
+  <div class="call kill">
+    <p>Selling costs include a concession allowance. Beazley, Keystone, Great Southern and D.R. Horton all buy the
+    rate down in this zip — a one-off spec has to match or sit.</p>
+    <p><strong>The upside case earns 7.1% for a 10-month construction risk, and requires every single variable to
+    break your way at once.</strong> That is not an investable outcome.</p>
+  </div>
+
+  <h3>Decision numbers</h3>
+  <div class="scroll"><table>
+    <tbody>
+      <tr><td class="key">Break-even lot price</td><td class="n bad key">−$27,453</td><td>A free lot still loses ~$30K</td></tr>
+      <tr><td>MAO at 12% profit</td><td class="n bad">−$58,891</td><td></td></tr>
+      <tr><td>MAO at 15% profit</td><td class="n bad">−$66,750</td><td></td></tr>
+      <tr><td>70% rule MAO</td><td class="n bad">−$66,350</td><td></td></tr>
+      <tr><td class="key">Break-even sale price</td><td class="n key">$332,508</td><td>$185/sf</td></tr>
+      <tr><td class="key">ARV needed for a 15% margin</td><td class="n key">$397,706</td><td>$221/sf</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="call kill">
+    <p><strong>Break-even requires the highest sale price in the subdivision's history.</strong> The record is
+    $320,000 (3106 Pebblebrook, 3/2023) — and you would need it on a house <b>950 sf smaller</b> than the 2,748 sf
+    home currently pending at $299,900.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">06</span>Alternate exits tested — all fail</h2>
+
+  <h3>Hire a GC (+15%)</h3>
+  <p>Build rises to $301,702 ($168/sf); the loss widens to <b class="bad mono">−$90,104</b>. Self-GC is not a
+  preference here — it is the only version that even gets close.</p>
+
+  <h3>Build to rent</h3>
+  <p>30815 single-family rents run $1,308–$1,900, averaging ~$1,429.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Rent</th><th class="n">NOI @ 45% exp</th><th class="n">Yield on cost</th><th class="n">Value @ 7.5% cap</th><th class="n">Gap vs cost</th></tr></thead>
+    <tbody>
+      <tr><td>$1,500/mo</td><td class="n">$9,900</td><td class="n bad">3.25%</td><td class="n">$132,000</td><td class="n bad">−$172,245</td></tr>
+      <tr><td>$1,650/mo</td><td class="n">$10,890</td><td class="n bad">3.58%</td><td class="n">$145,200</td><td class="n bad">−$159,045</td></tr>
+      <tr><td>$1,800/mo</td><td class="n">$11,880</td><td class="n bad">3.90%</td><td class="n">$158,400</td><td class="n bad">−$145,845</td></tr>
+    </tbody>
+  </table></div>
+  <p>Not close. Switching frames does not rescue this one.</p>
+
+  <h3>Dual exit — land as the floor</h3>
+  <p>The lot's own resale value <em>is</em> the floor, and it is roughly the ask — with an identical lot next door at
+  the same price and a seller who cut 56% in six weeks. No floor, no cushion.</p>
+
+  <h3>Pre-sold custom for a buyer</h3>
+  <p>Transfers the ARV risk but not the problem. A construction-to-perm lender appraises as-completed; at $132–$146/sf
+  cost against $109–$128/sf comps, the appraisal gap becomes the buyer's cash-in — and the deal dies at underwriting
+  instead of at resale.</p>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">07</span>Phase 0 — ranked by dollar swing per dollar spent</h2>
+  <p class="lede">Only worth running if you are still inclined to build after the above. Cheapest and
+  highest-leverage first, all inside the due-diligence period.</p>
+
+  <ol class="rank">
+    <li><b>HOA architectural covenants — $0</b>
+      <span>Minimum square footage, masonry percentage, garage, roof pitch. <b class="bad">Deal-killing:</b>
+      D.R. Horton-era covenants often mandate 1,800+ sf and masonry fronts, which outlaws the only plan that
+      approaches break-even.</span></li>
+    <li><b>Augusta Utilities sewer availability + tap fee letter — $0</b>
+      <span>Swing $10K–$18K. Septic plus drainfield on 0.228 ac may not even be feasible.</span></li>
+    <li><b>R-1A minimum lot area &amp; setbacks — $0</b>
+      <span>Lot is 10,019 sf. Confirm buildable envelope and lot-of-record status. Swing: the whole deal.</span></li>
+    <li><b>Two real GC bids on a specific plan — $0–$500</b>
+      <span>Swing $40K+. This is the largest modeled, unverified number in the underwrite.</span></li>
+    <li><b>Appraiser “as-completed” feasibility letter — $400–$600</b>
+      <span>Swing $30K–$50K, and it is what your lender will use anyway. Buy this <em>before</em> plans.</span></li>
+    <li><b>Soils / tree survey — $500–$1,200</b>
+      <span>Swing $5K–$15K in fill, undercut and clearing.</span></li>
+    <li><b>Title + plat: drainage easements — $200–$400</b>
+      <span>Swing $5K–$20K.</span></li>
+  </ol>
+  <p><span class="flag f-ok">Resolved</span> Flood zone — already checked at $0. FEMA NFHL returns Zone X, area of
+  minimal flood hazard.</p>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">08</span>Seller gap</h2>
+  <p>They are asking <b class="mono">$17,500</b>. True value as a build site is <b class="mono">≤ $0</b> on this
+  evidence. As a speculative land hold, comps are thin and mostly non-arm's-length: $34,000 (Nov 2025, adjacent
+  owner), $30,000 (2020), $27,000 (2016, D.R. Horton).</p>
+  <p>With 15 unbuilt lots, five actively listed and a seller who cut 56% in six weeks,
+  <b class="mono">$8,000–$11,000</b> is the only defensible bid — and there is no exit at the other end.
+  <b>No meeting point exists that fixes this, because the lot price was never the problem.</b></p>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="n">09</span>What the data says to do instead</h2>
+
+  <div class="sig">
+    <h4>1 · Buy below replacement, don't build above market</h4>
+    <p>An existing D.R. Horton home here at ~$275K / 2,395 sf ($115/sf) trades at roughly 70–80% of what it costs to
+    replace. That is the trade this dataset actually supports.</p>
+  </div>
+  <div class="sig">
+    <h4>2 · If you want a new-build play in 30815, buy where absorption exists</h4>
+    <p>Beazley's Southampton (Inverness / Hollington, $256K–$332K) and Stockport / Ashton ($376K–$424K), or
+    Keystone's Pine Ridge ($302K–$405K). Those clear at $168+/sf with a builder's marketing behind them.
+    Stranded lots in a dead subdivision are cheap for a reason.</p>
+  </div>
+  <div class="sig">
+    <h4>3 · Read the D.R. Horton tell</h4>
+    <p>The lowest-cost homebuilder in America bought lots here at $27,000, built through 2017, walked, and is now
+    building townhomes at Laurel Park on Firestone Dr ($222K–$261K) instead. <b>When the cheapest builder in the
+    country won't build on a lot, the lot price isn't the reason.</b></p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>3017 Spring Creek Dr, Hephzibah GA 30815 — new-build underwrite.</strong>
+  Prepared 20 August 2026. Conservative underwrite from primary county records, FEMA NFHL and MLS-sourced listing
+  data. Figures marked <span class="flag f-as">Assumption</span> are modeled, not quoted — see Phase 0 before acting.
+  Contains internal decision numbers (MAO, walk-away, offer zone); not for distribution to the listing side.</p>
+  <p class="srcs"><strong>Sources:</strong>
+  <a href="https://gismap.augustaga.gov/arcgis/rest/services">Augusta GIS REST services</a> (parcels, sales, permits, zoning, building footprints) ·
+  <a href="https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer">FEMA NFHL</a> ·
+  <a href="https://www.redfin.com/GA/Hephzibah/3017-Spring-Creek-Dr-30815/home/142109160">Redfin — 3017 Spring Creek Dr</a> ·
+  <a href="https://www.redfin.com/GA/Hephzibah/3021-Spring-Creek-Dr-30815/home/142174927">3021 Spring Creek Dr</a> ·
+  <a href="https://www.redfin.com/GA/Hephzibah/3007-Spring-Creek-Dr-30815/home/142094874">3007 Spring Creek Dr</a> ·
+  <a href="https://www.redfin.com/GA/Hephzibah/3105-Pebblebrook-Ln-30815/home/141935503">3105 Pebblebrook Ln</a> ·
+  <a href="https://www.redfin.com/GA/Hephzibah/3043-Willis-Foreman-Rd-30815/home/142116935">3043 Willis Foreman Rd</a> ·
+  <a href="https://www.drhorton.com/georgia/augusta/hephzibah/laurel-park-townhomes">D.R. Horton Laurel Park</a> ·
+  <a href="https://www.homes.com/property/2613-inverness-dr-hephzibah-ga/fx7sj44zjpw2c/">Homes.com — 2613 Inverness Dr</a> ·
+  <a href="https://www.homebuilderdigest.com/cost-guides/how-much-does-it-cost-to-build-a-house-in-augusta/">Home Builder Digest — Augusta build costs</a> ·
+  <a href="https://www.zumper.com/houses-for-rent/hephzibah-ga">Zumper — Hephzibah rents</a></p>
+</footer>
+
+</div>
+</body></html>
