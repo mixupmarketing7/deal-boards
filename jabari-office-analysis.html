@@ -1,0 +1,173 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Office Purchase Analysis — Jabari Jones</title></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#F4F3F0;--surface:#FFF;--ink:#14171C;--body:#3C424A;--muted:#767E88;--hair:#DAD7D1;
+  --brick:#BE3C27;--navy:#16233A;--good:#2E7361;--warn:#B0700F;--bad:#B3301D;
+  --good-w:#E3EFEB;--warn-w:#F8EEDC;--bad-w:#F8E7E3;
+  --head:"Montserrat",system-ui,sans-serif;--text:"Source Sans 3",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1216;--surface:#171B21;--ink:#F1F3F5;--body:#C4CAD2;--muted:#8A929C;--hair:#272D35;
+  --brick:#E4614A;--navy:#9FB4D6;--good:#5FBFA5;--warn:#E0A34A;--bad:#F0705A;
+  --good-w:#152622;--warn-w:#2B2317;--bad-w:#2E1A17;}}
+:root[data-theme="dark"]{
+  --paper:#0F1216;--surface:#171B21;--ink:#F1F3F5;--body:#C4CAD2;--muted:#8A929C;--hair:#272D35;
+  --brick:#E4614A;--navy:#9FB4D6;--good:#5FBFA5;--warn:#E0A34A;--bad:#F0705A;
+  --good-w:#152622;--warn-w:#2B2317;--bad-w:#2E1A17;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--body);font-family:var(--text);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:36px 22px 60px}
+h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:31px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--brick);margin:38px 0 12px}
+h3{font-size:17px;font-weight:700;margin-bottom:2px}
+.sub{color:var(--muted);font-size:14px;margin-top:7px}
+.rule{height:3px;background:var(--brick);width:52px;margin:16px 0 0}
+.alert{background:var(--bad-w);border:1px solid var(--bad);border-left-width:4px;
+  border-radius:7px;padding:16px 18px;margin:26px 0}
+.alert b{color:var(--bad);font-family:var(--head);display:block;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.box{background:var(--surface);border:1px solid var(--hair);border-radius:9px;
+  padding:18px 20px;margin:16px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--hair);border-radius:9px;
+  background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+th{background:var(--navy);color:#fff;font-family:var(--head);font-size:10.5px;
+  letter-spacing:.06em;text-transform:uppercase;padding:11px 10px;text-align:right;font-weight:700}
+th:first-child{text-align:left}
+td{padding:11px 10px;border-top:1px solid var(--hair);text-align:right;
+  font-variant-numeric:tabular-nums}
+td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+tr.dim td{color:var(--muted)}
+.tag{display:inline-block;font-family:var(--head);font-size:10px;font-weight:700;
+  letter-spacing:.05em;padding:3px 8px;border-radius:4px}
+.t-good{background:var(--good-w);color:var(--good)}
+.t-bad{background:var(--bad-w);color:var(--bad)}
+.t-warn{background:var(--warn-w);color:var(--warn)}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:9px;
+  padding:17px 19px;margin-bottom:12px;border-left:4px solid var(--muted)}
+.card.win{border-left-color:var(--good)}
+.card.no{border-left-color:var(--bad)}
+.card.hold{border-left-color:var(--warn)}
+.card p{margin:7px 0 0;font-size:15px}
+.meta{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+ul{padding-left:20px;margin:8px 0} li{margin-bottom:6px}
+a{color:var(--brick)}
+.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--hair);
+  font-size:12.5px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+<h1>Office Purchase Analysis</h1>
+<div class="rule"></div>
+<div class="sub">Six properties &middot; prepared for Jabari Jones by Alvin Slate &middot; 21 August 2026<br>
+Method: CCIM CI-103 User Decision Analysis (lease vs. own), financed conventionally through Synovus.</div>
+
+<div class="alert">
+  <b>Time-sensitive</b>
+  <strong>1820 Mallard Cove may already be under contract.</strong> Skyline Seven confirmed on
+  19 August that they have several offers in hand, and the broker we had been working with has left
+  the firm. It ranks near the top of this analysis, so if it is still available it needs a tour
+  immediately, not after the rest of the list is worked.
+</div>
+
+<h2>The test that decides it</h2>
+<div class="box">
+<p style="margin-top:0">Take the rent you would otherwise pay for the same amount of space and divide it by the purchase
+price. That is your <strong>rent-saved yield</strong>. Compare it to the <strong>debt constant</strong>,
+which is what the loan costs each year as a percentage of the amount borrowed.</p>
+<p><strong>If the rent-saved yield sits below the debt constant, buying costs more than renting</strong>
+&mdash; and no amount of negotiating inside a realistic range fixes it. The building is simply priced
+above what that space is worth to occupy.</p>
+</div>
+
+<h2>All six, ranked</h2>
+<div class="scroll"><table>
+<thead><tr><th>Property</th><th>Ask</th><th>$/SF</th><th>Cash to close</th><th>Monthly</th>
+<th>Rent-saved</th><th>Debt const.</th><th>Leverage</th><th>10-yr own vs. lease</th></tr></thead>
+<tbody>
+<tr><td>3017 Piedmont Rd NE #200<div class="meta">Buckhead &middot; office condo</div></td>
+  <td>$340,000</td><td>$240</td><td>$44,200</td><td>$3,288</td><td>16.2%</td><td>8.9%</td>
+  <td><span class="tag t-good">POSITIVE</span></td><td>own by $82,044</td></tr>
+<tr><td>1820 Mallard Cove, Suite 300<div class="meta">Cumberland, Cobb &middot; office condo</div></td>
+  <td>$250,000</td><td>$139</td><td>$32,500</td><td>$2,667</td><td>15.8%</td><td>8.9%</td>
+  <td><span class="tag t-good">POSITIVE</span></td><td>own by $36,666</td></tr>
+<tr><td>2741 Church St<div class="meta">East Point &middot; freestanding, 1930</div></td>
+  <td>$350,000</td><td>$208</td><td>$45,500</td><td>$3,214</td><td>10.1%</td><td>8.9%</td>
+  <td><span class="tag t-warn">THIN</span></td><td>lease by $8,182</td></tr>
+<tr class="dim"><td>1463 Church St<div class="meta">Decatur &middot; 1947 house converted</div></td>
+  <td>$475,000</td><td>$409</td><td>$61,750</td><td>$4,063</td><td>6.8%</td><td>8.9%</td>
+  <td><span class="tag t-bad">NEGATIVE</span></td><td>lease by $74,064</td></tr>
+<tr class="dim"><td>2195 Fairburn Rd SW<div class="meta">Southwest Atlanta</div></td>
+  <td>$500,000</td><td>$386</td><td>$65,000</td><td>$4,296</td><td>5.4%</td><td>8.9%</td>
+  <td><span class="tag t-bad">NEGATIVE</span></td><td>lease by $115,130</td></tr>
+<tr class="dim"><td>1683 W Washington Ave<div class="meta">East Point</div></td>
+  <td>$370,000</td><td>&mdash;</td><td>$48,100</td><td>&mdash;</td><td>&mdash;</td><td>8.9%</td>
+  <td><span class="tag t-warn">NO DATA</span></td><td>cannot score</td></tr>
+</tbody></table></div>
+<div class="meta">Modeled at 90% loan-to-value, 7.5% over 25 years, 3% closing costs, a 32% blended tax rate and
+an 8% discount rate over ten years. Monthly includes principal, interest, taxes, insurance, maintenance
+and association dues. <strong>The rate is an estimate until Synovus quotes you.</strong></div>
+
+<h2>What each one means</h2>
+
+<div class="card win"><h3>3017 Piedmont Rd NE #200 &mdash; strongest on paper, one serious obstacle</h3>
+<p>Fourteen months on the market and three price cuts, from $379,000 down to $340,000. The economics
+rank first here.</p>
+<p><strong>The obstacle is the appraisal, not the price.</strong> There have been no closed office-condo
+sales within half a mile of this building in ten years. A lender making a 90% loan needs an appraisal,
+and an appraiser with no comparable sales may not be able to support the contract price. That gap would
+have to be covered in cash on top of the down payment.</p>
+<p>Its ranking also assumes your alternative is leasing 1,416 sf of Buckhead space at $39/sf. If your
+real alternative is a shared suite closer to $2,400 a month, most of the advantage disappears.</p></div>
+
+<div class="card win"><h3>1820 Mallard Cove, Suite 300 &mdash; best fit, if it is still available</h3>
+<p>The only one of the six that fits inside your stated cash. Positive leverage, the lowest monthly of
+the group, and it is in Cobb, which is where you have said the family is heading in two to three years.</p>
+<p><strong>Two things need confirming before an offer.</strong> The unit that came back in our research
+is Suite 300, which is marketed as fully leased &mdash; so we need to know which suite is actually for
+sale. And there is an unconfirmed special assessment of roughly $25,000, which is a one-time capital
+cost on top of the monthly dues.</p></div>
+
+<div class="card hold"><h3>2741 Church St &mdash; a coin flip before the foundation is priced</h3>
+<p>Over ten years, owning and leasing come out within about $8,000 of each other. That is a tie, and
+it is calculated <em>before</em> any structural repair is included.</p>
+<p>For context on price: the parcel immediately next door, 2731 Church St, sold in July 2025 for
+$185,000, which works out to about $48 per square foot. This building is asking roughly four times
+that per foot.</p></div>
+
+<div class="card no"><h3>1463 Church St and 2195 Fairburn Rd &mdash; the math does not work</h3>
+<p>At $409 and $386 per square foot, both are priced well above what that space rents for. Their
+rent-saved yields, 6.8% and 5.4%, fall below the 8.9% cost of the debt. That is negative leverage:
+owning costs more than leasing regardless of how the negotiation goes.</p>
+<p>Both also sit above your cash-to-close ceiling. Fairburn has not had a single price reduction in
+eleven months.</p></div>
+
+<div class="card"><h3>1683 W Washington Ave &mdash; not enough information to score</h3>
+<p>The county has no recorded square footage for this parcel, and without it there is no way to compare
+it to anything else. Worth noting the county street name is West Washington Avenue rather than
+Washington Road.</p></div>
+
+<h2>What we need next</h2>
+<div class="box"><ul>
+<li><strong>Your Synovus quote.</strong> Every monthly figure here rests on an estimated 7.5%. A point
+either way moves these numbers by roughly $200 a month and can change the ranking.</li>
+<li><strong>Whether Mallard Cove is still available</strong>, and which suite is being sold.</li>
+<li><strong>Your real leasing alternative.</strong> What you would actually pay per month if you rented
+instead is the number the entire comparison is measured against.</li>
+<li><strong>Square footage for 1683 W Washington</strong> before it can be considered.</li>
+</ul></div>
+
+<div class="foot">
+Figures are modeled for comparison, not an appraisal, a loan commitment, or tax advice. Financing terms
+are estimates until quoted. Confirm tax treatment with your CPA and any purchase terms with counsel.<br><br>
+<strong>Alvin Slate</strong> &middot; REALTOR&reg; | Mortgage Loan Officer &middot; NMLS #2575831 (GA, IN)<br>
+eXp Realty &middot; GA Lic. #404817 &middot; (404) 432-6637 &middot; realestate@alvinslate.com
+</div>
+</div>
+</body></html>
