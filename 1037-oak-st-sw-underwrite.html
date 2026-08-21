@@ -1,0 +1,196 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>1037 Oak St SW — Underwrite</title></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#F4F3F0;--surface:#FFF;--ink:#14171C;--body:#3C424A;--muted:#767E88;--hair:#DAD7D1;
+  --brick:#BE3C27;--navy:#16233A;--good:#2E7361;--warn:#B0700F;--bad:#B3301D;
+  --good-w:#E3EFEB;--warn-w:#F8EEDC;--bad-w:#F8E7E3;
+  --head:"Montserrat",system-ui,sans-serif;--text:"Source Sans 3",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1216;--surface:#171B21;--ink:#F1F3F5;--body:#C4CAD2;--muted:#8A929C;--hair:#272D35;
+  --brick:#E4614A;--navy:#9FB4D6;--good:#5FBFA5;--warn:#E0A34A;--bad:#F0705A;
+  --good-w:#152622;--warn-w:#2B2317;--bad-w:#2E1A17;}}
+:root[data-theme="dark"]{
+  --paper:#0F1216;--surface:#171B21;--ink:#F1F3F5;--body:#C4CAD2;--muted:#8A929C;--hair:#272D35;
+  --brick:#E4614A;--navy:#9FB4D6;--good:#5FBFA5;--warn:#E0A34A;--bad:#F0705A;
+  --good-w:#152622;--warn-w:#2B2317;--bad-w:#2E1A17;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--body);font-family:var(--text);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:36px 22px 60px}
+h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:31px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--brick);margin:38px 0 12px}
+h3{font-size:17px;font-weight:700;margin-bottom:2px}
+.sub{color:var(--muted);font-size:14px;margin-top:7px}
+.rule{height:3px;background:var(--brick);width:52px;margin:16px 0 0}
+.alert{background:var(--bad-w);border:1px solid var(--bad);border-left-width:4px;
+  border-radius:7px;padding:16px 18px;margin:26px 0}
+.alert b{color:var(--bad);font-family:var(--head);display:block;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.box{background:var(--surface);border:1px solid var(--hair);border-radius:9px;
+  padding:18px 20px;margin:16px 0}
+.scroll{overflow-x:auto;margin:14px 0;border:1px solid var(--hair);border-radius:9px;
+  background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+th{background:var(--navy);color:#fff;font-family:var(--head);font-size:10.5px;
+  letter-spacing:.06em;text-transform:uppercase;padding:11px 10px;text-align:right;font-weight:700}
+th:first-child{text-align:left}
+td{padding:11px 10px;border-top:1px solid var(--hair);text-align:right;
+  font-variant-numeric:tabular-nums}
+td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+tr.dim td{color:var(--muted)}
+.tag{display:inline-block;font-family:var(--head);font-size:10px;font-weight:700;
+  letter-spacing:.05em;padding:3px 8px;border-radius:4px}
+.t-good{background:var(--good-w);color:var(--good)}
+.t-bad{background:var(--bad-w);color:var(--bad)}
+.t-warn{background:var(--warn-w);color:var(--warn)}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:9px;
+  padding:17px 19px;margin-bottom:12px;border-left:4px solid var(--muted)}
+.card.win{border-left-color:var(--good)}
+.card.no{border-left-color:var(--bad)}
+.card.hold{border-left-color:var(--warn)}
+.card p{margin:7px 0 0;font-size:15px}
+.meta{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+ul{padding-left:20px;margin:8px 0} li{margin-bottom:6px}
+a{color:var(--brick)}
+.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--hair);
+  font-size:12.5px;color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--surface);border:1px solid var(--hair);border-radius:9px;padding:15px 17px}
+.stat .k{font-family:var(--head);font-size:10px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.stat .v{font-family:var(--head);font-size:25px;font-weight:800;color:var(--ink);
+  margin-top:5px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat .n{font-size:12.5px;color:var(--muted);margin-top:4px}
+.stat.go{border-left:4px solid var(--good)} .stat.mid{border-left:4px solid var(--warn)}
+.stat.stop{border-left:4px solid var(--bad)}
+td.neg{color:var(--bad);font-weight:700} td.pos{color:var(--good);font-weight:700}
+.lede{font-size:17px;color:var(--ink);margin:14px 0 0}
+blockquote{margin:16px 0;padding:12px 18px;border-left:4px solid var(--brick);
+  background:var(--surface);border-radius:0 8px 8px 0;font-size:15px}
+</style>
+<div class="wrap">
+
+<h1>1037 (&amp;&nbsp;1035) Oak St SW, Atlanta GA 30310</h1>
+<div class="rule"></div>
+<p class="sub">Historic West End &middot; Fulton County &middot; FMLS 7745371 / GAMLS 10722777 &middot; legal duplex, 2,352&nbsp;sf, built 1930<br>
+Listed $329,000 &middot; 120 DOM &middot; investor indication at <b>$250,000</b> &middot; underwritten 21 Aug 2026</p>
+
+<div class="alert">
+<b>Verdict — do not sign at $250,000 unconditionally</b>
+The $250K thesis requires a rehab of <b>$50&ndash;74/sf</b> on a 1930 house with collapsed ceilings on both floors and two barricaded floor openings. That is below the national floor for any gut. The deal is a binary bet on <b>structure&nbsp;+&nbsp;roof</b>, and roughly <b>$1,500</b> resolves the binary before $250,000 is committed.
+</div>
+
+<h2>The three numbers</h2>
+<div class="stats">
+<div class="stat go"><div class="k">Conditional MAO</div><div class="v">$200&ndash;215K</div>
+<div class="n">Only after a clean engineering + roof report</div></div>
+<div class="stat mid"><div class="k">Unconditional MAO</div><div class="v">$85,000</div>
+<div class="n">Signing without inspection — equals lot value</div></div>
+<div class="stat stop"><div class="k">Walk-away</div><div class="v">&gt;$250,000</div>
+<div class="n">Unpriced structural risk, no contingency</div></div>
+</div>
+
+<h2>Why it is on the market at all</h2>
+<div class="scroll"><table>
+<tr><th>Date</th><th>Event</th></tr>
+<tr><td>01 Apr 2026</td><td>Coming soon &mdash; $399,000</td></tr>
+<tr><td>16 Jun 2026</td><td>Cut to $329,000 (&minus;17.5%)</td></tr>
+<tr><td>27 Jun 2026</td><td><b>Pending</b></td></tr>
+<tr><td>16 Jul 2026</td><td><b>Back on market</b> &mdash; buyer terminated in 19 days</td></tr>
+<tr><td>21 Aug 2026</td><td>120 DOM &middot; verbal indication at $250,000</td></tr>
+</table></div>
+
+<blockquote>A buyer went under contract at $329K and walked inside three weeks. If structure and roof were sound, the rational move was to renegotiate to $250K &mdash; not terminate. <b>The $250K thesis has already been tested by the market once, and it failed.</b> The prior buyer's inspection report is worth more than any model on this page.</blockquote>
+
+<h2>ARV &mdash; the size-matched cohort</h2>
+<p>Closed sales, 2,200&ndash;2,600&nbsp;sf, Historic West End, 24&nbsp;months. Sorted by lot size.</p>
+<div class="scroll"><table>
+<tr><th>Comp</th><th>Sold</th><th>Price</th><th>SF</th><th>$/SF</th><th>Lot SF</th></tr>
+<tr class="dim"><td>390 Holderness St SW</td><td>2024-09-18</td><td>$415,000</td><td>2,300</td><td><b>$180</b></td><td>5,118</td></tr>
+<tr class="dim"><td>549 Atwood St SW</td><td>2025-07-30</td><td>$470,000</td><td>2,215</td><td><b>$212</b></td><td>6,499</td></tr>
+<tr><td>680 Grady Pl SW</td><td>2026-05-01</td><td>$580,000</td><td>2,539</td><td>$228</td><td>7,501</td></tr>
+<tr><td>1253 Lucile Ave SW</td><td>2025-09-03</td><td>$610,011</td><td>2,546</td><td>$240</td><td>7,548</td></tr>
+<tr><td>1171 Eggleston St SW</td><td>2025-05-30</td><td>$560,000</td><td>2,500</td><td>$224</td><td>7,971</td></tr>
+<tr><td>875 White St SW</td><td>2025-08-27</td><td>$590,000</td><td>2,400</td><td>$246</td><td>8,999</td></tr>
+<tr><td>1271 Greenwich St SW</td><td>2026-05-13</td><td>$500,000</td><td>2,300</td><td>$217</td><td>9,583</td></tr>
+</table></div>
+
+<div class="box">
+<h3>The lot-size finding</h3>
+<p>Sort that cohort by lot and the price per foot sorts itself. <b>The two smallest lots print the two lowest $/SF</b> &mdash; $180 and $212 &mdash; while everything on 7,500+&nbsp;sf runs $217&ndash;246. The subject sits at <b>5,880&nbsp;sf on a 35&ndash;41&nbsp;ft frontage</b>, between the two cheapest. This is the tightest correlation in the data set, and it is the single strongest argument against the bull case.</p>
+<p class="meta">Lot-adjusted: ~$196&ndash;215/sf &rarr; $460&ndash;506K. Cross-check: nothing in West End is currently <em>asking</em> above $575K in this size class, and that listing sits on 11,761&nbsp;sf &mdash; twice the subject's land.</p>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="k">ARV downside</div><div class="v">$460,000</div><div class="n">$196/sf</div></div>
+<div class="stat"><div class="k">ARV base</div><div class="v">$510,000</div><div class="n">$217/sf &mdash; converted to SFR</div></div>
+<div class="stat"><div class="k">ARV upside</div><div class="v">$565,000</div><div class="n">$240/sf &mdash; requires flawless execution</div></div>
+</div>
+<p class="meta">Held as a <b>legal duplex</b> instead, the multi-family comps cap out lower: $295K (1165 Oak), $360K (1020 Oglethorpe), $420.5K (1111 Lawton Pl), $460K (494 Atwood). Duplex ARV base <b>$425,000</b>.</p>
+
+<h2>The war-game &mdash; what $250,000 implies</h2>
+<p>Solving backward from a $250K purchase for a 12%-of-ARV profit:</p>
+<div class="scroll"><table>
+<tr><th>Assumed ARV</th><th>Implied max rehab</th><th>Per SF</th><th>Plausible?</th></tr>
+<tr><td>$510,000 (base)</td><td>$118,800</td><td>$50/sf</td><td><span class="tag t-bad">No</span></td></tr>
+<tr><td>$580,000 (bull)</td><td>$175,150</td><td>$74/sf</td><td><span class="tag t-bad">No</span></td></tr>
+</table></div>
+<p>National floor for <em>any</em> gut is $60&ndash;150/sf; Atlanta on a 100-year-old house is $100&ndash;200/sf. The investor is not valuing the property differently &mdash; <b>they are underwriting a different building</b>, one where the ceilings came down from a fixable leak rather than a failed roof and compromised joists.</p>
+
+<h2>Profit at $250,000 &mdash; every scenario</h2>
+<p class="meta">Profit = (ARV &times; 0.925) &minus; $250,000 &minus; $3,750 buy-side &minus; rehab &minus; carry</p>
+<div class="scroll"><table>
+<tr><th>Rehab scenario</th><th>ARV $460K</th><th>ARV $510K</th><th>ARV $565K</th></tr>
+<tr><td>$200K &mdash; in-house crews, sound structure</td><td class="neg">&minus;$65,750</td><td class="neg">&minus;$20,000</td><td class="pos">+$30,875</td></tr>
+<tr><td>$287.5K &mdash; low band, 10&nbsp;mo carry</td><td class="neg">&minus;$167,750</td><td class="neg">&minus;$121,500</td><td class="neg">&minus;$70,625</td></tr>
+<tr><td>$425K &mdash; likely, 12&nbsp;mo carry</td><td class="neg">&minus;$315,250</td><td class="neg">&minus;$269,000</td><td class="neg">&minus;$218,125</td></tr>
+<tr><td>$569K &mdash; high, 15&nbsp;mo carry</td><td class="neg">&minus;$475,000</td><td class="neg">&minus;$428,750</td><td class="neg">&minus;$377,875</td></tr>
+</table></div>
+<p><b>One profitable cell out of twelve</b>, and it requires the best ARV in the size class on the smallest lot in the size class, <em>and</em> a $200K rehab, <em>and</em> nothing structural.</p>
+
+<h2>Steel-manning the bull case</h2>
+<div class="card win"><h3>Three things that are genuinely true</h3>
+<p><b>1. Vertical integration.</b> In-house crews and wholesale material take 35&ndash;45% off retail GC pricing &mdash; a $340K trade subtotal becomes ~$200&ndash;220K. Real.<br>
+<b>2. Scope discipline.</b> The kitchen and one bath appear salvageable in the photos; refinish rather than replace floors; repair rather than swap windows. Another $40&ndash;60K.<br>
+<b>3. It may not be a gut.</b> If structure and roof are sound, the job is demo/haul, rewire, replumb, HVAC, drywall, kitchen, two baths, floors, paint &mdash; <b>genuinely ~$200K with your own crews.</b></p></div>
+<div class="card no"><h3>What that best case actually pays</h3>
+<p>At $200K rehab, $38K carry, 9 months: <b>&minus;$20,000 at base ARV, +$44,750 at $580K</b> &mdash; a <b>9.1% return on cost</b> for 9&ndash;12 months on an uninsurable, unfinanceable, historic-district gut where the two largest cost lines are unverified. Below what a stabilized rental returns, with far more risk. And the downside is not symmetrical: if structure and roof <em>are</em> compromised, the same purchase loses <b>$120&ndash;270K</b>.</p></div>
+
+<h2>The decision rule</h2>
+<div class="box">
+<h3>Offer $250K &mdash; but only with a 21-day DD contingency and ~$1,500 spent in the first five days</h3>
+<div class="scroll"><table>
+<tr><th>Phase 0 check</th><th>Cost</th><th>Dollar swing resolved</th></tr>
+<tr><td>AUDC Ch. 20G historic status &mdash; one call, 404-330-6145</td><td><b>$0</b></td><td>$50&ndash;150K</td></tr>
+<tr><td>Structural engineer &mdash; the barricaded floor openings</td><td>$600&ndash;900</td><td>$40K+</td></tr>
+<tr><td>Roof &mdash; deck-level inspection</td><td>$0&ndash;350</td><td>$25K</td></tr>
+<tr><td>Sewer lateral scope</td><td>$400</td><td>$18K</td></tr>
+<tr><td>Hazmat screen &mdash; lead certain, asbestos likely</td><td>$600&ndash;1,200</td><td>$22K</td></tr>
+</table></div>
+<p><b>Then reprice mechanically:</b> every dollar of structural or roof scope the engineer finds comes off the price, or terminate. No absorbing it. The gap between the $215K conditional MAO and the $85K unconditional MAO <em>is</em> the value of that $1,500.</p>
+</div>
+
+<h2>Not yet verified</h2>
+<div class="card hold"><p>
+<b>Historic district status.</b> The parcel is almost certainly inside Atlanta's West End Historic District (Code Ch.&nbsp;20G) and possibly SPI-21. If so, AUDC must issue a Certificate of Appropriateness before <em>any</em> exterior work, window replacement may be forced to repair-in-kind, and demolition of a contributing 1930 structure is restricted &mdash; which means the land floor may not be reachable.<br><br>
+<b>The ADU claim is unverified.</b> "35&times;142 lot can allow an ADU" is marketing, not entitlement. On a 35&ndash;41&nbsp;ft frontage under R5 setbacks, treat as false until surveyed. Do not pay for it.<br><br>
+<b>Insurability.</b> Builder's risk on a structure carrying an unsafe-property waiver is frequently declined or surcharged &mdash; confirm before arranging hard money.<br><br>
+<b>Permits at exit.</b> Unpermitted exterior work in a historic district draws a stop-work order before the appraisal. The $510K retail buyer needs a clean permit history to finance.<br><br>
+<b>Comp renovation quality is inferred.</b> Redfin detail pages are CloudFront-blocked, so the $212&ndash;$246/sf cohort was priced as "renovated" from price and vintage, not confirmed from photos. If several were light cosmetic flips, base ARV falls further.</p></div>
+
+<h2>One more thing</h2>
+<div class="box"><p>The Fulton assessor carries this at <b>$147,400 assessed / $368,500 FMV with "Condition: Average"</b> &mdash; on a building that requires a signed hold-harmless to enter. That is a live property-tax appeal worth <b>~$2,000+/yr</b> of carry, for whoever ends up owning it. It is also why the seller is anchored: the AVM says $332,400 and the assessor says $368,500, and both are modeling a house in average condition.</p></div>
+
+<div class="foot">
+Prepared 21 Aug 2026 &middot; Alvin Slate Real Estate. Comps pulled live from 142 closed West End sales (24&nbsp;months) plus 32 actives; condition read from 20 listing photos and the Fulton tax record. No inspection has been performed and utilities are off &mdash; every rehab figure is an estimate from photographs, not a bid.<br><br>
+<b>Internal / buy-side document.</b> Contains maximum allowable offer, walk-away, and negotiating posture. Do not forward to the listing agent or seller.
+</div>
+
+</div></body></html>
