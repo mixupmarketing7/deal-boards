@@ -65,6 +65,7 @@
   td.txt { font-family: var(--sans); font-weight: 600; }
   td .zip { color: var(--muted); font-weight: 400; font-size: 12px; }
   .neg { color: var(--critical); }
+  .pos { color: var(--success-text); }
   .pill { display: inline-flex; align-items: center; gap: 5px; font-family: var(--sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; border-radius: 999px; padding: 3px 10px; }
   .pill.kill { color: #fff; background: var(--critical); }
   .pill.conf { color: var(--ink-2); border: 1px solid var(--ring); background: transparent; }
@@ -106,6 +107,9 @@
   .legend .key { display: inline-flex; align-items: center; gap: 6px; }
   .sw { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
 
+  .offers { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 4px 0; overflow-x: auto; }
+  .offers table { min-width: 760px; }
+
   footer { font-size: 12.5px; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--grid); padding-top: 16px; }
   footer code { font-family: var(--mono); font-size: 11.5px; }
 
@@ -117,24 +121,25 @@
 <div class="wrap">
   <header>
     <div class="eyebrow">Fleet Underwrite</div>
-    <h1>Indianapolis — Run 2026-08-09</h1>
+    <h1>Indianapolis — Run 2026-08-23</h1>
     <div class="meta">
-      <span class="chip">3 candidates researched · 1 flagged INVALID (address mismatch)</span>
+      <span class="chip">3 new candidates researched · 0 invalid · 3 verified real listings</span>
       <span class="chip">Weekly cron: Sundays 8:00 AM ET</span>
-      <span class="chip">Redfin/FRED/Zillow/Craigslist/GovEase blocked this run — WebSearch-snippet sourced only</span>
+      <span class="chip">WebFetch blocked network-wide this session (confirmed vs. unrelated domains too) — WebSearch-snippet sourced only</span>
       <span class="chip">Watchlist: 0/4 triggers fired this run</span>
+      <span class="chip">Discord webhook host blocked (403) — no Discord post sent this run</span>
     </div>
   </header>
 
   <div class="tiles">
-    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">1 invalid (bad address match) · 2 verified real listings</div></div>
-    <div class="tile"><div class="label">Verdicts</div><div class="value crit">2 KILL · 1 INVALID</div><div class="sub">0 renegotiate · 0 survive · 0 offer candidates this week</div></div>
-    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−37.2%</div><div class="sub">1629 Edgecombe Ave (base case, verified only)</div></div>
-    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $199K</div><div class="sub">2 verified deals only — Evanston excluded (invalid)</div></div>
+    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">1034 W 32nd St · 2850 N Kenwood Ave · 421-423 Villa Ave</div></div>
+    <div class="tile"><div class="label">Verdicts</div><div class="value crit">3 KILL</div><div class="sub">0 renegotiate · 0 survive · 2 offer candidates at corrected MAO</div></div>
+    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−23.2%</div><div class="sub">1034 W 32nd St (red-team-corrected base case)</div></div>
+    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $266K</div><div class="sub">Sum of |spread| @ ask across all 3, corrected figures</div></div>
   </div>
 
   <section>
-    <h2>Ranked comparison — by ROI at ask</h2>
+    <h2>Ranked comparison — by ROI at ask (red-team-corrected figures)</h2>
     <div class="tablebox">
       <table>
         <thead><tr>
@@ -142,26 +147,50 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td class="txt">1</td><td class="txt">1629 Edgecombe Ave <span class="zip">46227 · University Heights</span></td>
-            <td>$80,000</td><td>$105,000</td><td>$61,250</td><td>$153,925</td>
-            <td class="neg">−$57,325</td><td class="neg">−37.2%</td><td class="neg">−$18,925</td>
+            <td class="txt">1</td><td class="txt">1034 W 32nd St <span class="zip">46208 · Crown Hill / Riverside</span></td>
+            <td>$70,000</td><td>$150,000</td><td>$92,500</td><td>$179,683</td>
+            <td class="neg">−$41,683</td><td class="neg">−23.2%</td><td class="neg">$6,000</td>
             <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">2</td><td class="txt">3918 N Grand Ave <span class="zip">46226 · Devington</span></td>
-            <td>$100,000</td><td>$175,000</td><td>$174,200</td><td>$302,684</td>
-            <td class="neg">−$141,684</td><td class="neg">−46.8%</td><td class="neg">−$77,684</td>
+            <td class="txt">2</td><td class="txt">421-423 Villa Ave <span class="zip">46201 · Fountain Square-adj.</span></td>
+            <td>$149,900</td><td>$147,500</td><td>$45,000</td><td>$211,843</td>
+            <td class="neg">−$76,143</td><td class="neg">−35.9%</td><td class="neg">$43,500</td>
             <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">3</td><td class="txt">4237 Evanston Ave <span class="zip">46205 · Fairgrounds — INVALID</span></td>
-            <td>$67,500*</td><td>$115,000*</td><td>$98,750*</td><td>$183,676*</td>
-            <td class="neg">−$77,876*</td><td class="neg">−42.4%*</td><td class="neg">−$51,176*</td>
-            <td class="txt"><span class="pill conf">N/A</span></td><td class="txt"><span class="pill kill">✕ INVALID</span></td>
+            <td class="txt">3</td><td class="txt">2850 N Kenwood Ave <span class="zip">46208 · Watson-McCord — LIKELY STALE</span></td>
+            <td>$159,000*</td><td>$205,000</td><td>$148,125</td><td>$336,442</td>
+            <td class="neg">−$147,842</td><td class="neg">−43.9%</td><td class="neg">−$22,400</td>
+            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
         </tbody>
       </table>
     </div>
+  </section>
+
+  <section>
+    <h2>Offer candidates — a KILL at ask is not a dead deal at MAO</h2>
+    <div class="offers">
+      <table>
+        <thead><tr>
+          <th class="txt">Address</th><th class="txt">Offer zone</th><th class="txt">MAO</th><th class="txt">Walk-away</th><th class="txt">Seller situation</th><th class="txt">Why they might transact</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="txt">1034 W 32nd St</td><td class="txt">$5,000–$10,000</td><td class="txt">≈$6,000</td><td class="txt">≈$18,000–$20,000</td>
+            <td class="txt">Individual/investor seller, as-is marketing copy</td>
+            <td class="txt">Best-matched same-block comp (751 W 32nd) sold ~$68K in 2024 — ask is likely near as-is fair value already, not distressed; a lowball probe only makes sense if seller is unusually motivated. MAO here is a theoretical floor, not a realistic accepted price.</td>
+          </tr>
+          <tr>
+            <td class="txt">421-423 Villa Ave</td><td class="txt">$40,000–$50,000</td><td class="txt">≈$43,500</td><td class="txt">≈$65,000–$68,000</td>
+            <td class="txt">Individual/investor seller; one side tenant-occupied, one side rent-ready</td>
+            <td class="txt">Income-producing asset priced for a retail/investor buyer, not a distressed seller — a 65-70% discount off the $149,900 ask is a low-probability accept. Worth a probe only if the listing shows a price cut or extended DOM signaling seller fatigue.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-2);margin-top:8px">2850 N Kenwood Ave excluded — MAO is negative even under the most optimistic sensitivity tested (ARV upside + moderate rehab), and the listing itself shows strong signs of being stale (Nov 2025 multi-offer deadline, no 2026 activity found). Not a live offer candidate.</p>
   </section>
 
   <section>
@@ -180,7 +209,11 @@
   <footer>
     Model: all-in = purchase + rehab (likely, with contingency) + 1.5% buy closing + holding (~$6K/yr scaled to hold) + hard-money financing (2 pts + 11% APR, 80% LTC) + 8% of ARV selling. Spread = 0.92 × base ARV − all-in; ROI = spread ÷ all-in; MAO = lower of the 70% rule and profit build-up. ARVs are labeled assumptions from closed comps; every underwrite carries its data-gap log and a red-team critique.
     <br><br>
-    <strong>This run:</strong> the network egress policy for this session blocked direct fetches to Redfin, FRED, Zillow, Craigslist, GovEase, Auction.com and Zumper (403 from org proxy) — every figure above is WebSearch-snippet sourced, not page-verified, and confidence is capped LOW across the board as a result. 4237 Evanston Ave, 46205 was carried into full underwriting from last week's scout output but failed address verification: every independent brokerage source for that exact address resolves to a real, active $450,000 new-construction duplex (MLS# 22019346, built 2025) — not the $67,500 distressed 2BR/fire-damage story the scout reported. That story never traced to a real linked listing and is treated as a scout-stage hallucination. Its row/card above is a labeled hypothetical run on the given (unverifiable) numbers only — not a real deal, not actionable, and excluded from the loss-avoided tile. No Discord post could be sent this run — the Discord webhook host is also blocked by the same egress policy (403). Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
+    <strong>This run:</strong> the network egress policy for this session again blocked direct fetches to every target domain (Redfin, FRED, Zillow, Craigslist, GovEase, Auction.com, Zumper, Discord — confirmed via 403/EGRESS_BLOCKED against unrelated control domains too, e.g. Wikipedia) — every figure above is WebSearch-snippet sourced, not page-verified, and confidence is capped LOW across the board. No watchlist trigger fired (123 S Butler ~$210K, 1613 Draper ~$110K, 1152 Churchman ~$180K — all well above their respective trigger floors; 1138 Harlan St still listed, no new relisting event detected).
+    <br><br>
+    <strong>Red-team corrections applied to the headline numbers above:</strong> (1) <em>1034 W 32nd St</em> — the underwriter's stated MAO ($17,600) came from a formula that forgot to net the 8% selling-cost haircut applied everywhere else in the model; corrected MAO is ≈$6,000, roughly 3x lower. ARV was also pulled up by the single least-comparable comp (a 31%-smaller home at a higher $/sqft) and wasn't time-adjusted against the zip's own −12.2% YoY decline; corrected base ARV ≈$150,000 vs. the underwriter's $170,000. The single best-matched comp (751 W 32nd, same block, same bed/bath) sold for ~$68,000 in 2024 — suggesting the $70,000 ask is already close to fair as-is value, not a distressed underpricing. (2) <em>421-423 Villa Ave</em> — the underwriter's hold-vs-flip pivot leaned on an 11.6% cap-rate screen built on a rent figure that was misattributed to the wrong unit and mischaracterized as "contractual," and computed on purchase price alone rather than the ~$45K in rehab capital the same report says is required to deliver those rents. Corrected stabilized cap rate is ≈6%, below the 8% target — the hold thesis does not survive. Rehab contingency (15%) was also found to be diluted across well-understood cosmetic items rather than concentrated on the genuinely unverified systems (roof/electrical/mechanicals) on a 1920s structure; corrected rehab_used ≈$45,000 vs. the underwriter's $30,700. (3) <em>2850 N Kenwood Ave</em> — red-team independently re-derived the math and found no arithmetic errors; this deal fails on fundamentals alone (negative ROI even at a hypothetical $0 purchase price) and the listing shows strong signs of being nine months stale, so it's excluded from offer candidates entirely rather than presented as live.
+    <br><br>
+    No Discord post could be sent this run — the Discord webhook host is blocked by the same session-level egress policy (403), consistent with last run. Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
   </footer>
 </div>
 
@@ -190,31 +223,31 @@
 /* FLEET_DATA — regenerated by each weekly cron run */
 const FLEET_DATA = [
   {
-    addr: "1629 Edgecombe Ave", zip: "46227",
-    ask: 80000, rehab: 61250, carry: 12675, selling: 8400,
-    arv: { down: 90000, base: 105000, up: 122000 },
-    offer: "≈$11.7K or below (20% ROI target)", mao: "−$18,925", walk: "≈$17K–$18.5K (10–12% ROI floor)",
-    loss: 57325,
-    why: "No comps exist within the ideal 0.5mi/6mo window — widened to same-street/adjacent sales up to ~5yrs old, flagged explicitly. The usable 3-comp set shows a &gt;2x $/sqft spread between an as-is and a renovated sale on the very same block (1401 vs 743 Edgecombe/Sparrow), meaning execution risk dominates value here, not price. The MAO formula's flat $50K minimum-profit floor alone consumes nearly half of ARV_base — no purchase price clears the bar even before rehab is added; this is a submarket-ceiling problem, not a negotiating problem. Cash-only/quick-close signal supports a lowball probe but can't bridge a 75–85% gap to ask. Zip-wide 46227 median ($215K–$237K, MLS/aggregator snippets) is not representative of this specific near-UIndy pocket, where real comps cluster $90K–$160K.",
-    findings: "1 disqualifier · 5 major · 3 minor", gaps: 16
+    addr: "1034 W 32nd St", zip: "46208",
+    ask: 70000, rehab: 92500, carry: 12133, selling: 5600,
+    arv: { down: 136000, base: 150000, up: 170000 },
+    offer: "$5,000–$10,000", mao: "≈$6,000", walk: "≈$18,000–$20,000",
+    loss: 41683,
+    why: "Red-team correction: the underwriter's own MAO formula forgot to net the 8% selling-cost haircut used everywhere else in the model, overstating MAO by roughly 3x ($17,600 stated vs. ≈$6,000 corrected). ARV was also pulled up by the single least-comparable comp (3723 N Kenwood — 31% smaller, unverified distance) and wasn't time-adjusted against the zip's own confirmed −12.2% YoY decline; the two genuinely same-street comps, time-adjusted, land closer to $136K than the stated $170K base. Most tellingly, the single best bed/bath match on the same block (751 W 32nd) sold for ~$68,000 in April 2024 — almost exactly today's $70,000 ask, two years and one double-digit market decline later — which argues the ask is already close to fair as-is value, not a distressed underpricing with room to negotiate into. Downside case (correlated ARV/rehab/hold) is underwater even at a $0 purchase price: a 1920 structure with an open-ended foundation line and zero interior evidence carries real tail risk no purchase-price discount can fully offset.",
+    findings: "1 arithmetic error (MAO) · 3 major · 2 minor", gaps: 8
   },
   {
-    addr: "3918 N Grand Ave", zip: "46226",
-    ask: 100000, rehab: 174200, carry: 28484, selling: 14000,
-    arv: { down: 150000, base: 175000, up: 200000 },
-    offer: "None — MAO negative at every price tested, incl. $0", mao: "−$77,684", walk: "N/A (already past walk-away at ask)",
-    loss: 141684,
-    why: "Fire-damage rehab estimate ($174K incl. 30% contingency, zero interior evidence) consumes essentially all of ARV_base before financing/holding costs are even added — MAO is negative at every purchase price tested, including $0. Sensitivity shows rehab would need to fall to roughly $23.5K, a scope inconsistent with 'fire damage, both units vacant, needs work,' to clear even 20% ROI at the $100K ask. No duplex/2-unit sale comps were found within 4yrs on adjacent streets — fell back to SFR $/sqft, a real property-type mismatch for how 2-unit properties actually price to investors. Two conflicting MLS numbers surfaced for this address (22017460 vs 22078853) — confirm the listing is even still live before further work.",
-    findings: "2 disqualifiers · 4 major · 2 minor", gaps: 18
+    addr: "421-423 Villa Ave", zip: "46201",
+    ask: 149900, rehab: 45000, carry: 11694, selling: 11800,
+    arv: { down: 130000, base: 147500, up: 175000 },
+    offer: "$40,000–$50,000", mao: "≈$43,500", walk: "≈$65,000–$68,000",
+    loss: 76143,
+    why: "Underwriter's hold-vs-flip pivot (an 11.6% cap-rate screen, above an 8% target) does not survive red-team review: the live $799/mo rental data point was misattributed to the wrong side of the duplex and mischaracterized as a signed lease when it's an asking rent, and the cap rate was computed against purchase price alone rather than the ~$45K in rehab capital the report's own rehab section says is required to make both units rent-ready. Corrected to an all-in-capital basis, true stabilized cap rate is ≈6% — below target either way. Separately, the 15% rehab contingency was diluted evenly across a budget where the real uncertainty is concentrated in three unverified systems lines (roof/electrical/mechanicals) on a 1920s structure with zero interior evidence; a single miss there blows through the stated contingency several times over. ARV anchored on one 18-month-old fully-renovated comp with a condition discount applied but no adjustment for the zip's own −6% YoY decline over that same window. Corrected MAO (≈$43,500, vs. the underwriter's $63,200) is still 71% below ask — a gap unlikely to be closed on an income-producing, partly-leased asset unless the listing shows real price softening.",
+    findings: "2 disqualifiers · 4 major · 2 minor", gaps: 9
   },
   {
-    addr: "4237 Evanston Ave — INVALID", zip: "46205",
-    ask: 67500, rehab: 98750, carry: 17426, selling: 9200,
-    arv: { down: 98000, base: 115000, up: 135000 },
-    offer: "N/A — do not act, address does not match a real distressed listing", mao: "N/A (invalid)", walk: "N/A",
-    loss: 77876,
-    why: "DATA INTEGRITY FAILURE, not a real deal. Every independent brokerage source for 4237 Evanston Ave, 46205 (Redfin, RE/MAX, Rocket Homes, Homes.com, Howard Hanna, Century21 Scheetz) agrees this is a live, active $450,000 new-construction duplex, MLS# 22019346, built 2025 — not the $67,500 distressed 2BR / fire-damage / vacant / $850–900-rent story that reached this pipeline from last week's scout. That story never traced back to any real linked listing across five targeted searches; treating it as a scout-stage search-summarization hallucination rather than a real off-market lead. The numbers on this card are a labeled hypothetical scenario run purely on the given inputs, per instructions to still deliver a result — they describe no real property and should not inform any offer decision. (For the record, even the hypothetical fails on its own terms: ROI ≈ −42%, MAO negative.)",
-    findings: "DATA INTEGRITY FAILURE — excluded from verdict tallies", gaps: 9
+    addr: "2850 N Kenwood Ave — LIKELY STALE LISTING", zip: "46208",
+    ask: 159000, rehab: 148125, carry: 22932, selling: 16400,
+    arv: { down: 180000, base: 205000, up: 250000 },
+    offer: "None — MAO negative at every price tested, incl. $0", mao: "−$22,400", walk: "N/A (already past walk-away at ask)",
+    loss: 147842,
+    why: "DATA INTEGRITY FLAG on top of a clean-fundamentals KILL: this listing shows a 31-DOM multiple-offer deadline dated 12/1/2025 (bank/REO seller) — nine months before today's run, with no 2026 activity found. Treat the $159,000 ask as unverified-current, not confirmed live. Independent of that flag, red-team re-derived the full MATH section and found zero arithmetic errors — this deal fails on fundamentals alone: ROI stays under the 20% target even at a hypothetical $0 purchase price (≈15.6%), meaning no negotiation on price can rescue it. The subject's condo-platted legal structure (Unit A / Unit B, separate deeds) also doesn't match any of the comps used, which all sold as single whole-building transactions — an unquantified exit-structure and title-diligence cost sits on top of an already-failing deal. Recommend dropping this address from active tracking rather than carrying it forward as a live lead.",
+    findings: "DATA INTEGRITY FLAG (stale listing) — fails on fundamentals independent of that flag", gaps: 10
   }
 ];
 /* /FLEET_DATA */
@@ -244,7 +277,7 @@ for (const d of FLEET_DATA) {
       <div><div class="l">Offer zone</div><div class="v">${d.offer}</div></div>
       <div><div class="l">MAO</div><div class="v">${d.mao}</div></div>
       <div><div class="l">Walk-away</div><div class="v">${d.walk}</div></div>
-      <div><div class="l">Base-case loss @ask</div><div class="v" style="color:var(--critical)">−${fmt(d.loss).slice(1) ? fmt(d.loss) : ""}</div></div>
+      <div><div class="l">Base-case loss @ask</div><div class="v" style="color:var(--critical)">−${fmt(d.loss)}</div></div>
     </div>
     <div class="viz">
       <div class="rowlabel">Total cost at ask — ${fmt(total)}</div>
@@ -257,7 +290,7 @@ for (const d of FLEET_DATA) {
         <div class="ticklabel" style="left:${pc(d.arv.base)}">base</div>
         <div class="ticklabel" style="left:${pc(total)}; color:var(--critical)">cost</div>
       </div>
-      <div class="lossnote">Cost overshoots base ARV by ${fmt(total - d.arv.base)} → spread −${fmt(d.loss).slice(1)} at ask</div>
+      <div class="lossnote">Cost overshoots base ARV by ${fmt(total - d.arv.base)} → spread −${fmt(d.loss)} at ask</div>
       <div class="axis"><span style="left:0%">$0</span><span style="left:${pc(max/2)}">${fmt(max/2)}</span><span style="left:99%">${fmt(max)}</span></div>
     </div>
     <div class="whykill"><span class="icon">✕</span><span>${d.why}</span></div>
