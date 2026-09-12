@@ -1,0 +1,216 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Augusta Land Fleet — Basin & Gregg</title></head><body>
+<style>
+  :root {
+    color-scheme: light;
+    --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --ring:rgba(11,11,11,0.10);
+    --s-purchase:#2a78d6; --s-rehab:#eb6834; --s-carry:#1baf7a; --s-selling:#eda100;
+    --critical:#d03b3b; --warning:#fab219; --good:#0ca30c; --success-text:#006300;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){
+    color-scheme:dark; --page:#0d0d0d; --surface:#1a1a19; --ink:#fff; --ink-2:#c3c2b7;
+    --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,0.10);
+    --s-purchase:#3987e5; --s-rehab:#d95926; --s-carry:#199e70; --s-selling:#c98500; --success-text:#0ca30c;}}
+  :root[data-theme="dark"]{color-scheme:dark;--page:#0d0d0d;--surface:#1a1a19;--ink:#fff;--ink-2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--ring:rgba(255,255,255,0.10);--success-text:#0ca30c;}
+  :root[data-theme="light"]{color-scheme:light;--page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink-2:#52514e;--muted:#898781;--grid:#e1e0d9;--ring:rgba(11,11,11,0.10);--success-text:#006300;}
+
+  body{background:var(--page);color:var(--ink);font-family:var(--sans);margin:0;}
+  .wrap{max-width:1060px;margin:0 auto;padding:32px 20px 64px;display:flex;flex-direction:column;gap:30px;}
+  header .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  header h1{font-size:clamp(22px,4vw,32px);margin:6px 0 10px;text-wrap:balance;font-weight:700;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-size:12.5px;color:var(--ink-2);border:1px solid var(--ring);border-radius:999px;padding:4px 11px;background:var(--surface);}
+  .conf{background:#fff6e5;border:1px solid var(--warning);border-radius:10px;padding:12px 16px;font-size:13px;color:#5a4300;line-height:1.55;}
+  @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .conf{background:#2a2213;color:#f0d9a0;}}
+
+  section h2{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:0 0 12px;font-weight:700;}
+  .note{font-size:13px;color:var(--muted);margin:10px 2px 0;line-height:1.55;}
+  .tablebox{background:var(--surface);border:1px solid var(--ring);border-radius:10px;overflow-x:auto;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;}
+  th{text-align:right;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:11px 12px 8px;border-bottom:1px solid var(--grid);white-space:nowrap;}
+  th.txt,td.txt{text-align:left;}
+  td{padding:10px 12px;border-bottom:1px solid var(--grid);font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  td.txt{font-family:var(--sans);font-weight:600;white-space:normal;}
+  .neg{color:var(--critical);font-weight:700;}
+  .pos{color:var(--success-text);font-weight:700;}
+  .pill{display:inline-flex;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.05em;border-radius:999px;padding:3px 10px;}
+  .pill.kill{color:#fff;background:var(--critical);}
+  .pill.cond{color:#3d2c00;background:var(--warning);}
+  .pill.obs{color:var(--success-text);border:1px solid var(--ring);}
+  .pill.est{color:var(--ink-2);border:1px solid var(--ring);}
+
+  .card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:20px;}
+  .card.kill{border-left:4px solid var(--critical);}
+  .card.cond{border-left:4px solid var(--warning);}
+  .card h3{margin:0 0 4px;font-size:19px;font-weight:700;}
+  .card .sub{font-size:13px;color:var(--muted);margin-bottom:14px;font-family:var(--mono);}
+  .card p{margin:0 0 12px;font-size:14.5px;line-height:1.6;color:var(--ink-2);}
+  .card p b,.card p strong{color:var(--ink);}
+  .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin:14px 0 4px;}
+  .three .box{border:1px solid var(--ring);border-radius:8px;padding:12px 14px;}
+  .three .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  .three .v{font-size:21px;font-weight:700;margin:5px 0 3px;font-variant-numeric:tabular-nums;}
+  .three .d{font-size:12.5px;color:var(--ink-2);line-height:1.45;}
+
+  .bar{display:flex;height:38px;border-radius:6px;overflow:hidden;margin:6px 0 4px;}
+  .bar span{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:#fff;font-family:var(--mono);}
+  .barlabel{font-size:12.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;}
+  .barlabel b{color:var(--ink);}
+  ul.checks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  ul.checks li{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:13px 16px;font-size:14px;line-height:1.55;}
+  ul.checks .cost{font-family:var(--mono);font-weight:700;color:var(--ink);}
+  footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--grid);padding-top:16px;line-height:1.6;}
+  @media (max-width:600px){table{min-width:560px;}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Fleet Underwrite · Land · Augusta GA</div>
+  <h1>Augusta Land Fleet — Basin St &amp; Gregg St</h1>
+  <div class="meta">
+    <span class="chip">Run 2026-09-12</span>
+    <span class="chip">2 parcels</span>
+    <span class="chip">Both vacant lots</span>
+    <span class="chip">Evidence: Augusta-Richmond County GIS + FEMA NFHL</span>
+  </div>
+</header>
+
+<div class="conf"><b>Internal working document.</b> Contains maximum allowable offers, walk-away prices and counterparty analysis. Appropriate for principals and JV partners; not for a listing agent, a seller, or anyone across the table on either parcel.</div>
+
+<section>
+  <h2>Ranked comparison</h2>
+  <div class="tablebox"><table>
+    <tr>
+      <th class="txt">#</th><th class="txt">Parcel</th><th>Ask</th><th>Land value (base)</th>
+      <th>Spread @ ask</th><th>ROI @ ask</th><th>MAO</th><th class="txt">Confidence</th>
+      <th class="txt">Verdict</th><th class="txt">Disqualifiers</th>
+    </tr>
+    <tr>
+      <td class="txt">1</td>
+      <td class="txt">36 Gregg St<br><span style="font-weight:400;color:var(--muted);font-size:12px">30901 · Turpin Hill · 0.09 ac</span></td>
+      <td>—<br><span style="font-size:11px;color:var(--muted)">off-market</span></td>
+      <td>$12,900</td><td>—</td><td>—</td>
+      <td class="pos">$5,000</td>
+      <td class="txt">MED</td>
+      <td class="txt"><span class="pill cond">CONDITIONAL</span></td>
+      <td class="txt">Title only: 3–4 fractional heir interests, dormant since 1994. Quiet title ⇒ MAO $0.</td>
+    </tr>
+    <tr>
+      <td class="txt">2</td>
+      <td class="txt">542 Basin St<br><span style="font-weight:400;color:var(--muted);font-size:12px">30909 · Hill Terrace · 0.18 ac</span></td>
+      <td>$25,000</td><td>$10,000–12,000</td>
+      <td class="neg">−$17,735</td><td class="neg">−62%</td>
+      <td>$1,100</td>
+      <td class="txt">MED</td>
+      <td class="txt"><span class="pill kill">KILL</span></td>
+      <td class="txt">Round-trip friction ≈ asset value at any price; dominant builder holds 6 competing lots; tax-deed chain.</td>
+    </tr>
+  </table></div>
+  <p class="note">Ranked by workability, not ROI — Gregg has no ask, so an at-ask ROI does not exist for it. Confidence is the lower of comp confidence and the red-team critic's recommendation.</p>
+</section>
+
+<section>
+  <h2>The finding that matters most</h2>
+  <div class="card">
+    <h3>You are being shown the retail end of a lot-flipping pipeline</h3>
+    <p><b>Gaines Capital Investments LLC</b> — owner of 542 Basin St and four Turpin Hill lots — bought <b>26 Gregg St for $3,500 on 2024-12-06</b>. The same parcel transferred at <b>$18,000 on 2024-12-17. Eleven days.</b></p>
+    <p>The model: acquire tax-sale and Land Bank dirt at $2,500–$3,500, resell to the builders actively developing the block at $12,900–$18,000. Both parcels in this fleet sit downstream of that trade.</p>
+    <p style="margin-bottom:0"><b>The better trade is upstream.</b> The Augusta Georgia Land Bank Authority holds <b>27 vacant lots in Turpin Hill alone</b> and disposes at nominal prices — 33 Gregg came out of it at $2,500 and became a $215,000 new build.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Proven development cycle on Gregg St</h2>
+  <div class="tablebox"><table>
+    <tr><th class="txt">Parcel</th><th>Land paid</th><th>Date</th><th>Built</th><th>Outcome</th><th class="txt">Basis</th></tr>
+    <tr><td class="txt">33 Gregg St</td><td>$2,500</td><td>2024-08-22</td><td>1,316 sf (2025)</td><td class="pos">sold $215,000</td><td class="txt"><span class="pill obs">observed</span></td></tr>
+    <tr><td class="txt">30 Gregg St</td><td>$10,000</td><td>2024-06-14</td><td>1,316 sf (2025)</td><td>assessed $200,690</td><td class="txt"><span class="pill obs">observed</span></td></tr>
+    <tr><td class="txt">24 / 26 Gregg St</td><td>$18,000 ea</td><td>2024-12-17</td><td>—</td><td>held by builder</td><td class="txt"><span class="pill obs">observed</span></td></tr>
+    <tr><td class="txt">32 / 34½ / 38 Gregg St</td><td>$12,900 ea</td><td>2026-01-23</td><td>—</td><td>held by builder</td><td class="txt"><span class="pill obs">observed</span></td></tr>
+  </table></div>
+  <p class="note">All figures from the Augusta-Richmond County GIS sales layer, retrieved 2026-09-12. These are the comparable land sales that set the $12,900 base for 36 Gregg.</p>
+</section>
+
+<section>
+  <h2>36 Gregg St, 30901 — conditional</h2>
+  <div class="card cond">
+    <h3>Buildable dirt with a title problem</h3>
+    <div class="sub">PIN 059-3-476-00-0 · 3,885 sf · zoned R-1C · FEMA Zone X (minimal hazard) · taxes delinquent 1 yr</div>
+    <p><b>Buildability is proven, not assumed.</b> 30 Gregg and 33 Gregg are both 0.09-acre lots carrying new 1,316 sf houses built in 2025 — identical lot size to the subject. The street is platted at 0.09 ac throughout and carries houses from 1906, 1916, 1934 and 1953. Augusta permits building on these substandard lots of record.</p>
+    <p><b>Title is the entire question.</b> Three to four fractional heir interests, no arm's-length transfer in the county record, dormant since 1994, owners absentee in metro Atlanta, one year of delinquent tax. Georgia's Uniform Partition of Heirs Property Act applies.</p>
+    <div class="three">
+      <div class="box"><div class="k">Exit — dirt to builder</div><div class="v">$12,900</div><div class="d">Range $10,000–$18,000, proven on this block face</div></div>
+      <div class="box"><div class="k">MAO — heirs' affidavit</div><div class="v pos">$5,000</div><div class="d">All interest-holders sign</div></div>
+      <div class="box"><div class="k">MAO — quiet title needed</div><div class="v neg">$0</div><div class="d">$3–8K and 6–12 months eats the spread</div></div>
+    </div>
+    <p style="margin:14px 0 0"><b>Action:</b> offer up to $5,000 contingent on an executed heirs' affidavit from every interest-holder plus a title commitment. If any heir cannot be located or will not sign, walk.</p>
+  </div>
+</section>
+
+<section>
+  <h2>542 Basin St, 30909 — kill</h2>
+  <div class="card kill">
+    <h3>Friction exceeds the asset at every price</h3>
+    <div class="sub">PIN 033-2-006-00-0 · 7,915 sf · zoned R-1C · FEMA Zone X · taxes current · 356 days on market</div>
+    <p>Asking <b>$25,000</b> against a county value of <b>$9,000</b>, cut from $50,000, unsold for a year. The seller's basis is <b>$2,000</b> at a 2022 forced sale.</p>
+    <div class="barlabel" style="margin-top:14px"><span>Cost to buy, hold and sell the dirt — <b>at any purchase price, including $0</b></span><b>$8,075</b></div>
+    <div class="bar">
+      <span style="width:39.4%;background:var(--s-rehab)">Prep $3,185</span>
+      <span style="width:12.4%;background:var(--s-purchase)">Close $1,000</span>
+      <span style="width:11.0%;background:var(--s-carry)">Carry $890</span>
+      <span style="width:37.2%;background:var(--s-selling)">Sell $3,000</span>
+    </div>
+    <div class="barlabel" style="margin-top:14px"><span>Against the asset's entire base value</span><b>$10,000–$12,000</b></div>
+    <div class="bar" style="height:18px;background:var(--grid)"><span style="width:100%;background:var(--ink-2)"></span></div>
+    <p style="margin-top:14px">Prep, closing and carry do not shrink when the offer shrinks, and a sub-$20K lot carries a flat minimum commission rather than a percentage. Lowering the bid does not restore the margin — <b>the friction is the asset.</b></p>
+    <p><b>No bidder for the exit.</b> Sand Hills Urban Development Inc already owns <b>6 of the 26 vacant lots</b> in Hill Terrace; the Land Bank owns a 7th. The one builder who would ever buy this has a six-lot backlog and no reason to bid.</p>
+    <div class="three">
+      <div class="box"><div class="k">Offer zone</div><div class="v">None</div><div class="d">Pass</div></div>
+      <div class="box"><div class="k">MAO</div><div class="v">$1,100</div><div class="d">$0 absent written zoning and title confirmations</div></div>
+      <div class="box"><div class="k">Walk-away</div><div class="v">$2,000</div><div class="d">The seller's own 2022 basis</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Verify first — dollar swing per dollar spent</h2>
+  <ul class="checks">
+    <li><span class="cost">$0</span> — <b>36 Gregg:</b> run all heir interest-holders through GSCCCA and the Richmond County probate index. Determines whether MAO is $5,000 or $0. This is the whole deal.</li>
+    <li><span class="cost">$200–450</span> — <b>36 Gregg:</b> title search with a written underwriter commitment. A verbal "it has probably ripened" is not this.</li>
+    <li><span class="cost">$0</span> — <b>Upstream:</b> Augusta Georgia Land Bank Authority disposition terms and pricing on its 27 Turpin Hill lots. Likely the best trade on this page.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Corrections applied during this run</h2>
+  <div class="tablebox"><table>
+    <tr><th class="txt">Claim</th><th class="txt">Correction</th></tr>
+    <tr><td class="txt">36 Gregg is unbuildable — fails R-1C by a third on area and width</td><td class="txt"><b>Wrong.</b> 30 and 33 Gregg are 0.09-ac lots with new 2025 builds. Augusta permits these. Buildability is not a defect on either parcel.</td></tr>
+    <tr><td class="txt">36 Gregg is worth $500–$2,200 (side-yard value)</td><td class="txt"><b>Wrong, ~6x low.</b> Arm's-length land sales on this block face run $10,000–$18,000.</td></tr>
+    <tr><td class="txt">542 Basin offer zone $2,500–$5,000</td><td class="txt"><b>Wrong — loss-making at every point.</b> Selling costs were priced at 8% ($960) on a $12K lot; the floor is a flat $2,500–3,000 minimum commission, and prep/closing/carry are fixed regardless of price.</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Confidence &amp; gaps</h2>
+  <div class="tablebox"><table>
+    <tr><th class="txt">Item</th><th class="txt">Status</th></tr>
+    <tr><td class="txt">PINs, owners, zoning, flood, acreage, county values, sales history</td><td class="txt"><span class="pill obs">CONFIRMED</span> Augusta-Richmond County GIS + FEMA NFHL</td></tr>
+    <tr><td class="txt">Land comps &amp; new-build outcomes</td><td class="txt"><span class="pill obs">CONFIRMED</span> county sales layer</td></tr>
+    <tr><td class="txt">36 Gregg heir count (3 of record, likely 4)</td><td class="txt"><span class="pill est">UNVERIFIED</span> probate index not searched</td></tr>
+    <tr><td class="txt">Title insurability, both parcels</td><td class="txt"><span class="pill est">UNVERIFIED</span> decisive on Gregg</td></tr>
+    <tr><td class="txt">542 Basin live ask ($25,000 vs $50,000 snippets)</td><td class="txt"><span class="pill est">UNRESOLVED</span> live fetch says $25,000; MLS unconfirmed</td></tr>
+    <tr><td class="txt">Site condition on both lots</td><td class="txt"><span class="pill est">UNOBSERVED</span> no site visit or photos</td></tr>
+  </table></div>
+  <p class="note">Sources that failed and were not silently backfilled: Redfin property and street pages (HTTP 403), Municode Augusta zoning (HTTP 403), qPublic parcel records (JS session wall). Individual heir names and owner home addresses are held in the working file and deliberately omitted here.</p>
+</section>
+
+<footer>
+  Fleet underwrite · 10 agents across two runs (comps, rehab, market, synthesis, red-team per parcel) · county-record verification run separately and given precedence over web-scraped comps.<br>
+  Every figure tagged observed carries a county or federal source; every figure tagged estimated states its model. Not an appraisal. Not legal advice — heirs-property acquisition should be run past Georgia counsel before any earnest money moves.
+</footer>
+</div>
+</body></html>
