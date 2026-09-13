@@ -1,1 +1,331 @@
-FILE_CONTENT_PLACEHOLDER
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fleet Dashboard</title></head><body><title>Fleet Underwrite — Indianapolis</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb;
+    --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --s-purchase: #2a78d6; --s-rehab: #eb6834; --s-carry: #1baf7a; --s-selling: #eda100;
+    --critical: #d03b3b; --serious: #ec835a; --warning: #fab219; --good: #0ca30c;
+    --success-text: #006300;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19;
+      --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+      --s-purchase: #3987e5; --s-rehab: #d95926; --s-carry: #199e70; --s-selling: #c98500;
+      --success-text: #0ca30c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19;
+    --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --baseline: #383835; --ring: rgba(255,255,255,0.10);
+    --s-purchase: #3987e5; --s-rehab: #d95926; --s-carry: #199e70; --s-selling: #c98500;
+    --success-text: #0ca30c;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb;
+    --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --baseline: #c3c2b7; --ring: rgba(11,11,11,0.10);
+    --s-purchase: #2a78d6; --s-rehab: #eb6834; --s-carry: #1baf7a; --s-selling: #eda100;
+    --success-text: #006300;
+  }
+
+  body { background: var(--page); color: var(--ink); font-family: var(--sans); margin: 0; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 32px 20px 64px; display: flex; flex-direction: column; gap: 28px; }
+
+  header .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  header h1 { font-size: clamp(22px, 4vw, 32px); margin: 6px 0 10px; text-wrap: balance; font-weight: 700; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 12.5px; color: var(--ink-2); border: 1px solid var(--ring); border-radius: 999px; padding: 4px 11px; background: var(--surface); }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .tile { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; }
+  .tile .label { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .tile .value { font-size: 26px; font-weight: 700; margin-top: 6px; }
+  .tile .value.crit { color: var(--critical); }
+  .tile .value.ok { color: var(--success-text); }
+  .tile .sub { font-size: 12.5px; color: var(--ink-2); margin-top: 3px; }
+
+  section h2 { font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 12px; font-weight: 700; }
+
+  .tablebox { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 860px; font-size: 13.5px; }
+  th { text-align: right; font-size: 11.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 11px 12px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+  th.txt, td.txt { text-align: left; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--grid); font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  td.txt { font-family: var(--sans); font-weight: 600; }
+  td .zip { color: var(--muted); font-weight: 400; font-size: 12px; }
+  .neg { color: var(--critical); }
+  .pos { color: var(--success-text); }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-family: var(--sans); font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; border-radius: 999px; padding: 3px 10px; }
+  .pill.kill { color: #fff; background: var(--critical); }
+  .pill.conf { color: var(--ink-2); border: 1px solid var(--ring); background: transparent; }
+
+  .cards { display: flex; flex-direction: column; gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--ring); border-left: 4px solid var(--critical); border-radius: 10px; padding: 18px 20px; }
+  .card .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; justify-content: space-between; }
+  .card h3 { margin: 0; font-size: 17px; }
+  .card .badges { display: flex; gap: 8px; align-items: center; }
+  .threenum { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 14px 0 4px; }
+  .threenum div { border: 1px solid var(--ring); border-radius: 8px; padding: 9px 12px; }
+  .threenum .l { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .threenum .v { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 15.5px; font-weight: 700; margin-top: 3px; }
+
+  .viz { margin: 14px 0 6px; }
+  .viz .rowlabel { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 10px 0 4px; }
+  .track { position: relative; height: 26px; background: transparent; }
+  .stack { display: flex; height: 22px; gap: 2px; }
+  .seg { height: 100%; border-radius: 0; position: relative; outline-offset: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .seg:first-child { border-radius: 4px 0 0 4px; }
+  .seg:last-child { border-radius: 0 4px 4px 0; }
+  .seg .dl { font-size: 10.5px; font-family: var(--mono); color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.55); }
+  .seg:focus-visible { outline: 2px solid var(--ink); }
+  .arvband { position: absolute; top: 4px; height: 14px; border-radius: 7px; background: color-mix(in oklab, var(--s-purchase) 26%, var(--surface)); border: 1px solid var(--s-purchase); }
+  .tick { position: absolute; top: 0; width: 2px; height: 22px; }
+  .tick.base { background: var(--ink); }
+  .tick.loss { background: var(--critical); }
+  .ticklabel { position: absolute; top: 24px; font-size: 10.5px; font-family: var(--mono); color: var(--ink-2); transform: translateX(-50%); white-space: nowrap; }
+  .lossnote { font-size: 12.5px; color: var(--critical); font-weight: 600; margin-top: 22px; }
+  .axis { position: relative; height: 16px; border-top: 1px solid var(--baseline); margin-top: 24px; }
+  .axis span { position: absolute; top: 2px; transform: translateX(-50%); font-size: 10px; font-family: var(--mono); color: var(--muted); }
+
+  .whykill { display: flex; gap: 10px; margin-top: 12px; font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
+  .whykill .icon { color: var(--critical); font-weight: 700; flex: none; }
+  .counts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .counts .chip b { color: var(--ink); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
+  .legend .key { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+
+  .offers { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 4px 0; overflow-x: auto; }
+  .offers table { min-width: 760px; }
+
+  footer { font-size: 12.5px; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--grid); padding-top: 16px; }
+  footer code { font-family: var(--mono); font-size: 11.5px; }
+
+  #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font-family: var(--mono); font-size: 12px; padding: 5px 9px; border-radius: 6px; opacity: 0; z-index: 10; white-space: nowrap; }
+  @media (prefers-reduced-motion: no-preference) { #tip { transition: opacity 120ms; } .seg { transition: filter 120ms; } }
+  .seg:hover { filter: brightness(1.08); }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Fleet Underwrite</div>
+    <h1>Indianapolis — Run 2026-09-13</h1>
+    <div class="meta">
+      <span class="chip">3 new candidates underwritten (1 off-market FSBO, 2 MLS) · sheriff-sale/tax-sale/land-bank sweep blocked outright again — see footer</span>
+      <span class="chip">Weekly cron: Sundays 8:00 AM ET</span>
+      <span class="chip">2nd consecutive week: WebFetch/curl hard-blocked to nearly every external domain this session — WebSearch-snippet sourced only</span>
+      <span class="chip">Watchlist: 0/4 triggers fired this run</span>
+      <span class="chip">Discord webhook host blocked (403) again this run — no Discord post sent</span>
+    </div>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">1709 E Gimber St · 3671 Creston Dr · 8632 El Rico Dr</div></div>
+    <div class="tile"><div class="label">Verdicts</div><div class="value crit">3 KILL</div><div class="sub">0 renegotiate · 0 survive · 1 real offer candidate (El Rico), 1 token-only</div></div>
+    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−20.0%</div><div class="sub">8632 El Rico Dr (least-bad of the three)</div></div>
+    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $204K</div><div class="sub">Sum of |spread| @ ask across all 3</div></div>
+  </div>
+
+  <section>
+    <h2>Ranked comparison — by ROI at ask</h2>
+    <div class="tablebox">
+      <table>
+        <thead><tr>
+          <th class="txt">#</th><th class="txt">Address</th><th>Ask</th><th>ARV base</th><th>Rehab</th><th>All-in</th><th>Spread @ask</th><th>ROI @ask</th><th>MAO</th><th class="txt">Conf.</th><th class="txt">Verdict</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="txt">1</td><td class="txt">8632 El Rico Dr <span class="zip">46240 · Nora / Keystone Crossing</span></td>
+            <td>$339,000</td><td>$445,000</td><td>$136,000</td><td>$511,585</td>
+            <td class="neg">−$102,185</td><td class="neg">−20.0%</td><td>$175,500</td>
+            <td class="txt"><span class="pill conf">MED</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+          </tr>
+          <tr>
+            <td class="txt">2</td><td class="txt">3671 Creston Dr <span class="zip">46222 · Haughville — estate sale</span></td>
+            <td>$99,900</td><td>$142,000</td><td>$71,700</td><td>$186,395</td>
+            <td class="neg">−$55,755</td><td class="neg">−29.9%</td><td>$5,506</td>
+            <td class="txt"><span class="pill conf">MED</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+          </tr>
+          <tr>
+            <td class="txt">3</td><td class="txt">1709 E Gimber St <span class="zip">46203 · Garfield Park — FSBO off-market</span></td>
+            <td>$65,000</td><td>$115,000</td><td>$73,000</td><td>$151,767</td>
+            <td class="neg">−$45,967</td><td class="neg">−30.3%</td><td class="neg">−$21,767</td>
+            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Offer candidates — a KILL at ask is not a dead deal at MAO</h2>
+    <div class="offers">
+      <table>
+        <thead><tr><th class="txt">Address</th><th class="txt">Offer zone</th><th class="txt">MAO</th><th class="txt">Walk-away</th><th class="txt">Seller situation</th><th class="txt">Why they might transact</th></tr></thead>
+        <tbody>
+          <tr><td class="txt">8632 El Rico Dr</td><td class="txt">$150,000–$172,000</td><td class="txt">$175,500</td><td class="txt">≈$206,000</td><td class="txt">Bank-owned REO, needs "finishing touches," 1-acre/7-garage niche property</td><td class="txt">REO carrying cost + thin buyer pool for an oversized property; asking price itself is ambiguous across sources ($299.9K–$339K), hinting at a recent cut not yet reindexed — bank may be softening</td></tr>
+          <tr><td class="txt">3671 Creston Dr</td><td class="txt">token only, ≈$5,000</td><td class="txt">$5,506</td><td class="txt">≈$36,000</td><td class="txt">Estate sale, as-is</td><td class="txt">MAO is driven entirely by the $50K minimum-profit floor, not real negotiating room — not a genuine offer, listed for completeness only; an estate executor wanting a fast, no-repair close near $35–40K is the only scenario this clears at all</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13.5px;color:var(--ink-2)">1709 E Gimber St excluded — MAO is negative (−$21,767) under every combination tested; no offer price clears the deal given the ARV band and fixed-cost floor. Worth a nominal/near-land-value conversation with the FSBO seller directly, but not a formal offer.</p>
+  </section>
+
+  <section>
+    <h2>Watchlist — checked, no triggers</h2>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th class="txt">Address</th><th class="txt">Trigger</th><th class="txt">Current status</th><th class="txt">Fired?</th></tr></thead>
+        <tbody>
+          <tr><td class="txt">123 S Butler Ave 46219</td><td class="txt">Re-enters below $60,000</td><td class="txt">Conflicting WebSearch data again this week — no source shows a price anywhere near $60,000; live status still unconfirmable</td><td class="txt">No — status remains a data gap</td></tr>
+          <tr><td class="txt">1613 Draper St 46203</td><td class="txt">Re-enters below $50,000</td><td class="txt">Still relisted, MLS #22077545, asking ~$169,900</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1152 Churchman Ave 46203</td><td class="txt">Re-enters near land value</td><td class="txt">Still asking $179,900, MLS #22060766 — a standard rehab-listing price, not teardown/lot pricing</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1138 Harlan St 46203</td><td class="txt">Block test for Churchman (context, not a trigger)</td><td class="txt">No fresher data found than prior run (last confirmed ~Oct/Nov 2025, $149,000); already promoted to a full underwrite in the 2026-09-06 run (KILL)</td><td class="txt">N/A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cost stack vs. ARV — where each deal dies</h2>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--s-purchase)"></span>Purchase</span>
+      <span class="key"><span class="sw" style="background:var(--s-rehab)"></span>Rehab (likely + contingency)</span>
+      <span class="key"><span class="sw" style="background:var(--s-carry)"></span>Carry &amp; financing</span>
+      <span class="key"><span class="sw" style="background:var(--s-selling)"></span>Selling cost</span>
+      <span class="key"><span class="sw" style="background:color-mix(in oklab, var(--s-purchase) 26%, var(--surface)); border:1px solid var(--s-purchase)"></span>ARV range (downside → upside)</span>
+      <span class="key"><span class="sw" style="background:var(--ink); width:3px; border-radius:1px"></span>Base ARV</span>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <footer>
+    Model: all_in = purchase + rehab_used (likely, +25-30% contingency given zero interior evidence on every property this run) + 1.5% buy closing + holding (~$6K/yr scaled to hold_months) + hard-money financing (2 pts + 11% APR, 80% LTC on price+rehab). net_sale = 0.92 × base ARV; spread = net_sale − all_in; ROI = spread ÷ all_in; MAO = min(0.70×ARV_base − rehab_used, ARV_base − rehab_used − fixed costs − max($50,000, 0.12×ARV_base)).
+    <br><br>
+    <strong>Environment constraint, 2nd week running:</strong> WebFetch and raw curl were again hard-blocked by the session's network egress policy for nearly every external domain tried — Redfin, Zillow, FRED (all 3 series), Zumper, GovEase (sheriff sale + Oct 13-16 tax sale advertising list), the Tolemi Vacant-to-Vibrant land-bank map, Craigslist, fsbo.com, Movoto, Houzeo, Century21, and the Discord webhook host itself all returned 403 policy denials on direct CONNECT — confirmed via the proxy's own status endpoint, not a site-side bot block. This took the entire off-market/distress sweep (sheriff sale bid floors for the 09/18 sale, the tax-sale advertising list, land-bank inventory) off the table for the second straight week — the one lead that surfaced (1709 E Gimber St) came from an indexed Craigslist snippet, not a live browse. Every fact in this run is a WebSearch-snippet synthesis with a cited source URL, cross-checked for internal contradictions (several comps were discarded as anomalous or conflicting rather than used) rather than a live-page pull. <strong>This is now a two-week pattern, not a one-off — recommend allowlisting redfin.com, zillow.com, fred.stlouisfed.org, zumper.com, liveauctions.govease.com, indianapolis-in-publicity.tolemi.com, craigslist.org, fsbo.com, and discord.com for this session's egress policy, or running MONEYBALL from an environment with broader network access.</strong>
+    <br><br>
+    <strong>Why all three die, in one line each:</strong> <em>8632 El Rico Dr</em> — no true size/lot-matched comp exists near this 6bd/1-acre/7-garage REO, so ARV rests on a discounted extrapolation from half-sized homes; even at that, the ~$150–165K gap between any defensible ARV and the $325–339K ask (itself ambiguous across 3 conflicting reported prices) is too wide to close with rehab-estimate error alone — genuinely the strongest offer candidate this week precisely because the absolute-dollar MAO is real money, not a token. <em>3671 Creston Dr</em> — comps are thin and dispersed ($53–$152/sqft across the raw set before excluding outliers), and the deal's MAO is driven entirely by the $50K minimum-profit floor rather than the 70% rule — meaning this fails on deal economics (high hard-money carry cost relative to a sub-$150K ARV), not primarily on condition uncertainty. <em>1709 E Gimber St</em> — sqft and year built could not be confirmed from any source, the block is confirmed bimodal (a $29,900 unfinished shell two doors down vs. a $121,000 2026 renovated sale), and like Creston, the $50K profit floor makes MAO negative before rehab-estimate risk even matters — no price at or near the $65,000 ask clears a real margin.
+    <br><br>
+    No Discord post could be sent this run — the Discord webhook host is blocked by the same session-level egress policy (403), consistent with the prior run. Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
+  </footer>
+</div>
+
+<div id="tip" role="presentation"></div>
+
+<script>
+/* FLEET_DATA — regenerated by each weekly cron run */
+const FLEET_DATA = [
+  {
+    addr: "8632 El Rico Dr", zip: "46240",
+    ask: 339000, rehab: 136000, carry: 33585, selling: 27200,
+    arv: { down: 400000, base: 445000, up: 490000 },
+    offer: "$150,000–$172,000", mao: "$175,500", walk: "≈$206,000",
+    loss: 102185,
+    why: "No true size/lot-matched comp (6bd, ~1 acre, 7+ garage) sold within a reasonable radius, so ARV_base ($445,000) rests on a ~30% size/liquidity discount applied to comps roughly half the subject's sqft — defensible but unverified. Asking price itself is ambiguous: three different figures ($299,900 / $325,000 / $339,000) surfaced across sources with no confirmed price-cut date, evaluated here at the higher $339,000. Even so, the ~$150-165K gap between any defensible ARV-driven MAO ($175,500) and either asking price is too wide for rehab-estimate error alone to close. Rehab is a placeholder for an REO with likely deferred maintenance across 3,270 sqft — actual scope could run higher, which would only widen the gap further. The acre lot and 7-car garage are a genuine wildcard: could draw a niche premium buyer no comp captures, or could just mean a thinner buyer pool and longer DOM.",
+    findings: "3 disqualifiers (unresolved price ambiguity, no size-matched comps, REO condition unknown) · red-teamed, KILL holds under stress", gaps: 6
+  },
+  {
+    addr: "3671 Creston Dr", zip: "46222",
+    ask: 99900, rehab: 71700, carry: 11795, selling: 8500,
+    arv: { down: 127000, base: 142000, up: 164000 },
+    offer: "token only, ≈$5,000", mao: "$5,506", walk: "≈$36,000",
+    loss: 55755,
+    why: "Comp set is thin and dispersed before cleanup ($53-$152/sqft across 4 raw candidates); after excluding one anomalous and one outlier comp, the remaining base of $78/sqft sits below both the clean-comp mean and the zip-wide $108/sqft median, appropriately conservative for an as-is estate sale with zero interior evidence. The real problem is structural, not condition risk: MAO is driven entirely by the $50,000 minimum-profit floor rather than the 70% rule, meaning hard-money financing and holding costs on a sub-$150K ARV property consume nearly the whole theoretical spread regardless of price paid. Red-team check: even a materially lower rehab estimate would not close a ~$56K gap between the walk-away price (~$36,000) and the $99,900 ask.",
+    findings: "3 disqualifiers (thin/dispersed comps, unverified rehab, profit-floor-driven MAO) · red-teamed, KILL holds under stress", gaps: 7
+  },
+  {
+    addr: "1709 E Gimber St — off-market FSBO", zip: "46203",
+    ask: 65000, rehab: 73000, carry: 12792, selling: 9200,
+    arv: { down: 95000, base: 115000, up: 135000 },
+    offer: "none — MAO negative", mao: "−$21,767", walk: "≈$12,800",
+    loss: 45967,
+    why: "Subject sqft and year built could not be confirmed from any source — a genuine, material data gap (ASSUMPTION ~750 sqft used only for context, not for ARV math). The block is confirmed bimodal: an unfinished shell/new-build lot two doors down listed at $29,900 sits alongside a 2026 renovated sale on the same street at $121,000, so the ARV band ($95K-$135K) is defensible but wide. Like Creston, the deal fails structurally: the $50,000 minimum-profit floor makes MAO negative before rehab-estimate risk is even the deciding factor, and the walk-away price (~$12,800) is roughly 1/5 of the $65,000 ask. Red-team check: because ARV was set from comp price levels directly (not $/sqft × assumed sqft), the sqft uncertainty doesn't materially change the verdict — a bigger or smaller actual house doesn't rescue this deal.",
+    findings: "1 disqualifier (MAO negative under every tested combination) · red-teamed, KILL holds under stress — excluded from offer candidates per the MAO>0 rule", gaps: 8
+  }
+];
+/* /FLEET_DATA */
+
+const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
+const cards = document.getElementById("cards");
+const tip = document.getElementById("tip");
+
+for (const d of FLEET_DATA) {
+  const total = d.ask + d.rehab + d.carry + d.selling;
+  const max = Math.max(total, d.arv.up) * 1.04;
+  const pc = v => (100 * v / max).toFixed(2) + "%";
+  const segs = [
+    ["Purchase", d.ask, "var(--s-purchase)"],
+    ["Rehab", d.rehab, "var(--s-rehab)"],
+    ["Carry & financing", d.carry, "var(--s-carry)"],
+    ["Selling cost", d.selling, "var(--s-selling)"]
+  ];
+  const card = document.createElement("article");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="head">
+      <h3>${d.addr} <span class="zip" style="color:var(--muted); font-size:13px; font-weight:400">${d.zip}</span></h3>
+      <div class="badges"><span class="pill conf">CONFIDENCE MED-LOW</span><span class="pill kill">✕ KILL</span></div>
+    </div>
+    <div class="threenum">
+      <div><div class="l">Offer zone</div><div class="v">${d.offer}</div></div>
+      <div><div class="l">MAO</div><div class="v">${d.mao}</div></div>
+      <div><div class="l">Walk-away</div><div class="v">${d.walk}</div></div>
+      <div><div class="l">Base-case loss @ask</div><div class="v" style="color:var(--critical)">−${fmt(d.loss)}</div></div>
+    </div>
+    <div class="viz">
+      <div class="rowlabel">Total cost at ask — ${fmt(total)}</div>
+      <div class="stack" role="img" aria-label="Cost stack: purchase ${fmt(d.ask)}, rehab ${fmt(d.rehab)}, carry and financing ${fmt(d.carry)}, selling ${fmt(d.selling)}"></div>
+      <div class="rowlabel" style="margin-top:10px">ARV range — base ${fmt(d.arv.base)}</div>
+      <div class="track" role="img" aria-label="ARV downside ${fmt(d.arv.down)}, base ${fmt(d.arv.base)}, upside ${fmt(d.arv.up)}">
+        <div class="arvband" style="left:${pc(d.arv.down)}; width:${(100 * (d.arv.up - d.arv.down) / max).toFixed(2)}%"></div>
+        <div class="tick base" data-tip="Base ARV ${fmt(d.arv.base)}" style="left:${pc(d.arv.base)}"></div>
+        <div class="tick loss" data-tip="Total cost ${fmt(total)}" style="left:${pc(total)}"></div>
+        <div class="ticklabel" style="left:${pc(d.arv.base)}">base</div>
+        <div class="ticklabel" style="left:${pc(total)}; color:var(--critical)">cost</div>
+      </div>
+      <div class="lossnote">Cost overshoots base ARV by ${fmt(total - d.arv.base)} → spread −${fmt(d.loss)} at ask</div>
+      <div class="axis"><span style="left:0%">$0</span><span style="left:${pc(max/2)}">${fmt(max/2)}</span><span style="left:99%">${fmt(max)}</span></div>
+    </div>
+    <div class="whykill"><span class="icon">✕</span><span>${d.why}</span></div>
+    <div class="counts">
+      <span class="chip">Critic: <b>${d.findings}</b></span>
+      <span class="chip">Data gaps logged: <b>${d.gaps}</b></span>
+    </div>`;
+  const stack = card.querySelector(".stack");
+  for (const [name, val, color] of segs) {
+    const s = document.createElement("div");
+    s.className = "seg";
+    s.tabIndex = 0;
+    s.style.width = pc(val);
+    s.style.background = color;
+    s.dataset.tip = `${name} — ${fmt(val)}`;
+    if (val / max > 0.14) s.innerHTML = `<span class="dl">${fmt(val)}</span>`;
+    stack.appendChild(s);
+  }
+  cards.appendChild(card);
+}
+
+document.addEventListener("pointermove", e => {
+  const t = e.target.closest("[data-tip]");
+  if (t) { tip.textContent = t.dataset.tip; tip.style.opacity = 1; tip.style.left = (e.clientX + 12) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+  else tip.style.opacity = 0;
+});
+document.addEventListener("focusin", e => {
+  const t = e.target.closest("[data-tip]");
+  if (t) { const r = t.getBoundingClientRect(); tip.textContent = t.dataset.tip; tip.style.opacity = 1; tip.style.left = r.left + "px"; tip.style.top = (r.bottom + 8) + "px"; }
+});
+document.addEventListener("focusout", () => { tip.style.opacity = 0; });
+</script>
+</body></html>
