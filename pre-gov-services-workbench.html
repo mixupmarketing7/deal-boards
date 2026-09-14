@@ -101,6 +101,22 @@
     .muted { color: var(--muted); }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
     .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .viz-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; margin-top: 16px; }
+    .viz-list { display: grid; gap: 12px; }
+    .viz-row { display: grid; grid-template-columns: 150px 1fr 60px; gap: 10px; align-items: center; font-size: 13px; }
+    .viz-track { height: 12px; border-radius: 999px; background: #edf1f3; overflow: hidden; }
+    .viz-fill { height: 100%; border-radius: inherit; background: var(--accent); }
+    .viz-fill.teal { background: var(--ok); }
+    .viz-fill.orange { background: var(--orange); }
+    .viz-fill.gold { background: var(--warn); }
+    .viz-value { text-align: right; font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+    .donut-wrap { display: grid; grid-template-columns: 132px 1fr; gap: 16px; align-items: center; }
+    .donut { width: 132px; aspect-ratio: 1; border-radius: 50%; background: conic-gradient(var(--ok) 0 43%, var(--orange) 43% 68%, var(--warn) 68% 82%, #cbd5e1 82% 100%); display: grid; place-items: center; }
+    .donut::after { content: "72%"; width: 84px; aspect-ratio: 1; border-radius: 50%; background: var(--panel); display: grid; place-items: center; font: 800 20px Montserrat, sans-serif; color: var(--brand); }
+    .legend-list { display: grid; gap: 8px; font-size: 12px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); }
+    .legend-dot.orange { background: var(--orange); }.legend-dot.gold { background: var(--warn); }.legend-dot.gray { background: #cbd5e1; }
     .mini { border: 1px solid var(--line-2); background: var(--panel-2); border-radius: 14px; padding: 12px; }
     .mini .m-label { color: var(--muted); font-size: 12px; font-weight: 650; }
     .mini .m-val { font-size: 18px; font-weight: 850; margin-top: 4px; }
@@ -156,6 +172,7 @@
       .side { position: static; height: auto; }
       .main { padding: 20px; }
       .cards-4, .cards-3, .two, .two-even, .layout-parcel { grid-template-columns: 1fr; }
+      .viz-grid { grid-template-columns: 1fr; }
       .search { grid-template-columns: 1fr; }
       .kpi-row { grid-template-columns: repeat(2, 1fr); }
     }
@@ -179,7 +196,7 @@
       <div class="run">ay2026_singlebase_val3</div>
       <div style="margin-top:10px"><span class="pill gray">Diagnostic only</span></div>
     </div>
-    <details class="nav-menu" open>
+    <details class="nav-menu">
       <summary>County staff workflow</summary>
       <nav class="nav">
         <a href="#dashboard">Executive Dashboard <span>Run</span></a>
@@ -189,7 +206,7 @@
         <a href="#defense">Value Defense Summary <span>Print</span></a>
       </nav>
     </details>
-    <details class="nav-menu" open>
+    <details class="nav-menu">
       <summary>Operations and delivery</summary>
       <nav class="nav">
         <a href="#queue">Review Queue <span>Light</span></a>
@@ -249,6 +266,21 @@
             <div class="step"><div class="num">3</div><div><strong>Value source</strong><span>Fresh land, WinGAP RCN, MKTDRV diagnostic, carry-forward, or blocked.</span></div></div>
             <div class="step"><div class="num">4</div><div><strong>Claims-safe status</strong><span>Diagnostic, SME-review, load-ready pending key check, or blocked.</span></div></div>
           </div>
+        </div>
+      </div>
+      <div class="viz-grid">
+        <div class="panel">
+          <div class="section-head"><div class="copy"><div class="eyebrow">Countywide evidence coverage</div><h3>Where the current run has support</h3><p class="sub">Illustrative scenario view. Counts remain separate from readiness claims.</p></div><span class="pill info">Population evaluated</span></div>
+          <div class="viz-list">
+            <div class="viz-row"><span>Qualified sales support</span><div class="viz-track"><div class="viz-fill teal" style="width:71%"></div></div><span class="viz-value">71%</span></div>
+            <div class="viz-row"><span>Fresh improvement basis</span><div class="viz-track"><div class="viz-fill" style="width:60%"></div></div><span class="viz-value">3,754</span></div>
+            <div class="viz-row"><span>Carry-forward parcels</span><div class="viz-track"><div class="viz-fill gold" style="width:29%"></div></div><span class="viz-value">1,847</span></div>
+            <div class="viz-row"><span>Thin evidence pools</span><div class="viz-track"><div class="viz-fill orange" style="width:18%"></div></div><span class="viz-value">392</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="section-head"><div class="copy"><div class="eyebrow">Readiness distribution</div><h3>Literal status tiers</h3></div><span class="pill warn">Needs appraiser review</span></div>
+          <div class="donut-wrap"><div class="donut" aria-label="Illustrative readiness distribution, 72 percent reviewed"></div><div class="legend-list"><div class="legend-item"><i class="legend-dot"></i>Evidence reviewed · 43%</div><div class="legend-item"><i class="legend-dot orange"></i>Needs appraiser review · 25%</div><div class="legend-item"><i class="legend-dot gold"></i>Diagnostic only · 14%</div><div class="legend-item"><i class="legend-dot gray"></i>Source gap / blocked · 18%</div></div></div>
         </div>
       </div>
     </section>
