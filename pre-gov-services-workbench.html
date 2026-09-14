@@ -45,9 +45,11 @@
     .nav { display: grid; gap: 5px; }
     .nav a { text-decoration: none; color: #d8dee9; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 650; display: flex; justify-content: space-between; align-items: center; }
     .nav a:hover, .nav a.active { background: var(--nav-2); color: #fff; }
+    .nav a[aria-current="location"] { background: var(--orange); color: var(--brand); }
     .nav a span { color: #91a3bd; font-size: 11px; font-weight: 800; }
     .main { min-width: 0; padding: 26px 28px 40px; }
-    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 18px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 18px; position: sticky; top: 0; z-index: 3; padding: 10px 0; background: rgba(244,246,248,.94); backdrop-filter: blur(10px); }
+    .menu-toggle, .drawer-close { display: none; }
     .crumb { color: var(--muted); font-size: 13px; font-weight: 700; }
     .user { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 13px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 800; }
@@ -164,17 +166,21 @@
     @media (max-width: 1120px) {
       .panel { overflow-x: auto; }
       .panel table { min-width: 0; width: 100%; table-layout: fixed; }
+      .app { grid-template-columns: 1fr; }
+      .side { position: fixed; inset: 0 auto 0 0; z-index: 20; width: min(330px, 88vw); height: 100vh; transform: translateX(-105%); transition: transform .2s ease; box-shadow: 12px 0 30px rgba(15,23,42,.2); }
+      .side.is-open { transform: translateX(0); }
+      .drawer-close { display: inline-flex; position: absolute; top: 16px; right: 16px; border: 1px solid rgba(255,255,255,.22); color: #fff; background: transparent; border-radius: 8px; padding: 6px 9px; font-size: 20px; cursor: pointer; }
+      .menu-toggle { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); color: var(--brand); background: var(--panel); border-radius: 8px; padding: 8px 11px; font: 700 13px "Source Sans 3", sans-serif; cursor: pointer; }
+      .drawer-backdrop { display: none; position: fixed; inset: 0; z-index: 19; background: rgba(15,23,42,.42); }
+      .drawer-backdrop.is-visible { display: block; }
       .nav-menu { margin-top: 8px; }
       .nav-menu:not([open]) .nav { display: none; }
-    }
-    @media (max-width: 1120px) {
-      .app { grid-template-columns: 1fr; }
-      .side { position: static; height: auto; }
       .main { padding: 20px; }
       .cards-4, .cards-3, .two, .two-even, .layout-parcel { grid-template-columns: 1fr; }
       .viz-grid { grid-template-columns: 1fr; }
       .search { grid-template-columns: 1fr; }
       .kpi-row { grid-template-columns: repeat(2, 1fr); }
+      body.drawer-open { overflow: hidden; }
     }
     @media print {
       .side, .topbar, .toolbar, .nav, .tabs { display:none !important; }
@@ -188,7 +194,8 @@
 </head>
 <body>
 <div class="app">
-  <aside class="side">
+  <aside id="workbench-nav" class="side">
+    <button class="drawer-close" type="button" aria-label="Close workbench navigation">×</button>
     <div class="brand"><img class="brand-logo" src="https://mixupmarketing7.github.io/deal-boards/pre-logo-horizontal.png" alt="Property Revaluation Experts" />VS-PRE Gov Services Workbench</div>
     <div class="tag">County-facing evidence product for parcel lookup, comparable sales, value defense, recalibration review, and board-ready outputs.</div>
     <div class="run-card">
@@ -215,8 +222,10 @@
       </nav>
     </details>
   </aside>
+  <div class="drawer-backdrop" aria-hidden="true"></div>
   <main class="main">
     <div class="topbar">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="workbench-nav">☰ <span>Menu</span></button>
       <div class="crumb">Montgomery County / AY2026 / County evidence workbench</div>
       <div class="user"><span>County Appraiser</span><div class="avatar">CA</div></div>
     </div>
@@ -469,11 +478,42 @@
 </div>
 <script>
   const mobileNavQuery = window.matchMedia("(max-width: 1120px)");
+  const workbenchNav = document.querySelector("#workbench-nav");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const drawerClose = document.querySelector(".drawer-close");
+  const drawerBackdrop = document.querySelector(".drawer-backdrop");
+  const closeDrawer = () => {
+    workbenchNav?.classList.remove("is-open");
+    drawerBackdrop?.classList.remove("is-visible");
+    document.body.classList.remove("drawer-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  };
+  const openDrawer = () => {
+    workbenchNav?.classList.add("is-open");
+    drawerBackdrop?.classList.add("is-visible");
+    document.body.classList.add("drawer-open");
+    menuToggle?.setAttribute("aria-expanded", "true");
+  };
+  menuToggle?.addEventListener("click", () => workbenchNav?.classList.contains("is-open") ? closeDrawer() : openDrawer());
+  drawerClose?.addEventListener("click", closeDrawer);
+  drawerBackdrop?.addEventListener("click", closeDrawer);
+  document.querySelectorAll(".side a").forEach((link) => link.addEventListener("click", closeDrawer));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeDrawer(); });
   const setMenuState = () => document.querySelectorAll(".nav-menu").forEach((menu) => {
     menu.open = !mobileNavQuery.matches;
   });
   setMenuState();
   mobileNavQuery.addEventListener("change", setMenuState);
+  const sectionIds = ["dashboard", "lookup", "parcel", "comps", "defense", "queue", "quality", "exports"];
+  const links = [...document.querySelectorAll(".side a")];
+  const markActive = (id) => links.forEach((link) => link.setAttribute("aria-current", link.getAttribute("href") === `#${id}` ? "location" : "false"));
+  const initialId = window.location.hash.slice(1) || "dashboard";
+  markActive(sectionIds.includes(initialId) ? initialId : "dashboard");
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) markActive(visible.target.id);
+  }, { rootMargin: "-20% 0px -65% 0px", threshold: [0, .25, .5] });
+  sectionIds.forEach((id) => { const section = document.getElementById(id); if (section) sectionObserver.observe(section); });
 </script>
 </body>
 </html>
