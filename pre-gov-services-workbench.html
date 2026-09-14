@@ -38,6 +38,7 @@
 <div class="foot">Prototype scenario for portfolio demonstration. The interaction model reflects PRE research patterns: decision-first queue, evidence provenance, confidence and verification states, responsive mobile review, and explicit data-as-of context.</div>
 </main></div>
 <script>
+document.querySelectorAll('img[src*="raw.githubusercontent.com/mixupmarketing7/preplatform"]').forEach((image)=>{image.src='https://mixupmarketing7.github.io/deal-boards/pre-logo-horizontal.png';});
 const menuButton=document.querySelector('.mobile-menu');
 const mobileNav=document.querySelector('#mobile-nav');
 if(menuButton&&mobileNav){menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));mobileNav.hidden=open;});mobileNav.querySelectorAll('a').forEach((link)=>link.addEventListener('click',()=>{menuButton.setAttribute('aria-expanded','false');mobileNav.hidden=true;}));}
