@@ -3,7 +3,7 @@
 <head><meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VS-PRE Workbench MVP Mockup — Parcel Evidence + Comparable Sales</title>
+  <title>VS-PRE County Evidence Workbench — Parcel Evidence + Comparable Sales</title>
   <style>
     :root {
       --bg: #f4f6f8;
@@ -30,13 +30,19 @@
     a { color: inherit; }
     .app { min-height: 100vh; display: grid; grid-template-columns: 292px minmax(0, 1fr); }
     .side { background: var(--nav); color: #fff; padding: 24px 18px; position: sticky; top: 0; height: 100vh; overflow: auto; }
-    .brand { font-weight: 850; font-size: 19px; line-height: 1.15; letter-spacing: -0.02em; padding-top: 92px; background: url("https://mixupmarketing7.github.io/deal-boards/pre-logo-horizontal.png") top left / 158px auto no-repeat; }
+    .brand { font-weight: 850; font-size: 19px; line-height: 1.15; letter-spacing: -0.02em; }
     .tag { color: #aab4c4; font-size: 12px; line-height: 1.45; margin-top: 8px; }
     .run-card { margin-top: 20px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); border-radius: 16px; padding: 14px; }
     .run-card .small { color: #b9c2d2; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 750; }
     .run-card .run { margin-top: 7px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #fff; word-break: break-word; }
     .nav-group { margin-top: 20px; }
     .nav-title { color: #8fa0b9; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; margin: 18px 10px 8px; }
+    .nav-menu { margin-top: 20px; }
+    .nav-menu summary { cursor: pointer; list-style: none; color: #8fa0b9; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; padding: 10px; border-radius: 10px; }
+    .nav-menu summary::-webkit-details-marker { display: none; }
+    .nav-menu summary::after { content: "+"; float: right; color: #91a3bd; font-size: 16px; line-height: 1; }
+    .nav-menu[open] summary::after { content: "−"; }
+    .nav-menu .nav { margin-top: 4px; }
     .nav { display: grid; gap: 5px; }
     .nav a { text-decoration: none; color: #d8dee9; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 650; display: flex; justify-content: space-between; align-items: center; }
     .nav a:hover, .nav a.active { background: var(--nav-2); color: #fff; }
@@ -142,7 +148,7 @@
       .kpi-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media print {
-      .side, .topbar, .toolbar, .nav, .tabs { display:none !important; }
+        .side, .topbar, .toolbar, .nav, .tabs { display:none !important; }
       .app { display:block; }
       .main { padding:0; }
       body { background:#fff; }
@@ -159,10 +165,10 @@
     <div class="run-card">
       <div class="small">Active run</div>
       <div class="run">ay2026_singlebase_val3</div>
-      <div style="margin-top:10px"><span class="pill warn">Read-only pilot</span></div>
+      <div style="margin-top:10px"><span class="pill gray">Diagnostic only</span></div>
     </div>
-    <div class="nav-group">
-      <div class="nav-title">MVP Core</div>
+    <details class="nav-menu" open>
+      <summary>County staff workflow</summary>
       <nav class="nav">
         <a href="#dashboard">Executive Dashboard <span>Run</span></a>
         <a href="#lookup">Parcel Lookup <span>Find</span></a>
@@ -170,17 +176,19 @@
         <a href="#comps" class="active">Comparable Sales <span>Defend</span></a>
         <a href="#defense">Value Defense Summary <span>Print</span></a>
       </nav>
-      <div class="nav-title">Support</div>
+    </details>
+    <details class="nav-menu" open>
+      <summary>Operations and delivery</summary>
       <nav class="nav">
         <a href="#queue">Review Queue <span>Light</span></a>
         <a href="#quality">Data Quality <span>QC</span></a>
-        <a href="#exports">Board / Exports <span>Status</span></a>
+        <a href="#exports">Board and delivery <span>Status</span></a>
       </nav>
-    </div>
+    </details>
   </aside>
   <main class="main">
     <div class="topbar">
-      <div class="crumb">Montgomery County / AY2026 / Gov Workbench MVP</div>
+      <div class="crumb">Montgomery County / AY2026 / County evidence workbench</div>
       <div class="user"><span>County Appraiser</span><div class="avatar">CA</div></div>
     </div>
 
@@ -207,7 +215,7 @@
       <div class="grid cards-4" style="margin-top:16px">
         <div class="panel stat"><div class="label">Parcel evidence views</div><div class="val">6,266</div><div class="note">County roll indexed</div></div>
         <div class="panel stat"><div class="label">Recent comp pools</div><div class="val">1,482</div><div class="note">Parcels with qualified sales support</div></div>
-        <div class="panel stat"><div class="label">Value-defense summaries</div><div class="val">0</div><div class="note">No exports yet in read-only MVP</div></div>
+        <div class="panel stat"><div class="label">Value-defense summaries</div><div class="val">0</div><div class="note">No exports yet in diagnostic-only view</div></div>
         <div class="panel stat"><div class="label">High-risk blockers</div><div class="val">17</div><div class="note">Thin sales, carry-forward, source gaps</div></div>
       </div>
       <div class="grid two" style="margin-top:16px">
@@ -215,9 +223,9 @@
           <h3>Operational priority</h3>
           <table>
             <tr><th>Priority</th><th>Module</th><th>Why it matters</th><th>Status</th></tr>
-            <tr><td>1</td><td><a href="#lookup">Parcel Lookup</a></td><td>Fast staff answer to taxpayer calls</td><td><span class="pill ok">MVP core</span></td></tr>
-            <tr><td>2</td><td><a href="#parcel">Parcel Evidence</a></td><td>Explains value source, component basis, and carry-forward</td><td><span class="pill ok">MVP core</span></td></tr>
-            <tr><td>3</td><td><a href="#comps">Comparable Sales</a></td><td>Supports value defense and informal review</td><td><span class="pill ok">MVP core</span></td></tr>
+            <tr><td>1</td><td><a href="#lookup">Parcel Lookup</a></td><td>Fast staff answer to taxpayer calls</td><td><span class="pill ok">County staff workflow</span></td></tr>
+            <tr><td>2</td><td><a href="#parcel">Parcel Evidence</a></td><td>Explains value source, component basis, and carry-forward</td><td><span class="pill ok">County staff workflow</span></td></tr>
+            <tr><td>3</td><td><a href="#comps">Comparable Sales</a></td><td>Supports value defense and informal review</td><td><span class="pill ok">County staff workflow</span></td></tr>
             <tr><td>4</td><td><a href="#queue">Review Queue</a></td><td>Routes recommendations after evidence is trusted</td><td><span class="pill info">Lightweight</span></td></tr>
           </table>
         </div>
@@ -325,7 +333,7 @@
 
     <section id="comps" class="section">
       <div class="section-head">
-        <div class="copy"><div class="eyebrow">Comparable sales</div><h1>Comp pool for 012A 041</h1><p class="sub">The MVP center of gravity. Staff can see what sales support the value, why other sales were excluded, whether the pool meets ratio standards, and whether the evidence is strong enough for a standard case.</p></div>
+        <div class="copy"><div class="eyebrow">Comparable sales</div><h1>Comp pool for 012A 041</h1><p class="sub">Primary county evidence workflow. Staff can see which market-qualified sales support the value, why others were removed from the sample, whether the pool meets ratio standards, and whether the evidence is strong enough for a standard case.</p></div>
         <div class="toolbar"><a class="btn" href="#parcel">Parcel evidence</a><a class="btn primary" href="#defense">Generate value defense</a></div>
       </div>
       <div class="grid two">
@@ -382,7 +390,7 @@
 
     <section id="defense" class="section">
       <div class="section-head">
-        <div class="copy"><div class="eyebrow">Value defense summary</div><h1>Printable one-page parcel evidence packet</h1><p class="sub">Designed for informal reviews, taxpayer calls, and hearing preparation. PDF generation can come later; the MVP starts with a print-friendly browser page.</p></div>
+        <div class="copy"><div class="eyebrow">Value defense summary</div><h1>Printable one-page parcel evidence packet</h1><p class="sub">Designed for informal reviews, taxpayer calls, and hearing preparation. This diagnostic-only view starts with a print-friendly browser page.</p></div>
         <div class="toolbar"><a class="btn" href="#comps">Back to comps</a><button class="btn primary" onclick="window.print()">Print summary</button></div>
       </div>
       <div class="print-page">
@@ -400,7 +408,7 @@
     </section>
 
     <section id="queue" class="section">
-      <div class="section-head"><div class="copy"><div class="eyebrow">Lightweight review queue</div><h1>Evidence-linked recommendation list</h1><p class="sub">The queue supports the comp/evidence workflow; it is not the MVP center of gravity. Each row links back to Parcel Evidence before any review decision.</p></div><div class="toolbar"><a class="btn primary" href="#parcel">Open parcel evidence</a></div></div>
+      <div class="section-head"><div class="copy"><div class="eyebrow">Evidence-linked review queue</div><h1>Evidence-linked recommendation list</h1><p class="sub">The queue routes staff to the county evidence workflow. Each row links back to Parcel Evidence before any review decision.</p></div><div class="toolbar"><a class="btn primary" href="#parcel">Open parcel evidence</a></div></div>
       <div class="panel"><table><tr><th>Parcel</th><th>Recommendation</th><th>Evidence</th><th>Readiness</th><th>Action</th></tr><tr><td class="mono">012A041</td><td>Review below-market residential FMV</td><td>8 comps / COD pass</td><td><span class="pill warn">SME review</span></td><td><a class="btn" href="#parcel">View evidence</a></td></tr><tr><td class="mono">087B022</td><td>Carry-forward due to missing RCN basis</td><td>Thin comp pool</td><td><span class="pill gray">Diagnostic only</span></td><td><a class="btn" href="#parcel">View evidence</a></td></tr><tr><td class="mono">044C019</td><td>Land schedule anomaly review</td><td>Stage 3 land support</td><td><span class="pill warn">Needs appraiser review</span></td><td><a class="btn" href="#parcel">View evidence</a></td></tr></table></div>
     </section>
 
