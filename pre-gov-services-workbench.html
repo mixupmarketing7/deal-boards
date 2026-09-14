@@ -33,20 +33,15 @@
     body { margin: 0; font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--ink); }
     a { color: inherit; }
     .app { min-height: 100vh; display: grid; grid-template-columns: 292px minmax(0, 1fr); }
-    .side { background: var(--brand); color: #fff; padding: 24px 18px; position: sticky; top: 0; height: 100vh; overflow: auto; }
-    .brand { font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 19px; line-height: 1.15; letter-spacing: -0.02em; padding-top: 92px; background: url("https://mixupmarketing7.github.io/deal-boards/pre-logo-horizontal.png") top left / 158px auto no-repeat; }
+    .side { background: var(--nav); color: #fff; padding: 24px 18px; position: sticky; top: 0; height: 100vh; overflow: auto; }
+    .brand { font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 19px; line-height: 1.15; letter-spacing: -0.02em; }
+    .brand-logo { display: block; width: 158px; height: auto; margin-bottom: 14px; }
     .tag { color: #aab4c4; font-size: 12px; line-height: 1.45; margin-top: 8px; }
     .run-card { margin-top: 20px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); border-radius: 16px; padding: 14px; }
     .run-card .small { color: #b9c2d2; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 750; }
     .run-card .run { margin-top: 7px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #fff; word-break: break-word; }
     .nav-group { margin-top: 20px; }
     .nav-title { color: #8fa0b9; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; margin: 18px 10px 8px; }
-    .nav-menu { margin-top: 20px; }
-    .nav-menu summary { cursor: pointer; list-style: none; color: #8fa0b9; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; padding: 10px; border-radius: 10px; }
-    .nav-menu summary::-webkit-details-marker { display: none; }
-    .nav-menu summary::after { content: "+"; float: right; color: #91a3bd; font-size: 16px; line-height: 1; }
-    .nav-menu[open] summary::after { content: "−"; }
-    .nav-menu .nav { margin-top: 4px; }
     .nav { display: grid; gap: 5px; }
     .nav a { text-decoration: none; color: #d8dee9; border-radius: 12px; padding: 10px 12px; font-size: 14px; font-weight: 650; display: flex; justify-content: space-between; align-items: center; }
     .nav a:hover, .nav a.active { background: var(--nav-2); color: #fff; }
@@ -80,7 +75,7 @@
     .cards-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
     .two { grid-template-columns: minmax(0, 1.25fr) minmax(330px, .75fr); }
     .two-even { grid-template-columns: 1fr 1fr; }
-    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: 0 1px 2px rgba(15, 23, 42, .04); }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px; box-shadow: 0 6px 18px rgba(23, 50, 77, .06); min-width: 0; }
     .panel.tight { padding: 14px; }
     .stat .label { color: var(--muted); font-size: 13px; font-weight: 650; }
     .stat .val { font-size: 28px; font-weight: 850; margin-top: 6px; letter-spacing: -0.03em; }
@@ -144,6 +139,18 @@
     .print-page { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; box-shadow: var(--shadow); max-width: 940px; margin: 0 auto; }
     .letterhead { display: flex; justify-content: space-between; gap: 20px; border-bottom: 2px solid #111827; padding-bottom: 16px; margin-bottom: 16px; }
     .watermark { border: 1px dashed #cbd5e1; background: #f8fafc; padding: 10px; border-radius: 12px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .nav-menu { margin-top: 20px; }
+    .nav-menu summary { cursor: pointer; list-style: none; color: #8fa0b9; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; padding: 10px; border-radius: 10px; }
+    .nav-menu summary::-webkit-details-marker { display: none; }
+    .nav-menu summary::after { content: "+"; float: right; color: #91a3bd; font-size: 16px; line-height: 1; }
+    .nav-menu[open] summary::after { content: "−"; }
+    .nav-menu .nav { margin-top: 4px; }
+    @media (max-width: 1120px) {
+      .panel { overflow-x: auto; }
+      .panel table { min-width: 0; width: 100%; table-layout: fixed; }
+      .nav-menu { margin-top: 8px; }
+      .nav-menu:not([open]) .nav { display: none; }
+    }
     @media (max-width: 1120px) {
       .app { grid-template-columns: 1fr; }
       .side { position: static; height: auto; }
@@ -165,7 +172,7 @@
 <body>
 <div class="app">
   <aside class="side">
-    <div class="brand">VS-PRE Gov Services Workbench</div>
+    <div class="brand"><img class="brand-logo" src="https://mixupmarketing7.github.io/deal-boards/pre-logo-horizontal.png" alt="Property Revaluation Experts" />VS-PRE Gov Services Workbench</div>
     <div class="tag">County-facing evidence product for parcel lookup, comparable sales, value defense, recalibration review, and board-ready outputs.</div>
     <div class="run-card">
       <div class="small">Active run</div>
@@ -428,5 +435,13 @@
     </section>
   </main>
 </div>
+<script>
+  const mobileNavQuery = window.matchMedia("(max-width: 1120px)");
+  const setMenuState = () => document.querySelectorAll(".nav-menu").forEach((menu) => {
+    menu.open = !mobileNavQuery.matches;
+  });
+  setMenuState();
+  mobileNavQuery.addEventListener("change", setMenuState);
+</script>
 </body>
 </html>
