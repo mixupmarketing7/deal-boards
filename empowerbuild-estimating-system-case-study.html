@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Estimating System</title></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>One Price, Checked Twice</title></head><body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -66,7 +66,7 @@
 
 <div class="wrap">
   <p class="eyebrow">EmpowerBuild &middot; Fractional COO case study</p>
-  <h1>From ad hoc to auditable: the estimating system</h1>
+  <h1>One price, checked twice</h1>
   <p class="dek">Construction estimates used to live in someone's head and a blank template. Here's the pipeline that replaced that, and the errors it was built to stop happening again.</p>
 
   <section>
@@ -75,7 +75,7 @@
     <div class="incidents">
       <div class="incident">
         <span class="tag">Caught before the client saw it</span>
-        <p>One job's per-trade subtotals were silently wrong through two full revisions before anyone noticed &mdash; the grand total happened to be right, so nothing looked broken until someone added the trade lines by hand.</p>
+        <p>One job's per-trade subtotals were silently wrong through two full revisions before anyone noticed. The grand total happened to be right, so nothing looked broken until someone added the trade lines by hand.</p>
       </div>
       <div class="incident">
         <span class="tag">Caught by a file-size check</span>
@@ -87,7 +87,7 @@
       </div>
       <div class="incident">
         <span class="tag">Caught by a document-control rule</span>
-        <p>A revised contract went out for e-signature twice within the same hour &mdash; the e-signature platform has no cancel/void tool, so a premature send has to be killed by hand. One rule now: nothing reaches signature without sign-off first.</p>
+        <p>A revised contract went out for e-signature twice within the same hour. The e-signature platform has no cancel/void tool, so a premature send has to be killed by hand. One rule now: nothing reaches signature without sign-off first.</p>
       </div>
     </div>
   </section>
@@ -97,17 +97,18 @@
     <p class="lede">The fix wasn't a better template. It was making sure a price only has to be right in exactly one place, and that every step that could silently fail gets checked instead of assumed.</p>
     <div class="pipeline">
       <div class="stage"><div class="n">01</div><h3>One underwrite per job</h3><p>A single verified file drives every line. The client-facing rate is primary; internal cost derives from it, not the other way around.</p></div>
-      <div class="stage"><div class="n">02</div><h3>Read, don't guess</h3><p>Photos, scanned property records, and design documents feed straight into the underwrite through AI-assisted reading instead of a separate manual take-off pass.</p></div>
-      <div class="stage"><div class="n">03</div><h3>Assessor-card takeoffs</h3><p>For Indianapolis jobs, wall heights and perimeters come off the county assessor's own property record card &mdash; data a photo or a footprint map can't give you.</p></div>
+      <div class="stage"><div class="n">02</div><h3>Read scope, don't guess it</h3><p>Design documents and scanned records get read for material and scope detail through AI-assisted extraction, checked against the underwrite before it's used. Dimensions are a different problem, solved in the next stage.</p></div>
+      <div class="stage"><div class="n">03</div><h3>Assessor-card takeoffs</h3><p>For Indianapolis jobs, wall heights and perimeters come off the county assessor's own property record card. That's data a photo or a footprint map can't give you.</p></div>
       <div class="stage"><div class="n">04</div><h3>Byte-size QC gate</h3><p>Every rendered estimate gets checked before delivery. A healthy PDF runs 300&ndash;400KB; a silently-overwritten one lands near 46KB, and now that's caught automatically.</p></div>
       <div class="stage"><div class="n">05</div><h3>EST &rarr; CA &rarr; CO</h3><p>Estimate, contract, and change order each get their own numbering track. A revision is always a new file, never an overwrite of the last one.</p></div>
-      <div class="stage"><div class="n">06</div><h3>Drive before signature</h3><p>Nothing goes out for e-signature until it's staged and reviewed first &mdash; closing the exact gap that caused the double-send.</p></div>
+      <div class="stage"><div class="n">06</div><h3>Stage before signature</h3><p>Nothing goes out for e-signature until it's staged and reviewed first, closing the exact gap that caused the double-send.</p></div>
     </div>
   </section>
 
   <section>
     <h2>Standing rules</h2>
     <ul class="guard-list">
+      <li><b>Scope changes get a change order, not a renegotiation.</b> Cost and schedule impact are recorded and approved by both the customer and ownership before unfunded work starts. No verbal approval or silence counts as authorization. This is the direct fix for the underpriced contract above.</li>
       <li><b>20% markup, every estimate.</b> Set once, applied consistently, instead of negotiated case by case.</li>
       <li><b>Geocode before you price.</b> A bad address has broken two jobs already; now it's checked first, every time.</li>
       <li><b>Never invent a unit cost.</b> If a number isn't sourced, it's marked an allowance, not presented as a firm price.</li>
@@ -124,7 +125,7 @@
   </section>
 
   <footer>
-    <p>Figures and incidents above are drawn from real estimate and contract records; client names and full addresses are withheld here by design. This page is unlisted &mdash; shared by direct link only.</p>
+    <p>Figures and incidents above are drawn from real estimate and contract records; client names and full addresses are withheld here by design. This page is unlisted and shared by direct link only.</p>
   </footer>
 </div>
 </body></html>
