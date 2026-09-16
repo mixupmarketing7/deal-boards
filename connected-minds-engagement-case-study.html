@@ -48,7 +48,8 @@
   .timeline p{margin:0; font-size:0.96rem;}
 
   /* channels */
-  .channels{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; margin-top:8px;}
+  .channels{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:8px;}
+  @media (max-width:520px){ .channels{grid-template-columns:1fr;} }
   .channel{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:16px 18px;}
   .channel h3{font-family:var(--heading); font-weight:600; font-size:1.02rem; margin:0 0 6px; color:var(--ink);}
   .channel p{font-size:0.86rem; color:var(--ink-dim); margin:0;}
