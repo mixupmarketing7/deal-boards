@@ -73,48 +73,34 @@
     <p class="eyebrow">EmpowerBuild &middot; Fractional COO case study</p>
   </div>
   <h1>One price, checked twice</h1>
-  <p class="dek">Construction estimates used to live in someone's head and a blank template. Here's the pipeline that replaced that, and the errors it was built to stop happening again.</p>
+  <p class="dek">Every estimate this company sends now traces back to one verified number, and gets checked at least twice before a client sees it. That discipline is what caught two pricing errors and closed a signature near-miss before any of them reached a client.</p>
 
   <section>
-    <h2>The problem</h2>
-    <p class="lede">Every estimate started from a blank copy of the same template, priced by hand, with no single place a number had to be right. That looked fine until it didn't:</p>
-    <div class="incidents">
-      <div class="incident">
-        <span class="tag">Caught before the client saw it</span>
-        <p>One job's per-trade subtotals were silently wrong through two full revisions before anyone noticed. The grand total happened to be right, so nothing looked broken until someone added the trade lines by hand.</p>
-      </div>
-      <div class="incident">
-        <span class="tag">Caught by a file-size check</span>
-        <p>A render silently overwrote a good, client-ready estimate PDF with a corrupted error page. Nothing in the workflow would have caught it without deliberately checking file size on every render.</p>
-      </div>
-      <div class="incident">
-        <span class="tag">Caught before signature</span>
-        <p>A signed contract sat roughly $6,450 under its likely cost because scope changed after pricing and nobody re-priced it. The gap was found on review, not by the client.</p>
-      </div>
-      <div class="incident">
-        <span class="tag">Caught by a document-control rule</span>
-        <p>A revised contract went out for e-signature twice within the same hour. The e-signature platform has no cancel/void tool, so a premature send has to be killed by hand. One rule now: nothing reaches signature without sign-off first.</p>
-      </div>
+    <h2>The result</h2>
+    <div class="impact-band">
+      <div class="impact-tile"><div class="v">2</div><div class="l">Silent pricing errors caught and fixed before a client ever saw them</div></div>
+      <div class="impact-tile"><div class="v">1</div><div class="l">Document-control near-miss closed with a standing sign-off rule</div></div>
+      <div class="impact-tile"><div class="v">300&ndash;400KB</div><div class="l">Healthy PDF range the QC gate checks against, every render</div></div>
     </div>
   </section>
 
   <section>
-    <h2>The system</h2>
-    <p class="lede">The fix wasn't a better template. It was making sure a price only has to be right in exactly one place, and that every step that could silently fail gets checked instead of assumed.</p>
+    <h2>How it works</h2>
+    <p class="lede">A price only has to be right in exactly one place, and every step that could silently fail gets checked instead of assumed.</p>
     <div class="pipeline">
       <div class="stage"><div class="n">01</div><h3>One underwrite per job</h3><p>A single verified file drives every line. The client-facing rate is primary; internal cost derives from it, not the other way around.</p></div>
-      <div class="stage"><div class="n">02</div><h3>Read scope, don't guess it</h3><p>Design documents and scanned records get read for material and scope detail through AI-assisted extraction, checked against the underwrite before it's used. Dimensions are a different problem, solved in the next stage.</p></div>
-      <div class="stage"><div class="n">03</div><h3>Assessor-card takeoffs</h3><p>For Indianapolis jobs, wall heights and perimeters come off the county assessor's own property record card. That's data a photo or a footprint map can't give you.</p></div>
+      <div class="stage"><div class="n">02</div><h3>Read the sketch, not just the scope</h3><p>Hand-marked dimensions on a client's design sketch get read directly off the page, then cross-checked against what's actually verified versus approximate before any of it prices into an estimate.</p></div>
+      <div class="stage"><div class="n">03</div><h3>Assessor-card takeoffs</h3><p>For Indianapolis jobs without a usable sketch, wall heights and perimeters come off the county assessor's own property record card instead of a guess from a photo.</p></div>
       <div class="stage"><div class="n">04</div><h3>Byte-size QC gate</h3><p>Every rendered estimate gets checked before delivery. A healthy PDF runs 300&ndash;400KB; a silently-overwritten one lands near 46KB, and now that's caught automatically.</p></div>
       <div class="stage"><div class="n">05</div><h3>EST &rarr; CA &rarr; CO</h3><p>Estimate, contract, and change order each get their own numbering track. A revision is always a new file, never an overwrite of the last one.</p></div>
-      <div class="stage"><div class="n">06</div><h3>Stage before signature</h3><p>Nothing goes out for e-signature until it's staged and reviewed first, closing the exact gap that caused the double-send.</p></div>
+      <div class="stage"><div class="n">06</div><h3>Stage before signature</h3><p>Nothing goes out for e-signature until it's staged and reviewed first, closing the exact gap that caused the double-send below.</p></div>
     </div>
   </section>
 
   <section>
     <h2>Standing rules</h2>
     <ul class="guard-list">
-      <li><b>Scope changes get a change order, not a renegotiation.</b> Cost and schedule impact are recorded and approved by both the customer and ownership before unfunded work starts. No verbal approval or silence counts as authorization. This is the direct fix for the underpriced contract above.</li>
+      <li><b>Scope changes get a change order, not a renegotiation.</b> Cost and schedule impact are recorded and approved by both the customer and ownership before unfunded work starts. No verbal approval or silence counts as authorization.</li>
       <li><b>20% markup, every estimate.</b> Set once, applied consistently, instead of negotiated case by case.</li>
       <li><b>Geocode before you price.</b> A bad address has broken two jobs already; now it's checked first, every time.</li>
       <li><b>Never invent a unit cost.</b> If a number isn't sourced, it's marked an allowance, not presented as a firm price.</li>
@@ -122,11 +108,25 @@
   </section>
 
   <section>
-    <h2>What it's caught, in practice</h2>
-    <div class="impact-band">
-      <div class="impact-tile"><div class="v">2</div><div class="l">Silent pricing errors caught and fixed before a client ever saw them</div></div>
-      <div class="impact-tile"><div class="v">1</div><div class="l">Document-control near-miss closed with a standing sign-off rule</div></div>
-      <div class="impact-tile"><div class="v">300&ndash;400KB</div><div class="l">Healthy PDF range the QC gate checks against, every render</div></div>
+    <h2>What it replaced</h2>
+    <p class="lede">Every estimate used to start from a blank copy of the same template, priced by hand, with no single place a number had to be right. That looked fine until it didn't:</p>
+    <div class="incidents">
+      <div class="incident">
+        <span class="tag">Now caught by the underwrite file</span>
+        <p>One job's per-trade subtotals were silently wrong through two full revisions before anyone noticed. The grand total happened to be right, so nothing looked broken until someone added the trade lines by hand.</p>
+      </div>
+      <div class="incident">
+        <span class="tag">Now caught by the QC gate</span>
+        <p>A render silently overwrote a good, client-ready estimate PDF with a corrupted error page. Nothing in the workflow would have caught it without deliberately checking file size on every render.</p>
+      </div>
+      <div class="incident">
+        <span class="tag">Now caught by the change-order gate</span>
+        <p>A signed contract sat roughly $6,450 under its likely cost because scope changed after pricing and nobody re-priced it. The gap was found on review, not by the client.</p>
+      </div>
+      <div class="incident">
+        <span class="tag">Now caught by the sign-off rule</span>
+        <p>A revised contract went out for e-signature twice within the same hour. The e-signature platform has no cancel/void tool, so a premature send has to be killed by hand.</p>
+      </div>
     </div>
   </section>
 
