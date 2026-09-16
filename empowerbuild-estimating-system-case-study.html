@@ -42,7 +42,7 @@
   .incident p{margin:0; font-size:0.95rem;}
 
   /* pipeline */
-  .pipeline{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin:22px 0;}
+  .pipeline{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin:22px 0;}
   .stage{background:var(--surface); padding:16px 16px 14px;}
   .stage .n{font-family:var(--mono); font-size:0.68rem; color:var(--teal); letter-spacing:.08em;}
   .stage h3{font-family:var(--heading); font-weight:700; font-size:0.98rem; margin:6px 0 6px; color:var(--ink);}
@@ -60,7 +60,8 @@
   footer{margin-top:56px; padding-top:22px; border-top:1px solid var(--line); font-size:0.8rem; color:var(--ink-dim);}
   footer p{max-width:74ch; margin:0 0 8px;}
 
-  @media (max-width:520px){ .wrap{padding-block:34px 50px;} }
+  @media (max-width:640px){ .pipeline{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .wrap{padding-block:34px 50px;} .pipeline{grid-template-columns:1fr;} }
 </style>
 
 <div class="wrap">
