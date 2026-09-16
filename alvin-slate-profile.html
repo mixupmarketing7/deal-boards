@@ -448,7 +448,7 @@
     var re = /\d+(\.\d+)?/g, m;
     while ((m = re.exec(original))) matches.push(m);
     if (!matches.length) return;
-    var duration = 900, start = null;
+    var duration = 1900, start = null;
     function frame(ts){
       if (start === null) start = ts;
       var t = Math.min(1, (ts - start) / duration);
