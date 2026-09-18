@@ -27,7 +27,8 @@ h2{color:var(--navy);font-size:20px;margin:30px 0 12px;letter-spacing:-.2px}
 h3{color:var(--ink);font-size:16px;margin:20px 0 8px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:20px 22px;margin-bottom:16px}
 table{width:100%;border-collapse:collapse;font-size:14.5px;margin:6px 0}
-th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;
+  overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
 th{color:var(--muted);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.5px}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 tr:last-child td{border-bottom:none}
@@ -50,8 +51,15 @@ ul{margin:8px 0;padding-left:20px} li{margin:5px 0}
 .rev{background:#fff;border:2px solid var(--stop);border-radius:11px;padding:16px 20px;margin:0 0 20px}
 .rev h3{margin-top:0;color:var(--stop)}
 footer{color:var(--muted);font-size:12.5px;padding:22px 4px 40px;border-top:1px solid var(--line);margin-top:26px}
-@media(max-width:620px){header{padding:22px 18px}header h1{font-size:22px}.card{padding:16px}
-  table{font-size:13.5px}th,td{padding:7px 6px}}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px -4px}
+@media(max-width:620px){
+  header{padding:22px 18px}header h1{font-size:22px}
+  .card,.rev{padding:15px 14px}
+  table{font-size:13px;min-width:430px}
+  th,td{padding:7px 7px}
+  .stat .val{font-size:20px}
+  .pill{font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -59,7 +67,7 @@ footer{color:var(--muted);font-size:12.5px;padding:22px 4px 40px;border-top:1px 
 
 <header>
   <h1>2561 Roland Rd, Thomaston, GA 30286</h1>
-  <div class="sub">Owner-occupant purchase analysis &middot; Upson County parcel 025&nbsp;039 &middot; run 2026-09-18 &middot; <b>rev 2</b> (post red-team)</div>
+  <div class="sub">Owner-occupant purchase analysis &middot; Upson County parcel 025&nbsp;039 &middot; run 2026-09-18 &middot; <b>rev 3</b></div>
   <div class="pills">
     <span class="pill">Ask $199,900</span>
     <span class="pill">1,425 sf &middot; 3BR / 1.5BA</span>
@@ -78,10 +86,12 @@ footer{color:var(--muted);font-size:12.5px;padding:22px 4px 40px;border-top:1px 
 </header>
 
 <div class="rev">
-<h3>What changed in rev 2</h3>
-<p style="margin:6px 0">An adversarial review of the first draft found three errors that moved the
-numbers against the buyer. All three are corrected below.</p>
-<table>
+<h3>What changed</h3>
+<p style="margin:6px 0"><b>Rev 3:</b> added the full concept-addition all-in (it was previously a
+hand-waved range that was roughly half the real figure), added the 1975-purchase index cross-check,
+and fixed table overflow on mobile. <b>Rev 2:</b> an adversarial review of the first draft found
+three errors that moved the numbers against the buyer:</p>
+<div class="tw"><table>
   <tr><th>Item</th><th>Rev 1 said</th><th>Corrected</th></tr>
   <tr><td><b>Parcel geometry</b></td><td>16.00 acres treated as confirmed</td>
       <td><span class="tag t-stop">UNRESOLVED</span> Polygon may not contain the dwelling. Now the #1 gate.</td></tr>
@@ -89,7 +99,7 @@ numbers against the buyer. All three are corrected below.</p>
       <td>Circular — that total embeds the same over-assessed land line this board recommends appealing. Stripped. Corrected value base is <b>$236,000</b>.</td></tr>
   <tr><td><b>Septic</b></td><td>$650 inspection, with replacement as a risk</td>
       <td>A holding tank cannot legally remain. A conforming install is a <b>certainty, not a risk</b>: $18,000 standard, $25,000&ndash;$40,000 if engineered.</td></tr>
-</table>
+</table></div>
 </div>
 
 <h2>The three numbers</h2>
@@ -127,7 +137,7 @@ Nothing else on this page should be relied on until it comes back.
 
 <h2>What it costs to live here</h2>
 <div class="card">
-<table>
+<div class="tw"><table>
   <tr><th>Phase</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th><th>When</th></tr>
   <tr><td><b>Move-in blockers</b><br><span class="conf">Roof, HVAC, electrical service, plumbing, well, crawl space, hazmat screen, <b>+ conforming septic install</b></span></td>
       <td class="n">$53,001</td><td class="n">$76,112</td><td class="n">$155,285</td><td>Before occupancy</td></tr>
@@ -137,7 +147,7 @@ Nothing else on this page should be relied on until it comes back.
       <td class="n">$8,100</td><td class="n">$14,473</td><td class="n">$24,000</td><td>Whenever</td></tr>
   <tr class="tot"><td>Required total (incl. 30% contingency)</td>
       <td class="n">$102,103</td><td class="n">$152,443</td><td class="n">$280,150</td><td></td></tr>
-</table>
+</table></div>
 <p class="conf">Costs installed, EmpowerBuild price book (GA region, as-of 2026-08-12). Contingency is
 <b>30%</b> because there are no interior photographs and seven big-ticket items are unresolved.
 The bath conversion moved from optional into required: the value figures above are for a 3BR/<b>2</b>BA
@@ -147,14 +157,14 @@ house, and the subject is 1.5 bath. <b>The contingency still does not cover a re
 
 <h3>All-in against value, by purchase price</h3>
 <div class="card">
-<table>
+<div class="tw"><table>
   <tr><th>Purchase</th><th class="n">Safe-occupancy all-in</th><th class="n">vs value ($236,000)</th><th>Read</th></tr>
   <tr><td>$199,900 <span class="conf">(ask)</span></td><td class="n">$276,012</td><td class="n">+$40,012</td><td><span class="tag t-stop">NO</span></td></tr>
   <tr><td>$171,900 <span class="conf">(86% of list — the normal acreage close)</span></td><td class="n">$248,012</td><td class="n">+$12,012</td><td><span class="tag t-stop">NO</span></td></tr>
   <tr><td>$160,000</td><td class="n">$236,112</td><td class="n">+$112</td><td><span class="tag t-warn">BREAK-EVEN</span></td></tr>
   <tr><td><b>$150,000</b> <span class="conf">(target)</span></td><td class="n">$226,112</td><td class="n">&minus;$9,888</td><td><span class="tag t-go">WORKS</span></td></tr>
   <tr><td>$135,000</td><td class="n">$211,112</td><td class="n">&minus;$24,888</td><td><span class="tag t-go">WORKS</span></td></tr>
-</table>
+</table></div>
 <p class="conf"><b>Note what this table does not say.</b> Even at $135,000, completing the
 <em>full</em> required scope puts you at $287,443 — well above the $236,000 the finished house is
 worth. That is the normal owner-occupant trade: you are buying utility and 16 acres, not equity.
@@ -185,7 +195,7 @@ testing and county permitting time.
 
 <h2>Phase 0 — ~$2K–$8K resolves ~$330K of swing</h2>
 <div class="card">
-<table>
+<div class="tw"><table>
   <tr><th>#</th><th>Verification</th><th class="n">Cost</th><th class="n">Dollar swing</th><th>Why it ranks here</th></tr>
   <tr><td>1</td><td><b>Boundary survey + title work</b> — does the conveyance contain the dwelling?</td>
       <td class="n">$600–$1,500</td><td class="n">$180,000</td><td>Binary and existential. Everything else is moot until this returns.</td></tr>
@@ -205,13 +215,13 @@ testing and county permitting time.
       <td class="n">$150–$400</td><td class="n">$16,000</td><td>1971 sits inside the 1965–73 aluminum-wiring window.</td></tr>
   <tr><td>9</td><td><b>WDO termite letter</b> + physical crawl entry</td>
       <td class="n">$150–$900</td><td class="n">$27,000</td><td>Masonry-pier crawl, central Georgia, never inspected.</td></tr>
-</table>
+</table></div>
 </div>
 
 <h2>Does the lake justify the price?</h2>
 <div class="card">
 <p><b>Partly — and it is the most contested number in this file.</b></p>
-<table>
+<div class="tw"><table>
   <tr><th>Evidence</th><th class="n">Rate</th><th>Reading</th></tr>
   <tr><td><b>374 Gordon School Rd</b> — 20 ac vacant, MLS-marketed, closed 2026-04-03 at $220,000, 3.9 mi</td>
       <td class="n">$11,000/ac</td><td><span class="tag t-go">SUPPORTS</span> At this rate 16 acres alone is ~$176,000.</td></tr>
@@ -219,7 +229,7 @@ testing and county permitting time.
       <td class="n">$2,003/ac</td><td><span class="tag t-stop">OPPOSES</span> The cleanest arm's-length land deed in the set. 16 ac = $32,048.</td></tr>
   <tr><td><b>3595 Logtown Rd</b> — 21.69 ac <em>with creek and pond</em>, barn, second dwelling, remodeled, closed $285,000 after 48 DOM</td>
       <td class="n">&mdash;</td><td><span class="tag t-warn">TESTS IT</span> More land, more water, more buildings — still only $285K. Water is a premium here, not a transformation.</td></tr>
-</table>
+</table></div>
 <p>The gap between the deed-verified and MLS-marketed rates is <b>5.5&times;</b> and moves the land
 component by more than $150,000. The deed sales are likely land splits and family transfers of
 back-land without frontage or water; the MLS tracts are marketed recreational parcels. A lake pushes
@@ -232,7 +242,7 @@ cash-flow negative at roughly &minus;$2,176/yr once the well, septic, dam and 16
 
 <h2>Carrying it</h2>
 <div class="card">
-<table>
+<div class="tw"><table>
   <tr><th>Line</th><th class="n">Annual</th><th>Basis</th></tr>
   <tr><td>Property tax — no exemption</td><td class="n">$2,796</td>
       <td>$252,101 &times; 40% &times; 27.73 mills. County value and millage <b>observed</b>; product computed.</td></tr>
@@ -240,7 +250,7 @@ cash-flow negative at roughly &minus;$2,176/yr once the well, septic, dam and 16
       <td><b>ESTIMATED.</b> Applies Upson's $10,000 basic homestead + the $18,000 HTRG credit. Stacking <b>not</b> verified against an actual bill.</td></tr>
   <tr><td>Insurance</td><td class="n">~$3,600</td><td>Rural GA; 84% of ZIP 30286 carries wildfire risk, 99% severe-wind risk</td></tr>
   <tr><td>Well + septic maintenance</td><td class="n">$300–$600</td><td>Excludes any dam obligation</td></tr>
-</table>
+</table></div>
 <p class="conf">The seller's L4 homestead exemption does <b>not</b> transfer. The O.C.G.A. &sect;48-5-2
 provision making a recent arm's-length sale the maximum allowable value for the following tax year
 was <b>deleted effective 2025-01-01</b> — buying below the county's figure does not automatically
@@ -274,16 +284,99 @@ is why this board does <em>not</em> use the county's $252,101 as evidence of val
 </ul>
 </div>
 
-<h2>About the renderings</h2>
+<h2 id="concept">The concept build — full all-in</h2>
 <div class="box stop">
-<b>No photograph of this house exists in the listing.</b> The imagery is AI-generated — including the
-aerial. The &ldquo;reimagined&rdquo; board (2,800 sf, 5 bed, 3.5 bath, 3-car garage, pool) is a concept,
-not this property. The real asset is 1,425 sf, 3 bed, 1 full + 1 half bath, built 1971.
+<b>No photograph of this house exists in the listing.</b> The imagery is AI-generated, including the
+aerial. The &ldquo;reimagined&rdquo; board is a concept, not this property. The real asset is
+<b>1,425 sf, 3 bed, 1 full + 1 half bath, built 1971</b>. Reaching the concept means a
+<b>1,375 sf addition</b> to the existing house, plus two more full baths, a 3-car garage, a pool and
+the outdoor living areas — <em>and</em> the base rehab of the 1971 structure you are building onto.
+</div>
+<div class="card">
+<div class="tw"><table>
+  <tr><th>Line</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th></tr>
+  <tr><td><b>Addition — 1,375 sf conditioned</b><br><span class="conf">Attached; foundation, framing, roof tie-in, full finish. $175 / $220 / $280 per sf — additions run higher per foot than new build because of tie-ins, access and small scale.</span></td><td class="n">$240,625</td><td class="n">$302,500</td><td class="n">$385,000</td></tr>
+  <tr><td><b>3-car attached garage, ~760 sf</b><br><span class="conf">Slab, 3 doors, unconditioned</span></td><td class="n">$49,400</td><td class="n">$64,600</td><td class="n">$83,600</td></tr>
+  <tr><td><b>In-ground gunite pool + spa</b><br><span class="conf">Per the rendering. Excludes code-required fence and alarms.</span></td><td class="n">$65,000</td><td class="n">$80,000</td><td class="n">$110,000</td></tr>
+  <tr><td><b>Outdoor living</b><br><span class="conf">Covered patio, hardscape, landscape lighting as rendered</span></td><td class="n">$25,000</td><td class="n">$45,000</td><td class="n">$75,000</td></tr>
+  <tr><td><b>Septic sized for 5 bedrooms</b><br><span class="conf">Georgia sizes drainfield by bedroom count. Going 3BR&rarr;5BR roughly doubles it, on Soil Productivity 4 soils with lake setbacks — engineered system likely.</span></td><td class="n">$25,000</td><td class="n">$38,000</td><td class="n">$60,000</td></tr>
+  <tr><td><b>Well capacity</b><br><span class="conf">5BR + pool fill + irrigation may force a new higher-yield well</span></td><td class="n">$2,500</td><td class="n">$12,000</td><td class="n">$25,000</td></tr>
+  <tr><td><b>Electrical service to 320/400A</b><br><span class="conf">200A will not carry 2,800 sf + pool + 3-car garage</span></td><td class="n">$4,500</td><td class="n">$7,500</td><td class="n">$14,000</td></tr>
+  <tr><td><b>HVAC for the addition</b><br><span class="conf">Second system or zoning, separate from the existing house</span></td><td class="n">$8,000</td><td class="n">$12,000</td><td class="n">$18,000</td></tr>
+  <tr><td><b>Base rehab of the existing 1,425 sf</b><br><span class="conf">Required scope, less the 3BR septic line now covered above</span></td><td class="n">$52,041</td><td class="n">$90,764</td><td class="n">$167,000</td></tr>
+  <tr><td><b>Design, engineering, permits, survey</b><br><span class="conf">Architect + structural + soil/perc + septic design + site plan</span></td><td class="n">$18,000</td><td class="n">$30,000</td><td class="n">$50,000</td></tr>
+  <tr><td><b>Site work</b><br><span class="conf">Driveway as rendered, grading, utility trenching</span></td><td class="n">$15,000</td><td class="n">$28,000</td><td class="n">$50,000</td></tr>
+  <tr class="tot"><td>Hard cost subtotal</td><td class="n">$505,066</td><td class="n">$710,364</td><td class="n">$1,037,600</td></tr>
+  <tr><td>GC fee @ 17%</td><td class="n">$85,861</td><td class="n">$120,762</td><td class="n">$176,392</td></tr>
+  <tr><td>Contingency @ 28% <span class="conf">(no drawings, unresolved boundary, unknown soils)</span></td><td class="n">$165,460</td><td class="n">$232,715</td><td class="n">$339,918</td></tr>
+  <tr class="tot"><td>Construction total</td><td class="n">$756,387</td><td class="n">$1,063,841</td><td class="n">$1,553,910</td></tr>
+</table></div>
+<p class="conf"><b>Every line above is ESTIMATED</b> from generic rural-Georgia 2026 ranges. The
+EmpowerBuild price book carries no addition, pool, or Georgia attached-garage assemblies — only a pool
+<em>removal</em> line and an Indianapolis framing rate — so none of this is priced off a reconciled
+book line. Treat the bands as wide.</p>
+</div>
+
+<h3>All-in, and what it would be worth</h3>
+<div class="card">
+<div class="tw"><table>
+  <tr><th>Scenario</th><th class="n">Purchase</th><th class="n">Construction</th><th class="n">All-in</th></tr>
+  <tr><td><b>After design, fixed-price contract</b> <span class="conf">(contingency drops to 12% once you hold drawings and bids)</span></td><td class="n">$150,000</td><td class="n">$930,861</td><td class="n">$1,080,861</td></tr>
+  <tr><td>Today, no drawings — likely band</td><td class="n">$150,000</td><td class="n">$1,063,841</td><td class="n">$1,213,841</td></tr>
+  <tr><td>Best case, everything favorable</td><td class="n">$150,000</td><td class="n">$756,387</td><td class="n">$906,387</td></tr>
+  <tr><td>At the ask instead of the target</td><td class="n">$199,900</td><td class="n">$1,063,841</td><td class="n">$1,263,741</td></tr>
+</table></div>
+<div class="box stop" style="margin-top:14px">
+<b>What the finished house would be worth: roughly $620,000&ndash;$750,000.</b><br>
+The only anchor available is <b>101 Deerwood Dr</b> — a 3,726 sf luxury estate on 15.8 acres that sold
+for $825,000 in November 2025, the highest sale in the area. At its $221/sf, a 2,800 sf version is
+about $620,000; a lake and pool premium might carry it toward $750,000. <b>This is an extrapolation
+from a single sale and the confidence is LOW.</b>
 <br><br>
-Building to that vision means roughly <b>$515,000&ndash;$680,000</b> of construction on top of the
-purchase — $715K&ndash;$880K all-in, at or above the single highest sale in the area
-(101 Deerwood Dr, a 3,726 sf estate on 15.8 acres, $825,000). As a forever-home that is a choice you
-can make with open eyes. As anything you might resell, it is building above the market ceiling.
+<b>Even the most favorable version destroys $156,000. The likely case destroys roughly $460,000.</b>
+At $380 per finished square foot against a ZIP median sale of $141/sf, the concept builds
+a $1.1M house into a market whose ceiling is $825,000.
+</div>
+<p><b>If the acreage and the lake are what you actually want,</b> the version that comes closest to
+penciling is a restrained one: a ~575 sf addition to reach 4BR/2.5BA at roughly 2,000 sf, no pool, no
+3-car garage. That lands near <b>$400,000</b> of construction — still above the finished value, but
+in the range where a long hold absorbs it rather than a number you never recover.</p>
+</div>
+
+<h2 id="index">Cross-check: indexing the seller's 1975 purchase</h2>
+<div class="card">
+<p>The sellers bought in <b>April 1975 for $39,000</b> (Deed Book 244/88,90, county reason code
+&ldquo;fair market value&rdquo;). Indexing that forward:</p>
+<div class="tw"><table>
+  <tr><th>Series</th><th class="n">1975Q1</th><th class="n">2026Q2</th><th class="n">Multiple</th><th class="n">$39,000 becomes</th></tr>
+  <tr><td>FHFA All-Transactions HPI, Georgia <span class="conf">(observed)</span></td><td class="n">73.88</td><td class="n">662.08</td><td class="n">8.96&times;</td><td class="n">$349,501</td></tr>
+</table></div>
+<p class="conf">4.39% compounded over 51 years. Source: FHFA quarterly all-transactions state index,
+<code>hpi_at_state.csv</code>, downloaded 2026-09-18.</p>
+
+<div class="box stop">
+<b>Do not use this as a value. It overstates by roughly $113,000, and here is exactly why:</b>
+<ul>
+<li><b>The index assumes maintenance.</b> Repeat-sales indices track houses that were kept up. This one has <b>zero permits in 51 years</b> and the listing says it needs repairs and updating. You are indexing an asset that did not hold its condition.</li>
+<li><b>Statewide Georgia is metro Atlanta.</b> Thomaston is a separate micropolitan area 60 miles south that has not tracked it. The proof is in this same file: ZIP 30286 median sale is <b>&minus;4.0% year over year</b> while the state index keeps climbing.</li>
+<li><b>Wrong asset mix.</b> The index basket is houses on ordinary lots. This is 1,425 sf of house on 16 acres — mostly land, and land does not appreciate on the housing index.</li>
+<li><b>51 years compounds error.</b> A half-point annual drift over that span moves the answer by nearly 30%.</li>
+</ul>
+</div>
+
+<div class="box go">
+<b>Where the 1975 price IS useful — and it is genuinely useful.</b> It tells you about the
+<em>seller</em>, not the property. A $39,000 basis held 51 years means there is almost certainly
+<b>no mortgage</b>, so no payoff sets a price floor. At a $150,000 contract they still book roughly a
+<b>$111,000 gain</b>. Nothing in their financial position forces them to hold out for the ask.
+<br><br>
+It also tells you what you are negotiating against: a seller anchored on a half-century of
+appreciation and a county assessment that rose <b>126% in five years</b>. Expect the first counter to
+reflect that story rather than the comps.
+</div>
+<p class="conf"><b>Gap:</b> the USDA NASS farmland-value series — the better index for the 16-acre
+land component — requires a free Quick Stats API key that this run did not have. Worth pulling before
+a final offer; it would move in the same direction and meet the same objections.</p>
 </div>
 
 <h2>Open items &amp; data gaps</h2>
@@ -296,6 +389,8 @@ can make with open eyes. As anything you might resell, it is building above the 
   <li><b>Sources that refused to load this run:</b> Realtor.com, Zillow, Redfin property pages, LandWatch, LandSearch, Land.com, Homes.com. Subject facts recovered via Xome (same GAMLS feed) and Upson County qPublic; market data via the Redfin ZIP housing-market page and the Realtor.com public RDC file.</li>
   <li><b>Subdivision potential is unpriced.</b> The listing floats &ldquo;multiple homesites&rdquo;; zoning, minimum lot size, frontage and perc results were not checked. Do not pay for it.</li>
   <li><b>Flood status unverified</b> for both the dwelling and the lake area.</li>
+  <li><b>Every concept-build line is a generic range</b>, not a reconciled price-book line. A real number needs an architect's scope and two local GC bids.</li>
+  <li><b>USDA NASS farmland index not pulled</b> — needs a free Quick Stats API key.</li>
 </ul>
 </div>
 
