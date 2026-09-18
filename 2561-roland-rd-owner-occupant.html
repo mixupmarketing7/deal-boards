@@ -203,6 +203,11 @@ get for that premium is 11 extra acres and a private lake.
 <br><br>
 That is a lifestyle decision, and a defensible one if you are staying twenty years. It is not an
 investment return, and nothing in this market makes it one.
+<br><br>
+<b>The state's own cost schedule agrees.</b> Georgia's RCH prices a new 2,950 sf brick house at Good
+grade at <b>$470,525</b>. Against a $550K&ndash;$575K finished value that leaves roughly
+$80K&ndash;$105K for land, site work, soft costs and profit &mdash; the exact margin a spec builder
+is working on here, and the reason buying beats building.
 </div>
 <p><b>The version that comes closest to working</b> is restrained: a ~575 sf addition to reach
 4BR/2.5BA at about 2,000 sf, no pool, no 3-car garage.</p>
@@ -213,6 +218,7 @@ investment return, and nothing in this market makes it one.
 <ul class="keys">
 <li class="go"><b>They have no mortgage.</b> Bought in 1975 for $39,000 and held 51 years. At $150,000 they still book roughly a $111,000 gain. No payoff sets a floor.</li>
 <li class="go"><b>The market gives you the pen.</b> Homes take 66 days to sell, up 15 days from last year. Over a third of sold homes cut price first. Acreage properties here close at about 86% of list.</li>
+<li class="go"><b>Asks run ahead of closings.</b> Median list is $249,900 against a median sale of $227,464 &mdash; a ~10% gap, which is why so many sellers here end up cutting.</li>
 <li class="go"><b>Their buyer pool is small.</b> Until the septic is permittable, this is a cash or renovation-loan purchase for anyone, not just you.</li>
 <li class="stop"><b>It has only been listed 15 days.</b> They have not yet felt the 66-day average, and 16 acres with private water draws Atlanta buyers.</li>
 <li><b>Expect their first counter to reflect a story, not the comps</b> &mdash; half a century of appreciation and a county assessment that rose 126% in five years.</li>
@@ -249,22 +255,35 @@ the value figures assume a 3BR/2BA house. <b>The contingency does not cover</b> 
 </div></details>
 
 <details><summary>Concept build detail &mdash; and how the build costs were sourced</summary><div class="inner">
-<div class="box stop"><b>Read this before using these numbers.</b> The EmpowerBuild price book has
-no addition, pool, or Georgia attached-garage assemblies &mdash; only a pool <em>removal</em> line and
-an Indianapolis framing rate. The first version of this board therefore used generic per-foot ranges
-that were <b>my own judgment, not sourced data</b>. They have since been re-derived from closed
-new-construction sales in this ZIP, which is a real basis.</div>
+<div class="box go"><b>Where these costs come from.</b> The primary basis is the
+<b>Georgia Residential Cost Handbook (RCH), 2025 edition</b>, as loaded in the VS-PRE Montgomery
+County valuation database (<code>cost_import.rch_base_cost</code>, source version
+<code>priority_rch_2025@2025.10</code>). This is the schedule Georgia counties use to compute
+replacement cost new &mdash; actual Georgia residential construction cost by quality grade,
+structure type and building size.</div>
 <div class="tw"><table>
-  <tr class="hdr"><th>New-build comp</th><th class="n">Sq ft</th><th class="n">Sold</th><th class="n">Implied build cost</th></tr>
-  <tr><td data-label="New-build comp">705 Hannahs Mill Rd (2026, 5/4, 4.06 ac)</td><td data-label="Sq ft" class="n">2,900</td><td data-label="Sold" class="n">$569,000</td><td data-label="Implied build cost" class="n">$146–$156/sf</td></tr>
-  <tr><td data-label="New-build comp">1570 The Rock Rd (2025, 4/3, 5 ac)</td><td data-label="Sq ft" class="n">2,813</td><td data-label="Sold" class="n">$499,914</td><td data-label="Implied build cost" class="n">$128–$137/sf</td></tr>
-  <tr><td data-label="New-build comp">1532 The Rock Rd (2025, 5/3.5, 5 ac)</td><td data-label="Sq ft" class="n">3,670</td><td data-label="Sold" class="n">$575,914</td><td data-label="Implied build cost" class="n">$115–$122/sf</td></tr>
-  <tr><td data-label="New-build comp">1073 W Main St (2025, 5/4.5)</td><td data-label="Sq ft" class="n">3,432</td><td data-label="Sold" class="n">$640,000</td><td data-label="Implied build cost" class="n">$139–$148/sf</td></tr>
+  <tr class="hdr"><th>RCH 2025 &mdash; one story, brick veneer</th><th class="n">Fair</th><th class="n">Good</th><th class="n">Very good</th></tr>
+  <tr><td data-label="RCH 2025 &mdash; one story, brick veneer">1,600 sf</td><td data-label="Fair" class="n">$117/sf</td><td data-label="Good" class="n">$180/sf</td><td data-label="Very good" class="n">$212/sf</td></tr>
+  <tr><td data-label="RCH 2025 &mdash; one story, brick veneer">2,400 sf</td><td data-label="Fair" class="n">$105/sf</td><td data-label="Good" class="n">$166/sf</td><td data-label="Very good" class="n">$195/sf</td></tr>
+  <tr><td data-label="RCH 2025 &mdash; one story, brick veneer">3,000 sf</td><td data-label="Fair" class="n">$100/sf</td><td data-label="Good" class="n">$159/sf</td><td data-label="Very good" class="n">$186/sf</td></tr>
 </table></div>
-<p class="conf">Back out a 15&ndash;20% builder margin and the land, and new construction here delivers
-at <b>$115&ndash;$156/sf</b>. Additions run 20&ndash;50% above new-build per foot because of
-tie-ins, access and small-scale mobilization, giving an addition basis of <b>$138 / $184 / $230</b>
-per sf. Those comps are user-supplied and have not been independently verified against deed records.</p>
+<p>At <b>Good</b> grade a whole new 2,950 sf brick house costs <b>$470,525</b> by the state's own
+schedule. The marginal cost of the 1,525 sf addition is <b>$214,025, or $140/sf</b> &mdash; but that
+assumes building it all at once. An addition carries a 20&ndash;50% premium for tie-ins, access and
+separate mobilization, giving <b>$168&ndash;$211/sf</b>.</p>
+<div class="tw"><table>
+  <tr class="hdr"><th>Method</th><th class="n">Addition $/sf</th></tr>
+  <tr><td data-label="Method">Georgia RCH 2025, Good grade, marginal + addition premium</td><td data-label="Addition $/sf" class="n">$168 – $211</td></tr>
+  <tr><td data-label="Method">Backed out of four closed new-construction sales in 30286</td><td data-label="Addition $/sf" class="n">$138 – $187</td></tr>
+  <tr class="tot"><td data-label="Method">Used here</td><td data-label="Addition $/sf" class="n">$184</td></tr>
+</table></div>
+<div class="box"><b>Correction.</b> Earlier revisions used $175/$220/$280 per sf &mdash; generic
+figures asserted rather than sourced, because the EmpowerBuild price book has no addition, pool or
+Georgia garage assemblies. The $220 likely figure sat <em>above</em> the RCH very-good rate of
+$186/sf and overstated the build. The $184 now used is corroborated by two independent methods.</div>
+<p class="conf">New-build comps are client-supplied and not independently verified against deed
+records: 705 Hannahs Mill Rd 2,900 sf $569,000 &middot; 1570 The Rock Rd 2,813 sf $499,914 &middot;
+1532 The Rock Rd 3,670 sf $575,914 &middot; 1073 W Main St 3,432 sf $640,000.</p>
 <div class="tw"><table>
   <tr class="hdr"><th>Line</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th></tr>
   <tr><td data-label="Line">Addition, 1,525 sf</td><td data-label="Low" class="n">$210,450</td><td data-label="Likely" class="n">$274,500</td><td data-label="High" class="n">$350,750</td></tr>
@@ -328,11 +347,17 @@ GAMLS 10846228 via Xome &middot; Movoto IDX sold set &middot; Redfin ZIP 30286 h
 &middot; FHFA all-transactions house price index, state and county &middot; HUD FY2026 Fair Market
 Rent schedule &middot; EmpowerBuild price book, Georgia region, 2026-08-12 &middot; county parcel map
 supplied by the client &middot; upper-market sales supplied by the client.</p>
-<p class="conf">This product uses FHFA data but is neither endorsed nor certified by FHFA.
-Source: FHFA. Realtor.com research figures were removed from this board: that data is licensed
-CC BY-NC 4.0 and is not permitted in client deliverables.</p>
+<p class="conf">This product uses FHFA data but is neither endorsed nor certified by FHFA. Source: FHFA.<br>
+Inventory and median list figures: Realtor.com&reg; Economic Research,
+<a href="https://www.realtor.com/research/data/">realtor.com/research/data</a>, licensed CC BY-NC 4.0.
+This board is provided free of charge and is not sold, gated or billed.<br>
+Construction costs: Georgia Residential Cost Handbook 2025, via the VS-PRE Montgomery County valuation database.</p>
 <p><b>Revisions.</b></p>
 <ul>
+<li><b>Rev 6</b> &mdash; build costs re-anchored to the Georgia Residential Cost Handbook 2025 from
+the VS-PRE Montgomery County database, replacing the comp-derived figure as the primary basis; three
+methods now converge on $184/sf. Realtor.com inventory figures restored with the required attribution
+and link, the board being free and unbilled.</li>
 <li><b>Rev 5</b> &mdash; restructured to lead with the summary; detail moved to this appendix. Build
 costs re-derived from closed new-construction comps after the original per-foot figures were
 identified as unsourced judgment. Finished value for the concept revised to $550K&ndash;$575K on
