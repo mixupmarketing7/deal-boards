@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fleet Dashboard</title></head><body><title>Fleet Underwrite — Indianapolis</title>
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fleet Dashboard</title></head><body>
+<title>Fleet Underwrite — Indianapolis</title>
 <style>
   :root {
     color-scheme: light;
@@ -121,21 +122,21 @@
 <div class="wrap">
   <header>
     <div class="eyebrow">Fleet Underwrite</div>
-    <h1>Indianapolis — Run 2026-09-13</h1>
+    <h1>Indianapolis — Run 2026-09-20</h1>
     <div class="meta">
-      <span class="chip">3 new candidates underwritten (1 off-market FSBO, 2 MLS) · sheriff-sale/tax-sale/land-bank sweep blocked outright again — see footer</span>
+      <span class="chip">3 new candidates underwritten (0 confirmed off-market/distress — sweep surfaced leads but no usable prices; all 3 are MLS/REO)</span>
       <span class="chip">Weekly cron: Sundays 8:00 AM ET</span>
-      <span class="chip">2nd consecutive week: WebFetch/curl hard-blocked to nearly every external domain this session — WebSearch-snippet sourced only</span>
+      <span class="chip">3rd consecutive week: WebFetch/curl hard-blocked to nearly every external domain this session — WebSearch-snippet sourced only</span>
       <span class="chip">Watchlist: 0/4 triggers fired this run</span>
-      <span class="chip">Discord webhook host blocked (403) again this run — no Discord post sent</span>
+      <span class="chip">Discord webhook host blocked (403, org policy) again this run — no Discord post sent</span>
     </div>
   </header>
 
   <div class="tiles">
-    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">1709 E Gimber St · 3671 Creston Dr · 8632 El Rico Dr</div></div>
-    <div class="tile"><div class="label">Verdicts</div><div class="value crit">3 KILL</div><div class="sub">0 renegotiate · 0 survive · 1 real offer candidate (El Rico), 1 token-only</div></div>
-    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−20.0%</div><div class="sub">8632 El Rico Dr (least-bad of the three)</div></div>
-    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $204K</div><div class="sub">Sum of |spread| @ ask across all 3</div></div>
+    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">744 N Warman Ave · 3116-3118 N Park Ave · 8632 El Rico Dr</div></div>
+    <div class="tile"><div class="label">Verdicts</div><div class="value crit">3 KILL</div><div class="sub">0 renegotiate · 0 survive · 1 real offer candidate (El Rico), 0 token-only</div></div>
+    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−33.5%</div><div class="sub">8632 El Rico Dr, on the corrected/red-teamed comp basis</div></div>
+    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $637K</div><div class="sub">Sum of |spread| @ ask across all 3</div></div>
   </div>
 
   <section>
@@ -147,22 +148,22 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td class="txt">1</td><td class="txt">8632 El Rico Dr <span class="zip">46240 · Nora / Keystone Crossing</span></td>
-            <td>$339,000</td><td>$445,000</td><td>$136,000</td><td>$511,585</td>
-            <td class="neg">−$102,185</td><td class="neg">−20.0%</td><td>$175,500</td>
+            <td class="txt">1</td><td class="txt">8632 El Rico Dr <span class="zip">46240 · Nora / Keystone Crossing — REO</span></td>
+            <td>$325,000</td><td>$400,000</td><td>$180,000</td><td>$553,265</td>
+            <td class="neg">−$185,265</td><td class="neg">−33.5%</td><td>$100,000</td>
             <td class="txt"><span class="pill conf">MED</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">2</td><td class="txt">3671 Creston Dr <span class="zip">46222 · Haughville — estate sale</span></td>
-            <td>$99,900</td><td>$142,000</td><td>$71,700</td><td>$186,395</td>
-            <td class="neg">−$55,755</td><td class="neg">−29.9%</td><td>$5,506</td>
-            <td class="txt"><span class="pill conf">MED</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+            <td class="txt">2</td><td class="txt">744 N Warman Ave <span class="zip">46222 · Hawthorne/Haughville — REO</span></td>
+            <td>$76,900</td><td>$112,000</td><td>$77,500</td><td>$167,818</td>
+            <td class="neg">−$64,778</td><td class="neg">−38.6%</td><td class="neg">−$28,918</td>
+            <td class="txt"><span class="pill conf">HIGH</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">3</td><td class="txt">1709 E Gimber St <span class="zip">46203 · Garfield Park — FSBO off-market</span></td>
-            <td>$65,000</td><td>$115,000</td><td>$73,000</td><td>$151,767</td>
-            <td class="neg">−$45,967</td><td class="neg">−30.3%</td><td class="neg">−$21,767</td>
-            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+            <td class="txt">3</td><td class="txt">3116-3118 N Park Ave <span class="zip">46205 · Fall Creek Place fringe — duplex, hazard waiver</span></td>
+            <td>$375,000</td><td>$350,000</td><td>$271,250</td><td>$709,368</td>
+            <td class="neg">−$387,368</td><td class="neg">−54.6%</td><td class="neg">−$34,368</td>
+            <td class="txt"><span class="pill conf">HIGH</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
         </tbody>
       </table>
@@ -175,12 +176,11 @@
       <table>
         <thead><tr><th class="txt">Address</th><th class="txt">Offer zone</th><th class="txt">MAO</th><th class="txt">Walk-away</th><th class="txt">Seller situation</th><th class="txt">Why they might transact</th></tr></thead>
         <tbody>
-          <tr><td class="txt">8632 El Rico Dr</td><td class="txt">$150,000–$172,000</td><td class="txt">$175,500</td><td class="txt">≈$206,000</td><td class="txt">Bank-owned REO, needs "finishing touches," 1-acre/7-garage niche property</td><td class="txt">REO carrying cost + thin buyer pool for an oversized property; asking price itself is ambiguous across sources ($299.9K–$339K), hinting at a recent cut not yet reindexed — bank may be softening</td></tr>
-          <tr><td class="txt">3671 Creston Dr</td><td class="txt">token only, ≈$5,000</td><td class="txt">$5,506</td><td class="txt">≈$36,000</td><td class="txt">Estate sale, as-is</td><td class="txt">MAO is driven entirely by the $50K minimum-profit floor, not real negotiating room — not a genuine offer, listed for completeness only; an estate executor wanting a fast, no-repair close near $35–40K is the only scenario this clears at all</td></tr>
+          <tr><td class="txt">8632 El Rico Dr</td><td class="txt">$85,000–$115,000</td><td class="txt">≈$100,000</td><td class="txt">≈$130,000</td><td class="txt">Bank-owned REO, "needs finishing touches," an oversized 6bd/1-acre/7-garage property with a thin matching buyer pool</td><td class="txt">REO carrying costs (taxes/insurance/vacancy) accrue monthly to the lender regardless of condition; one source shows 46240 zip DOM as long as 83 days; banks typically deep-discount oversized/niche inventory that doesn't move fast</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:13.5px;color:var(--ink-2)">1709 E Gimber St excluded — MAO is negative (−$21,767) under every combination tested; no offer price clears the deal given the ARV band and fixed-cost floor. Worth a nominal/near-land-value conversation with the FSBO seller directly, but not a formal offer.</p>
+    <p style="font-size:13.5px;color:var(--ink-2)">744 N Warman Ave and 3116-3118 N Park Ave excluded — both have negative MAO under every tested basis. Warman's 70%-rule term is barely positive ($900) but the firm's $50,000 minimum-profit floor makes it structurally impossible to clear on a sub-$150K-ARV deal at any price. N Park's cash-only/no-inspection/hazard-waiver listing terms make the one fact that decides the deal (what's actually wrong with it) undiscoverable before commitment — not a price problem, a disclosure problem. Neither is worth a nominal conversation this week.</p>
   </section>
 
   <section>
@@ -189,10 +189,10 @@
       <table>
         <thead><tr><th class="txt">Address</th><th class="txt">Trigger</th><th class="txt">Current status</th><th class="txt">Fired?</th></tr></thead>
         <tbody>
-          <tr><td class="txt">123 S Butler Ave 46219</td><td class="txt">Re-enters below $60,000</td><td class="txt">Conflicting WebSearch data again this week — no source shows a price anywhere near $60,000; live status still unconfirmable</td><td class="txt">No — status remains a data gap</td></tr>
-          <tr><td class="txt">1613 Draper St 46203</td><td class="txt">Re-enters below $50,000</td><td class="txt">Still relisted, MLS #22077545, asking ~$169,900</td><td class="txt">No</td></tr>
-          <tr><td class="txt">1152 Churchman Ave 46203</td><td class="txt">Re-enters near land value</td><td class="txt">Still asking $179,900, MLS #22060766 — a standard rehab-listing price, not teardown/lot pricing</td><td class="txt">No</td></tr>
-          <tr><td class="txt">1138 Harlan St 46203</td><td class="txt">Block test for Churchman (context, not a trigger)</td><td class="txt">No fresher data found than prior run (last confirmed ~Oct/Nov 2025, $149,000); already promoted to a full underwrite in the 2026-09-06 run (KILL)</td><td class="txt">N/A</td></tr>
+          <tr><td class="txt">123 S Butler Ave 46219</td><td class="txt">Re-enters below $60,000</td><td class="txt">Conflicting WebSearch data again this week (MLS history spans $169,900–$210,000, plus one stale $99,000 2023 sale) — no source anywhere near $60,000; live status still unconfirmable</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1613 Draper St 46203</td><td class="txt">Re-enters below $50,000</td><td class="txt">Still relisted, MLS #22077545 — prices cited $119,900–$169,900 across mirrors, consistent with last week's ~$169,900 read</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1152 Churchman Ave 46203</td><td class="txt">Re-enters near land value</td><td class="txt">Still listed, MLS #22060766 — prices cited $149,900–$179,900, consistent with last week's $179,900; well above any land-value estimate found</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1138 Harlan St 46203</td><td class="txt">Block test for Churchman (context, not a trigger)</td><td class="txt">Appears still listed since Oct 2025 at $149,000, MLS #22070726 — consistent with prior runs; block still commands standard fixer pricing, not distress pricing</td><td class="txt">N/A</td></tr>
         </tbody>
       </table>
     </div>
@@ -212,13 +212,13 @@
   </section>
 
   <footer>
-    Model: all_in = purchase + rehab_used (likely, +25-30% contingency given zero interior evidence on every property this run) + 1.5% buy closing + holding (~$6K/yr scaled to hold_months) + hard-money financing (2 pts + 11% APR, 80% LTC on price+rehab). net_sale = 0.92 × base ARV; spread = net_sale − all_in; ROI = spread ÷ all_in; MAO = min(0.70×ARV_base − rehab_used, ARV_base − rehab_used − fixed costs − max($50,000, 0.12×ARV_base)).
+    Model: all_in = purchase + rehab_used (likely, +25% contingency given zero interior evidence on every property this run) + 1.5% buy closing + holding (~$6K/yr scaled to hold_months) + hard-money financing (2 pts + 11% APR, 80% LTC on price+rehab). net_sale = 0.92 × base ARV; spread = net_sale − all_in; ROI = spread ÷ all_in; MAO = min(0.70×ARV_base − rehab_used, ARV_base − rehab_used − fixed costs − max($50,000, 0.12×ARV_base)).
     <br><br>
-    <strong>Environment constraint, 2nd week running:</strong> WebFetch and raw curl were again hard-blocked by the session's network egress policy for nearly every external domain tried — Redfin, Zillow, FRED (all 3 series), Zumper, GovEase (sheriff sale + Oct 13-16 tax sale advertising list), the Tolemi Vacant-to-Vibrant land-bank map, Craigslist, fsbo.com, Movoto, Houzeo, Century21, and the Discord webhook host itself all returned 403 policy denials on direct CONNECT — confirmed via the proxy's own status endpoint, not a site-side bot block. This took the entire off-market/distress sweep (sheriff sale bid floors for the 09/18 sale, the tax-sale advertising list, land-bank inventory) off the table for the second straight week — the one lead that surfaced (1709 E Gimber St) came from an indexed Craigslist snippet, not a live browse. Every fact in this run is a WebSearch-snippet synthesis with a cited source URL, cross-checked for internal contradictions (several comps were discarded as anomalous or conflicting rather than used) rather than a live-page pull. <strong>This is now a two-week pattern, not a one-off — recommend allowlisting redfin.com, zillow.com, fred.stlouisfed.org, zumper.com, liveauctions.govease.com, indianapolis-in-publicity.tolemi.com, craigslist.org, fsbo.com, and discord.com for this session's egress policy, or running MONEYBALL from an environment with broader network access.</strong>
+    <strong>Environment constraint, 3rd week running:</strong> WebFetch and raw curl were again hard-blocked by the session's network egress policy for nearly every external domain tried this run — Redfin, Zillow, FRED (all 3 series), Zumper, GovEase (sheriff sale browse + the Oct 13-16 tax-sale advertising list), the Tolemi Vacant-to-Vibrant land-bank map, Craigslist, fsbo.com, Auction.com, Hubzu, Movoto, Houzeo, Century21, and the Discord webhook host itself all returned policy-denied CONNECT failures — confirmed via the proxy's own status endpoint (github.com and the artifact/data-fetch paths remain open, so this is a targeted allowlist gap, not a total outage). This took the entire off-market/distress sweep off the table for the third straight week: the land-bank map, sheriff-sale bid floors, and tax-sale list all came back empty, and the Craigslist/Auction.com/Hubzu leads that did surface had addresses but no usable price data, so none could be underwritten. Every fact in this run is a WebSearch-snippet synthesis with a cited source URL, cross-checked for internal contradictions (several comps were discarded as anomalous, and one property's own initial sqft basis was overturned on red-team review — see below) rather than a live-page pull. <strong>This is now a three-week pattern — recommend allowlisting redfin.com, zillow.com, fred.stlouisfed.org, zumper.com, liveauctions.govease.com, indianapolis-in-publicity.tolemi.com, craigslist.org, fsbo.com, auction.com, hubzu.com, and discord.com for this session's egress policy, or running MONEYBALL from an environment with broader network access.</strong>
     <br><br>
-    <strong>Why all three die, in one line each:</strong> <em>8632 El Rico Dr</em> — no true size/lot-matched comp exists near this 6bd/1-acre/7-garage REO, so ARV rests on a discounted extrapolation from half-sized homes; even at that, the ~$150–165K gap between any defensible ARV and the $325–339K ask (itself ambiguous across 3 conflicting reported prices) is too wide to close with rehab-estimate error alone — genuinely the strongest offer candidate this week precisely because the absolute-dollar MAO is real money, not a token. <em>3671 Creston Dr</em> — comps are thin and dispersed ($53–$152/sqft across the raw set before excluding outliers), and the deal's MAO is driven entirely by the $50K minimum-profit floor rather than the 70% rule — meaning this fails on deal economics (high hard-money carry cost relative to a sub-$150K ARV), not primarily on condition uncertainty. <em>1709 E Gimber St</em> — sqft and year built could not be confirmed from any source, the block is confirmed bimodal (a $29,900 unfinished shell two doors down vs. a $121,000 2026 renovated sale), and like Creston, the $50K profit floor makes MAO negative before rehab-estimate risk even matters — no price at or near the $65,000 ask clears a real margin.
+    <strong>Why all three die, in one line each:</strong> <em>8632 El Rico Dr</em> — this week's own initial base case was run on an unverifiable 1,458 sqft/3bd record that could not be traced to any real source; red-team review found the confirmed active listing is actually 6bd/2.5ba/3,270 sqft (MLS 21816231, prior sale $240,000 in 2021). Properly rescaled (ARV $400,000, rehab $180,000), it still misses badly at the $325,000 ask (−33.5% ROI) but clears a genuine ≈$100,000 MAO — the strongest offer candidate two weeks running, though this week's richer same-street comp set revises that down hard from last week's $175,500 estimate; basement/GLA content is still unresolved and should be pulled from the county assessor before any firm offer. <em>744 N Warman Ave</em> — the usable comp set is thin (3 sales) and leans on a single renovated same-street sale to support the upside case; even that best-case ARV tier loses money at ask, and the firm's $50,000 minimum-profit floor makes MAO structurally negative on a sub-$150K-ARV deal regardless of price paid. <em>3116-3118 N Park Ave</em> — a mandatory "Hazardous Property" waiver plus cash-only, largely-waived-inspection listing terms make the one fact that actually decides this deal (what's wrong with the property) undiscoverable before commitment — an unpriceable risk, not a contingency-sized one, and grounds for a hard kill with no counter-offer.
     <br><br>
-    No Discord post could be sent this run — the Discord webhook host is blocked by the same session-level egress policy (403), consistent with the prior run. Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
+    No Discord post could be sent this run — the Discord webhook host is blocked by the same session-level egress policy (403, org policy denial), consistent with the prior two runs. Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
   </footer>
 </div>
 
@@ -229,30 +229,30 @@
 const FLEET_DATA = [
   {
     addr: "8632 El Rico Dr", zip: "46240",
-    ask: 339000, rehab: 136000, carry: 33585, selling: 27200,
-    arv: { down: 400000, base: 445000, up: 490000 },
-    offer: "$150,000–$172,000", mao: "$175,500", walk: "≈$206,000",
-    loss: 102185,
-    why: "No true size/lot-matched comp (6bd, ~1 acre, 7+ garage) sold within a reasonable radius, so ARV_base ($445,000) rests on a ~30% size/liquidity discount applied to comps roughly half the subject's sqft — defensible but unverified. Asking price itself is ambiguous: three different figures ($299,900 / $325,000 / $339,000) surfaced across sources with no confirmed price-cut date, evaluated here at the higher $339,000. Even so, the ~$150-165K gap between any defensible ARV-driven MAO ($175,500) and either asking price is too wide for rehab-estimate error alone to close. Rehab is a placeholder for an REO with likely deferred maintenance across 3,270 sqft — actual scope could run higher, which would only widen the gap further. The acre lot and 7-car garage are a genuine wildcard: could draw a niche premium buyer no comp captures, or could just mean a thinner buyer pool and longer DOM.",
-    findings: "3 disqualifiers (unresolved price ambiguity, no size-matched comps, REO condition unknown) · red-teamed, KILL holds under stress", gaps: 6
+    ask: 325000, rehab: 180000, carry: 48265, selling: 32000,
+    arv: { down: 380000, base: 400000, up: 420000 },
+    offer: "$85,000–$115,000", mao: "≈$100,000", walk: "≈$130,000",
+    loss: 185265,
+    why: "This week's own initial underwrite ran the base case on an unverifiable 1,458 sqft/3bd record that could not be traced to any real source anywhere. Red-team review, using 5+ independent search passes, confirmed the actual active listing is 6bd/2.5ba/3,270 sqft (MLS 21816231, prior sale $240,000 on 10/26/2021) — the same Redfin URL, just the correct size. Recomputing on that corrected basis with properly-scaled (bottom-up, not linear) rehab for the extra bedrooms/baths and the near-1-acre lot/7-garage scope: ARV_base $400,000 (below the renovated-comp mean, discounted for size/liquidity), rehab_used $180,000. Still a KILL at the $325,000 ask (spread −$185,265, ROI −33.5%), but MAO holds positive across an $86K–$131K sensitivity band — the one genuine offer candidate this week. This also revises last week's independent underwrite of the same address ($339,000 ask, $445,000 ARV, $175,500 MAO) down materially; this week's comp set (multiple same-street closed sales with dates and sqft) is stronger, so treat this week's ≈$100,000 MAO as the more reliable number. Basement/GLA content is still unresolved — a 6-bedroom layout in 3,270 total sqft suggests a finished basement not decomposed from the above-grade $/sqft comps — and should be confirmed via the county assessor before any firm offer.",
+    findings: "Revises this week's own initial MAO ($106,250, run on the wrong sqft basis) and last week's $175,500 estimate down to ≈$100,000 · red-teamed HIGH confidence on kill-at-ask, MED on exact MAO magnitude — still the strongest offer candidate this week", gaps: 7
   },
   {
-    addr: "3671 Creston Dr", zip: "46222",
-    ask: 99900, rehab: 71700, carry: 11795, selling: 8500,
-    arv: { down: 127000, base: 142000, up: 164000 },
-    offer: "token only, ≈$5,000", mao: "$5,506", walk: "≈$36,000",
-    loss: 55755,
-    why: "Comp set is thin and dispersed before cleanup ($53-$152/sqft across 4 raw candidates); after excluding one anomalous and one outlier comp, the remaining base of $78/sqft sits below both the clean-comp mean and the zip-wide $108/sqft median, appropriately conservative for an as-is estate sale with zero interior evidence. The real problem is structural, not condition risk: MAO is driven entirely by the $50,000 minimum-profit floor rather than the 70% rule, meaning hard-money financing and holding costs on a sub-$150K ARV property consume nearly the whole theoretical spread regardless of price paid. Red-team check: even a materially lower rehab estimate would not close a ~$56K gap between the walk-away price (~$36,000) and the $99,900 ask.",
-    findings: "3 disqualifiers (thin/dispersed comps, unverified rehab, profit-floor-driven MAO) · red-teamed, KILL holds under stress", gaps: 7
+    addr: "744 N Warman Ave", zip: "46222",
+    ask: 76900, rehab: 77500, carry: 13417.5, selling: 8960,
+    arv: { down: 95000, base: 112000, up: 130000 },
+    offer: "none — MAO negative", mao: "−$28,918", walk: "≈$16,643 (technical breakeven; still fails the firm's profit-floor policy)",
+    loss: 64777.5,
+    why: "Usable comp set is thin: only 3 sales support the analysis, and the upside case leans heavily on a single renovated same-street sale (715 N Warman, $129,900) that is itself 15 months stale and smaller than the subject. Even recomputing at the upside ARV tier ($130,000) with price and rehab held fixed, the deal still loses money (−28.7% ROI) — there is no ARV tier at which $76,900 pencils. Adjacent Haughville's 19.5% vacancy rate and several same-corridor sales in the $30K–$70K range (excluded from the comp set without strong documentation) suggest even the $95,000 downside case may be optimistic, not conservative. Rehab budget is missing foundation, sewer lateral, chimney, and lead-paint-abatement lines for a 1900-built, no-inspection REO, and the 25% contingency (implying 'big unknowns') is inconsistent with using only a 6-month 'medium scope' hold tier rather than 8+ months. MAO is negative because the firm's $50,000 minimum-profit floor structurally dominates on any sub-~$417K-ARV deal — this property could never clear that bar at any price, not just at the current ask.",
+    findings: "6 disqualifiers (thin/stale comp set, missing rehab lines, hold/contingency inconsistency, block-quality cap) · red-teamed HIGH confidence — KILL holds even at the upside ARV tier", gaps: 6
   },
   {
-    addr: "1709 E Gimber St — off-market FSBO", zip: "46203",
-    ask: 65000, rehab: 73000, carry: 12792, selling: 9200,
-    arv: { down: 95000, base: 115000, up: 135000 },
-    offer: "none — MAO negative", mao: "−$21,767", walk: "≈$12,800",
-    loss: 45967,
-    why: "Subject sqft and year built could not be confirmed from any source — a genuine, material data gap (ASSUMPTION ~750 sqft used only for context, not for ARV math). The block is confirmed bimodal: an unfinished shell/new-build lot two doors down listed at $29,900 sits alongside a 2026 renovated sale on the same street at $121,000, so the ARV band ($95K-$135K) is defensible but wide. Like Creston, the deal fails structurally: the $50,000 minimum-profit floor makes MAO negative before rehab-estimate risk is even the deciding factor, and the walk-away price (~$12,800) is roughly 1/5 of the $65,000 ask. Red-team check: because ARV was set from comp price levels directly (not $/sqft × assumed sqft), the sqft uncertainty doesn't materially change the verdict — a bigger or smaller actual house doesn't rescue this deal.",
-    findings: "1 disqualifier (MAO negative under every tested combination) · red-teamed, KILL holds under stress — excluded from offer candidates per the MAO>0 rule", gaps: 8
+    addr: "3116-3118 N Park Ave — duplex, hazard waiver", zip: "46205",
+    ask: 375000, rehab: 271250, carry: 63117.5, selling: 28000,
+    arv: { down: 300000, base: 350000, up: 420000 },
+    offer: "none — hazard designation unpriceable", mao: "−$34,368", walk: "n/a — no counter recommended",
+    loss: 387367.5,
+    why: "Listing requires a signed 'Hazardous Property' waiver, bars or limits inspection to pre-offer only, and is cash-only — and despite an extensive search (code enforcement, DHS unsafe-building filings, IDEM brownfield records, news), the actual cause of the hazard designation could not be determined. That is itself a disqualifying signal: the listing terms are structured so a buyer can never price the one fact that matters before committing capital. The closed-duplex comp set spans $169,000–$575,000 with no real clustering — computing a 'mean' from it is close to meaningless, and the two closest, most recent comps (Guilford $169K, Caroline $195K) sit far below the $350,000 base ARV used, meaning even this 'conservative' base case may still be anchored too high. Subject total square footage was never confirmed despite a finished attic and full basement per side, which materially affects any $/sqft-based ARV. The rehab budget's $40,000 'likely' hazard-remediation line has no evidentiary basis at all (it isn't even the midpoint of the underwriter's own $5K–$150K range) — it should be treated as unbounded pending disclosure, not a point estimate. Holding costs also look understated for a $375K asset (property tax and insurance alone plausibly exceed the modeled $500/month). Worst case here isn't a bigger rehab bill — it's near-total loss of invested capital if the hazard turns out to require condemnation or demolition.",
+    findings: "5 disqualifiers — unpriceable, undisclosed hazard designation; cash-only/no-inspection terms structurally block diligence · red-teamed HIGH confidence, un-underwritable as listed, no counter-offer recommended", gaps: 6
   }
 ];
 /* /FLEET_DATA */
@@ -276,7 +276,7 @@ for (const d of FLEET_DATA) {
   card.innerHTML = `
     <div class="head">
       <h3>${d.addr} <span class="zip" style="color:var(--muted); font-size:13px; font-weight:400">${d.zip}</span></h3>
-      <div class="badges"><span class="pill conf">CONFIDENCE MED-LOW</span><span class="pill kill">✕ KILL</span></div>
+      <div class="badges"><span class="pill conf">CONFIDENCE MED-HIGH</span><span class="pill kill">✕ KILL</span></div>
     </div>
     <div class="threenum">
       <div><div class="l">Offer zone</div><div class="v">${d.offer}</div></div>
@@ -328,4 +328,5 @@ document.addEventListener("focusin", e => {
 });
 document.addEventListener("focusout", () => { tip.style.opacity = 0; });
 </script>
+
 </body></html>
