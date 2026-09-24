@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>1004 W Pike Design Review</title>
+<style>
+:root{
+  --bg:#f7f6f3; --card:#ffffff; --ink:#1d1f22; --muted:#5d6269; --line:#e3e0da;
+  --accent:#9a3b1d; --accent-soft:#f6e9e2; --ok:#2f6b3a; --ok-soft:#e6f1e7; --warn:#8a5a00; --warn-soft:#fbf1dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a; --card:#1d2024; --ink:#ebe9e5; --muted:#a3a8ae; --line:#30343a;
+    --accent:#e08a66; --accent-soft:#3a2720; --ok:#8fcf99; --ok-soft:#1f3123; --warn:#e6bb62; --warn-soft:#352c19;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a; --card:#1d2024; --ink:#ebe9e5; --muted:#a3a8ae; --line:#30343a;
+  --accent:#e08a66; --accent-soft:#3a2720; --ok:#8fcf99; --ok-soft:#1f3123; --warn:#e6bb62; --warn-soft:#352c19;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:760px;margin:0 auto;padding:24px 16px 56px}
+header .eyebrow{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px}
+header .meta{color:var(--muted);font-size:14px;margin:0}
+h2{font-size:19px;margin:36px 0 12px;padding-top:4px}
+p{margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.bottom{background:var(--accent-soft);border-color:transparent;border-left:4px solid var(--accent);margin-top:22px}
+.bottom p{margin:0;font-size:17px}
+.bottom p + p{margin-top:8px;font-size:15px;color:var(--muted)}
+ol.timeline{list-style:none;margin:0;padding:0}
+ol.timeline li{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+ol.timeline li:last-child{border-bottom:0}
+ol.timeline .d{font-weight:600;font-variant-numeric:tabular-nums}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.split h3{font-size:15px;margin:0 0 8px}
+.split ul{margin:0;padding-left:18px}
+.split li{margin:4px 0}
+.in h3{color:var(--ok)} .out h3{color:var(--accent)}
+.in{background:var(--ok-soft);border-color:transparent}
+.out{background:var(--accent-soft);border-color:transparent}
+ol.fixes{margin:0;padding-left:22px}
+ol.fixes li{margin:0 0 14px}
+ol.fixes li:last-child{margin-bottom:0}
+ol.fixes b{display:block}
+.rates{width:100%;border-collapse:collapse;font-size:15px}
+.rates th,.rates td{text-align:left;vertical-align:top;padding:9px 8px;border-bottom:1px solid var(--line)}
+.rates th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rates td.n{white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums}
+.rates td.s{color:var(--muted);font-size:13.5px}
+.math{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.math .card p{margin:0 0 6px}
+.math .card p:last-child{margin:0}
+.math .big{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.verdict-ok{color:var(--ok);font-weight:600}
+.verdict-bad{color:var(--accent);font-weight:600}
+ul.ask{margin:0;padding-left:20px}
+ul.ask li{margin:5px 0}
+.note{background:var(--warn-soft);border-color:transparent}
+.note ul{margin:0;padding-left:20px}
+.sources{font-size:13.5px;color:var(--muted)}
+.sources ol{padding-left:20px;margin:0}
+.sources li{margin:4px 0;overflow-wrap:anywhere}
+a{color:var(--accent)}
+.small{font-size:14px;color:var(--muted)}
+@media (max-width:560px){
+  h1{font-size:23px}
+  .split,.math{grid-template-columns:1fr}
+  ol.timeline li{grid-template-columns:70px 1fr;gap:10px}
+  .rates thead{display:none}
+  .rates,.rates tbody,.rates tr,.rates td{display:block;width:100%}
+  .rates tr{padding:10px 0;border-bottom:1px solid var(--line)}
+  .rates td{border:0;padding:2px 0}
+  .rates td.n{font-size:17px}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  main{max-width:none;padding:0}
+  h1{font-size:22px} h2{font-size:16px;margin:20px 0 8px;break-after:avoid}
+  .bottom,.split .card,.math .card,ol.fixes li,.rates tr,ol.timeline li{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <p class="eyebrow">EmpowerBuild &middot; 1004 W Pike St, Crawfordsville</p>
+  <h1>Wall design: Roger Malone&rsquo;s fee letter, reviewed</h1>
+  <p class="meta">For Caleb Keys &middot; September 24, 2026</p>
+</header>
+
+<div class="card bottom">
+  <p><b>$3,250 is a fair price if it includes a sealed wall design</b>, meaning a stamped wall section backed by his calculations. His letter doesn&rsquo;t say it does.</p>
+  <p>Get that in writing before he starts drawing. A one-email list of what to ask him is at the bottom of this page.</p>
+</div>
+
+<h2>Where it stands</h2>
+<div class="card">
+<ol class="timeline">
+  <li><span class="d">Aug 19</span><span>Denise Conrady quotes $195 for a site plan and one wall section.</span></li>
+  <li><span class="d">Aug 28</span><span>Denise withdraws. Permit drawings aren&rsquo;t her field.</span></li>
+  <li><span class="d">Sep 10</span><span>Roger Malone, PE (RM Consulting &amp; Engineering) quotes $3,850.</span></li>
+  <li><span class="d">Sep 14</span><span>Roger cuts it to $3,250, and you confirm.</span></li>
+  <li><span class="d">Sep 18</span><span>You countersign, which is his Notice to Proceed. The same day you asked him three things: is the seal in or out, what are the payment terms, and when will the drawings be ready.</span></li>
+  <li><span class="d">Since</span><span>There&rsquo;s no reply from Roger in the caleb@ inbox, and the Sep 22 site visit isn&rsquo;t on the calendar. If he answered at the unitednationsgencontracting Gmail, I couldn&rsquo;t see it.</span></li>
+</ol>
+</div>
+
+<h2>What his letter covers, and what it leaves out</h2>
+<div class="split">
+  <div class="card in">
+    <h3>In the letter</h3>
+    <ul>
+      <li>Review the survey and photos</li>
+      <li>A layout site plan for the homeowner to approve, then for the permit</li>
+      <li>Site visits during design and construction</li>
+      <li>Checking the work was built to the plans</li>
+    </ul>
+  </div>
+  <div class="card out">
+    <h3>Not in the letter</h3>
+    <ul>
+      <li>Wall section, footing through cap</li>
+      <li>Footing size, rebar size and spacing</li>
+      <li>Pier and veneer-tie details</li>
+      <li>Seal or structural calculations</li>
+      <li>A revision round if the City comments</li>
+      <li>Drawing delivery date</li>
+      <li>Payment terms</li>
+      <li>Homeowner&rsquo;s right to use the plans</li>
+      <li>Proof of E&amp;O insurance</li>
+    </ul>
+  </div>
+</div>
+<p class="small" style="margin-top:12px">His letter calls this a &ldquo;cantilevered masonry wall,&rdquo; which is engineering language. But what he promises to deliver is a site plan and site visits. Your crew builds from the wall section and the rebar schedule, and right now no one is on the hook to produce them.</p>
+
+<h2>Five things to fix</h2>
+<div class="card">
+<ol class="fixes">
+  <li><b>Seal and calculations: in or out, in writing.</b>You already asked on Sep 18. Keep asking until he answers.</li>
+  <li><b>Place the wall from the survey line, not the old fence.</b>The survey shows the existing fence up to 2.1 ft past the east property line, on the neighbor&rsquo;s side. If the wall goes where the fence is, it sits on the neighbor&rsquo;s land. The wall and its 30-inch footing need to sit inside the line, and Roger&rsquo;s site plan should show the distance.</li>
+  <li><b>Have Roger set the footing width.</b>The masonry industry&rsquo;s design table for a 6-ft fence wall (NCMA TEK 14-16B) allows a 30-inch footing only in the lightest wind case. Stronger wind calls for 34 or 38 inches, and so do wall ends without a return corner, like the pedestrian opening. Our rebar spec (#4 bars every 32 inches) already meets the table&rsquo;s strongest case. Going from 30 to 34 inches adds about 0.6 cubic yards of concrete.</li>
+  <li><b>Fix the homeowner paperwork.</b>Rider R-1004-01 still names Denise. It also promises the homeowner three things Roger&rsquo;s letter doesn&rsquo;t give you: the right to use the plans, one revision round for City comments, and a professional standard of care. It needs an amended rider (R-1004-02) that names Roger. Exhibit A carries $1,200 for design, so EmpowerBuild absorbs the $2,050 difference. No change order goes to the owner.</li>
+  <li><b>Fix the name and address, and get his W-9 and insurance.</b>His letter uses the wrong company name and address, which you already flagged. Get a W-9, since you&rsquo;ll owe him a 1099 in January. Also get an E&amp;O certificate. Our general liability policy won&rsquo;t cover a design mistake on this wall, and his professional liability would.</li>
+</ol>
+</div>
+
+<h2>Schedule</h2>
+<div class="card">
+  <p>The Sep 21 start in Exhibit A has passed. From here, the steps are:</p>
+  <ol>
+    <li>Roger&rsquo;s site visit</li>
+    <li>The drawings. He said it takes about a week to get going once he has the signed letter.</li>
+    <li>City permit review</li>
+    <li>25 working days of construction</li>
+  </ol>
+  <p style="margin:0">That likely pushes the masonry work into late October and November. Below 40&deg;F, masonry needs cold-weather protection, which costs time and money. Getting the drawings moving this week is the biggest thing you can do for the schedule.</p>
+</div>
+
+<h2>What this kind of work costs</h2>
+<div class="card">
+<table class="rates">
+  <thead><tr><th>Service</th><th>Going rate</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>Engineer designs and seals a small wall (calculations plus section)</td><td class="n">$800&ndash;2,000</td><td class="s">Engineering firm fee schedules and cost guides</td></tr>
+    <tr><td>Sealed engineer&rsquo;s letter</td><td class="n">$875&ndash;975</td><td class="s">29E6 2025 fee schedule; Palisade Engineering, 2026</td></tr>
+    <tr><td>Indiana engineering firm hourly rates</td><td class="n">$127&ndash;182/hr</td><td class="s">CrossRoad Engineers (Beech Grove), 2024 schedule filed with the Town of Avon</td></tr>
+    <tr><td>First site visit, with a written report</td><td class="n">$500&ndash;900</td><td class="s">Published firm schedules in OH, WI, NC and SC</td></tr>
+    <tr><td>Follow-up construction visits</td><td class="n">$200&ndash;500 each</td><td class="s">Engineering firm blogs; HomeAdvisor</td></tr>
+    <tr><td>Drafter: site plan plus wall section, no seal</td><td class="n">$250&ndash;800</td><td class="s">Online site-plan vendors; drafters run $75&ndash;125/hr</td></tr>
+    <tr><td>Roger&rsquo;s past rate with you: structural review and letter, 6715 Waterloo Ln (smaller job)</td><td class="n">$250</td><td class="s">RM Consulting invoice #346, June 2022</td></tr>
+  </tbody>
+</table>
+
+<div class="math">
+  <div class="card">
+    <p><b>If the $3,250 includes the seal</b></p>
+    <p class="small">Design $800&ndash;2,000, plus a first visit at $500&ndash;900, plus one follow-up at $200&ndash;500</p>
+    <p class="big">$1,500&ndash;3,400</p>
+    <p class="verdict-ok">At the top of the range, but fair.</p>
+  </div>
+  <div class="card">
+    <p><b>If it doesn&rsquo;t</b></p>
+    <p class="small">Site plan $250&ndash;800, plus the same visits at $700&ndash;1,400</p>
+    <p class="big">$950&ndash;2,200</p>
+    <p class="verdict-bad">$3,250 is about $1,000&ndash;2,300 high.</p>
+  </div>
+</div>
+
+<p class="small" style="margin:14px 0 0"><b>Could a drafter have done it?</b> Probably. The industry table covers this wall without an engineer, and Indiana leaves it to the City to decide which drawings to require. With Roger already signed, though, what you get from a PE is the seal, so make sure you get it.</p>
+<p class="small" style="margin:10px 0 0"><b>Your construction price holds up.</b> The signed $43,650 works out to about $146 per square foot of wall face, or $873 per foot of wall. Published installed prices for brick masonry fences run $90&ndash;175+ per square foot. You&rsquo;re inside the range.</p>
+</div>
+
+<h2>What to ask Roger (one email)</h2>
+<div class="card">
+<ul class="ask">
+  <li>Is the seal and structural calculation included in the $3,250? Please confirm in writing.</li>
+  <li>Measure the site plan from the surveyed east line. The old fence is up to 2.1 ft over it.</li>
+  <li>Put the final footing width and the rebar schedule on the wall section.</li>
+  <li>How many site visits are included?</li>
+  <li>One revision round if the City comments.</li>
+  <li>The date the drawings will be ready, and your payment terms.</li>
+  <li>The homeowner may use the plans for this project.</li>
+  <li>Send your W-9 and an E&amp;O certificate.</li>
+  <li>Address invoices to United Nations General Contracting LLC, DBA EmpowerBuild Construction, 211 N Pennsylvania St, Indianapolis, IN 46204.</li>
+</ul>
+<p style="margin:12px 0 0">If he won&rsquo;t include the seal, ask him to drop the construction visits or bring the fee down to about $1,500&ndash;2,000.</p>
+</div>
+
+<h2>Not checked yet</h2>
+<div class="card note">
+<ul>
+  <li>Roger&rsquo;s Indiana PE license. Look it up at mylicense.in.gov; it takes about a minute.</li>
+  <li>Whether Roger replied at the unitednationsgencontracting Gmail.</li>
+  <li>Whether the Sep 22 site visit happened.</li>
+</ul>
+</div>
+
+<h2>Sources</h2>
+<div class="sources">
+<ol>
+  <li>RM Consulting &amp; Engineering fee letters, Sep 10 ($3,850) and Sep 14 ($3,250); executed copy Sep 18, 2026 (SignWell)</li>
+  <li>Retracement survey, 1004 W Pike (Surveyor&rsquo;s Report 260426): fence up to 2.1 ft east of the east line</li>
+  <li>Construction Agreement CA-1004-07, Exhibit A; Design and Engineering Rider R-1004-01</li>
+  <li>NCMA TEK 14-16B, Structural Design of Concrete Masonry Fences, Tables 1&ndash;4: <a href="https://www.superblock.com.mx/files/TEK-14-16B.pdf">superblock.com.mx/files/TEK-14-16B.pdf</a></li>
+  <li>29E6 fee schedule (2025): <a href="https://29e6.co/fee-schedule/">29e6.co/fee-schedule</a></li>
+  <li>Palisade Engineering, structural engineer cost (2026): <a href="https://www.pe-se.com/blog/structural-engineer-cost">pe-se.com/blog/structural-engineer-cost</a></li>
+  <li>CrossRoad Engineers hourly rates, Town of Avon filing (2024): <a href="https://avonindiana.gov/AgendaCenter/ViewFile/Item/3843?fileID=3632">avonindiana.gov</a></li>
+  <li>Caruso Engineering residential services: <a href="https://www.caruso-eng.com/res">caruso-eng.com/res</a>; McEnroe Engineering: <a href="https://www.mcenroe-eng.com/residential-services/">mcenroe-eng.com</a></li>
+  <li>HomeAdvisor, engineer and draftsperson costs: <a href="https://www.homeadvisor.com/cost/architects-and-engineers/hire-an-engineer/">homeadvisor.com</a></li>
+  <li>MySitePlan pricing: <a href="https://www.mysiteplan.com/pages/pricing">mysiteplan.com</a>; GetASitePlan: <a href="https://getasiteplan.com/how-much-does-a-site-plan-cost/">getasiteplan.com</a></li>
+  <li>RemodelingExpense, masonry fence cost (June 2026): <a href="https://www.remodelingexpense.com/costs/cost-of-masonry-fences/">remodelingexpense.com</a></li>
+  <li>Indiana Residential Code, 675 IAC 14-4.4-2: <a href="https://www.law.cornell.edu/regulations/indiana/675-IAC-14-4.4-2">law.cornell.edu</a></li>
+</ol>
+</div>
+
+</main>
+</body>
+</html>
