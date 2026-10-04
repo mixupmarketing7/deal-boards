@@ -121,22 +121,22 @@
 <div class="wrap">
   <header>
     <div class="eyebrow">Fleet Underwrite</div>
-    <h1>Indianapolis — Run 2026-09-27</h1>
+    <h1>Indianapolis — Run 2026-10-04</h1>
     <div class="meta">
-      <span class="chip">2 confirmed underwrites (821 N Denny St, 1367 N Kealing Ave) — 1 candidate excluded as UNCONFIRMED (1402 E Market St: likely data conflation w/ neighboring address, no verdict issued)</span>
-      <span class="chip">Weekly cron: Sundays 8:00 AM ET</span>
-      <span class="chip">4th consecutive week of network egress blocks — this week WORSE: 100% of WebFetch attempts failed (15+ domains incl. redfin, zillow, realtor.com, craigslist, govease, tolemi, auction.com, even indy.gov/data.indy.gov and wikipedia.org as a sanity check) — every fact is WebSearch-snippet sourced</span>
-      <span class="chip">2 confirmed WebSearch hallucinations caught and rejected mid-underwrite (fabricated sale prices) — flagged as a live tool-reliability risk, not just a data gap</span>
-      <span class="chip">Watchlist: 0/4 triggers fired this run</span>
-      <span class="chip">Discord webhook (discord.com) confirmed blocked again this run (403, org egress policy) — 4th straight week, no Discord post sent</span>
+      <span class="chip">3 confirmed underwrites (2594 Saint Paul St, 5915 E Shimer Ave, 5317 E Saint Joseph St) — all KILL at ask</span>
+      <span class="chip">Off-market/distress sweep (Craigslist, fsbo.com, Tolemi land bank, GovEase sheriff + tax-sale lists) 100% EGRESS_BLOCKED this run — not site 403s, this session's own network policy</span>
+      <span class="chip">FRED metro series (ACTLISCOU/MEDLISPRI/MEDDAYONMAR 26900) unretrieved — hard gap, not backfilled</span>
+      <span class="chip">Redfin/Zillow/Realtor/Zumper direct fetch blocked — every market &amp; comp figure this run is WebSearch-snippet sourced</span>
+      <span class="chip">Watchlist: 0/4 triggers fired — Harlan St relisted as a gutted shell at $211,000 (condition signal, not a trigger)</span>
+      <span class="chip" id="discord-chip">Discord post BLOCKED this run (discord.com egress denied, org policy) — no message sent</span>
     </div>
   </header>
 
   <div class="tiles">
-    <div class="tile"><div class="label">Underwritten</div><div class="value">2</div><div class="sub">821 N Denny St · 1367 N Kealing Ave (1402 E Market St excluded — unconfirmed)</div></div>
-    <div class="tile"><div class="label">Verdicts</div><div class="value crit">2 KILL</div><div class="sub">0 renegotiate · 0 survive · 1 real offer candidate (Kealing Ave), 0 token-only</div></div>
-    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−14.2%</div><div class="sub">1367 N Kealing Ave, red-teamed MEDIUM confidence</div></div>
-    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $130K</div><div class="sub">Sum of |spread| @ ask across both confirmed underwrites</div></div>
+    <div class="tile"><div class="label">Underwritten</div><div class="value">3</div><div class="sub">Saint Paul St · Shimer Ave · Saint Joseph St</div></div>
+    <div class="tile"><div class="label">Verdicts</div><div class="value crit">3 KILL</div><div class="sub">0 renegotiate · 0 survive · all 3 have a tentative, heavily-caveated MAO</div></div>
+    <div class="tile"><div class="label">Best ROI at ask</div><div class="value crit">−27.9%</div><div class="sub">2594 Saint Paul St — still a kill; red-team's corrected case is worse (≈−42%)</div></div>
+    <div class="tile"><div class="label">Base-case loss avoided</div><div class="value ok">≈ $238K</div><div class="sub">Sum of |spread| @ ask across all 3 confirmed underwrites</div></div>
   </div>
 
   <section>
@@ -148,16 +148,22 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td class="txt">1</td><td class="txt">1367 N Kealing Ave <span class="zip">46201 · Near Eastside — stale MLS retail, 130+ DOM</span></td>
-            <td>$74,900</td><td>$182,000</td><td>$105,375</td><td>$195,215</td>
-            <td class="neg">−$27,775</td><td class="neg">−14.2%</td><td>$11,685</td>
-            <td class="txt"><span class="pill conf">MED</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+            <td class="txt">1</td><td class="txt">2594 Saint Paul St <span class="zip">46203 · fresh listing, 3 DOM, zero closed comps found</span></td>
+            <td>$129,000</td><td>$165,000</td><td>$65,000</td><td>$210,575</td>
+            <td class="neg">−$58,775</td><td class="neg">−27.9%</td><td>$33,425</td>
+            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
           <tr>
-            <td class="txt">2</td><td class="txt">821 N Denny St <span class="zip">46201 · Near Eastside — MLS retail, fresh listing</span></td>
-            <td>$109,000</td><td>$130,000</td><td>$95,550</td><td>$221,458</td>
-            <td class="neg">−$101,858</td><td class="neg">−46.0%</td><td class="neg">−$32,458</td>
-            <td class="txt"><span class="pill conf">HIGH</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+            <td class="txt">2</td><td class="txt">5915 E Shimer Ave <span class="zip">46219 · 725sqft, n=1 closed comp, ex-rental</span></td>
+            <td>$109,000</td><td>$98,000</td><td>$33,125</td><td>$155,288</td>
+            <td class="neg">−$65,128</td><td class="neg">−41.9%</td><td>$1,700</td>
+            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
+          </tr>
+          <tr>
+            <td class="txt">3</td><td class="txt">5317 E Saint Joseph St <span class="zip">46219 · Irvington, subject sqft never confirmed</span></td>
+            <td>$165,000</td><td>$160,000</td><td>$71,875</td><td>$261,037</td>
+            <td class="neg">−$113,837</td><td class="neg">−43.6%</td><td>$13,963</td>
+            <td class="txt"><span class="pill conf">LOW</span></td><td class="txt"><span class="pill kill">✕ KILL</span></td>
           </tr>
         </tbody>
       </table>
@@ -170,23 +176,25 @@
       <table>
         <thead><tr><th class="txt">Address</th><th class="txt">Offer zone</th><th class="txt">MAO</th><th class="txt">Walk-away</th><th class="txt">Seller situation</th><th class="txt">Why they might transact</th></tr></thead>
         <tbody>
-          <tr><td class="txt">1367 N Kealing Ave</td><td class="txt">$15,000–$20,000 (contingent on interior inspection)</td><td class="txt">$11,685 (formula floor)</td><td class="txt">≈$30,000</td><td class="txt">On-MLS retail listing, not distressed — but 130+ days on market vs. the zip's ~60-day norm, and cheapest $/sqft of any candidate found this week</td><td class="txt">Stale, grinding listing with unverified "working mechanicals" claims from a motivated agent; the entire deal's viability hinges on one unverified ARV assumption (a ~25% size-normalization haircut) that red-team sensitivity shows swings ROI from +15% to −31% — a seller softening after 130+ DOM plus a hard inspection contingency is the only path to test which side of that line reality falls on</td></tr>
+          <tr><td class="txt">2594 Saint Paul St</td><td class="txt">$10,000–$15,000 (red-team-corrected; stated $33,425 relied on an underfunded HVAC line and thin contingency)</td><td class="txt">$10,000–$15,000</td><td class="txt">≈$35,000–$40,000 (reduced from stated $59-61K)</td><td class="txt">On-MLS retail, not distressed — but fresh (3 DOM), marketed "investor special, as-is," no price cut yet</td><td class="txt">Freshness itself isn't confirmed motivation (red-team: a fresh unmoved price tells you nothing about seller urgency); only worth testing with a token lowball once a real closed comp exists — right now ARV is "unsupported puffery," per red-team, not a number to bet on</td></tr>
+          <tr><td class="txt">5915 E Shimer Ave</td><td class="txt">≤$5,000, if anything — not a reliable number</td><td class="txt">~$1,700 stated; red-team: statistical noise, could be negative or meaningfully positive</td><td class="txt">≈$40,250 (stated; unreliable)</td><td class="txt">On-MLS retail, ex-2yr-rental, as-is</td><td class="txt">Red-team could not even determine the SIGN of the edge — a single sold comp plus unresolved small-house $/sqft premium means ARV could be $88K or $108K. Do not act on this number; get a real inspection and a second closed comp before any offer, token or otherwise</td></tr>
+          <tr><td class="txt">5317 E Saint Joseph St</td><td class="txt">Do not offer yet</td><td class="txt">$0–$23,000 (sqft-dependent; could be negative)</td><td class="txt">≈$46,000–$48,250 (stated; unreliable)</td><td class="txt">On-MLS retail, all-brick bungalow, as-is, listing refreshed ~6/24/26</td><td class="txt">Red-team: subject sqft was never confirmed (assumed 1,250, plausibly 950-1,400) and swings MAO from impossible to ~$23,000 — pull the Marion County Assessor record before any number here is used operationally. KILL direction is robust to this uncertainty; the offer price is not</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:13.5px;color:var(--ink-2)">821 N Denny St excluded — MAO is negative under <em>both</em> formula branches (−$4,550 and −$32,458). Red-team confirmed the deal is unsalvageable: rehab_used ($95,550) alone already exceeds 70% of ARV_base, and the correlated downside case loses money even at a hypothetical $0 purchase price. Breakeven would require an ARV near $240,700 — 47% above the zip median and above any comp evidence found. No price makes this one work.</p>
+    <p style="font-size:13.5px;color:var(--ink-2)">All three MAOs above are LOW confidence. None of the three underwrites found a clean, geo-verified closed comp inside the stated 0.5mi/6mo window — this is a comp-data problem across the board this run, not a one-off. Treat every number on this page as a starting point for inspection-gated diligence, not an offer to wire.</p>
   </section>
 
   <section>
-    <h2>Watchlist — checked, no triggers</h2>
+    <h2>Watchlist — checked, no triggers fired</h2>
     <div class="tablebox">
       <table>
         <thead><tr><th class="txt">Address</th><th class="txt">Trigger</th><th class="txt">Current status</th><th class="txt">Fired?</th></tr></thead>
         <tbody>
-          <tr><td class="txt">123 S Butler Ave 46219</td><td class="txt">Re-enters below $60,000</td><td class="txt">Conflicting WebSearch data again this week (asking prices seen $129,999–$210,000, plus a stale $99,000 8/30/2023 sale) — no source anywhere near $60,000; live status still unconfirmable via WebFetch</td><td class="txt">No</td></tr>
-          <tr><td class="txt">1613 Draper St 46203</td><td class="txt">Re-enters below $50,000</td><td class="txt">Still active, MLS #22077545, asking $169,900 — 3bd/2ba, 1,372 sqft, marketed to investors — far above the $50K trigger</td><td class="txt">No</td></tr>
-          <tr><td class="txt">1152 Churchman Ave 46203</td><td class="txt">Re-enters near land value</td><td class="txt">Still active, MLS #22060766, asking $179,900 — 4bd/1.5ba, 3,498 sqft, "solid bones" — far above any land-value estimate</td><td class="txt">No</td></tr>
-          <tr><td class="txt">1138 Harlan St 46203</td><td class="txt">Block test for Churchman (context, not a trigger)</td><td class="txt">Still active at $149,000, MLS #22070726, listed since 10/29/2025 (~11 months DOM if accurate) — block still commands standard fixer pricing, not distress pricing</td><td class="txt">N/A</td></tr>
+          <tr><td class="txt">123 S Butler Ave 46219</td><td class="txt">Re-enters below $60,000</td><td class="txt">Active, $159,900 (cut from $164,900; originally $225,000 on 2025-02-25), ~431 DOM, 4bd/2ba 1,736sqft — mycarmelrealty.com MBR22023730</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1613 Draper St 46203</td><td class="txt">Re-enters below $50,000</td><td class="txt">Active, $149,900 (cut from $159,900; originally $169,900 on 2026-02-26), 68 DOM, 3bd/2ba 1,372sqft — mycarmelrealty.com MBR22077545</td><td class="txt">No</td></tr>
+          <tr><td class="txt">1152 Churchman Ave 46203</td><td class="txt">Re-enters near land value</td><td class="txt">UNKNOWN — no listing, sale, or county record surfaced this run despite multiple targeted searches; only neighboring addresses on the same street returned. Direct Zillow/Redfin fetch blocked. Flag for a direct county-assessor or MLS pull next run.</td><td class="txt">Unknown</td></tr>
+          <tr><td class="txt">1138 Harlan St 46203</td><td class="txt">Block test for Churchman (context, not a trigger)</td><td class="txt">Relisted active at $211,000, 3bd/2ba 2,240sqft, explicitly marketed "demolition complete, fully gutted interior, sold as-is" to an experienced flipper, with nearby comps pushing past $300,000 — slatesells.realgeeks.com MLS#22115570. Condition signal only; price itself is not low.</td><td class="txt">N/A (signal noted)</td></tr>
         </tbody>
       </table>
     </div>
@@ -205,14 +213,14 @@
     <div class="cards" id="cards"></div>
   </section>
 
-  <footer>
-    Model: all_in = purchase + rehab_used (likely, +25-30% contingency given zero interior evidence on both properties this run) + 1.5% buy closing + holding (~$6K/yr scaled to hold_months) + hard-money financing (2 pts + 11% APR, 80% LTC on price+rehab). net_sale = 0.92 × base ARV; spread = net_sale − all_in; ROI = spread ÷ all_in; MAO = min(0.70×ARV_base − rehab_used, ARV_base − rehab_used − fixed costs − max($50,000, 0.12×ARV_base)).
+  <footer id="footer-text">
+    Model: all_in = purchase + rehab_used (likely, +25% contingency given zero interior evidence on all three properties this run) + 1.5% buy closing + holding (~$6K/yr scaled to hold_months) + hard-money financing (2 pts + 11% APR, 80% LTC on price+rehab). net_sale = 0.92 × base ARV; spread = net_sale − all_in; ROI = spread ÷ all_in; MAO = min(0.70×ARV_base − rehab_used, ARV_base − rehab_used − fixed costs − max($50,000, 0.12×ARV_base)).
     <br><br>
-    <strong>Environment constraint, 4th week running — and materially worse this week:</strong> WebFetch was tried on 15+ distinct domains this run (Redfin, Zillow, Realtor.com, Trulia, Movoto, Compass, Craigslist, GovEase, the Tolemi Vacant-to-Vibrant land-bank map, Auction.com, Hubzu, FRED, Zumper, indy.gov, data.indy.gov) plus en.wikipedia.org as a pure sanity check — <strong>100% failed with policy-level EGRESS_BLOCKED errors</strong>, worse than prior weeks where github.com and artifact/data-fetch paths remained open. Every fact in this run, including all comp data, is a WebSearch-snippet synthesis with a cited source URL. This took the entire off-market/distress sweep off the table for the fourth straight week: the land-bank map, sheriff-sale bid floors, and tax-sale advertising list all remain unreachable. <strong>New this week: the underwriting subagents caught WebSearch's own AI-generated summaries fabricating specific, confident-sounding sale prices twice</strong> — a false "sold $80,000" status on 821 N Denny St itself, and an identical "$250,000 sold 9/25/2025" figure attached to two different, unrelated addresses on the Kealing Ave comp search. Both were caught and discarded because they happened to self-contradict on a second query; the red-team review flagged that comps which don't happen to collide this way could carry the same defect undetected. <strong>Recommend allowlisting redfin.com, zillow.com, realtor.com, trulia.com, fred.stlouisfed.org, zumper.com, liveauctions.govease.com, indianapolis-in-publicity.tolemi.com, craigslist.org, fsbo.com, auction.com, hubzu.com, indy.gov/data.indy.gov, and discord.com for this session's egress policy, or running MONEYBALL from an environment with broader network access — snippet-only sourcing plus a demonstrated hallucination rate in the same pipeline is now a material risk to underwriting quality, not just a data-gap footnote.</strong>
+    <strong>Environment constraint this run:</strong> this session's network egress policy blocked direct fetch to every target domain in the off-market/distress sweep — indianapolis.craigslist.org, fsbo.com, indianapolis-in-publicity.tolemi.com (DMD "Vacant to Vibrant" land bank), and both liveauctions.govease.com endpoints (Marion County sheriff sales and the Oct 13-16 tax-sale advertising list). These returned EGRESS_BLOCKED, not site-level 403s — a policy denial, not a dead source. Auction.com and Hubzu were separately confirmed empty via WebSearch (zero snippets from either platform this run). The entire off-market/distress leg of this week's scout is therefore a hard gap: zero off-market candidates were available to compare against the three listed-retail picks above, so the "prefer the off-market deal when it screens similarly" rule could not be applied this run. Redfin, Zillow, Realtor.com, FRED, and Zumper were also blocked for direct fetch — every comp, market-pulse, and rent figure in this run is a WebSearch-snippet synthesis with a cited source URL, not a live-page retrieval. The three requested FRED metro series (ACTLISCOU26900, MEDLISPRI26900, MEDDAYONMAR26900) could not be obtained at all, by any method — flagged as a hard gap, not backfilled with city-level numbers from a different geography.
     <br><br>
-    <strong>Why each dies, in one line:</strong> <em>821 N Denny St</em> — rehab_used ($95,550) alone already exceeds 70% of ARV_base ($130,000); MAO is negative under both formula branches; breakeven requires an ARV near $240,700, 47% above the zip median and above any comp evidence found — red-teamed HIGH confidence, unsalvageable at any price. <em>1367 N Kealing Ave</em> — the entire verdict rests on one unsourced "~25% size-normalization haircut" applied to undersized comps (subject is 61-71% larger than the only two trustworthy zip comps); red-team sensitivity shows ROI swings from +15% to −31% depending on that single number, and the deal also carries a thin foundation-cost tail, a likely-optimistic 6-month hold on a 112-year-old unverified interior, and two demonstrated WebSearch hallucinations in the same comp search — net verdict is KILL at ask (MEDIUM confidence) but MAO is genuinely positive ($11,685), making this the one real offer candidate this week, gated hard on an interior inspection. <em>1402 E Market St</em> — excluded entirely: the 2bd/4ba/2,416sqft/$149,000 profile traces to a single unsourced WebSearch summary with no corroborating direct-source page, is contradicted in scale by every real neighboring property found on the same block, and could not be distinguished from a conflation with 1420 E Market St — no verdict issued rather than underwriting a possibly-fictional listing.
+    <strong>Why each dies, in one line:</strong> <em>2594 Saint Paul St</em> — ARV rests entirely on active-listing asking prices (zero closed comps found); red-team flags the $165,000 base as "unsupported puffery" and separately found the HVAC line (baseboard-to-central in a slab house with no ductwork) underfunded by roughly $5,000-$13,000 and the 25% contingency too thin given zero interior photos — corrected case lands around -36% to -42% ROI, worse than the stated -27.9%. <em>5915 E Shimer Ave</em> — only one true closed comp exists (405 S Sheridan, a different-sized house), and red-team could not even resolve which direction the error runs: small houses often carry a $/sqft premium that could push true ARV above the $109,000 ask instead of below it. The stated $1,700 MAO is noise, not a number — verdict is "kill for lack of evidence," not a confident kill. <em>5317 E Saint Joseph St</em> — the underwriter never found the subject's square footage and assumed 1,250 sqft; red-team re-ran the math at the plausible 950-1,400 sqft range and found MAO swings from negative (deal impossible at any price) to roughly $23,000 depending on that single unconfirmed number. The KILL verdict holds across the whole range, but the offer price does not.
     <br><br>
-    No Discord post could be sent this run — the Discord webhook host (discord.com) is blocked by the same session-level egress policy (403, org policy denial), confirmed directly via curl this run, consistent with the prior three runs. Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
+    <strong>Discord post: BLOCKED this run.</strong> A direct curl to the configured webhook returned a hard proxy-level denial (<code>connect_rejected</code> — "the egress proxy denied the CONNECT, organization policy"), not a Discord-side error. No message was sent. Public dashboard mirror: <code>https://mixupmarketing7.github.io/deal-boards/dashboard.html</code>. Built by the MONEYBALL pipeline (scout → underwrite → red-team → report).
   </footer>
 </div>
 
@@ -222,22 +230,31 @@
 /* FLEET_DATA — regenerated by each weekly cron run */
 const FLEET_DATA = [
   {
-    addr: "1367 N Kealing Ave", zip: "46201",
-    ask: 74900, rehab: 105375, carry: 14940, selling: 14560,
-    arv: { down: 155000, base: 182000, up: 205000 },
-    offer: "$15,000–$20,000", mao: "$11,685", walk: "≈$30,000",
-    loss: 27775,
-    why: "This deal's entire verdict hangs on one unsourced assumption: a ~25% 'size-normalization haircut' applied to the only two trustworthy zip comps (218 S Walcott $137/sqft, 221 S State Ave $116/sqft), because the subject (1,920 sqft) is 61-71% larger than either. Red-team sensitivity testing showed this single knob swings the deal from +15% ROI / $65K MAO (at a 0% haircut) to -31% ROI / negative MAO (at 40%) — a roughly 45-point ROI and $90K MAO swing with no empirical anchor for which end is correct. The listing itself is stale (130+ days on market vs. the zip's ~60-day norm) with unverified 'working mechanicals, newer roof' language from a motivated agent, on a 1914-built house with a thin foundation-cost budget ($5,000 likely / $20,000 high — plausibly light for a century-old structure on a tiny, access-constrained lot) and no lead-paint/asbestos or sewer-lateral line items. The comp search itself produced two internally-contradictory, apparently-hallucinated closed-sale figures (an identical $250,000/9-25-2025 sale attached to two different addresses) that were caught and discarded, raising real doubt about whether the two comps that were kept are themselves reliable. Net: KILL at the $74,900 ask (ROI -14.2%), but MAO is genuinely positive ($11,685) — this is this week's one real offer candidate, strictly contingent on an interior inspection to resolve the sqft/condition uncertainty before any capital moves. A separate, better-performing minimal-rehab rental-hold path (~9% cap rate) was flagged by red-team as under-explored and worth modeling independently, gated on the same inspection.",
-    findings: "Red-teamed MEDIUM confidence — verdict direction (KILL at ask) holds, but is not robust to the underlying haircut assumption; comp integrity itself flagged as an open, unresolved gap after 2 hallucinations caught in the same search pipeline", gaps: 8
+    addr: "2594 Saint Paul St", zip: "46203",
+    ask: 129000, rehab: 65000, carry: 16575, selling: 13200,
+    arv: { down: 150000, base: 165000, up: 180000 },
+    offer: "$10,000–$15,000", mao: "$10,000–$15,000 (corrected)", walk: "≈$35,000–$40,000",
+    loss: 58775,
+    why: "No qualifying closed sale (≤0.5mi/≤6mo) was found anywhere — every 'comp' used (2551 Saint Paul $119,900 active, 2515 Saint Paul $195,000 active with a price cut and still unsold, 1430 St Paul $144,900 active, plus a zip-wide Zillow $163/sqft aggregate) is an asking price, not a sale. Red-team's verdict: the $165,000 base ARV is 'unsupported puffery,' and the 2515 Saint Paul comp in particular is evidence the market is REJECTING that price tier, not evidence of value — it needed a cut and is still sitting. Separately, the $9,000 HVAC line (baseboard-electric to central in a slab-foundation house with zero existing ductwork) is underfunded by roughly $5,000-$13,000 — a full forced-air retrofit with no basement/crawlspace to run ducts through typically costs far more, or a ductless mini-split system runs $12-18K on its own. The 25% contingency is also too thin given zero interior photos exist on a 1958 slab-foundation house (asbestos tile/siding, lead paint, cast-iron/clay sewer laterals, galvanized supply lines are all plausible and unpriced). The 'fresh listing, 3 DOM' signal that got this property prioritized over staler candidates was itself attacked: 3 days with no price cut yet says nothing about seller motivation — it could just as easily mean the seller hasn't yet discovered the price is too high, exactly what appears to be happening one block over. Corrected math (HVAC fix + 35% contingency + missing hazmat/sewer lines): rehab_used ≈ $87,750, all_in ≈ $238,325, ROI ≈ -36% to -42%, MAO ≈ $10,000-$15,000 instead of the stated $33,425.",
+    findings: "Red-teamed HIGH confidence on KILL direction — stated numbers are too optimistic, not too pessimistic", gaps: 6
   },
   {
-    addr: "821 N Denny St", zip: "46201",
-    ask: 109000, rehab: 95550, carry: 16908, selling: 10400,
-    arv: { down: 112000, base: 130000, up: 151000 },
-    offer: "none — MAO negative under both formula branches", mao: "−$32,458", walk: "≈$14,249 (breakeven, ROI=0%)",
-    loss: 101858,
-    why: "Rehab_used ($95,550, a 30%-contingency line-item budget for a zero-interior-evidence 1925 house with a full basement) already exceeds 70% of ARV_base ($130,000) on its own — before purchase price, closing, holding, or financing are even added. Both MAO formula branches come back negative (-$4,550 and -$32,458), and the correlated downside case (ARV $112,000, rehab $128,000, 8-month hold) loses money at literally any purchase price, including a hypothetical $0, because rehab_high alone exceeds downside sale proceeds. Red-team independently solved for the ARV that would make this breakeven at the stated price/rehab/hold: approximately $240,700 — 47% above the zip's $163,635 median and well above the single best comp found ($151,000 upside tier) — meaning no plausible upward revision to the thin, partly-unverifiable comp set rescues this deal. A same-street rental/BRRRR alternative was also checked and rejected: gross rent would need to run $1,800-2,200/month, more than double the best available (single-anecdote) SFR rent estimate, for a hold strategy to break even. Comp base itself is thin (effectively n=1 'clean' comp, zip-wide rather than confirmed within 0.5mi) and the rehab budget likely still understates true risk (no explicit sewer-lateral, lead-paint/asbestos, or full garage-rebuild line items were confirmed) — meaning the true picture is plausibly worse, not better, than this already-decisive kill.",
-    findings: "Red-teamed HIGH confidence on the kill direction — breakeven-ARV distance ($240,700 needed vs. $163,635 zip median) is too large for comp-quality noise to close; unsalvageable at any price under the downside case", gaps: 7
+    addr: "5915 E Shimer Ave", zip: "46219",
+    ask: 109000, rehab: 33125, carry: 13163, selling: 7840,
+    arv: { down: 88000, base: 98000, up: 109000 },
+    offer: "≤$5,000, if anything — unreliable", mao: "~$1,700 stated (noise)", walk: "≈$40,250 (unreliable)",
+    loss: 65128,
+    why: "Only one genuine closed sale was found in this submarket (405 S Sheridan Ave, 850sqft, sold $110,000 on 2026-05-13, $129/sqft) — the other two 'comps' (3737 Deloss St $104,900, and the literal twin house next door at 5936 E Shimer $109,900) are both active asking prices, and the stated 'upside ARV' tier is just the twin house's current ask, i.e. ask-vs-ask, not a sale. Red-team's core finding: with n=1 real comp, this isn't a 3-tier ARV spread, it's a single point estimate with a huge confidence band, and the underwrite can't even determine the SIGN of its own error — small houses often carry a $/sqft PREMIUM over larger comps (fixed-cost kitchen/bath rooms are a bigger share of a tiny house), which could push true ARV to $102,000-$108,000, materially above the stated $98,000 base and nearly at the $109,000 ask, flipping the entire 'size caps value below ask' thesis on its head. The reported MAO of ~$1,700 is mechanically just noise at this scale — any small change to rehab, ARV, or hold-time assumptions flips its sign. Red-team's verdict is explicitly 'kill for lack of evidence,' not a confident kill: the honest state of this deal is unresolved, not disproven. A 1949 build with crawlspace and 2-year rental history also carries unpriced galvanized wiring/sewer-lateral/asbestos risk, and a 725sqft 2bd/1ba house risks a thin conventional-mortgage buyer pool post-reno regardless of which way the $/sqft math breaks.",
+    findings: "Red-teamed MED-HIGH confidence on KILL, but explicitly flags the ARV edge direction as unresolved, not just unfavorable", gaps: 7
+  },
+  {
+    addr: "5317 E Saint Joseph St", zip: "46219",
+    ask: 165000, rehab: 71875, carry: 24162, selling: 12800,
+    arv: { down: 150000, base: 160000, up: 176250 },
+    offer: "Do not offer yet", mao: "$0–$23,000 (sqft-dependent)", walk: "≈$46,000–$48,250 (unreliable)",
+    loss: 113837,
+    why: "The single biggest problem with this underwrite: the subject's square footage was never found anywhere and the underwriter assumed 1,250 sqft (plausible range 950-1,400) — 'the single biggest swing factor in this whole analysis.' Red-team re-ran the entire math stack at both ends of that range: at 950 sqft, MAO comes back NEGATIVE (-$4,100) — the deal cannot work at any purchase price, including $0. At 1,400 sqft, MAO is roughly $23,000, about 1.6x the stated $13,963. The KILL verdict at the $165,000 ask is robust across the whole range (ROI runs from -64% to -80% depending on sqft), but the offer-price math is not usable until a county assessor record is pulled. Separately, the comp set (445 N Emerson $249,900/1,871sqft and 27 N Hawthorne $310,000/1,876sqft, both fully-renovated 'showcase block' sales) was attacked for being 50%+ larger than the assumed subject and for one comp (6150 E Oak, $115,000) being pulled from 11 months ago — outside the 6-month window, widened specifically because it was the low number that drags the average down, a selective-widening red flag (though red-team notes this particular bias cuts toward a MORE conservative ARV, not a more generous one). Using 123 S Butler Ave — a killed, never-closed listing on the broader watchlist — as evidence that this pocket of Irvington is 'softer' was also flagged as weak: an unsold asking price is marketing/pricing-error evidence at least as much as it is location evidence, and shouldn't be used to cap ARV quantitatively.",
+    findings: "Red-teamed HIGH confidence on KILL direction (robust to sqft uncertainty) — but MAO/offer price genuinely unusable until subject sqft is confirmed via county assessor", gaps: 8
   }
 ];
 /* /FLEET_DATA */
@@ -261,7 +278,7 @@ for (const d of FLEET_DATA) {
   card.innerHTML = `
     <div class="head">
       <h3>${d.addr} <span class="zip" style="color:var(--muted); font-size:13px; font-weight:400">${d.zip}</span></h3>
-      <div class="badges"><span class="pill conf">CONFIDENCE MED-HIGH</span><span class="pill kill">✕ KILL</span></div>
+      <div class="badges"><span class="pill conf">CONFIDENCE LOW</span><span class="pill kill">✕ KILL</span></div>
     </div>
     <div class="threenum">
       <div><div class="l">Offer zone</div><div class="v">${d.offer}</div></div>
