@@ -1,0 +1,283 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>958 Lawton St SW — Rental Deal Board</title></head><body>
+<style>
+:root{
+    --ink:#12161c; --ink-2:#3d4756; --ink-3:#6b7686;
+    --bg:#fbfaf8; --panel:#ffffff; --rule:#e3e0da; --rule-2:#f0eeea;
+    --red:#a3231f; --red-bg:#fbeceb;
+    --green:#186b4f; --green-bg:#eaf4ef;
+    --amber:#8a5a06; --amber-bg:#fbf2e0;
+    --accent:#1b3a5c; --accent-bg:#e8eef5;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e6e1; --ink-2:#b3b8c0; --ink-3:#858d99;
+      --bg:#12151a; --panel:#181c23; --rule:#2b313b; --rule-2:#222731;
+      --red:#f0736c; --red-bg:#2c1a1a;
+      --green:#5fc79b; --green-bg:#16261f;
+      --amber:#e0ac52; --amber-bg:#2a2113;
+      --accent:#8fb8e0; --accent-bg:#1a2533;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 96px}
+  header{border-bottom:3px solid var(--ink);padding:44px 0 20px;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:0 0 6px;letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:3px;font-weight:600;background:var(--red-bg);color:var(--red);border:1px solid currentColor;margin-bottom:16px}
+  .internal{font-size:13px;color:var(--amber);background:var(--amber-bg);border:1px solid currentColor;border-radius:3px;padding:10px 14px;margin:0 0 22px;line-height:1.5}
+  .verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--red);padding:24px 26px;margin:0 0 12px;border-radius:3px}
+  .verdict p{margin:0 0 12px;font-size:19px;font-family:var(--serif);line-height:1.45}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict .ex{font-family:var(--sans);font-size:15px;color:var(--ink-2);line-height:1.55}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 8px;border-radius:3px;overflow:hidden}
+  .num{background:var(--panel);padding:20px 18px}
+  .num .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+  .num .v{font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;line-height:1}
+  .num .n{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;line-height:1.4}
+  .v.bad{color:var(--red)} .v.ok{color:var(--green)} .v.mid{color:var(--amber)}
+  @media(max-width:660px){.nums{grid-template-columns:1fr}}
+  section{margin:52px 0 0}
+  h2{font-family:var(--serif);font-size:26px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;padding-bottom:9px;border-bottom:1px solid var(--ink)}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:400;margin-right:10px;letter-spacing:.06em}
+  h3{font-size:13px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px;font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);margin:14px 0 0;font-family:var(--serif)}
+  p{margin:14px 0}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;font-weight:600;border-bottom:1px solid var(--ink);white-space:nowrap}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding-right:0;padding-left:16px;white-space:nowrap}
+  td.n + td:not(.n), th.n + th:not(.n){padding-left:18px}
+  tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:12px}
+  .key{font-weight:600}
+  .bad{color:var(--red)} .good{color:var(--green)} .warn{color:var(--amber)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .small{font-size:13px;color:var(--ink-3);overflow-wrap:anywhere}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;vertical-align:1px;white-space:nowrap}
+  .f-ok{background:var(--green-bg);color:var(--green)}
+  .f-as{background:var(--amber-bg);color:var(--amber)}
+  .f-no{background:var(--red-bg);color:var(--red)}
+  .sig{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:24px 0}
+  .sig h4{margin:0 0 6px;font-size:16.5px;font-family:var(--serif);font-weight:600}
+  .sig p{margin:0;font-size:15px;color:var(--ink-2)}
+  .chart{margin:22px 0 8px}
+  .row{display:grid;grid-template-columns:210px 1fr 104px;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule-2)}
+  .row:last-child{border-bottom:none}
+  .row .lbl{font-size:13.5px;color:var(--ink-2);line-height:1.3}
+  .row .lbl b{color:var(--ink);font-weight:600}
+  .track{position:relative;height:24px;background:var(--rule-2);border-radius:2px}
+  .bar{position:absolute;top:3px;bottom:3px;border-radius:2px}
+  .bar.cost{left:0;background:var(--red)}
+  .bar.val{left:0;background:var(--accent)}
+  .bar.loss{right:0;background:var(--red)}
+  .row .amt{font-family:var(--mono);font-size:14.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:6px 0 0}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;font-family:var(--mono)}
+  @media(max-width:600px){.row{grid-template-columns:1fr 92px;gap:6px 10px}.row .lbl{grid-column:1 / -1}.row .amt{font-size:13px}}
+  .call{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;margin:24px 0}
+  .call.kill{border-left:4px solid var(--red)}
+  .call.note{border-left:4px solid var(--accent)}
+  .call.good{border-left:4px solid var(--green)}
+  .call p:first-child{margin-top:0} .call p:last-child{margin-bottom:0}
+  ol.rank{padding-left:0;list-style:none;counter-reset:r;margin:18px 0}
+  ol.rank li{counter-increment:r;position:relative;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule-2)}
+  ol.rank li::before{content:counter(r);position:absolute;left:0;top:12px;width:26px;height:26px;background:var(--ink);color:var(--bg);border-radius:50%;font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  ol.rank li b{display:block;font-size:15px;margin-bottom:3px}
+  ol.rank li span{font-size:14px;color:var(--ink-2)}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-3)}
+  .srcs{word-break:break-word}
+</style>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Deal Board · Buy-and-Hold Rental Underwrite · 13 Oct 2026</p>
+  <div class="badge">Verdict — Do not pursue</div>
+  <h1>958 Lawton St SW</h1>
+  <p class="sub">Atlanta, GA 30310 · City of Atlanta, Fulton County · Oakland City · The Trust at Oakland City · new 1-bed / 1-bath townhouse, 640 sf · FMLS 7569039 / GAMLS 10509726 · Asking $165,000</p>
+</header>
+
+<p class="internal"><b>Internal working document.</b> Built from MLS agent sheets and public records for Alvin Slate and deal partners. Not for the listing agent or the seller.</p>
+
+<div class="verdict">
+  <p><strong>This home cannot be a rental, and an investor cannot buy it.</strong> It is an Atlanta Land Trust unit. The buyer must qualify by income and live in it, the land is leased instead of sold, and renting is barred for any length of time.</p>
+  <p class="ex"><b>Worked example.</b> Suppose the rules did not exist. A new one-bedroom here rents for about <span class="mono">$1,200</span> a month. After vacancy, management, repairs, taxes, insurance and <span class="mono">$1,200</span> a year in association dues, it nets <span class="mono">$5,500</span> to <span class="mono">$7,200</span> a year. Against a cost of about <span class="mono">$170,900</span> at the ask, that is a return of <span class="mono bad">3.2% to 4.2%</span>. A 7% target would need an all-in cost of <span class="mono">$78,000</span> to <span class="mono">$103,000</span>. The price fails before the restriction does.</p>
+</div>
+
+<div class="nums">
+  <div class="num">
+    <p class="k">Offer zone</p>
+    <p class="v mid">No offer</p>
+    <p class="n">The trust sets the price and does not negotiate it. An investor offer would not be accepted.</p>
+  </div>
+  <div class="num">
+    <p class="k">MAO as a rental</p>
+    <p class="v bad">$0</p>
+    <p class="n">Renting is not allowed at any price, so no purchase price works for a buy-and-hold.</p>
+  </div>
+  <div class="num">
+    <p class="k">Walk-away</p>
+    <p class="v bad">Now</p>
+    <p class="n">No inspection, survey or records request would change the answer. Spend nothing more on it.</p>
+  </div>
+</div>
+
+<section>
+  <h2><span class="n">01</span>Why it cannot be a rental</h2>
+  <p class="lede">Four separate rules each end the deal on their own.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Rule</th><th>What the record says</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="key"><span class="flag f-no">Disqualifier</span><br>No rentals</td><td>Land trust homes cannot be rented for any period and must be the owner's main home. A resident owner may only let a bedroom. Long-term, mid-term and short-term rental are all out.</td><td>Atlanta Land Trust FAQ, read 10/13/2026</td></tr>
+      <tr><td class="key"><span class="flag f-no">Disqualifier</span><br>No investors</td><td>Owner-occupied only. The agent's notes to other agents say investor purchases are prohibited.</td><td>FMLS 7569039 agent sheet, read 10/13/2026</td></tr>
+      <tr><td class="key"><span class="flag f-no">Disqualifier</span><br>Income cap</td><td>The buyer household must earn 80% of area median income or less: $60,240 for one person, $68,800 for two, $77,440 for three, $86,000 for four. The lender must be trust-approved, and co-signers who will not live there are not allowed.</td><td>Listing remarks; Atlanta Land Trust flyer</td></tr>
+      <tr><td class="key"><span class="flag f-no">Disqualifier</span><br>Land lease</td><td>The trust keeps the land under a 99-year renewable ground lease. A formula caps the resale price, so there is no market-rate exit.</td><td>FMLS Land Lease field (Yes); trust FAQ</td></tr>
+      <tr><td class="key">Association</td><td>$100 a month, $300 initiation fee. The HOA Rent Restriction field reads Yes.</td><td>FMLS listing fields</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">02</span>Evidence inventory</h2>
+  <p class="lede">Every input is labeled before any math. Nothing missing became a silent assumption.</p>
+
+  <h3>Confirmed — MLS agent sheet, city, county and trust sources</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>Active at $165,000 · listed 4/23/2025 · 538 days on market · original list price $155,000 on the FMLS sheet · a GAMLS feed shows a cut from $196,713 to $165,000 on 2/5/2026</td><td>FMLS 7569039; GAMLS 10509726 via public broker pages</td></tr>
+      <tr><td class="key">Unit</td><td>New-construction townhouse, two stories, one shared wall, slab, HardiPlank siding, built 2025 · 1 bed / 1 bath · 640 sf (builder's figure) · 40 units in the community</td><td>FMLS agent sheet</td></tr>
+      <tr><td class="key">Developer</td><td>Atlanta Land Trust with CityScape Housing · architect Kronberg Urbanists + Architects</td><td>Listing remarks; rezoning file Z-21-107</td></tr>
+      <tr><td class="key">Zoning</td><td>MR-2 multi-family, rezoned from R-4A by Ordinance 22-O-1006 (effective 2/16/2022) · Oakland City Historic District (HC-20M) · BeltLine Overlay</td><td>City of Atlanta zoning layer and ordinance</td></tr>
+      <tr><td class="key">County record</td><td>Parent parcel 14 011900020403, 0.6958 ac, still carried as vacant land valued at $87,500 with no improvements. The roll has not caught up with the buildings.</td><td>Fulton County tax parcel layer</td></tr>
+      <tr><td class="key">Building permit</td><td>BB-202303537, new two-unit building at 960 Lawton, issued 5/3/2023. The city placed a zoning-violation hold on the certificate of occupancy on 1/21/2026.</td><td>City of Atlanta permit records</td></tr>
+      <tr><td class="key">Voucher ceiling</td><td>Atlanta Housing pays up to $1,600 for a one-bedroom in this submarket. HUD's 2027 small-area rent for 30310 is $1,200, down from $1,300.</td><td>Atlanta Housing schedule; HUD FY2027 SAFMR</td></tr>
+      <tr><td class="key">Sister units</td><td>962 Lawton (identical one-bedroom, $165,000) and 960 Lawton (three-bedroom, $250,000) showed pending on 10/2/2026. None has a recorded closing.</td><td>Public broker pages, seen 10/13/2026</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Assumption — flagged, not verified</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Input</th><th>Value used</th><th>Why it is an assumption</th></tr></thead>
+    <tbody>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Market rent</td><td>$1,200 a month (range $1,000 to $1,400)</td><td>Asking rents only, within a mile ($995 to $1,532). No closed lease. The $1,400 duplex units at 696 Erin Ave sat 58 days.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Property tax</td><td>About $2,700 a year</td><td>40% of the price times about 41 mills. The unit has no tax bill yet and the city millage was not confirmed.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Insurance</td><td>About $900 a year</td><td>Estimate for a small attached unit. No quote.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Value</td><td>$130,000 · $155,000 · $165,000</td><td>What an income-qualified owner might pay. No home of this kind has closed nearby, so comp confidence is LOW.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Missing — would be required before any money moved</h3>
+  <ul>
+    <li><span class="flag f-no">Missing</span> The ground lease: monthly lease fee, the resale formula, and whether an entity may ever hold title.</li>
+    <li><span class="flag f-no">Missing</span> The association's declaration and budget.</li>
+    <li><span class="flag f-no">Missing</span> A certificate of occupancy for the unit, and which physical unit is 958.</li>
+    <li><span class="flag f-no">Missing</span> Title. Three public systems name three different owners for the parent parcel: the tax roll (Urban Realty Donnelly Partners LLC), city permit records (Small Business Administration) and the listing (Atlanta Land Trust and CityScape Housing).</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">03</span>The what-if math</h2>
+  <p class="lede">For the record only. It shows the price is wrong for a rental even without the trust's rules.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Line</th><th class="n">Amount</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Gross rent</td><td class="n">$14,400</td><td>$1,200 a month, estimated</td></tr>
+      <tr><td class="key">Net income, half-of-rent rule</td><td class="n">$7,200</td><td>50% of gross</td></tr>
+      <tr><td class="key">Net income, line by line</td><td class="n">$5,487</td><td>6% vacancy, 8% management, 8% repairs, 7% reserve, $2,706 tax, $900 insurance, $1,200 dues</td></tr>
+      <tr><td class="key">Cost at the ask</td><td class="n">$170,875</td><td>$165,000 + 1.5% closing + about $3,400 to make it rent-ready (refrigerator, washer and dryer, blinds)</td></tr>
+      <tr class="tot"><td>Return on cost</td><td class="n bad">3.2% – 4.2%</td><td>Target is 7%. That needs an all-in cost of $78,400 to $102,900.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>What the site can legally hold</h2>
+  <p class="lede">Nothing more. The build question is already answered: the trust built it.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Question</th><th>Answer</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Is it a lot or a teardown?</td><td>No. It is one finished attached unit in a 40-unit community. The county roll still shows vacant land, which is a lag in the roll.</td><td>FMLS sheet; Fulton parcel layer</td></tr>
+      <tr><td class="key">What could a buyer add?</td><td>Zero square feet and zero units. The unit sits on a small zero-lot-line lot and the land stays with the trust.</td><td>MR-2 text, Sec. 16-35; ground lease model</td></tr>
+      <tr><td class="key">Exterior changes</td><td>Any visible change needs a certificate from the Urban Design Commission.</td><td>Oakland City Historic District, Ch. 20M</td></tr>
+      <tr><td class="key">Short-term rental</td><td>The MR-2 code allows it. The trust's rules do not, and they control.</td><td>Sec. 16-35.005(8); trust FAQ</td></tr>
+      <tr><td class="key">City code rewrite</td><td>ATL Zoning 2.0 is not adopted. A council committee is holding it (reported 9/22/2026), so the 1982 code is still the law.</td><td>Current code supplement; reporting dated 9/22/2026</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>Photo review</h2>
+  <p class="lede">34 images opened. None is confirmed as unit 958.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>What was seen</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><td class="key">The listing's own gallery (20 images)</td><td>Matches the gallery for 971 Peeples St SW. It shows a larger plan with an island kitchen, a half bath and more than one bedroom, so it is not this one-bedroom unit.</td></tr>
+      <tr><td class="key">One-bedroom plan</td><td>Appears as two floor-plan sheets and in photos of the twin unit at 960 Lawton: single-wall kitchen downstairs, bedroom, bath and laundry closet upstairs.</td></tr>
+      <tr><td class="key">Finishes</td><td>New and clean. Vinyl plank floors, granite counters, stainless range, microwave and dishwasher. Two wall-mounted mini-split units heat and cool the one-bedroom.</td></tr>
+      <tr><td class="key">Not supplied</td><td>Refrigerator, washer and dryer. Shower rods and blinds are missing in some units.</td></tr>
+      <tr><td class="key">Site</td><td>Ground-floor windows were boarded from outside in the larger unit's photos. Parking is shared and detached.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Make-ready estimate if it were a rental: $1,375 low · $3,369 likely · $6,594 high. No repair scope exists on a new unit.</p>
+</section>
+
+<section>
+  <h2><span class="n">06</span>Every exit, compared</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Exit</th><th class="n">Result</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td class="key">A · Buy and hold, long-term lease</td><td class="n bad">Not allowed</td><td>No rentals for any period. Investor purchases prohibited.</td></tr>
+      <tr><td class="key">B · Housing voucher tenant</td><td class="n bad">Not allowed</td><td>Same rule. The $1,600 Atlanta Housing ceiling never comes into play.</td></tr>
+      <tr><td class="key">C · Short-term or mid-term rental</td><td class="n bad">Not allowed</td><td>Same rule.</td></tr>
+      <tr><td class="key">D · Buy and resell</td><td class="n bad">Capped</td><td>The resale price is set by the trust's formula, and the next buyer must also qualify by income.</td></tr>
+      <tr><td class="key">E · Build or add units</td><td class="n bad">Nothing to build</td><td>Finished unit on leased land.</td></tr>
+      <tr><td class="key">F · Refer an income-qualified buyer client</td><td class="n good">Possible</td><td>A first-time buyer under the income limit gets a new home near the Westside BeltLine for $165,000. That is a buyer-side commission, not an investment.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">07</span>If the goal is a rental on these blocks</h2>
+  <p class="lede">The fee-simple houses around the trust site are the ones to underwrite.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Closed sale</th><th>Closed</th><th class="n">Price</th><th class="n">GLA</th><th>Condition</th></tr></thead>
+    <tbody>
+      <tr><td class="key">1191 Ewing Pl SW</td><td>9/17/2026</td><td class="n">$137,000</td><td class="n">1,337</td><td>Original</td></tr>
+      <tr><td class="key">1101 Arlington Ave SW</td><td>8/31/2026</td><td class="n">$181,280</td><td class="n">1,984</td><td>Distressed. Sold for $306,000 in 3/2026 per public record.</td></tr>
+      <tr><td class="key">1074 Arlington Ave SW</td><td>9/25/2026</td><td class="n">$200,000</td><td class="n">2,485</td><td>Original. Sold for $325,000 in 10/2023 per public record.</td></tr>
+      <tr><td class="key">1185 Arlington Ave SW</td><td>9/4/2026</td><td class="n">$245,000</td><td class="n">1,262</td><td>Renovated. Sold for $465,000 in 5/2024 per public record.</td></tr>
+      <tr><td class="key">987 Lawton St SW</td><td>10/5/2026</td><td class="n">$437,000</td><td class="n">1,827</td><td>Rebuilt house, 0.07 mi from the subject</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Prices are falling on some of these streets: three of the five closed well under their last recorded sale. The earlier sale figures come from public-record entries on a broker site and were not checked against deeds. County records show 18 of the 34 parcels on the 900 block of Lawton are held by an LLC or an owner at a different mailing address.</p>
+</section>
+
+<section>
+  <h2><span class="n">08</span>Reopen only if</h2>
+  <ol class="rank">
+    <li><b>A buyer client fits the trust's program.</b><span>Household income under the limit in section 01, will live in the home, and can use a trust-approved lender. Cost $0: one call to the listing agent, Maja Sly at Keller Williams Realty Atlanta Perimeter, for the current income chart and lender list.</span></li>
+    <li><b>The unit has its certificate of occupancy.</b><span>Cost $0: ask the listing agent, then confirm on the city permit record for BB-202303537. The hold placed on 1/21/2026 must be cleared before anyone can close.</span></li>
+  </ol>
+  <div class="call kill">
+    <p><b>As an investment there is no condition that reopens it.</b> The restriction is in the trust's ground lease, not in a zoning rule or an HOA vote that could change.</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>Method.</b> Fleet underwrite run 10/13/2026: four collectors (comps, listing and photos, rents and market, zoning and parcel), then Alvin's FMLS session for the agent sheet. Observed figures carry their source; estimates are labeled.</p>
+  <p class="srcs"><b>Sources.</b> FMLS Matrix Agent Full 7569039 (read 10/13/2026 10:42 AM) · Georgia MLS 10509726 via RE/MAX and PSP public pages · atlantalandtrust.org FAQ and homes page · City of Atlanta zoning layer, Ordinance 22-O-1006 / Z-21-107, permit BB-202303537, code case CC-2026-00323 · Fulton County tax parcel layer · Atlanta Housing payment standards · HUD FY2027 Small Area FMR, zip 30310.</p>
+  <p class="srcs"><b>Working files.</b> Atlas/tenants/alvin-slate-re/workspaces/norcliffe-lawton-rental-underwrite-2026-10-13/underwrites/958-lawton-st-sw-atlanta-ga-30310/ — comps.json · rehab.json · market.json · zoning.json · photos/ · and mls-evidence.json one level up.</p>
+  <p><b>Known gaps.</b> Ground lease and declaration not read · unit-level square footage is the builder's figure · no photo confirmed as unit 958 · certificate of occupancy not found · title not searched · Fulton tax bill and city millage not retrieved · rents are asking rents, not closed leases.</p>
+</footer>
+
+</div>
+</body></html>
