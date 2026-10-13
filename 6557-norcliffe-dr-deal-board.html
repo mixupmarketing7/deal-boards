@@ -1,0 +1,408 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>6557 Norcliffe Dr — Rental Deal Board</title></head><body>
+<style>
+:root{
+    --ink:#12161c; --ink-2:#3d4756; --ink-3:#6b7686;
+    --bg:#fbfaf8; --panel:#ffffff; --rule:#e3e0da; --rule-2:#f0eeea;
+    --red:#a3231f; --red-bg:#fbeceb;
+    --green:#186b4f; --green-bg:#eaf4ef;
+    --amber:#8a5a06; --amber-bg:#fbf2e0;
+    --accent:#1b3a5c; --accent-bg:#e8eef5;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e6e1; --ink-2:#b3b8c0; --ink-3:#858d99;
+      --bg:#12151a; --panel:#181c23; --rule:#2b313b; --rule-2:#222731;
+      --red:#f0736c; --red-bg:#2c1a1a;
+      --green:#5fc79b; --green-bg:#16261f;
+      --amber:#e0ac52; --amber-bg:#2a2113;
+      --accent:#8fb8e0; --accent-bg:#1a2533;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 96px}
+  header{border-bottom:3px solid var(--ink);padding:44px 0 20px;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:0 0 6px;letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:3px;font-weight:600;background:var(--red-bg);color:var(--red);border:1px solid currentColor;margin-bottom:16px}
+  .internal{font-size:13px;color:var(--amber);background:var(--amber-bg);border:1px solid currentColor;border-radius:3px;padding:10px 14px;margin:0 0 22px;line-height:1.5}
+  .verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--red);padding:24px 26px;margin:0 0 12px;border-radius:3px}
+  .verdict p{margin:0 0 12px;font-size:19px;font-family:var(--serif);line-height:1.45}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict .ex{font-family:var(--sans);font-size:15px;color:var(--ink-2);line-height:1.55}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 8px;border-radius:3px;overflow:hidden}
+  .num{background:var(--panel);padding:20px 18px}
+  .num .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+  .num .v{font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;line-height:1}
+  .num .n{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;line-height:1.4}
+  .v.bad{color:var(--red)} .v.ok{color:var(--green)} .v.mid{color:var(--amber)}
+  @media(max-width:660px){.nums{grid-template-columns:1fr}}
+  section{margin:52px 0 0}
+  h2{font-family:var(--serif);font-size:26px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;padding-bottom:9px;border-bottom:1px solid var(--ink)}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:400;margin-right:10px;letter-spacing:.06em}
+  h3{font-size:13px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px;font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);margin:14px 0 0;font-family:var(--serif)}
+  p{margin:14px 0}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;font-weight:600;border-bottom:1px solid var(--ink);white-space:nowrap}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding-right:0;padding-left:16px;white-space:nowrap}
+  td.n + td:not(.n), th.n + th:not(.n){padding-left:18px}
+  tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:12px}
+  .key{font-weight:600}
+  .bad{color:var(--red)} .good{color:var(--green)} .warn{color:var(--amber)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .small{font-size:13px;color:var(--ink-3);overflow-wrap:anywhere}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;vertical-align:1px;white-space:nowrap}
+  .f-ok{background:var(--green-bg);color:var(--green)}
+  .f-as{background:var(--amber-bg);color:var(--amber)}
+  .f-no{background:var(--red-bg);color:var(--red)}
+  .sig{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:24px 0}
+  .sig h4{margin:0 0 6px;font-size:16.5px;font-family:var(--serif);font-weight:600}
+  .sig p{margin:0;font-size:15px;color:var(--ink-2)}
+  .chart{margin:22px 0 8px}
+  .row{display:grid;grid-template-columns:210px 1fr 104px;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule-2)}
+  .row:last-child{border-bottom:none}
+  .row .lbl{font-size:13.5px;color:var(--ink-2);line-height:1.3}
+  .row .lbl b{color:var(--ink);font-weight:600}
+  .track{position:relative;height:24px;background:var(--rule-2);border-radius:2px}
+  .bar{position:absolute;top:3px;bottom:3px;border-radius:2px}
+  .bar.cost{left:0;background:var(--red)}
+  .bar.val{left:0;background:var(--accent)}
+  .bar.loss{right:0;background:var(--red)}
+  .row .amt{font-family:var(--mono);font-size:14.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:6px 0 0}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;font-family:var(--mono)}
+  @media(max-width:600px){.row{grid-template-columns:1fr 92px;gap:6px 10px}.row .lbl{grid-column:1 / -1}.row .amt{font-size:13px}}
+  .call{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;margin:24px 0}
+  .call.kill{border-left:4px solid var(--red)}
+  .call.note{border-left:4px solid var(--accent)}
+  .call.good{border-left:4px solid var(--green)}
+  .call p:first-child{margin-top:0} .call p:last-child{margin-bottom:0}
+  ol.rank{padding-left:0;list-style:none;counter-reset:r;margin:18px 0}
+  ol.rank li{counter-increment:r;position:relative;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule-2)}
+  ol.rank li::before{content:counter(r);position:absolute;left:0;top:12px;width:26px;height:26px;background:var(--ink);color:var(--bg);border-radius:50%;font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  ol.rank li b{display:block;font-size:15px;margin-bottom:3px}
+  ol.rank li span{font-size:14px;color:var(--ink-2)}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-3)}
+  .srcs{word-break:break-word}
+</style>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Deal Board · Buy-and-Hold Rental Underwrite · 13 Oct 2026</p>
+  <div class="badge">Verdict — Pass as a rental</div>
+  <h1>6557 Norcliffe Dr</h1>
+  <p class="sub">Stone Mountain, GA 30087 · Unincorporated DeKalb · Parcel 16 097 01 313 · The Gates of Southland · 6 bed / 5 bath, 3,413 sf above grade + 1,710 sf finished basement, built 2004 · RSM zoning · GAMLS 10856112 · Asking $324,900</p>
+</header>
+
+<p class="internal"><b>Internal working document.</b> Contains maximum offers, walk-away prices and an analysis of the seller. For Alvin Slate and deal partners only. Not for the listing agent, the seller, or anyone on the other side of this deal.</p>
+
+<div class="verdict">
+  <p><strong>The rent cannot carry this house.</strong> At $324,900 it is a fair price for a family that will live in it and the wrong price for a landlord. No purchase price the bank would accept fixes that.</p>
+  <p class="ex"><b>Worked example.</b> Buy at the ask, spend <span class="mono">$121,349</span> on repairs, and carry it four months. The total cost is <span class="mono">$476,439</span>. It rents for about <span class="mono">$2,850</span> a month. After vacancy, management, repairs, a <span class="mono">$9,161</span> tax bill and insurance, it nets <span class="mono">$11,988</span> a year. That is a return of <span class="mono bad">2.5%</span> on cost against a 7% target. A lender who sizes the loan to the rent will lend <span class="mono">$114,812</span>, which leaves <span class="mono bad">$363,924</span> of your cash in the house. With the best rent, the lowest repair budget and a lower tax bill all at once, the return reaches <span class="mono bad">4.4%</span>.</p>
+</div>
+
+<div class="nums">
+  <div class="num">
+    <p class="k">Offer zone</p>
+    <p class="v mid">No rental bid</p>
+    <p class="n">A flip buyer's range would be <span class="mono">$167,000</span> to <span class="mono">$197,000</span>. A bank that just called for highest-and-best at <span class="mono">$324,900</span> will not take it.</p>
+  </div>
+  <div class="num">
+    <p class="k">MAO as a rental</p>
+    <p class="v bad">$0</p>
+    <p class="n">Yield test: <span class="mono">$37,076</span> at a 7% return. Refinance test: <span class="mono">−$18,316</span>. The lower one governs, and it is below zero.</p>
+  </div>
+  <div class="num">
+    <p class="k">Walk-away</p>
+    <p class="v bad">$17,055</p>
+    <p class="n">Above this, more than 25% of the total cost stays stuck in the house after the refinance. The ask is <span class="mono">$324,900</span>.</p>
+  </div>
+</div>
+
+<section>
+  <h2><span class="n">01</span>The gap in one picture</h2>
+  <p class="lede">The red bars are what it costs to own the house as a rental. The blue bars are what it is worth and what the rent can support.</p>
+  <div class="chart" role="img" aria-label="Cost to own compared with value and with what the rent supports">
+    <div class="row"><div class="lbl"><b>Total cost at the ask, likely repairs</b></div><div class="track"><div class="bar cost" style="width:95.3%" title="$324,900 + $121,349 repairs + $30,190 closing, holding and financing"></div></div><div class="amt">$476,439</div></div>
+    <div class="row"><div class="lbl"><b>Total cost at the ask, lowest repair budget</b></div><div class="track"><div class="bar cost" style="width:81.9%" title="$324,900 + $58,292 repairs + carrying costs"></div></div><div class="amt">$409,573</div></div>
+    <div class="row"><div class="lbl">Value finished to rental grade</div><div class="track"><div class="bar val" style="width:83.0%" title="Closed comps, base tier"></div></div><div class="amt">$415,000</div></div>
+    <div class="row"><div class="lbl">Value as it sits today</div><div class="track"><div class="bar val" style="width:67.0%" title="Closed original-condition comps, base tier"></div></div><div class="amt">$335,000</div></div>
+    <div class="row"><div class="lbl">Total cost the rent supports at a 7% return</div><div class="track"><div class="bar val" style="width:34.2%" title="$11,988 net income ÷ 0.07"></div></div><div class="amt">$171,250</div></div>
+    <div class="row"><div class="lbl">Loan the rent supports</div><div class="track"><div class="bar val" style="width:23.0%" title="Coverage of 1.20 at 7.875%, 30 years"></div></div><div class="amt">$114,812</div></div>
+  </div>
+  <div class="legend"><span><i style="background:var(--red)"></i>Cost to own it</span><span><i style="background:var(--accent)"></i>Value, and what the rent supports</span></div>
+  <p class="cap">Bars share one scale ($500,000 = full width). All-in cost is $61,439 more than the finished value.</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>Evidence inventory</h2>
+  <p class="lede">Every input is labeled before any math. Nothing missing became a silent assumption.</p>
+
+  <h3>Confirmed — MLS, county and federal sources</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>Active in Georgia MLS only, $324,900, listed 9/30/2026, vacant, no price cuts. The remarks called for highest-and-best offers by 5 PM on 10/7/2026. Public feeds still showed it active on 10/13. No assignments and no seller financing.</td><td>GAMLS 10856112 through broker pages, seen 10/13/2026</td></tr>
+      <tr><td class="key">FMLS</td><td>No active listing. Withdrawn in 2022 at $430,000 after a contract that did not close. Last arm's-length sale $310,000 on 3/9/2018.</td><td>FMLS Matrix, Alvin's session, 10/13/2026</td></tr>
+      <tr><td class="key">Seller</td><td>Lakeview Loan Servicing LLC. It foreclosed a VA loan by deed under power on 5/6/2025 at $390,832. The VA deeded the house back to the servicer on 8/13/2025.</td><td>DeKalb tax commissioner sales record</td></tr>
+      <tr><td class="key">House</td><td>6 bedrooms, 5 full baths, brick on four sides, two stories over a finished basement with a second kitchen. 3,413 sf above grade and 1,710 sf below. The 5,123 sf in the listing counts the basement, so the ask is $95 a foot above grade, not $63.</td><td>DeKalb property record</td></tr>
+      <tr><td class="key">Lot</td><td>0.34 acre corner lot at Norcliffe Dr and Greenock Dr. North Crooked Creek runs along the southwest line.</td><td>DeKalb parcel layer</td></tr>
+      <tr><td class="key">Taxes</td><td>$9,160.64 for 2026 with no homestead, on a county value of $486,600 at 44.09 mills. First half paid 9/29/2026. Second half of $4,580.32 is due 11/16/2026.</td><td>DeKalb 2026 tax statement</td></tr>
+      <tr><td class="key">Zoning</td><td>RSM (Small Lot Residential Mix), no overlay. The tax record still prints the old name, RCD.</td><td>DeKalb zoning layer</td></tr>
+      <tr><td class="key">Code cases</td><td>Case 1317641 is open (fence in disrepair; warning issued 9/1/2026). Case 1312291 (electrical) went to a court summons in February 2026 and closed 4/21/2026.</td><td>DeKalb code compliance records</td></tr>
+      <tr><td class="key">Flood</td><td>About 12% of the lot, the creek-side strip, is in Zone AE and the floodway. The house maps in Zone X, about 25 ft from the Zone AE line. Base flood elevation 822.5 ft.</td><td>FEMA flood layer, panel 13089C0094K</td></tr>
+      <tr><td class="key">Sewer</td><td>A county sewer main and a manhole addressed to this house sit in the street about 28 ft from the lot line. The listing says septic tank.</td><td>Published copy of county sewer data; GAMLS field</td></tr>
+      <tr><td class="key">Permits</td><td>Only the original 2003 construction permit ($270,820). Nothing since 2006 for the basement finish, the second kitchen or the deck.</td><td>DeKalb permit layers</td></tr>
+      <tr><td class="key">Closed leases</td><td>Nine leases of 5-bedroom-plus houses closed in 30087 in the last 12 months, from $2,200 to $3,300. One is in this subdivision at $2,950.</td><td>FMLS Matrix lease search, 10/13/2026</td></tr>
+      <tr><td class="key">Voucher ceiling</td><td>Housing Authority of DeKalb County 2026 payment standard for zip 30087: $3,324 for 5 bedrooms, $3,757 for 6. These include tenant-paid utilities.</td><td>HADC 2026 payment standards</td></tr>
+      <tr><td class="key">Mortgage rate</td><td>30-year average 7.40% on 10/8/2026, up from 6.30% a year ago.</td><td>Freddie Mac weekly survey</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Assumption — flagged, not verified</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Input</th><th>Value used</th><th>Why it is an assumption</th></tr></thead>
+    <tbody>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Rent</td><td>$2,850 a month (range $2,600 to $3,200)</td><td>Built from asking rents before the MLS leases were pulled. The closed leases support $2,950 to $3,000. Section 08 runs both.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Value</td><td>As it sits: $295,000 · $335,000 · $360,000. Finished to rental grade: $385,000 · $415,000 · $445,000. Full retail finish: $455,000.</td><td>No closed sale has both this size above grade and a finished basement. Every tier leans on size adjustments. Confidence is MED on a widened sample.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Repairs</td><td>$58,292 · $121,349 · $246,802 with 25% contingency</td><td>From 57 listing photos. No walkthrough and no inspection. No photo shows a furnace, water heater, electrical panel, attic or the basement kitchen.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Insurance</td><td>$3,100 a year</td><td>Estimate for a landlord policy on a 2004 brick house. No quote. Flood coverage is not in it.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Refinance rate</td><td>7.875%, 30 years, coverage of 1.20</td><td>The weekly average plus about half a point for an investor loan. No lender quote.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Timeline</td><td>2.5 months of work plus 1.5 months to lease</td><td>The one lease in this subdivision took 53 days. A house 0.14 mile away sat six months or more.</td></tr>
+      <tr><td class="key"><span class="flag f-as">Assumed</span> Sewer</td><td>County sewer</td><td>The main is at the lot and the builder was a production builder. The listing's septic entry looks like an input error, but it is not confirmed.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Missing — required before any money moves</h3>
+  <ul>
+    <li><span class="flag f-no">Missing</span> Whether the bank accepted an offer after the 10/7 deadline.</li>
+    <li><span class="flag f-no">Missing</span> The association's recorded covenants and its leasing policy. One house in The Gates of Southland leased through FMLS in April 2026, so rentals exist. A cap is still possible.</li>
+    <li><span class="flag f-no">Missing</span> An inspection: all three heating and cooling systems, water heaters, panel, attic, deck structure, basement moisture.</li>
+    <li><span class="flag f-no">Missing</span> Title through the 2025 foreclosure, unpaid association dues since then, and any code liens.</li>
+    <li><span class="flag f-no">Missing</span> A survey showing the creek bank, the 75 ft buffer and the flood lines against the house.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">03</span>Rent — closed leases first, each lane on its own</h2>
+  <p class="lede">The closed leases say $2,950 to $3,000 for a five-bedroom in Southland. Even the top of the range does not change the answer.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Closed lease</th><th>Closed</th><th class="n">Rent</th><th>Bed / bath</th><th>Read</th></tr></thead>
+    <tbody>
+      <tr><td class="key">641 Olde Ivy Way<br><span class="small">The Gates of Southland · 1999</span></td><td>4/1/2026</td><td class="n">$2,950</td><td>5 / 3.5</td><td><b>Anchor.</b> Same subdivision. 4,098 sf with a finished basement, upgraded, tenant pays all utilities. Took 53 days to lease at full ask.</td></tr>
+      <tr><td class="key">1128 Southland Bluff<br><span class="small">Links at Southland · 2006</span></td><td>12/1/2025</td><td class="n">$3,000</td><td>5 / 4</td><td>Same golf community, two years newer.</td></tr>
+      <tr><td class="key">6868 Glen Cove Ln<br><span class="small">Waters Edge · 1997</span></td><td>10/20/2025</td><td class="n">$3,159</td><td>5 / 5.5</td><td>Lake community north of the subject. Superior setting.</td></tr>
+      <tr><td class="key">7450 Waters Edge Dr<br><span class="small">Waters Edge · 1990</span></td><td>1/1/2026</td><td class="n">$3,150</td><td>5 / 4.5</td><td>Same.</td></tr>
+      <tr><td class="key">5111 Manitou Way<br><span class="small">Gwinnett side · 1986</span></td><td>4/15/2026</td><td class="n">$3,300</td><td>5 / 2 + 2 half</td><td>Top of the range, in Gwinnett County schools.</td></tr>
+      <tr><td class="key">2388 Rockbridge Rd<br><span class="small">Gwinnett side · 1959</span></td><td>12/29/2025</td><td class="n">$2,500</td><td>6 / 3</td><td>The only six-bedroom. Older house.</td></tr>
+      <tr><td class="key">Three others</td><td>12/2025 – 4/2026</td><td class="n">$2,200 – $2,469</td><td>5 / 2.5 – 3</td><td>Smaller houses: Wren Walk, Carriage Trace Cir, Winding Waters Ct.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call note">
+    <p><b>Market lane.</b> $2,850 was used in the base case. The leases support $2,950 to $3,000, and a six-bedroom with a basement kitchen might reach $3,200. Asking rents nearby warn against more: the house at 6284 Southland Ridge, 0.14 mile away, asked $3,300, cut to $2,900 and sat six months or longer.</p>
+    <p><b>Voucher lane.</b> The DeKalb housing authority's 2026 ceiling for six bedrooms is $3,757 including utilities, or about $3,400 in contract rent. Its rent test compares against unassisted houses that top out near $2,950, so plan on $3,200 at most. A six-bedroom voucher household is rare. HUD's 2027 small-area rents are 6% to 7% lower, so the ceiling may drop. At $3,200 the return is 3.15%.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Comp grid — closed sales, then attacked</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Comp</th><th class="n">Dist</th><th>Closed</th><th class="n">Price</th><th class="n">GLA</th><th class="n">$/sf</th><th>Attack</th></tr></thead>
+    <tbody>
+      <tr><td class="key">6588 Norcliffe Dr<br><span class="small">rental grade · 5/3.5</span></td><td class="n">0.09 mi</td><td>2/11/2026</td><td class="n">$389,000</td><td class="n">3,188</td><td class="n">$122</td><td><b>Anchor.</b> Same street, close in size, 29 days. Sets the finished value: $122 × 3,413 sf = $416,000.</td></tr>
+      <tr><td class="key">860 Southland Pass<br><span class="small">rental grade · 5/2.5</span></td><td class="n">0.35 mi</td><td>4/2/2026</td><td class="n">$395,000</td><td class="n">3,155</td><td class="n">$125</td><td>Took 79 days and cuts from $425,000. The slow one, so it gets weight.</td></tr>
+      <tr><td class="key">6219 Wurtenburg Ct<br><span class="small">renovated · 6/5</span></td><td class="n">0.68 mi</td><td>5/20/2026</td><td class="n">$460,000</td><td class="n">2,862</td><td class="n">$161</td><td>Best match on bedrooms and a finished lower level. Fully renovated, and it took about 20 months to sell.</td></tr>
+      <tr><td class="key">6209 Southland Forest Dr<br><span class="small">renovated · 7/4.5</span></td><td class="n">0.46 mi</td><td>10/16/2025</td><td class="n">$415,000</td><td class="n">2,663</td><td class="n">$156</td><td>416 days on market. Relisted 8/17/2026 at $449,000 and unsold.</td></tr>
+      <tr><td class="key">6247 Greenock Dr<br><span class="small">original · 4/3.5</span></td><td class="n">0.44 mi</td><td>7/10/2026</td><td class="n">$419,000</td><td class="n">2,791</td><td class="n">$150</td><td><b>Superior.</b> Pool on 0.58 acre. Cut from $525,900. The highest close within half a mile in nine months.</td></tr>
+      <tr><td class="key">674 Masters Dr<br><span class="small">fixer, short sale · 5/4.5</span></td><td class="n">0.85 mi</td><td>9/4/2026</td><td class="n">$440,000</td><td class="n">3,281</td><td class="n">$134</td><td><b>Superior position</b> on the lake side of Southland. Shows what a fixer brings in the better section, not on this block.</td></tr>
+      <tr><td class="key">644 Masters Dr<br><span class="small">luxury renovation · 7/5</span></td><td class="n">0.89 mi</td><td>8/26/2026</td><td class="n">$525,000</td><td class="n">3,052</td><td class="n">$172</td><td><b>Superior.</b> Lake, golf and mountain views; $10,000 in seller-paid costs. Kept out of the average.</td></tr>
+      <tr><td class="key">6366 Conisburgh Ln<br><span class="small">distressed · 4/3</span></td><td class="n">0.67 mi</td><td>8/21/2026</td><td class="n">$305,000</td><td class="n">3,297</td><td class="n">$93</td><td>As-is evidence. No basement.</td></tr>
+      <tr><td class="key">761 Conisburgh Ct<br><span class="small">original · 4/3</span></td><td class="n">0.62 mi</td><td>9/8/2026</td><td class="n">$260,000</td><td class="n">2,946</td><td class="n">$88</td><td>As-is evidence, off-market sale. Condition inferred.</td></tr>
+      <tr><td class="key">6251 Southland Forest Dr<br><span class="small">rental grade · 3/2.5</span></td><td class="n">0.44 mi</td><td>3/12/2026</td><td class="n">$325,000</td><td class="n">3,514</td><td class="n">$92</td><td>Larger than the subject above grade and it still closed at the subject's ask.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">20 closed sales in the full set (102 unique properties screened from 144 rows), within 1.02 miles and 12 months. $/sf is on above-grade area from the county record.</p>
+  <div class="call note">
+    <p><b>The block outranks the grid.</b> Norcliffe sits at the south edge of Southland. Within a third of a mile the product drops to small-lot houses and townhomes selling for $205,000 to $275,000. Nothing within half a mile has closed above $419,000 in nine months. A same-age, same-size house at 6264 Southland Rdg, 0.15 mile away, has sat unsold since August at $450,000 to $489,000. This house itself went under contract at $430,000 in 2022 and did not close.</p>
+    <p><b>Value tiers.</b> As it sits: $295,000 · <b>$335,000</b> · $360,000. Finished to rental grade: $385,000 · <b>$415,000</b> · $445,000. Full retail finish: $455,000, and no closed sale on this block proves more.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>Photo review and repair budget</h2>
+  <p class="lede">All 57 listing photos were reviewed. The house is intact and tired. The expensive questions are the ones the photos do not answer.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>What the photos show</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th><th>Settled by</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Heating and cooling<br><span class="small">Three outdoor units, presumed original. One has a lifted top and one sits apart, tilted on the slope.</span></td><td class="n">$6,700</td><td class="n">$18,500</td><td class="n">$25,500</td><td>A technician runs all three and reads the data plates ($450)</td></tr>
+      <tr><td class="key">Roof and upstairs ceiling<br><span class="small">Shingles look even from the street. The upstairs hall ceiling has blistered, peeling patches near a light.</span></td><td class="n">$2,000</td><td class="n">$4,400</td><td class="n">$19,610</td><td>Roofer with attic access ($0 to $250)</td></tr>
+      <tr><td class="key">Rear deck<br><span class="small">About 10 ft up on slender posts that land on small pads, with one board tacked across as a brace.</span></td><td class="n">$4,500</td><td class="n">$7,500</td><td class="n">$17,000</td><td>Deck contractor or engineer ($0 to $500)</td></tr>
+      <tr><td class="key">Fence<br><span class="small">Leaning and collapsing along the low side. This is the open county code case.</span></td><td class="n">$2,300</td><td class="n">$4,600</td><td class="n">$9,600</td><td>Walkthrough; call code compliance</td></tr>
+      <tr><td class="key">Plumbing and sewer<br><span class="small">Vacant bank-owned house. No water heater in any photo. Laundry wall cut open at the supply box.</span></td><td class="n">$3,283</td><td class="n">$6,475</td><td class="n">$13,300</td><td>Pressure test at turn-on; sewer records</td></tr>
+      <tr><td class="key">Basement<br><span class="small">Bath door jamb rotted at the floor. The second kitchen appears in one glimpse only.</span></td><td class="n">$850</td><td class="n">$3,700</td><td class="n">$15,000</td><td>Moisture scan; permit history</td></tr>
+      <tr><td class="key">Five baths<br><span class="small">Original and usable. Hall bath top scratched, tub finish dull, one light bar hanging loose in the primary bath.</span></td><td class="n">$4,545</td><td class="n">$8,351</td><td class="n">$14,825</td><td>Walkthrough</td></tr>
+      <tr><td class="key">Kitchen and appliances<br><span class="small">Cabinets and counters intact. No refrigerator, microwave or vent hood.</span></td><td class="n">$2,200</td><td class="n">$4,350</td><td class="n">$9,100</td><td>Test the cooktop and ovens</td></tr>
+      <tr><td class="key">Floors<br><span class="small">Front-room hardwood worn through with black staining at the wall base. The worst room in the house.</span></td><td class="n">$2,300</td><td class="n">$7,930</td><td class="n">$12,650</td><td>Moisture meter at walkthrough</td></tr>
+      <tr><td class="key">Full interior paint<br><span class="small">Scuffs, patches and stains throughout 5,123 sf.</span></td><td class="n">$10,250</td><td class="n">$12,808</td><td class="n">$16,650</td><td>Seen in photos</td></tr>
+      <tr><td class="key">Electrical and alarms<br><span class="small">Loose fixtures, broken fan shades. A prior electrical code case closed in April.</span></td><td class="n">$1,850</td><td class="n">$3,300</td><td class="n">$6,700</td><td>Electrician walkthrough</td></tr>
+      <tr><td class="key">Everything else<br><span class="small">Doors, blinds, garage doors, trim, gutters, walkway slabs, tree work, pest check, hauling, cleaning, permits.</span></td><td class="n">$5,856</td><td class="n">$15,165</td><td class="n">$37,507</td><td>Walkthrough</td></tr>
+      <tr class="tot"><td>Rental-grade scope</td><td class="n">$46,634</td><td class="n">$97,079</td><td class="n">$197,442</td><td></td></tr>
+      <tr><td class="key">With 25% contingency</td><td class="n">$58,292</td><td class="n key">$121,349</td><td class="n">$246,802</td><td>Used in the math</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Priced from the EmpowerBuild price book at cost, with no general contractor's overhead or profit. A hired contractor adds 15% to 25%. Retail upgrades such as granite and a stainless package ($23,968) are optional and are not in the budget. Contingency is 25% because the heating systems, roof, sewer, deck and basement moisture are all unresolved.</p>
+  <p class="small"><b>Not in any photo:</b> furnaces or air handlers, water heaters, electrical panel, attic, garage interior, the main-level bath and the basement kitchen. The house number is not legible; the set was matched to this house by photo location data and by its shape front and rear.</p>
+</section>
+
+<section>
+  <h2><span class="n">06</span>Zoning and what the lot can hold</h2>
+  <p class="lede">One house, one family. The creek, not the zoning district, is what limits this lot.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Question</th><th>Answer</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Lease the whole house to one family</td><td><span class="flag f-ok">Allowed</span> This is the permitted single-family use. No zoning approval needed.</td><td>DeKalb Zoning Ordinance, RSM use table</td></tr>
+      <tr><td class="key">Rent by the room</td><td><span class="flag f-no">Not allowed</span> Boarding and rooming houses are not permitted in RSM.</td><td>RSM use table</td></tr>
+      <tr><td class="key">Lease the basement as its own unit</td><td><span class="flag f-no">Not for an investor</span> An accessory unit requires the owner to live on the property and hold a homestead exemption. The second kitchen itself is legal.</td><td>Sec. 4.2.3.C</td></tr>
+      <tr><td class="key">Duplex or more units</td><td><span class="flag f-no">Treat as one unit</span> The district allows two-family homes, but density is 4 units an acre: 0.34 acre × 4 = 1.36 units, with no bonus on infill lots. The lot cannot be split.</td><td>Sec. 2.12.5; analyst reading</td></tr>
+      <tr><td class="key">Short-term rental</td><td><span class="flag f-as">Permit required</span> Stays of 30 days or less need an annual county permit and a named 24-hour agent. Association rules are unknown.</td><td>Sec. 4.2.15.C (adopted 7/25/2025)</td></tr>
+      <tr><td class="key">Additions, pool, shed</td><td><span class="flag f-no">Blocked on the creek side</span> A 75 ft stream buffer covers about 55% of the lot. No variance is available for a house built after 12/28/2000.</td><td>Sec. 14-44.1</td></tr>
+      <tr><td class="key">Tear down and rebuild</td><td><span class="flag f-no">Loses money</span> The buildable area left after the buffer holds a house no larger than the one standing. A 2,500 sf rebuild costs about $516,746 and is worth about $437,500. With the land free it still loses $179,871.</td><td>Envelope arithmetic; two new-build sales 1.4 to 1.8 miles out</td></tr>
+      <tr><td class="key">Land value</td><td>About $42,000. One lot sale within a mile at $39,000; county land value $45,000.</td><td>Closed lot sale 2/18/2026; county record</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">07</span>Rental pro forma at the ask</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Line</th><th class="n">Amount</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Purchase</td><td class="n">$324,900</td><td>List price</td></tr>
+      <tr><td class="key">Repairs</td><td class="n">$121,349</td><td>Likely budget with 25% contingency</td></tr>
+      <tr><td class="key">Closing</td><td class="n">$4,874</td><td>1.5% of price</td></tr>
+      <tr><td class="key">Holding, 4 months</td><td class="n">$5,087</td><td>Taxes, insurance, utilities and lawn</td></tr>
+      <tr><td class="key">Financing, 4 months</td><td class="n">$20,230</td><td>Hard money: 2 points and 11% on 80% of price plus repairs</td></tr>
+      <tr class="tot"><td>Total cost</td><td class="n">$476,439</td><td>$61,439 more than the $415,000 finished value</td></tr>
+      <tr><td class="key">Gross rent</td><td class="n">$34,200</td><td>$2,850 × 12</td></tr>
+      <tr><td class="key">Vacancy</td><td class="n">−$2,052</td><td>6%</td></tr>
+      <tr><td class="key">Management</td><td class="n">−$2,572</td><td>8% of collected rent</td></tr>
+      <tr><td class="key">Repairs and reserve</td><td class="n">−$5,130</td><td>8% maintenance plus 7% reserve on a 22-year-old, 5,123 sf house</td></tr>
+      <tr><td class="key">Property tax</td><td class="n">−$9,161</td><td>2026 bill, no homestead</td></tr>
+      <tr><td class="key">Insurance</td><td class="n">−$3,100</td><td>Estimate, no flood coverage</td></tr>
+      <tr><td class="key">Association dues</td><td class="n">−$198</td><td>Listing field</td></tr>
+      <tr class="tot"><td>Net income</td><td class="n">$11,988</td><td>The half-of-rent shortcut gives $17,100; the lower figure is used</td></tr>
+      <tr><td class="key">Return on cost</td><td class="n bad">2.52%</td><td>Target 7%. Rent would need to be $5,341 a month.</td></tr>
+      <tr><td class="key">Loan the rent supports</td><td class="n">$114,812</td><td>Coverage of 1.20 at 7.875% over 30 years. A 75% loan on value ($311,250) would cover only 0.44 of its payment and lose $1,258 a month.</td></tr>
+      <tr><td class="key">Cash left in the house</td><td class="n bad">$363,924</td><td>76% of total cost</td></tr>
+      <tr><td class="key">Cash flow after debt</td><td class="n">$166 / mo</td><td>0.55% a year on the cash left in</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">08</span>Scenarios — none reaches the target</h2>
+  <p class="lede">The downside moves rent, value, repairs, time and rate together, because bad news travels in packs.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>At the $324,900 ask</th><th class="n">Base</th><th class="n">MLS rent, tax reset</th><th class="n">Best case</th><th class="n">Downside</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Rent per month</td><td class="n">$2,850</td><td class="n">$2,950</td><td class="n">$3,200</td><td class="n">$2,565</td></tr>
+      <tr><td class="key">Repairs</td><td class="n">$121,349</td><td class="n">$121,349</td><td class="n">$58,292</td><td class="n">$246,802</td></tr>
+      <tr><td class="key">Property tax</td><td class="n">$9,161</td><td class="n">$6,309</td><td class="n">$6,309</td><td class="n">$10,083</td></tr>
+      <tr><td class="key">Net income</td><td class="n">$11,988</td><td class="n">$15,697</td><td class="n">$17,841</td><td class="n">$8,621</td></tr>
+      <tr><td class="key">Total cost</td><td class="n">$476,439</td><td class="n">$475,489</td><td class="n">$409,573</td><td class="n">$618,969</td></tr>
+      <tr><td class="key">Return on cost</td><td class="n bad">2.52%</td><td class="n bad">3.30%</td><td class="n bad">4.36%</td><td class="n bad">1.39%</td></tr>
+      <tr><td class="key">Price that reaches 7%</td><td class="n">$37,076</td><td class="n">$87,950</td><td class="n">$179,006</td><td class="n bad">below zero</td></tr>
+      <tr><td class="key">Loan the rent supports</td><td class="n">$114,812</td><td class="n">$150,340</td><td class="n">$170,879</td><td class="n">$78,766</td></tr>
+      <tr><td class="key">Cash left in</td><td class="n bad">$363,924</td><td class="n bad">$328,155</td><td class="n bad">$242,112</td><td class="n bad">$541,778</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small"><b>Tax reset.</b> Georgia law caps next year's county value at the price of an arm's-length sale, and a bank sale counts. At $324,900 the bill would fall to about $6,309. That is PRE's lane and worth $2,852 a year, but it is not enough to change the verdict. <b>Downside:</b> rent 10% lower, value $385,000, high repair budget, six months, rate half a point higher. Total cost would exceed value by $233,969.</p>
+</section>
+
+<section>
+  <h2><span class="n">09</span>Every exit, compared</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Exit</th><th class="n">Result</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td class="key">A · Buy and hold, market lease</td><td class="n bad">2.5% on cost</td><td>Needs 7%. The maximum price is below zero on the refinance test.</td></tr>
+      <tr><td class="key">A2 · Buy and hold, voucher tenant</td><td class="n bad">3.15% on cost</td><td>At $3,200. The 7% price is $77,524. Add 30 to 45 days for approval and inspection.</td></tr>
+      <tr><td class="key">B · Rent by the room</td><td class="n bad">Not allowed</td><td>Rooming houses are not permitted in RSM.</td></tr>
+      <tr><td class="key">C · Basement as a second unit</td><td class="n bad">Not allowed</td><td>Requires an owner living on site with a homestead exemption.</td></tr>
+      <tr><td class="key">D · Short-term rental</td><td class="n warn">Not underwritten</td><td>Zoning allows it with an annual permit. Association rules are unknown and no income evidence was gathered.</td></tr>
+      <tr><td class="key">E · Flip</td><td class="n bad">−$57,839 to −$98,685</td><td>Sells near $455,000 and nets $418,600. Breaks even at a $270,352 purchase. The 70% rule price is $167,191 to $197,151.</td></tr>
+      <tr><td class="key">F · Tear down and build</td><td class="n bad">−$179,871</td><td>With the land free. The stream buffer shrinks the house you could build.</td></tr>
+      <tr><td class="key">G · Owner-occupant buyer</td><td class="n good">Fits</td><td>Worth about $335,000 as it sits against a $324,900 ask. A family gets 5,123 sf in a golf community and fixes it over time. Likely needs a renovation loan.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">10</span>The seller — the leverage is theirs</h2>
+  <div class="sig">
+    <h4>A loan servicer that already ran a bidding round</h4>
+    <p>Lakeview Loan Servicing took the house back through a VA-loan foreclosure at $390,832. The county values it at $486,600. It listed at $324,900 and called for highest-and-best within a week. The automated estimates ($322,100 to $332,684) only echo the list price.</p>
+  </div>
+  <div class="sig">
+    <h4>The ask is already at as-is value</h4>
+    <p>True value as it sits is about $335,000, in a range of $295,000 to $360,000. An owner-occupant can meet that. A rental buyer tops out at $37,076 on return and below zero on the refinance test. There is no meeting point.</p>
+  </div>
+  <div class="sig">
+    <h4>Terms that close doors</h4>
+    <p>No assignments and no seller financing. A servicer gives no disclosure. Utilities may be off, which blocks inspection of the heat and plumbing until someone asks for them to be turned on.</p>
+  </div>
+</section>
+
+<!--REDTEAM-START-->
+<section>
+  <h2><span class="n">11</span>Red-team findings</h2>
+  <div class="call note">
+    <p><b>Pending.</b> The adversarial pass on this underwrite was still running when this version was published at 11:06 AM on 10/13/2026. Its findings will replace this note at the same link. The math above was already re-run independently and matched to the dollar.</p>
+  </div>
+</section>
+<!--REDTEAM-END-->
+
+<section>
+  <h2><span class="n">12</span>Reopen only as a different deal</h2>
+  <ol class="rank">
+    <li><b>For a buyer client who will live in it.</b><span>Cost $0: call the listing agent, Donna R. Knowles at Keller Williams River Cities, (706) 392-4930. Ask whether an offer was accepted after 10/7, whether utilities can be turned on for inspection, and what was repaired to close the electrical code case.</span></li>
+    <li><b>As a flip, only if it comes back at $197,000 or less.</b><span>That is the 70% rule price. A flip breaks even at $270,352. Neither is likely from a bank that just ran a bidding round at $324,900.</span></li>
+    <li><b>As a rental, only if three things are all true.</b><span>The price falls under $180,000, the repairs come in at the low budget, and the tax bill resets to the purchase price. That is the best case in section 08, and it still returns 7% and no more.</span></li>
+  </ol>
+
+  <h3>If anyone pursues it — checks ranked by dollars at risk per dollar spent</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Check</th><th class="n">Cost</th><th>Settles</th><th class="n">Swing</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Association covenants and leasing policy</td><td class="n">$0</td><td>Any rental cap, and the real dues ($198 a year on most feeds; $198 a month on one; $2,800 a year on a listing 0.15 mile away)</td><td class="n">Go or no-go</td></tr>
+      <tr><td class="key">County sewer account or availability letter</td><td class="n">$0</td><td>Septic or sewer</td><td class="n">$450 – $30,000</td></tr>
+      <tr><td class="key">Roofer with attic access</td><td class="n">$0 – $250</td><td>Roof age and the source of the ceiling damage</td><td class="n">$600 – $19,500</td></tr>
+      <tr><td class="key">Deck contractor or engineer</td><td class="n">$0 – $500</td><td>Repair or replace</td><td class="n">$4,500 – $17,000</td></tr>
+      <tr><td class="key">Heating and cooling technician</td><td class="n">$450</td><td>Service or replace three systems; working heat for a retail loan</td><td class="n">$6,700 – $25,500</td></tr>
+      <tr><td class="key">Code compliance call, case 1317641</td><td class="n">$0</td><td>Fines and liens the buyer inherits</td><td class="n">$2,300 – $9,600 +</td></tr>
+      <tr><td class="key">Permit history for the basement and deck</td><td class="n">$400</td><td>Whether the second kitchen and bath were permitted</td><td class="n">$500 – $13,500</td></tr>
+      <tr><td class="key">Flood determination, insurance quote, elevation certificate</td><td class="n">$0 – $700</td><td>Whether flood insurance is required; basement floor against the 822.5 ft flood elevation</td><td class="n">$350 – $15,000 + premium</td></tr>
+      <tr><td class="key">Survey with creek bank and buffer line</td><td class="n">not priced</td><td>Whether the house sits inside the buffer, which limits rebuilding after a loss</td><td class="n">Limits, not dollars</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <p><b>Method.</b> Fleet underwrite run 10/13/2026: four collectors (closed comps, listing and photos, rents and market, zoning and parcel), a rental-frame synthesis and a red-team pass. Alvin's FMLS session supplied the closed leases and three Southland sale sheets. The math was re-run independently in rental_check.py and matched the synthesis to the dollar.</p>
+  <p class="srcs"><b>Sources.</b> Georgia MLS 10856112 via Weichert, Compass, Movoto and RE/MAX listing pages (seen 10/13/2026) · FMLS Matrix agent sheets 7034098, 7799013, 7784023, 7783703 and lease 7716089, plus closed-sale and closed-lease searches for zip 30087 (10/13/2026, 10:41 to 10:47 AM) · DeKalb County 2026 tax statement, property appraisal record, parcel, zoning, flood and permit layers, code cases 1317641 and 1312291 · DeKalb Zoning Ordinance Ch. 27 (Sec. 2.12.5, 4.2.3, 4.2.15) and Ch. 14 (Sec. 14-44.1) · FEMA flood layer, panel 13089C0094K · Housing Authority of DeKalb County 2026 payment standards · HUD FY2027 Small Area FMR · Freddie Mac weekly survey 10/8/2026 · Redfin and Realtor.com zip 30087 market data, Sept 2026 · EmpowerBuild price book.</p>
+  <p class="srcs"><b>Working files.</b> Atlas/tenants/alvin-slate-re/workspaces/norcliffe-lawton-rental-underwrite-2026-10-13/ — underwrites/6557-norcliffe-dr-stone-mountain-ga-30087/ (comps.json · rehab.json · market.json · zoning.json · underwrite.json · critique.json · photos/) · mls-evidence.json · rental_check.py.</p>
+  <p><b>Known gaps.</b> Offer status after 10/7 unknown · no walkthrough or inspection · Georgia MLS member site not signed in, so GAMLS-only closed sales and leases are not in the set · association covenants not read · deed and lien index not searched · sewer connection unconfirmed · no insurance or loan quote · rent base of $2,850 was set before the closed leases were pulled · 17 of the 57 photos were viewed at thumbnail size · block not walked.</p>
+</footer>
+
+</div>
+</body></html>
