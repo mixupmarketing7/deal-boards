@@ -1,0 +1,175 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>5770 Deerfield Trl — Rental Deal Board</title></head><body>
+<style>
+:root{
+    --ink:#12161c; --ink-2:#3d4756; --ink-3:#6b7686;
+    --bg:#fbfaf8; --panel:#ffffff; --rule:#e3e0da; --rule-2:#f0eeea;
+    --red:#a3231f; --red-bg:#fbeceb;
+    --green:#186b4f; --green-bg:#eaf4ef;
+    --amber:#8a5a06; --amber-bg:#fbf2e0;
+    --accent:#1b3a5c; --accent-bg:#e8eef5;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e6e1; --ink-2:#b3b8c0; --ink-3:#858d99;
+      --bg:#12151a; --panel:#181c23; --rule:#2b313b; --rule-2:#222731;
+      --red:#f0736c; --red-bg:#2c1a1a;
+      --green:#5fc79b; --green-bg:#16261f;
+      --amber:#e0ac52; --amber-bg:#2a2113;
+      --accent:#8fb8e0; --accent-bg:#1a2533;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 96px}
+  header{border-bottom:3px solid var(--ink);padding:44px 0 20px;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:0 0 6px;letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:3px;font-weight:600;background:var(--red-bg);color:var(--red);border:1px solid currentColor;margin-bottom:16px}
+  .internal{font-size:13px;color:var(--amber);background:var(--amber-bg);border:1px solid currentColor;border-radius:3px;padding:10px 14px;margin:0 0 22px;line-height:1.5}
+  .verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--red);padding:24px 26px;margin:0 0 12px;border-radius:3px}
+  .verdict p{margin:0 0 12px;font-size:19px;font-family:var(--serif);line-height:1.45}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict .ex{font-family:var(--sans);font-size:15px;color:var(--ink-2);line-height:1.55}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 8px;border-radius:3px;overflow:hidden}
+  .num{background:var(--panel);padding:20px 18px}
+  .num .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+  .num .v{font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;line-height:1}
+  .num .n{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;line-height:1.4}
+  .v.bad{color:var(--red)} .v.ok{color:var(--green)} .v.mid{color:var(--amber)}
+  @media(max-width:660px){.nums{grid-template-columns:1fr}}
+  section{margin:52px 0 0}
+  h2{font-family:var(--serif);font-size:26px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;padding-bottom:9px;border-bottom:1px solid var(--ink)}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:400;margin-right:10px;letter-spacing:.06em}
+  h3{font-size:13px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px;font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);margin:14px 0 0;font-family:var(--serif)}
+  p{margin:14px 0}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;font-weight:600;border-bottom:1px solid var(--ink);white-space:nowrap}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding-right:0;padding-left:16px;white-space:nowrap}
+  td.n + td:not(.n), th.n + th:not(.n){padding-left:18px}
+  tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:12px}
+  .key{font-weight:600}
+  .bad{color:var(--red)} .good{color:var(--green)} .warn{color:var(--amber)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .small{font-size:13px;color:var(--ink-3);overflow-wrap:anywhere}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;vertical-align:1px;white-space:nowrap}
+  .f-ok{background:var(--green-bg);color:var(--green)}
+  .f-as{background:var(--amber-bg);color:var(--amber)}
+  .f-no{background:var(--red-bg);color:var(--red)}
+  .sig{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:24px 0}
+  .sig h4{margin:0 0 6px;font-size:16.5px;font-family:var(--serif);font-weight:600}
+  .sig p{margin:0;font-size:15px;color:var(--ink-2)}
+  .chart{margin:22px 0 8px}
+  .row{display:grid;grid-template-columns:210px 1fr 104px;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule-2)}
+  .row:last-child{border-bottom:none}
+  .row .lbl{font-size:13.5px;color:var(--ink-2);line-height:1.3}
+  .row .lbl b{color:var(--ink);font-weight:600}
+  .track{position:relative;height:24px;background:var(--rule-2);border-radius:2px}
+  .bar{position:absolute;top:3px;bottom:3px;border-radius:2px}
+  .bar.cost{left:0;background:var(--red)}
+  .bar.val{left:0;background:var(--accent)}
+  .bar.loss{right:0;background:var(--red)}
+  .row .amt{font-family:var(--mono);font-size:14.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:6px 0 0}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;font-family:var(--mono)}
+  @media(max-width:600px){.row{grid-template-columns:1fr 92px;gap:6px 10px}.row .lbl{grid-column:1 / -1}.row .amt{font-size:13px}}
+  .call{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;margin:24px 0}
+  .call.kill{border-left:4px solid var(--red)}
+  .call.note{border-left:4px solid var(--accent)}
+  .call.good{border-left:4px solid var(--green)}
+  .call p:first-child{margin-top:0} .call p:last-child{margin-bottom:0}
+  ol.rank{padding-left:0;list-style:none;counter-reset:r;margin:18px 0}
+  ol.rank li{counter-increment:r;position:relative;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule-2)}
+  ol.rank li::before{content:counter(r);position:absolute;left:0;top:12px;width:26px;height:26px;background:var(--ink);color:var(--bg);border-radius:50%;font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  ol.rank li b{display:block;font-size:15px;margin-bottom:3px}
+  ol.rank li span{font-size:14px;color:var(--ink-2)}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-3)}
+  .srcs{word-break:break-word}
+</style>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Deal Board · Buy-and-Hold Rental Underwrite · 15 Oct 2026</p>
+  <div class="badge">Verdict — Pass as a rental</div>
+  <h1>5770 Deerfield Trl</h1>
+  <p class="sub">Atlanta (City of South Fulton), GA 30349 · Fulton County · Parcel 13 009400030445 · The Meadows · 1968 split-level, 1,134 sf above grade + 810 sf finished lower level · R-4 · GAMLS 10763245 · Asking $174,900</p>
+</header>
+
+<p class="internal"><b>Internal working document.</b> Contains maximum offers, walk-away prices and an analysis of the seller. For Alvin Slate and deal partners only. Not for the listing agent, the seller, or anyone on the other side of this deal.</p>
+
+<div class="verdict">
+  <p><strong>The rent cannot carry it at any price this seller will take. It needs a price near $72,000 to return 7%, and the house is worth about $140,000 as it sits.</strong></p>
+  <p class="ex"><b>Worked example.</b> Buy at <span class="mono">$174,900</span>, spend <span class="mono">$46,495</span> on repairs and carry it three and a half months: total cost <span class="mono">$235,736</span>. At <span class="mono">$1,950</span> a month it nets <span class="mono">$11,180</span> a year, a <span class="mono bad">4.7%</span> return against a 7% target. A lender sizing the loan to the rent lends <span class="mono">$100,975</span>, leaving <span class="mono bad">$136,780</span> in the house. The red-team's corrections (rent $1,800, a leasing fee, a larger reserve) cut the return to <span class="mono bad">3.5%</span>.</p>
+</div>
+
+<div class="nums"><div class="num"><p class="k">Offer zone</p><p class="v mid">No rental bid</p><p class="n">Leverage is real (five cuts, a failed contract, 155 days), but the rental price is about half of as-is value. No credible bid exists.</p></div><div class="num"><p class="k">MAO as a rental</p><p class="v bad">$25,728</p><p class="n">Red-team corrected full-refinance price. The 7% yield test gives <span class="mono">$71,749</span>; the lower one governs, and it is below the <span class="mono">$40,000</span> land value.</p></div><div class="num"><p class="k">Walk-away</p><p class="v bad">$50,708</p><p class="n">Above this, more than 25% of total cost stays stuck after the refinance. The ask is <span class="mono">$174,900</span>.</p></div></div>
+<section>
+  <h2><span class="n">01</span>Evidence inventory</h2>
+  <p class="lede">Every input is labeled before any math. Nothing missing became a silent assumption.</p>
+<h3>Confirmed — MLS, county and federal sources</h3><div class="scroll"><table><thead><tr><th>Fact</th><th>Value</th><th>Source</th></tr></thead><tbody><tr><td class="key">Listing</td><td>Active in Georgia MLS only (GAMLS 10763245, Trelora Realty). Listed 5/13/2026 at $204,900. Under contract 6/13, back on market 6/23. Five cuts to $174,900 on 10/12.</td><td>Georgia MLS via IDX pages, seen 10/15</td></tr><tr><td class="key">Seller</td><td>P FIN II F LLC, an institutional owner that has held since at least 2014. It also lists 5700 Deerfield Trl, two doors away, at the same $174,900.</td><td>Fulton tax roll; IDX</td></tr><tr><td class="key">FMLS history</td><td>Closed at $28,000 in 1/2010 and $48,000 in 2/2014. Not listed in FMLS now.</td><td>FMLS Matrix, 10/15</td></tr><tr><td class="key">House</td><td>County record: 3 bed / 2 bath, 1,134 sf above grade plus an 810 sf finished lower level. The listing markets 5 bed / 3 bath and 1,944 sf by counting the lower level.</td><td>Compass public records; listing</td></tr><tr><td class="key">Lot and zoning</td><td>0.31 acre (13,517 sf), R-4 single-family, City of South Fulton. Flood Zone X. No HOA.</td><td>Fulton parcel layer; FEMA</td></tr><tr><td class="key">Taxes</td><td>$2,849 for 2025, no homestead.</td><td>Fulton tax record</td></tr><tr><td class="key">Closed leases</td><td>Older 4-bedroom-plus houses in 30349 leased for $1,750 to $2,495 in the last 12 months (a 1969 4/3 on Kelden Ct at $2,495).</td><td>FMLS lease search, 10/15</td></tr><tr><td class="key">Voucher ceiling</td><td>Fulton County Housing Authority 2026 standard: $1,920 for 3 bedrooms, $2,634 for 5. These include tenant-paid utilities.</td><td>HAFC 2026 payment standards</td></tr></tbody></table></div><h3>Assumption — flagged, not verified</h3><div class="scroll"><table><thead><tr><th>Input</th><th>Value used</th><th>Why it is an assumption</th></tr></thead><tbody><tr><td class="key"><span class="flag f-as">Assumed</span> Rent</td><td>$1,950 a month (range $1,750 to $2,150)</td><td>Built from asking rents. The red-team corrects it to $1,800 because the two lower-level rooms are not legal bedrooms until egress is checked.</td></tr><tr><td class="key"><span class="flag f-as">Assumed</span> Value</td><td>As it sits $140,000. Finished to rental grade $200,000 · $220,000 · $240,000. Full flip finish $260,000.</td><td>Eight closed 1960s ranch and split-level sales within half a mile. The spread is wide ($157 to $258 a foot).</td></tr><tr><td class="key"><span class="flag f-as">Assumed</span> Repairs</td><td>$20,499 · $46,495 · $131,844 with 25% contingency</td><td>From 33 listing photos. No photo of the furnace, water heater, panel, attic or two of the three baths.</td></tr><tr><td class="key"><span class="flag f-as">Assumed</span> Insurance and rate</td><td>$1,900 a year; investor loan at 8.5%</td><td>No quote. No lender rate sheet.</td></tr></tbody></table></div><h3>Missing — required before any money moves</h3><ul><li><span class="flag f-no">Missing</span> An inspection: roof age, heating and cooling, water heater, panel (1968 is in the aluminum-wiring years), sewer lateral, supply piping.</li><li><span class="flag f-no">Missing</span> Egress and ceiling height in the two lower-level rooms, which decides 3 or 5 bedrooms.</li><li><span class="flag f-no">Missing</span> City of South Fulton permit history. Its permit search is behind a captcha and was not read.</li><li><span class="flag f-no">Missing</span> Title and the 1960s subdivision covenants.</li></ul>
+</section>
+<section>
+  <h2><span class="n">02</span>Rent — closed leases first, each lane on its own</h2>
+  <p class="lede">The closed leases support about $1,800 to $2,100 for this house. That is not enough at any price the seller will take.</p>
+<div class="scroll"><table><thead><tr><th>Closed lease (30349)</th><th>Rent</th><th>Read</th></tr></thead><tbody><tr><td class="key">4020 Kelden Ct · 4/3 · 1969</td><td>$2,495</td><td>Same era, closed 8/31/2026. The top of the range for older stock.</td></tr><tr><td class="key">3477 Carraige Chase Rd · 4/3 · 2003</td><td>$1,800</td><td>Newer house, lower rent.</td></tr><tr><td class="key">5335 Willow Park Blvd · 4/2.5 · 2001</td><td>$1,750</td><td>Closed 10/1/2026.</td></tr><tr><td class="key">57 leases of 4-bedroom-plus houses</td><td>$1,750 – $3,400</td><td>Most are 2001 to 2024 houses at $2,100 to $3,000. This house is a 1968 split-level with 3 legal bedrooms.</td></tr><tr><td class="key">RentCast model</td><td>$1,970</td><td>Range $1,860 to $2,080.</td></tr></tbody></table></div><div class="call note"><p><b>Market lane.</b> $1,950 was used in the first pass; the red-team uses $1,800 for a 3-bedroom with two bonus rooms. <b>Voucher lane.</b> The 3-bedroom standard is $1,920 including utilities, about $1,510 in contract rent after the utility allowance, which is less than market. A 5-bedroom voucher needs both lower rooms to pass egress, and even then rent reasonableness caps it near $2,150.</p></div>
+</section>
+<section>
+  <h2><span class="n">03</span>Comp grid — closed sales, then attacked</h2>
+  <p class="lede">Comp confidence MED: 8 sales within 0.5 mile and 12 months.</p>
+<div class="scroll"><table><thead><tr><th>Closed sale</th><th class="n">Dist</th><th>Closed</th><th class="n">Price</th><th class="n">GLA</th><th class="n">$/sf</th><th>Tag</th></tr></thead><tbody><tr><td class="key">5637 Sturbridge Way<br><span class="small">renovated</span></td><td class="n">0.1 mi</td><td>2025-12-08</td><td class="n">$265,000</td><td class="n">1,083</td><td class="n">$245</td><td>similar</td></tr><tr><td class="key">2828 The Meadows Way<br><span class="small">renovated</span></td><td class="n">0.17 mi</td><td>2026-05-26</td><td class="n">$280,000</td><td class="n">1,262</td><td class="n">$222</td><td>superior</td></tr><tr><td class="key">2895 Springfield Ct<br><span class="small">rental-grade</span></td><td class="n">0.25 mi</td><td>2025-10-23</td><td class="n">$208,000</td><td class="n">1,294</td><td class="n">$161</td><td>similar</td></tr><tr><td class="key">2950 Springfield Ct SW<br><span class="small">rental-grade / maintained original</span></td><td class="n">0.3 mi</td><td>2026-01-02</td><td class="n">$200,000</td><td class="n">1,268</td><td class="n">$158</td><td>similar</td></tr><tr><td class="key">2910 Jerome Rd<br><span class="small">renovated</span></td><td class="n">0.33 mi</td><td>2026-01-09</td><td class="n">$232,000</td><td class="n">1,173</td><td class="n">$198</td><td>similar</td></tr><tr><td class="key">5478 Deerfield Trl<br><span class="small">renovated</span></td><td class="n">0.4 mi</td><td>2025-12-30</td><td class="n">$265,000</td><td class="n">1,666</td><td class="n">$159</td><td>superior</td></tr><tr><td class="key">2760 Swansea Ct<br><span class="small">renovated, flip-grade</span></td><td class="n">0.44 mi</td><td>2026-04-30</td><td class="n">$295,900</td><td class="n">1,147</td><td class="n">$258</td><td>superior</td></tr><tr><td class="key">5415 Old Bill Cook Rd<br><span class="small">renovated</span></td><td class="n">0.48 mi</td><td>2026-06-30</td><td class="n">$250,000</td><td class="n">1,433</td><td class="n">$174</td><td>superior</td></tr><tr><td class="key">5840 Old Bill Cook Rd<br><span class="small">rental-grade</span></td><td class="n">0.5 mi</td><td>2025-11-14</td><td class="n">$164,000</td><td class="n">1,184</td><td class="n">$138</td><td>inferior</td></tr><tr><td class="key">5720 Deerfield Trl<br><span class="small">rental-grade</span></td><td class="n">0.1 mi</td><td>2025-07-14</td><td class="n">$260,000</td><td class="n">1,378</td><td class="n">$189</td><td>stretch</td></tr></tbody></table></div><div class="call note"><p><b>The block outranks the grid.</b> The Meadows is 1960s brick stock with heavy institutional ownership (Tricon, Progress, VineBrook, FirstKey and Opendoor entities). Flip inventory is sitting nearby at $269,900 to $285,000. The renovated-sale spread is wide, so the finished value stays at $220,000.</p></div>
+</section>
+<section>
+  <h2><span class="n">04</span>Photo review and repair budget</h2>
+  <p class="lede">33 listing photos reviewed. The main level got new carpet and paint. The lower level and the systems are original and unseen.</p>
+<ul><li>Roof shingles are streaked with debris under big overhanging hardwoods; the age cannot be read from the ground.</li><li>Main level: new gray carpet and fresh paint, with an unpainted drywall patch and two missing or taped bedroom light fixtures.</li><li>Lower level: painted wood paneling, heavy textured ceiling, scuffed and stained laminate, corner wood-burning fireplace.</li><li>One bedroom window looks like an older aluminum unit. Vines climb the rear and side hardboard siding.</li><li>The remarks claim a screened porch and a 0.27-acre lot. The photos show an open elevated deck, and the county lot is 0.31 acre.</li></ul><div class="scroll"><table><thead><tr><th>Trade</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th></tr></thead><tbody><tr><td class="key">Roof</td><td class="n">$2,400</td><td class="n">$7,518</td><td class="n">$9,352</td></tr><tr><td class="key">Exterior</td><td class="n">$5,292</td><td class="n">$9,124</td><td class="n">$21,994</td></tr><tr><td class="key">Landscaping and tree</td><td class="n">$1,400</td><td class="n">$2,450</td><td class="n">$5,300</td></tr><tr><td class="key">Windows and doors</td><td class="n">$741</td><td class="n">$2,050</td><td class="n">$5,470</td></tr><tr><td class="key">Hvac</td><td class="n">$150</td><td class="n">$1,168</td><td class="n">$9,500</td></tr><tr><td class="key">Plumbing</td><td class="n">$800</td><td class="n">$2,833</td><td class="n">$11,166</td></tr><tr><td class="key">Sewer and water</td><td class="n">$250</td><td class="n">$850</td><td class="n">$7,950</td></tr><tr><td class="key">Electrical</td><td class="n">$1,716</td><td class="n">$2,825</td><td class="n">$8,002</td></tr><tr><td class="key">Kitchen</td><td class="n">$400</td><td class="n">$600</td><td class="n">$1,200</td></tr><tr><td class="key">Appliances</td><td class="n">$0</td><td class="n">$400</td><td class="n">$3,350</td></tr><tr><td class="key">Baths</td><td class="n">$1,050</td><td class="n">$2,383</td><td class="n">$7,724</td></tr><tr><td class="key">Flooring</td><td class="n">$300</td><td class="n">$1,280</td><td class="n">$2,880</td></tr><tr><td class="key">Drywall and paint</td><td class="n">$700</td><td class="n">$1,150</td><td class="n">$2,400</td></tr><tr><td class="key">Structure and foundation</td><td class="n">$250</td><td class="n">$647</td><td class="n">$5,500</td></tr><tr><td class="key">Hauling</td><td class="n">$750</td><td class="n">$1,218</td><td class="n">$2,187</td></tr><tr><td class="key">Permits</td><td class="n">$200</td><td class="n">$700</td><td class="n">$1,500</td></tr><tr class="tot"><td class="key">Rental-grade scope</td><td class="n">$16,399</td><td class="n">$37,196</td><td class="n">$105,475</td></tr><tr><td class="key">With 25% contingency</td><td class="n">$20,499</td><td class="n"><b>$46,495</b></td><td class="n">$131,844</td></tr></tbody></table></div><p class="small">Priced from the EmpowerBuild price book at cost, no general contractor markup. No inspection yet. Big-ticket unknowns are unresolved: roof age (ground photos only), HVAC age and furnace (not photographed), water heater (not photographed), electrical panel and possible aluminum branch wiring (1968 is in the 1965-73 aluminum era;</p>
+</section>
+<section>
+  <h2><span class="n">05</span>Zoning and what the lot can hold</h2>
+  <p class="lede">One house, one family. No second unit and no lot split.</p>
+<div class="scroll"><table><thead><tr><th>Question</th><th>Answer</th><th>Source</th></tr></thead><tbody><tr><td class="key">Lease the whole house</td><td><span class="flag f-ok">Allowed</span> Single-family use under R-4.</td><td>City of South Fulton zoning</td></tr><tr><td class="key">Second unit</td><td><span class="flag f-no">Not allowed</span> Duplexes are prohibited in R-4, and a guest-house ADU cannot be rented.</td><td>Sec. 303.09</td></tr><tr><td class="key">Split the lot</td><td><span class="flag f-no">No</span> Two R-4 lots need 18,000 sf and 140 ft of width. This lot has 13,517 sf and about 85 ft.</td><td>R-4 lot minimums</td></tr><tr><td class="key">Tear down and build</td><td><span class="flag f-no">Loses money</span> A 1,950 sf rebuild costs about $299,850 in hard cost against renovated comps near $245,000.</td><td>Price book; closed comps</td></tr><tr><td class="key">Overlay</td><td>The Old National Highway overlay may apply. If staff applies it, new siding cannot be vinyl, aluminum or wood.</td><td>Sec. 511.10</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2><span class="n">06</span>Rental math at the ask</h2>
+  <p class="lede">The first pass and the red-team's corrected version, both at the $174,900 ask.</p>
+<div class="scroll"><table><thead><tr><th>Line</th><th>First pass</th><th>Red-team corrected</th></tr></thead><tbody><tr><td class="key">Rent per month</td><td>$1,950</td><td>$1,800</td></tr><tr><td class="key">Total cost</td><td>$235,736</td><td>—</td></tr><tr><td class="key">Net income</td><td>$11,180</td><td>lower: leasing fee and a 10% reserve</td></tr><tr><td class="key">Return on cost</td><td><span class="bad">4.74%</span></td><td><span class="bad">3.51%</span></td></tr><tr><td class="key">Price that reaches 7%</td><td>$110,205</td><td>$71,749</td></tr><tr><td class="key">Full-refinance price</td><td>$50,028</td><td>$25,728</td></tr><tr><td class="key">Loan the rent supports (DSCR 1.20, 8.5%)</td><td>$100,975</td><td>—</td></tr><tr><td class="key">Cash left in after refinance</td><td>$136,780 (58%)</td><td>—</td></tr><tr><td class="key">Downside (rent −10%, high repairs, 5.5 months, 9%)</td><td>Total $331,209 · 2.45% · $262,680 stuck</td><td>—</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2><span class="n">07</span>Every exit, compared</h2>
+  
+<div class="scroll"><table><thead><tr><th>Exit</th><th class="n">Result</th><th>Why</th></tr></thead><tbody><tr><td class="key">A · Buy and hold, market lease</td><td class="n"><span class="bad">3.5% – 4.7%</span></td><td>Needs 7%. Even at the $140,000 as-is value the corrected return is 4.45%.</td></tr><tr><td class="key">A2 · Voucher tenant</td><td class="n"><span class="bad">about 2.5%</span></td><td>Contract rent after the utility allowance is about $1,510, under market.</td></tr><tr><td class="key">B · Flip</td><td class="n"><span class="bad">about break-even</span></td><td>Only +$3,464 at the ask with the rental scope; a real flip scope turns it negative. The 70% rule price is $135,505.</td></tr><tr><td class="key">C · Tear down and build</td><td class="n"><span class="bad">Negative</span></td><td>Build cost exceeds what new houses here sell for.</td></tr><tr><td class="key">D · Second unit or lot split</td><td class="n"><span class="bad">Not allowed</span></td><td>R-4 allows one house; the lot is too small to split.</td></tr><tr><td class="key">E · Owner-occupant buyer</td><td class="n"><span class="good">Fits</span></td><td>A family paying near as-is value gets a 3-bedroom split-level with bonus rooms.</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2><span class="n">08</span>The seller</h2>
+  
+<div class="sig"><h4>An institutional seller cutting on a schedule</h4><p>P FIN II F LLC launched at $204,900 and has cut five times in five months, with one failed contract. Its basis is low (a $48,000 sale in 2014). A meeting point near $140,000 to $150,000 is plausible.</p></div><div class="sig"><h4>No meeting point for a rental buyer</h4><p>Even $140,000 is about $68,000 above the corrected 7% price. The seller has a twin listing two doors away at the same price, so it is not desperate on either house.</p></div>
+</section>
+<section>
+  <h2><span class="n">09</span>Red-team findings — what the first pass got wrong</h2>
+  <p class="lede">Verdict: kill. Confidence high. The underwrite&#x27;s arithmetic is clean. Its inputs lean optimistic: it prices rent on 5 rooms with no egress cost, uses asking rents with 2.5% slippage, books no leasing fee, carries a 7% capital reserve on unknown 1968 systems, takes a voucher rent before the utility allowance, and builds a rental-grade ARV from renovated $/sf.</p>
+<div class="scroll"><table><thead><tr><th>Severity</th><th>Claim attacked</th><th>Correction</th><th>Impact</th></tr></thead><tbody><tr><td class="key"><span class="flag f-as">Major</span></td><td>Rent = Market rent $1,950, with market_lane.beds_assumed = 5</td><td>3BR + 2 bonus rooms ~= $1,850 ask, less ~3% ask-to-lease slippage = $1,800. Gross 12 x 1,800 = $21,600. Rent change alone (original expense model) gives NOI $9,894 (from $11,180), yield at ask 4.20% (from 4.74%), DSCR loan $89,355, yield-test MAO about $92,000 (from $110,205).</td><td>Yield -0.54 pt; yield MAO about -$18,000; NOI -$1,286/yr</td></tr><tr><td class="key"><span class="flag f-as">Major</span></td><td>Line-item NOI carries management 8% of collected and no leasing or placement fee</td><td>One month&#x27;s rent per placement over an average 24-month tenancy = rent/2 per year: $900/yr at $1,800 ($975 at $1,950). Alone at the underwrite&#x27;s rent: NOI $10,205, yield 4.33% (-0.41 pt), yield MAO -$13,200 ($975 / 0.07 / 1.0567).</td><td>Yield -0.41 pt; yield MAO about -$13,000</td></tr><tr><td class="key"><span class="flag f-as">Major</span></td><td>Rent = HAFC 3BR payment standard $1,920 is treated as the contract rent (voucher yield 4.63%, walk-away $80,685)</td><td>3BR utility allowance, estimated by interpolating HAFC&#x27;s 4BR $496 and 5BR $601 steps: about $405. Contract rent = $1,920 - $405 = about $1,510 if the tenant pays all utilities; on FY2027 SAFMR ($1,790) about $1,385.</td><td>Voucher lane yield 4.63% -&gt; about 2.5%. The voucher lane is not a fallback; it pays less than the market lane.</td></tr><tr><td class="key"><span class="flag f-as">Major</span></td><td>A single cash-left-in hold bid up to about $110,000 if Alvin accepts leaving about $63K in</td><td>Corrected model: rent $1,800; mgmt 8%, maintenance 8%, capex 10%; leasing $900; insurance $1,900; tax max($3,045 roll floor, 0.40 x (P + rehab) x 0.041171); rehab $46,495 + $1,200 WDI/termite = $47,695. At P = $71,749: tax $3,045, NOI $8,947, all-in $127,815 = 8,947 / 0.07. At 6%: P = $91,909.</td><td>Yield MAO -$38,456; refi MAO -$24,300 (now below land value); walk-away -$31,987</td></tr><tr><td class="key"><span class="flag f-ok">Minor</span></td><td>A 7% capital reserve on a 1968 house with original or unknown systems</td><td>Use 10% of gross: $2,160 at $1,800 (+$702/yr at $1,950). Alone: NOI $10,478, yield 4.44% (-0.30 pt), yield MAO about -$9,500. The 14.6% schedule would cost another $1,000/yr.</td><td>Yield -0.30 pt; included in the corrected MAO</td></tr><tr><td class="key"><span class="flag f-ok">Minor</span></td><td>Rental-grade value = 1,134 sf above grade x ~$175/sf + ~$22K for the lower level</td><td>2950 Springfield: $200,000 - 134 sf x ~$60 GLA adjustment + 28 sf below grade x $25 = about $192,700. 2895 Springfield: $208,000 - 160 x $60 - $5,000 (2-car vs 1-car garage) + 810 sf below x $25 = about $213,700. Corrected base about $203,000, downside $185,000; rental-grade ARV confidence LOW.</td><td>No MAO change while DSCR binds; corrected downside ARV $185K; flip_grade $260K is irrelevant to a rental refi</td></tr><tr><td class="key"><span class="flag f-ok">Minor</span></td><td>Rehab carries no line for lower-level bedroom egress while rent is priced on 5 rooms</td><td>Fork A (keep $1,950): rehab +$8,500 egress gives all-in $244,631, NOI $11,040, yield 4.51% (-0.23 pt), yield MAO about -$8,400. Fork B (3BR, $1,800 rent; used in the corrected model): no egress, but add WDI/treatment about $1,200, so rehab $47,695.</td><td>Either fork costs yield; the underwrite takes the 5-bed rent without the 5-bed cost</td></tr><tr><td class="key"><span class="flag f-ok">Minor</span></td><td>&#x27;floor $2,849 applies when P + rehab &lt; $173,000&#x27;</td><td>Floor = 0.40 x 184,900 x 0.041171 = $3,045 (+$196/yr). In the original model NOI_50 ($11,700) still binds at the MAO prices, so only holding cost moves (+$57). In the corrected model the line-item NOI binds and the $3,045 floor is already in it.</td><td>Under $3K of MAO; already in the corrected figures</td></tr><tr><td class="key"><span class="flag f-ok">Minor</span></td><td>Rehab 2 months + lease-up 1.5, refinance at month 3.5, 2% refi closing</td><td>+1 month of hold: all-in $238,072 (+$2,336), yield 4.70%. Seasoning to month 6: +2.5 months x $1,624 hard-money interest, less about $930/mo of NOI, = about +$1,700. Refi closing at 3.5% of $100,975 = $3,534 (+$1,515 trapped).</td><td>About +$3,000-$5,500 trapped; under the MAJOR threshold</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2><span class="n">10</span>Reopen only if</h2>
+  
+<ol class="rank"><li><b>All three at once.</b><span>A signed rent of at least $2,210, inspections that hold repairs near $21,700, and a price at or under $140,000. Short of all three, the kill stands.</span></li><li><b>Or as a buyer-client referral.</b><span>A family buying to live in it near as-is value. Listing agent: Trelora Realty, through Georgia MLS 10763245.</span></li></ol><h3>If anyone pursues it — checks ranked by dollars at risk per dollar spent</h3><div class="scroll"><table><thead><tr><th>Check</th><th>Cost</th><th>Swing</th></tr></thead><tbody><tr><td class="key">Closed lease comps via FMLS/GAMLS lease history or Rentometer Pro (FMLS leases pulled 10/15: see section 02)</td><td>$0</td><td>+/-$200/mo rent = ~+/-$2,000/yr NOI = ~+/-$29,000 of yield-test price at 7%</td></tr><tr><td class="key">Measure lower-level bedroom windows (5.7 sf net clear, 44 in max sill) and ceiling height on the walkthrough</td><td>$0</td><td>Voucher rent $1,920 (3BR) vs $2,150 cap (5BR) = $230/mo, ~$18,700 of yield-test price;</td></tr><tr><td class="key">Walkthrough probe of hardboard siding at grade + lead clearance test</td><td>$0-$600</td><td>~$9,100 ($3,900 favorable vs $13,000 worst)</td></tr><tr><td class="key">Roofer on-roof inspection + attic look</td><td>$0-$250</td><td>~$6,950</td></tr><tr><td class="key">Look at supply piping at water heater and main shutoff</td><td>$0</td><td>$6,500</td></tr><tr><td class="key">Deck ledger, posts and footings on walkthrough</td><td>$0</td><td>~$5,480</td></tr><tr><td class="key">Ask listing agent for photos of the two unseen baths, furnace, water heater, panel</td><td>$0</td><td>~$4,800 baths; feeds HVAC/electrical lines</td></tr><tr><td class="key">Live DSCR rate sheet and DP-3 insurance quote</td><td>$0</td><td>Rate 8.0-9.25% moves the DSCR loan ~+/-$6,000; insurance $1,500-$2,400 moves NOI ~$500</td></tr></tbody></table></div>
+</section>
+
+<footer>
+  <p><b>Method.</b> Fleet underwrite run 10/15/2026: four collectors (closed comps, listing and photos, rents and market, zoning and parcel), a rental-frame synthesis and a red-team pass. Alvin's FMLS session supplied the listing sheets and the closed leases; RentCast supplied the first screen.</p>
+  <p class="srcs"><b>Sources.</b> Georgia MLS 10763245 via PSP Online, Compass and georgiamls.com IDX pages (seen 10/15/2026) · FMLS Matrix history and closed-lease search for 30349 (10/15/2026) · RentCast property, listing and rent records (10/15/2026) · Fulton County parcel and tax layers · City of South Fulton zoning ordinance · FEMA flood layer · Fulton County Housing Authority 2026 payment standards · HUD FY2027 Small Area FMR · EmpowerBuild price book.</p>
+  <p class="srcs"><b>Working files.</b> Atlas/tenants/alvin-slate-re/workspaces/deerfield-ivydale-walnut-rental-underwrite-2026-10-15/underwrites/5770-deerfield-trl-atlanta-ga-30349/ — comps.json · rehab.json · market.json · zoning.json · underwrite.json · critique.json · photos/ · and mls-evidence.json one level up.</p>
+  <p><b>Known gaps.</b> No walkthrough or inspection · Georgia MLS sheet not opened (no member session) · City of South Fulton permits and code cases not read (captcha) · rents are asks plus FMLS leases nearby, none for this house · no insurance or loan quote · covenants not pulled.</p>
+</footer>
+
+</div>
+</body></html>
