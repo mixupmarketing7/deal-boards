@@ -1,0 +1,183 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Live In, Then Rent — Six Listings</title></head><body>
+<style>
+:root{
+    --ink:#12161c; --ink-2:#3d4756; --ink-3:#6b7686;
+    --bg:#fbfaf8; --panel:#ffffff; --rule:#e3e0da; --rule-2:#f0eeea;
+    --red:#a3231f; --red-bg:#fbeceb;
+    --green:#186b4f; --green-bg:#eaf4ef;
+    --amber:#8a5a06; --amber-bg:#fbf2e0;
+    --accent:#1b3a5c; --accent-bg:#e8eef5;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e6e1; --ink-2:#b3b8c0; --ink-3:#858d99;
+      --bg:#12151a; --panel:#181c23; --rule:#2b313b; --rule-2:#222731;
+      --red:#f0736c; --red-bg:#2c1a1a;
+      --green:#5fc79b; --green-bg:#16261f;
+      --amber:#e0ac52; --amber-bg:#2a2113;
+      --accent:#8fb8e0; --accent-bg:#1a2533;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 96px}
+  header{border-bottom:3px solid var(--ink);padding:44px 0 20px;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:0 0 6px;letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:3px;font-weight:600;background:var(--red-bg);color:var(--red);border:1px solid currentColor;margin-bottom:16px}
+  .internal{font-size:13px;color:var(--amber);background:var(--amber-bg);border:1px solid currentColor;border-radius:3px;padding:10px 14px;margin:0 0 22px;line-height:1.5}
+  .verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--red);padding:24px 26px;margin:0 0 12px;border-radius:3px}
+  .verdict p{margin:0 0 12px;font-size:19px;font-family:var(--serif);line-height:1.45}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict .ex{font-family:var(--sans);font-size:15px;color:var(--ink-2);line-height:1.55}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 8px;border-radius:3px;overflow:hidden}
+  .num{background:var(--panel);padding:20px 18px}
+  .num .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+  .num .v{font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;line-height:1}
+  .num .n{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;line-height:1.4}
+  .v.bad{color:var(--red)} .v.ok{color:var(--green)} .v.mid{color:var(--amber)}
+  @media(max-width:660px){.nums{grid-template-columns:1fr}}
+  section{margin:52px 0 0}
+  h2{font-family:var(--serif);font-size:26px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;padding-bottom:9px;border-bottom:1px solid var(--ink)}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:400;margin-right:10px;letter-spacing:.06em}
+  h3{font-size:13px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px;font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);margin:14px 0 0;font-family:var(--serif)}
+  p{margin:14px 0}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;font-weight:600;border-bottom:1px solid var(--ink);white-space:nowrap}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding-right:0;padding-left:16px;white-space:nowrap}
+  td.n + td:not(.n), th.n + th:not(.n){padding-left:18px}
+  tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:12px}
+  .key{font-weight:600}
+  .bad{color:var(--red)} .good{color:var(--green)} .warn{color:var(--amber)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .small{font-size:13px;color:var(--ink-3);overflow-wrap:anywhere}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;vertical-align:1px;white-space:nowrap}
+  .f-ok{background:var(--green-bg);color:var(--green)}
+  .f-as{background:var(--amber-bg);color:var(--amber)}
+  .f-no{background:var(--red-bg);color:var(--red)}
+  .sig{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:24px 0}
+  .sig h4{margin:0 0 6px;font-size:16.5px;font-family:var(--serif);font-weight:600}
+  .sig p{margin:0;font-size:15px;color:var(--ink-2)}
+  .chart{margin:22px 0 8px}
+  .row{display:grid;grid-template-columns:210px 1fr 104px;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule-2)}
+  .row:last-child{border-bottom:none}
+  .row .lbl{font-size:13.5px;color:var(--ink-2);line-height:1.3}
+  .row .lbl b{color:var(--ink);font-weight:600}
+  .track{position:relative;height:24px;background:var(--rule-2);border-radius:2px}
+  .bar{position:absolute;top:3px;bottom:3px;border-radius:2px}
+  .bar.cost{left:0;background:var(--red)}
+  .bar.val{left:0;background:var(--accent)}
+  .bar.loss{right:0;background:var(--red)}
+  .row .amt{font-family:var(--mono);font-size:14.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:6px 0 0}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;font-family:var(--mono)}
+  @media(max-width:600px){.row{grid-template-columns:1fr 92px;gap:6px 10px}.row .lbl{grid-column:1 / -1}.row .amt{font-size:13px}}
+  .call{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;margin:24px 0}
+  .call.kill{border-left:4px solid var(--red)}
+  .call.note{border-left:4px solid var(--accent)}
+  .call.good{border-left:4px solid var(--green)}
+  .call p:first-child{margin-top:0} .call p:last-child{margin-bottom:0}
+  ol.rank{padding-left:0;list-style:none;counter-reset:r;margin:18px 0}
+  ol.rank li{counter-increment:r;position:relative;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule-2)}
+  ol.rank li::before{content:counter(r);position:absolute;left:0;top:12px;width:26px;height:26px;background:var(--ink);color:var(--bg);border-radius:50%;font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  ol.rank li b{display:block;font-size:15px;margin-bottom:3px}
+  ol.rank li span{font-size:14px;color:var(--ink-2)}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-3)}
+  .srcs{word-break:break-word}
+</style>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Deal Board · Live In, Then Rent · Six Listings · 15 Oct 2026</p>
+  <div class="badge" style="background:var(--green-bg);color:var(--green)">Verdict — Two fit, one maybe</div>
+  <h1>Buy, live in, then step up</h1>
+  <p class="sub">An owner-occupant buys with 3.5% down, lives there at least 12 months, then moves to the next home and keeps this one as a rental on the original loan. Six listings in 30349, 30318, 30316, 30311 and 30314, ranked for that play.</p>
+</header>
+
+<p class="internal"><b>Internal working document.</b> Contains price views, monthly costs and seller analysis. For Alvin Slate and deal partners only. Not for any listing agent or seller.</p>
+
+<div class="verdict" style="border-left-color:var(--green)">
+  <p><strong>1174 Brookstone Rd is the best fit, and 5770 Deerfield Trl is second.</strong> Both cost about what renting the same house costs, and neither needs much cash. None of the six pays for itself as a rental at today's rates, so the step-up is an equity play: the owner carries a few hundred dollars a month after moving out, and gets the equity and a tenant-paid loan in return.</p>
+  <p class="ex"><b>Worked example, 1174 Brookstone.</b> Buy the bank-approved short sale at <span class="mono">$215,000</span> with FHA at 3.5% down. Cash to close is about <span class="mono">$16,975</span> before any seller credit. Living there costs about <span class="mono">$1,902</span> a month, against <span class="mono">$1,790</span> to rent the same house. It is worth about <span class="mono">$235,000</span>, so the buyer starts with about <span class="mono">$17,000</span> of equity. After moving out, rent of <span class="mono">$1,790</span> leaves the owner about <span class="mono bad">$603</span> a month short with a manager, or about <span class="mono bad">$468</span> self-managed. Equity at month 24 is about <span class="mono good">$38,000</span>.</p>
+</div>
+
+<div class="nums">
+  <div class="num"><p class="k">Best fit</p><p class="v ok">Brookstone</p><p class="n">Lowest monthly cost of the six, below-value price, roof and water heater replaced, no rental restriction.</p></div>
+  <div class="num"><p class="k">Cash to close (FHA)</p><p class="v mid">$13K – $17K</p><p class="n">Deerfield about <span class="mono">$12,996</span> with repairs in a 203(k) loan; Brookstone about <span class="mono">$16,975</span>.</p></div>
+  <div class="num"><p class="k">After moving out</p><p class="v bad">−$400 to −$600</p><p class="n">Monthly shortfall as a managed rental at the original loan. A refinance to 6% trims about $100.</p></div>
+</div>
+
+<section>
+  <h2><span class="n">01</span>All six, ranked for the step-up</h2>
+  <p class="lede">FHA 3.5% down at an estimated 6.75%. "Living there" is principal, interest, mortgage insurance, taxes, insurance and dues. "After moving out" adds vacancy, management, repairs and the higher non-homestead tax.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Rank</th><th>Property</th><th class="n">Ask</th><th class="n">Cash to close</th><th class="n">Living there / mo</th><th class="n">Rent for it / mo</th><th class="n">After moving out / mo</th><th class="n">Equity, month 24</th><th>Read</th></tr></thead>
+    <tbody>
+      <tr><td class="key">1</td><td class="key">1174 Brookstone Rd<br><span class="small">3/2.5, 2006, Clayton</span></td><td class="n">$215,000</td><td class="n">$16,975</td><td class="n">$1,902</td><td class="n">$1,790</td><td class="n bad">−$603</td><td class="n good">$38,045</td><td><span class="flag f-ok">Fits</span> Bank-approved short sale cut from $270,000. Move-in ready. HOA $70 a quarter, rent restriction No.</td></tr>
+      <tr><td class="key">2</td><td class="key">5770 Deerfield Trl<br><span class="small">3 bed + 2 bonus, 1968, South Fulton</span></td><td class="n">$174,900</td><td class="n">$12,996</td><td class="n">$1,887</td><td class="n">$1,900</td><td class="n bad">−$496</td><td class="n">$16,298</td><td><span class="flag f-ok">Fits</span> Lowest cash with the $46,495 repair scope in a 203(k). Smallest shortfall after moving out. Five price cuts; offer under ask.</td></tr>
+      <tr><td class="key">3</td><td class="key">1761 Liberty Pkwy NW<br><span class="small">2/2 townhouse, 2009, Westside gated</span></td><td class="n">$250,000</td><td class="n">$17,750</td><td class="n">$2,657</td><td class="n">$2,100</td><td class="n bad">−$879</td><td class="n">$40,851</td><td><span class="flag f-as">Maybe</span> Priced under neighbors ($295,000 to $316,000 listed), but $460 dues and the listing marks <b>HOA rent restriction: Yes</b>. Read the leasing rules first.</td></tr>
+      <tr><td class="key">4</td><td class="key">141 Walnut St SW<br><span class="small">duplex, two 1-beds, 1963</span></td><td class="n">$300,000</td><td class="n">$23,422</td><td class="n">$1,546 net</td><td class="n">$2,200</td><td class="n bad">−$1,034</td><td class="n bad">−$38,373</td><td><span class="flag f-no">Not at this price</span> Living in one unit and renting the other makes it about $1,546 a month, but the price is about $60,000 over value and the duplex use must still be legal.</td></tr>
+      <tr><td class="key">5</td><td class="key">2702 Rollingwood Ln SE<br><span class="small">3/2, renovated 1954, DeKalb</span></td><td class="n">$299,000</td><td class="n">$20,435</td><td class="n">$2,613</td><td class="n">$2,200</td><td class="n bad">−$1,014</td><td class="n">$17,728</td><td><span class="flag f-no">Weak</span> Already flipped and priced at retail. Costs $400 a month more than renting it, with the biggest shortfall later.</td></tr>
+      <tr><td class="key">6</td><td class="key">2453 Ivydale Dr SW<br><span class="small">unfinished 4/4, 1955, flood plain</span></td><td class="n">$229,900</td><td class="n">$100,784</td><td class="n">$1,998</td><td class="n">$1,850</td><td class="n bad">−$781</td><td class="n bad">−$3,329</td><td><span class="flag f-no">No</span> Not livable today. A renovation loan caps at 110% of the $210,000 finished value, so about $100,000 is cash. The flood question still gates it.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Conventional 5% down at 7.40% adds about $3,200 to $4,500 of cash and $50 to $75 a month. A refinance to 6% later improves the after-move-out line by $100 to $145 a month. Taxes in the living-there column use the current bill without a new homestead exemption, so the owner's real cost in that year is a little lower.</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>The assumptions, all in one place</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Input</th><th>Value</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Loan</td><td>FHA 3.5% down, 6.75%, 30 years; 1.75% upfront mortgage insurance financed; 0.55% a year</td><td>Rate estimated from the 7.40% Freddie Mac average on 10/8/2026. No lender quote.</td></tr>
+      <tr><td class="key">Closing costs</td><td>3% of price, before seller credits</td><td>Estimate. Brookstone and Liberty sellers say they are motivated; ask for credits.</td></tr>
+      <tr><td class="key">Renovation loan</td><td>Deerfield and Ivydale only: repairs in the loan, capped at 110% of after-repair value</td><td>FHA 203(k)-style cap. Deerfield after-repair value $220,000; Ivydale $210,000.</td></tr>
+      <tr><td class="key">Values</td><td>Brookstone $235,000 · Liberty $270,000 · Rollingwood $293,000 · Walnut $240,000</td><td>RentCast models and listings, shaded down: Brookstone's model is $243,000; Liberty failed to sell at $278,900 earlier this year. Not closed-sale grids.</td></tr>
+      <tr><td class="key">Rent after moving out</td><td>Brookstone $1,790 · Deerfield $1,900 · Liberty $2,100 · Rollingwood $2,200 · Walnut $1,100 a unit · Ivydale $1,850</td><td>FMLS closed leases where pulled (30349, 30311, 30314); RentCast models for the rest.</td></tr>
+      <tr><td class="key">Rental costs</td><td>6% vacancy, 8% management, 7% to 12% repairs and reserve, landlord insurance 15% above homeowner</td><td>Standard; self-managing saves about $135 to $170 a month.</td></tr>
+      <tr><td class="key">Taxes after moving out</td><td>40% of price × the local rate, no homestead</td><td>Rates from the 2025 bills and the fleet's parcel work.</td></tr>
+      <tr><td class="key">Appreciation</td><td>2% a year</td><td>Assumption. At 0%, cut each month-24 equity figure by about 4% of value.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">03</span>What has to be true for each one</h2>
+  <div class="sig"><h4>1174 Brookstone Rd — short sale, Crystal Lake, Clayton County</h4><p>FMLS 7784705. Vacant, bank-approved short sale at $215,000 (original $270,000, 106 days). Sold for $265,000 in 12/2023. Roof 2021, water heater 2022. A past leak in the loft was repaired, but the ceiling is not painted. Before an offer: pull Crystal Lake closed sales to confirm the $235,000 value, get the short-sale approval letter's terms, and confirm Clayton County schools and taxes ($3,473 on the 2025 bill; about $4,085 once the homestead ends).</p></div>
+  <div class="sig"><h4>5770 Deerfield Trl — institutional seller, five cuts</h4><p>GAMLS 10763245. Livable now with central heat and air; the repair scope ($46,495 likely) is roof, exterior paint and siding, systems service and lower-level work. The county counts 3 bedrooms; the two lower rooms need egress to count. A 203(k) consultant and an inspection set the real scope. The seller has cut from $204,900 to $174,900, so an owner-occupant offer near $150,000 to $160,000 is worth trying. The full board covers the condition and comps.</p></div>
+  <div class="sig"><h4>1761 Liberty Pkwy NW — gated Westside townhouse</h4><p>FMLS 7839841. Condo ownership, FHA-approved complex, dues $460 a month including exterior insurance, pool and gate. The unit leased before at $1,200 (2012), $1,525 (2017) and $1,500 (2019), but the listing now marks a rent restriction. If the rules cap or bar leasing, the step-up fails here. The seller and listing agent are related, and the seller is motivated.</p></div>
+  <div class="sig"><h4>141 Walnut St SW — the house hack</h4><p>FMLS 7847608. Living in one unit and renting the other on an FHA 2-unit loan is the classic version of this play, and it brings the owner's cost to about $1,546 a month. It does not work at $300,000: the value is about $185,000 to $240,000, and the duplex use is lost if both units have sat empty 12 months. It reopens near $240,000 with the zoning confirmed.</p></div>
+  <div class="sig"><h4>2702 Rollingwood Ln SE and 2453 Ivydale Dr SW</h4><p>Rollingwood is a finished flip at retail ($299,000 against a $293,000 model value), so there is no equity to start with; the seller's lender advertises a 6% rate, which would help but not fix it. Ivydale needs about $100,000 of cash on top of the loan and a City flood answer first.</p></div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Before any offer — checks in order</h2>
+  <ol class="rank">
+    <li><b>Brookstone: Crystal Lake closed sales and the short-sale approval letter.</b><span>Cost $0. Confirms the $17,000 starting equity and the price the bank already approved.</span></li>
+    <li><b>Liberty Park: the association's leasing rules in writing.</b><span>Cost $0 from the listing agent or management company. A ban or a long wait list ends the step-up.</span></li>
+    <li><b>Deerfield: inspection plus a 203(k) consultant walk-through.</b><span>About $600 to $1,000. Sets the repair scope that drives both the loan and the after-repair value.</span></li>
+    <li><b>Buyer's loan quote: FHA rate, mortgage insurance and the seller-credit limit.</b><span>Cost $0. Every number on this board moves with the rate.</span></li>
+    <li><b>Next-home plan.</b><span>FHA usually allows one owner-occupied FHA loan at a time, so the next home is likely conventional. Lenders typically count a share of the signed lease on the first home toward the next loan.</span></li>
+  </ol>
+  <p class="small">Full rental boards: <a href="https://mixupmarketing7.github.io/deal-boards/5770-deerfield-trl-deal-board.html">5770 Deerfield Trl</a> · <a href="https://mixupmarketing7.github.io/deal-boards/2453-ivydale-dr-sw-deal-board.html">2453 Ivydale Dr SW</a> · <a href="https://mixupmarketing7.github.io/deal-boards/141-walnut-st-sw-deal-board.html">141 Walnut St SW</a>.</p>
+</section>
+
+<footer>
+  <p><b>Method.</b> Live-in model (live_in_model.py) run 10/15/2026 on FMLS agent sheets for 7784705, 7839841, 7847471, 7847608 and 7742873; the fleet underwrites for Deerfield, Ivydale and Walnut; RentCast values and rents; FMLS closed leases for 30349, 30311 and 30314.</p>
+  <p class="srcs"><b>Working files.</b> Atlas/tenants/alvin-slate-re/workspaces/deerfield-ivydale-walnut-rental-underwrite-2026-10-15/ — live_in_model.py · live_in_results.json · mls-evidence.json · underwrites/.</p>
+  <p><b>Known gaps.</b> No closed-sale grid for Brookstone, Liberty or Rollingwood · no inspections · Liberty leasing rules not read · rates and mortgage insurance are estimates, not quotes · homestead savings in the live-in year not counted · Walnut duplex legality unconfirmed.</p>
+</footer>
+
+</div>
+</body></html>
