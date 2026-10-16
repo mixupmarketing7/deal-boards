@@ -1,0 +1,292 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Six Atlanta Listings — Deal Board</title></head><body>
+<style>
+:root{
+    --ink:#12161c; --ink-2:#3d4756; --ink-3:#6b7686;
+    --bg:#fbfaf8; --panel:#ffffff; --rule:#e3e0da; --rule-2:#f0eeea;
+    --red:#a3231f; --red-bg:#fbeceb;
+    --green:#186b4f; --green-bg:#eaf4ef;
+    --amber:#8a5a06; --amber-bg:#fbf2e0;
+    --accent:#1b3a5c; --accent-bg:#e8eef5;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8e6e1; --ink-2:#b3b8c0; --ink-3:#858d99;
+      --bg:#12151a; --panel:#181c23; --rule:#2b313b; --rule-2:#222731;
+      --red:#f0736c; --red-bg:#2c1a1a;
+      --green:#5fc79b; --green-bg:#16261f;
+      --amber:#e0ac52; --amber-bg:#2a2113;
+      --accent:#8fb8e0; --accent-bg:#1a2533;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px 96px}
+  header{border-bottom:3px solid var(--ink);padding:44px 0 20px;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 14px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,46px);line-height:1.08;margin:0 0 6px;letter-spacing:-.015em;font-weight:600}
+  .sub{color:var(--ink-2);font-size:15px;margin:0}
+  .badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:3px;font-weight:600;background:var(--red-bg);color:var(--red);border:1px solid currentColor;margin-bottom:16px}
+  .internal{font-size:13px;color:var(--amber);background:var(--amber-bg);border:1px solid currentColor;border-radius:3px;padding:10px 14px;margin:0 0 22px;line-height:1.5}
+  .verdict{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--red);padding:24px 26px;margin:0 0 12px;border-radius:3px}
+  .verdict p{margin:0 0 12px;font-size:19px;font-family:var(--serif);line-height:1.45}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict .ex{font-family:var(--sans);font-size:15px;color:var(--ink-2);line-height:1.55}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 8px;border-radius:3px;overflow:hidden}
+  .num{background:var(--panel);padding:20px 18px}
+  .num .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+  .num .v{font-family:var(--mono);font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-.02em;margin:0;line-height:1}
+  .num .n{font-size:12.5px;color:var(--ink-3);margin:8px 0 0;line-height:1.4}
+  .v.bad{color:var(--red)} .v.ok{color:var(--green)} .v.mid{color:var(--amber)}
+  @media(max-width:660px){.nums{grid-template-columns:1fr}}
+  section{margin:52px 0 0}
+  h2{font-family:var(--serif);font-size:26px;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;padding-bottom:9px;border-bottom:1px solid var(--ink)}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:400;margin-right:10px;letter-spacing:.06em}
+  h3{font-size:13px;font-family:var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:30px 0 10px;font-weight:600}
+  .lede{font-size:17px;color:var(--ink-2);margin:14px 0 0;font-family:var(--serif)}
+  p{margin:14px 0}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+  th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 8px 0;font-weight:600;border-bottom:1px solid var(--ink);white-space:nowrap}
+  td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
+  tbody tr:last-child td{border-bottom:1px solid var(--rule)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;padding-right:0;padding-left:16px;white-space:nowrap}
+  td.n + td:not(.n), th.n + th:not(.n){padding-left:18px}
+  tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:12px}
+  .key{font-weight:600}
+  .bad{color:var(--red)} .good{color:var(--green)} .warn{color:var(--amber)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .small{font-size:13px;color:var(--ink-3);overflow-wrap:anywhere}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:2px 6px;border-radius:2px;font-weight:600;vertical-align:1px;white-space:nowrap}
+  .f-ok{background:var(--green-bg);color:var(--green)}
+  .f-as{background:var(--amber-bg);color:var(--amber)}
+  .f-no{background:var(--red-bg);color:var(--red)}
+  .sig{border-left:3px solid var(--rule);padding:2px 0 2px 20px;margin:24px 0}
+  .sig h4{margin:0 0 6px;font-size:16.5px;font-family:var(--serif);font-weight:600}
+  .sig p{margin:0;font-size:15px;color:var(--ink-2)}
+  .chart{margin:22px 0 8px}
+  .row{display:grid;grid-template-columns:210px 1fr 104px;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule-2)}
+  .row:last-child{border-bottom:none}
+  .row .lbl{font-size:13.5px;color:var(--ink-2);line-height:1.3}
+  .row .lbl b{color:var(--ink);font-weight:600}
+  .track{position:relative;height:24px;background:var(--rule-2);border-radius:2px}
+  .bar{position:absolute;top:3px;bottom:3px;border-radius:2px}
+  .bar.cost{left:0;background:var(--red)}
+  .bar.val{left:0;background:var(--accent)}
+  .bar.loss{right:0;background:var(--red)}
+  .row .amt{font-family:var(--mono);font-size:14.5px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:6px 0 0}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .cap{font-size:12.5px;color:var(--ink-3);margin:10px 0 0;font-family:var(--mono)}
+  @media(max-width:600px){.row{grid-template-columns:1fr 92px;gap:6px 10px}.row .lbl{grid-column:1 / -1}.row .amt{font-size:13px}}
+  .call{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;margin:24px 0}
+  .call.kill{border-left:4px solid var(--red)}
+  .call.note{border-left:4px solid var(--accent)}
+  .call.good{border-left:4px solid var(--green)}
+  .call p:first-child{margin-top:0} .call p:last-child{margin-bottom:0}
+  ol.rank{padding-left:0;list-style:none;counter-reset:r;margin:18px 0}
+  ol.rank li{counter-increment:r;position:relative;padding:12px 0 12px 44px;border-bottom:1px solid var(--rule-2)}
+  ol.rank li::before{content:counter(r);position:absolute;left:0;top:12px;width:26px;height:26px;background:var(--ink);color:var(--bg);border-radius:50%;font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  ol.rank li b{display:block;font-size:15px;margin-bottom:3px}
+  ol.rank li span{font-size:14px;color:var(--ink-2)}
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-3)}
+  .srcs{word-break:break-word}
+</style>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Deal Board · Six Atlanta Listings · Rental and Live-In Underwrite · 15 Oct 2026</p>
+  <div class="badge" style="background:var(--green-bg);color:var(--green)">Verdict — Brookstone and Deerfield, as live-in buys</div>
+  <h1>Six Atlanta listings</h1>
+  <p class="sub">5770 Deerfield Trl · 1174 Brookstone Rd · 141 Walnut St SW · 2702 Rollingwood Ln SE · 1761 Liberty Pkwy NW · 2453 Ivydale Dr SW. Each one tested two ways: as a buy-and-hold rental, and as a home the buyer lives in for a year, then rents out and steps up from.</p>
+</header>
+
+<p class="internal"><b>Internal working document.</b> Contains maximum offers, walk-away prices and seller analysis. For Alvin Slate and deal partners only. Not for any listing agent or seller.</p>
+
+<div class="verdict" style="border-left-color:var(--green)">
+  <p><strong>None of the six works as a pure rental at today's prices and rates. Two work as live-in step-ups: 1174 Brookstone Rd and 5770 Deerfield Trl.</strong> A third, 1761 Liberty Pkwy, works only if its association allows leasing.</p>
+  <p class="ex"><b>Worked example, 1174 Brookstone.</b> A bank-approved short sale at <span class="mono">$215,000</span>, worth about <span class="mono">$235,000</span>. With FHA at 3.5% down, cash to close is about <span class="mono">$16,975</span>, and living there costs about <span class="mono">$1,902</span> a month against <span class="mono">$1,790</span> to rent it. After the buyer moves on, the rent leaves about <span class="mono bad">$603</span> a month to cover, and equity at month 24 is about <span class="mono good">$38,000</span>. As a pure rental the same house returns <span class="mono bad">4.6%</span> on cost, short of the 7% target.</p>
+</div>
+
+<div class="nums">
+  <div class="num"><p class="k">Best live-in fit</p><p class="v ok">Brookstone</p><p class="n">Below-value price, move-in ready, low dues, no rental restriction.</p></div>
+  <div class="num"><p class="k">Best pure rental</p><p class="v bad">None</p><p class="n">Best return at the ask is about <span class="mono">4.6%</span> (Brookstone) against a 7% target.</p></div>
+  <div class="num"><p class="k">Cash to close, top two</p><p class="v mid">$13K – $17K</p><p class="n">FHA 3.5% down; Deerfield with repairs in a 203(k) loan.</p></div>
+</div>
+
+<section>
+  <h2><span class="n">01</span>All six at a glance</h2>
+  <p class="lede">Ranked for the live-in step-up. Rental figures for Deerfield, Ivydale and Walnut are the red-team-corrected fleet underwrites; the other three are screens.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Rank</th><th>Property</th><th class="n">Ask</th><th class="n">Value as is</th><th class="n">Rental return at ask</th><th class="n">Live-in cash to close</th><th class="n">Living there / mo</th><th class="n">After moving out / mo</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td class="key">1</td><td class="key">1174 Brookstone Rd</td><td class="n">$215,000</td><td class="n">~$235,000</td><td class="n bad">4.6%</td><td class="n">$16,975</td><td class="n">$1,902</td><td class="n bad">−$603</td><td><span class="flag f-ok">Live-in buy</span></td></tr>
+      <tr><td class="key">2</td><td class="key">5770 Deerfield Trl</td><td class="n">$174,900</td><td class="n">~$140,000</td><td class="n bad">3.5%</td><td class="n">$12,996</td><td class="n">$1,887</td><td class="n bad">−$496</td><td><span class="flag f-ok">Live-in buy, offer under ask</span></td></tr>
+      <tr><td class="key">3</td><td class="key">1761 Liberty Pkwy NW</td><td class="n">$250,000</td><td class="n">~$270,000</td><td class="n bad">3.8%</td><td class="n">$17,750</td><td class="n">$2,657</td><td class="n bad">−$879</td><td><span class="flag f-as">Only if leasing is allowed</span></td></tr>
+      <tr><td class="key">4</td><td class="key">141 Walnut St SW</td><td class="n">$300,000</td><td class="n">~$185K–$240K</td><td class="n bad">1.4%</td><td class="n">$23,422</td><td class="n">$1,546 net</td><td class="n bad">−$1,034</td><td><span class="flag f-no">Only near $240,000</span></td></tr>
+      <tr><td class="key">5</td><td class="key">2702 Rollingwood Ln SE</td><td class="n">$299,000</td><td class="n">~$293,000</td><td class="n bad">4.0%</td><td class="n">$20,435</td><td class="n">$2,613</td><td class="n bad">−$1,014</td><td><span class="flag f-no">Pass</span></td></tr>
+      <tr><td class="key">6</td><td class="key">2453 Ivydale Dr SW</td><td class="n">$229,900</td><td class="n">~$160,000</td><td class="n bad">~2.5%</td><td class="n">$100,784</td><td class="n">$1,998</td><td class="n bad">−$781</td><td><span class="flag f-no">Pass</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">"Living there" is principal, interest, mortgage insurance, taxes, insurance and dues at an estimated 6.75% FHA rate. "After moving out" adds vacancy, 8% management, repairs and reserve, and the higher tax once the homestead ends. Rental return is net income over total cost at the ask, before financing.</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>1174 Brookstone Rd, Atlanta 30349</h2>
+  <p class="lede">The best fit. A move-in-ready house the bank has already agreed to sell below its value.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>FMLS 7784705 / GAMLS 10781419. Short sale, already approved by the bank, "bring all offers." $215,000, cut from $270,000; 106 days. Vacant.</td></tr>
+      <tr><td class="key">House</td><td>3 bed / 2.5 bath plus loft, 1,902 sf, built 2006, two-car garage, slab. Crystal Lake subdivision, <b>Clayton County</b> with an Atlanta mailing address.</td></tr>
+      <tr><td class="key">Condition</td><td>Roof 2021, water heater 2022, stainless appliances, plank floors. A past loft leak was repaired; the ceiling still needs paint.</td></tr>
+      <tr><td class="key">Costs</td><td>HOA $70 a quarter; rent restriction No. Taxes $3,473 (2025), about $4,085 once the homestead ends.</td></tr>
+      <tr><td class="key">History</td><td>Sold for $265,000 in 12/2023.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Frame</th><th>Result</th><th>Three numbers</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Buy-and-hold rental</td><td>Rent about $1,790. Net about $10,338 a year: 4.6% on cost.</td><td>Price for 7%: about $140,000. No offer as a pure rental.</td></tr>
+      <tr><td class="key">Live in, then rent</td><td>Cash $16,975; $1,902 a month living there; −$603 a month after moving out (−$468 self-managed); about $17,000 equity on day one, $38,045 at month 24.</td><td>Offer zone $205,000 – $215,000 with seller credits; full ask is still a fit; walk away above about $225,000.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call note"><p><b>Before an offer.</b> Pull Crystal Lake closed sales to confirm the ~$235,000 value (it rests on a RentCast model and listings today). Get the short-sale approval terms from the listing agent, Jenneisha Parker, Hester Group REALTORS, 678-975-4686. Check Clayton schools against the buyer's plans.</p></div>
+</section>
+
+<section>
+  <h2><span class="n">03</span>5770 Deerfield Trl, Atlanta (South Fulton) 30349</h2>
+  <p class="lede">The lowest cash and the smallest shortfall after moving out, if the repair scope holds.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>GAMLS 10763245 (Trelora Realty). $174,900 after five cuts from $204,900 and one failed contract; about 155 days. Seller is an institutional LLC with a twin listing two doors away.</td></tr>
+      <tr><td class="key">House</td><td>1968 split-level. County: 3 bed / 2 bath, 1,134 sf above grade plus an 810 sf finished lower level (marketed as 5/3, 1,944 sf). 0.31 acre, R-4, no HOA, flood Zone X.</td></tr>
+      <tr><td class="key">Condition</td><td>Main level freshly carpeted and painted; central heat and air. Roof, systems, lower level and sewer unseen. Repairs $20,499 · $46,495 · $131,844.</td></tr>
+      <tr><td class="key">Costs</td><td>Taxes $2,849 (2025), about $2,880 after the homestead ends.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Frame</th><th>Result</th><th>Three numbers</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Buy-and-hold rental</td><td>3.5% on cost at the ask (red-team corrected).</td><td>Offer: no rental bid · Maximum: $25,728 · Walk-away: $50,708.</td></tr>
+      <tr><td class="key">Live in, then rent</td><td>FHA with the $46,495 scope in a 203(k): cash $12,996; $1,887 a month living there (rent is $1,900); −$496 a month after moving out; $16,298 equity at month 24.</td><td>Offer zone $150,000 – $160,000 · Target $160,000 · Walk away above $175,000.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call note"><p><b>Before an offer.</b> Inspection plus a 203(k) consultant walk-through to set the real scope; measure the two lower-level rooms for egress. Full board: <a href="https://mixupmarketing7.github.io/deal-boards/5770-deerfield-trl-deal-board.html">5770 Deerfield Trl</a>.</p></div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>1761 Liberty Pkwy NW, Atlanta 30318</h2>
+  <p class="lede">Priced under its neighbors in a gated Westside community. The association's leasing rules decide it.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>FMLS 7839841 / GAMLS 10848390. $250,000; listed 9/17/2026. Earlier tries: $299,500 (expired 1/2026), $278,900 (withdrawn). Motivated seller; agent related to seller.</td></tr>
+      <tr><td class="key">Unit</td><td>End-unit townhouse, 2 bed / 2 bath, 1,216 sf, built 2009, one-car garage, cul-de-sac. Condominium ownership; FHA-approved complex.</td></tr>
+      <tr><td class="key">Costs</td><td>Dues $460 a month, including exterior insurance, gate, pool and grounds. Taxes $5,476 (2025).</td></tr>
+      <tr><td class="key">Leasing</td><td>The listing marks <b>HOA rent restriction: Yes</b>. The unit itself leased at $1,200 (2012), $1,525 (2017) and $1,500 (2019).</td></tr>
+      <tr><td class="key">Neighbors</td><td>2-bed units in Liberty Park listed at $295,000 to $315,900.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Frame</th><th>Result</th><th>Three numbers</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Buy-and-hold rental</td><td>Rent about $2,100; the dues take $5,520 a year. 3.8% on cost.</td><td>Price for 7%: about $136,000. No offer as a pure rental.</td></tr>
+      <tr><td class="key">Live in, then rent</td><td>Cash $17,750; $2,657 a month living there; −$879 a month after moving out; about $18,500 equity on day one if the $270,000 value holds.</td><td>Offer zone $235,000 – $245,000 · Walk away above $255,000 · Walk away at any price if leasing is barred or capped.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call note"><p><b>Before an offer.</b> Get the leasing rules, the current rental count and any wait list in writing from the listing agent, Sherril McIntyre, HomeSmart, 404-550-7612.</p></div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>141 Walnut St SW, Atlanta 30314</h2>
+  <p class="lede">The house-hack version: live in one unit, rent the other. Right idea, wrong price.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>FMLS 7847608. $300,000, on market 10/8/2026. Both units vacant. Seller is a family LLC on a 1031 exchange; agent related to seller.</td></tr>
+      <tr><td class="key">Building</td><td>1963 brick duplex, two renovated 1-bed units, 1,428 sf, 0.16 acre, Vine City, near Centennial Yards and MARTA.</td></tr>
+      <tr><td class="key">Zoning</td><td>SPI-4 Subarea 11 (the listing's "R5" is wrong). A duplex is not allowed new here, so the existing duplex is legal only until it sits vacant 12 continuous months.</td></tr>
+      <tr><td class="key">Costs</td><td>Taxes $4,142 (2025). No HOA. Flood Zone X.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Frame</th><th>Result</th><th>Three numbers</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Buy-and-hold rental</td><td>1.4% on cost (red-team corrected).</td><td>Offer: no rental bid · Maximum: $55,064 · Walk-away: $61,000.</td></tr>
+      <tr><td class="key">House hack (FHA 2-unit)</td><td>Cash $23,422; about $1,546 a month while living there with the other unit at $1,100; −$1,034 a month after moving out; about $60,000 over value at the ask.</td><td>Offer zone $220,000 – $240,000 · Walk away above $240,000 · Only with the duplex use confirmed.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call note"><p><b>Before an offer.</b> Last-occupancy dates for both units and a City Zoning Verification Letter. Full board: <a href="https://mixupmarketing7.github.io/deal-boards/141-walnut-st-sw-deal-board.html">141 Walnut St SW</a>.</p></div>
+</section>
+
+<section>
+  <h2><span class="n">06</span>2702 Rollingwood Ln SE, Atlanta 30316</h2>
+  <p class="lede">A finished flip priced at retail. Nothing left for the buyer to gain.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>FMLS 7847471. $299,000, listed 9/30/2026. Investor bought it for $170,000 in 10/2025 and renovated it. The seller's lender advertises a 6% rate and a 0% down program.</td></tr>
+      <tr><td class="key">House</td><td>1954 brick ranch, 3 bed / 2 bath, 1,246 sf main level over a 623 sf unfinished walk-out basement. 0.28 acre, Gresham Park, unincorporated DeKalb. No HOA.</td></tr>
+      <tr><td class="key">Condition</td><td>New kitchen, baths, flooring, electrical and plumbing per the listing.</td></tr>
+      <tr><td class="key">Costs</td><td>Taxes $5,115 (2025), about $5,852 after the homestead ends.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Frame</th><th>Result</th><th>Three numbers</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Buy-and-hold rental</td><td>Rent about $2,200. 4.0% on cost.</td><td>Price for 7%: about $169,000. No offer.</td></tr>
+      <tr><td class="key">Live in, then rent</td><td>Cash $20,435; $2,613 a month living there (rent is $2,200); −$1,014 a month after moving out; no starting equity.</td><td>Offer zone $275,000 – $285,000 for a buyer who simply wants the house · Walk away above $293,000.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">07</span>2453 Ivydale Dr SW, Atlanta 30311</h2>
+  <p class="lede">A bank-owned, half-finished conversion in a flood plain. Not a live-in candidate.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Fact</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Listing</td><td>FMLS 7742873 / GAMLS 10726780. $229,900, cut from $269,900; 190 days. Bank-owned, as-is, no FHA or VA, no disclosures.</td></tr>
+      <tr><td class="key">House</td><td>County: 2 bed / 1 bath, 983 sf. Listing: 4 bed / 4 bath, 1,893 sf after an unpermitted 2023–2026 conversion. No heat, cooling or electric service listed.</td></tr>
+      <tr><td class="key">Flood</td><td>About 85% of the 0.82-acre lot is FEMA flood plain. If the City treats the house as in its flood area, the repair budget triggers the 50% rule and the house must be raised or moved.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Frame</th><th>Result</th><th>Three numbers</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Buy-and-hold rental</td><td>About 2.5% on cost (red-team corrected).</td><td>Offer: none · Maximum: $0 · Walk-away: now.</td></tr>
+      <tr><td class="key">Live in, then rent</td><td>Not livable today. A renovation loan caps at 110% of the $210,000 finished value, so about $100,784 is cash.</td><td>No offer until the City answers the flood question in writing.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call note"><p>Full board: <a href="https://mixupmarketing7.github.io/deal-boards/2453-ivydale-dr-sw-deal-board.html">2453 Ivydale Dr SW</a>.</p></div>
+</section>
+
+<section>
+  <h2><span class="n">08</span>Assumptions</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Input</th><th>Value</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td class="key">Live-in loan</td><td>FHA 3.5% down, 6.75%, 30 years, 1.75% upfront and 0.55% annual mortgage insurance; 3% closing costs before credits</td><td>Estimate from the 7.40% Freddie Mac average on 10/8/2026. No lender quote. Conventional 5% down adds $3,200 to $4,500 cash.</td></tr>
+      <tr><td class="key">Rental test</td><td>Net income ÷ total cost against a 7% target; 6% vacancy, 8% management, repairs and reserve, non-homestead taxes</td><td>Same rules as the earlier deal boards.</td></tr>
+      <tr><td class="key">Values</td><td>Brookstone ~$235,000, Liberty ~$270,000 and Rollingwood ~$293,000 rest on RentCast models and listings, shaded down. Deerfield, Walnut and Ivydale come from closed-sale grids.</td><td>Pull closed sales before relying on the first three.</td></tr>
+      <tr><td class="key">Appreciation</td><td>2% a year</td><td>Assumption.</td></tr>
+      <tr><td class="key">Offer zones</td><td>Live-in offer zones are judgment calls from the listing history and the value range, not formulas.</td><td>Revisit with closed sales and the buyer's loan quote.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <p><b>Method.</b> Fleet underwrites (comps, photos and repairs, rents, zoning, red-team) for Deerfield, Ivydale and Walnut; FMLS agent sheets for all six where FMLS carries them; FMLS closed leases for 30349, 30311 and 30314; RentCast values and rents; live_in_model.py for the live-in figures. Run 10/15/2026.</p>
+  <p class="srcs"><b>Related boards.</b> <a href="https://mixupmarketing7.github.io/deal-boards/live-in-step-up-six-listings.html">Live in, then rent comparison</a> · <a href="https://mixupmarketing7.github.io/deal-boards/5770-deerfield-trl-deal-board.html">5770 Deerfield</a> · <a href="https://mixupmarketing7.github.io/deal-boards/2453-ivydale-dr-sw-deal-board.html">2453 Ivydale</a> · <a href="https://mixupmarketing7.github.io/deal-boards/141-walnut-st-sw-deal-board.html">141 Walnut</a>.</p>
+  <p class="srcs"><b>Working files.</b> Atlas/tenants/alvin-slate-re/workspaces/deerfield-ivydale-walnut-rental-underwrite-2026-10-15/.</p>
+  <p><b>Known gaps.</b> No inspections · no closed-sale grid for Brookstone, Liberty or Rollingwood · Liberty leasing rules not read · rates are estimates · Georgia MLS sheets for Deerfield not opened.</p>
+</footer>
+
+</div>
+</body></html>
